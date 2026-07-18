@@ -1,0 +1,50 @@
+# UMBRA: Shadow Monarch
+
+> An original, large-scale Minecraft Java Edition gameplay-overhaul mod built for Fabric.
+
+UMBRA turns Minecraft Survival into a progression-driven dark-fantasy adventure. Players awaken, explore Gates and dungeons, build a living Shadow Legion, master a flexible combat system, and shape a world with persistent consequences—while preserving the sandbox, building, exploration, and creativity that make Minecraft distinctive.
+
+## Project status
+
+The repository is currently in the **pre-production / design foundation** phase. The game-design corpus is being consolidated before implementation begins. No playable mod build is available yet.
+
+| Area | Current target |
+|---|---|
+| Platform | Minecraft Java Edition 26.2.x |
+| Mod loader | Fabric Loader + Fabric API |
+| Development baseline | Java / Gradle / data-driven content |
+| Current milestone | Design Foundation v4.0 |
+
+Version support, loader/API versions, Java requirements, dependencies, and save migration guarantees will be published with each release. Compatibility with older Minecraft versions is not assumed.
+
+## Core pillars
+
+- **Power:** rise from an unknown survivor to the Shadow Monarch.
+- **Attachment:** shadows are a persistent legion and trusted companions.
+- **Discovery:** every Gate, dungeon, boss, and parallel world reveals something new.
+- **Mastery:** combat, builds, AI, economy, and progression reward deliberate play.
+- **Rootedness:** a home, family, and living society give the journey meaning.
+
+## Repository layout
+
+| Path | Purpose |
+|---|---|
+| [`game-design/`](game-design/) | Studio design documentation and production decisions |
+| [`game-design/design-assets/`](game-design/design-assets/) | Design-reference diagrams and concept visuals |
+| [`.gitignore`](.gitignore) | Fabric, Gradle, IDE, runtime, and secret-file exclusions |
+
+Start with [`game-design/00-readme.md`](game-design/00-readme.md), then follow its recommended reading order.
+
+## Design principles
+
+UMBRA is an original work. References to other games, novels, or films are used for design research only; their names, characters, assets, storylines, and distinctive movesets are not reused. New content must pass the project's reference-and-integration review before entering production.
+
+Performance is a feature: large shadow armies, intelligent enemies, and stable frame/tick performance are treated as first-class requirements. Systems are designed to be data-driven, testable, and compatible with the Fabric ecosystem.
+
+## Development
+
+Implementation tooling and contribution conventions will be added as the project enters production. Until then, the design documents are the source of truth for scope, terminology, technical constraints, and release gates.
+
+## License
+
+License terms will be published before public distribution. All rights reserved until then.
