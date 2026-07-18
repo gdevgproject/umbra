@@ -7,7 +7,7 @@
 
 ## Mission
 
-Biến hành động chiến đấu trong Minecraft thành một hệ thống đọc được, có trọng lượng và có không gian mastery, trong đó timing, vị trí, chuẩn bị và chỉ huy đều tạo quyết định; không làm mất agency xây dựng/khai phá của vanilla.
+Biến hành động chiến đấu trong Minecraft thành một hệ thống đọc được, có trọng lượng, tạo khoái cảm điều khiển và có không gian mastery, trong đó timing, vị trí, phản xạ, phối hợp skill–build, chuẩn bị và chỉ huy đều tạo quyết định; không làm mất agency xây dựng/khai phá của vanilla.
 
 ## Sở hữu
 
@@ -76,6 +76,8 @@ Feature Cell và system spec chi tiết:
 - Một click không được tạo nhiều hit chỉ vì client gửi lặp.
 - Gameplay hit do server xác nhận; animation/VFX không tự gây damage.
 - Mọi hành động mạnh có anticipation, cost/commitment và recovery đọc được.
+- Input→pose→movement/hit→feedback phải bảo toàn intent; responsive không xóa commitment và animation đẹp không được tự chơi thay người chơi.
+- Độ khó chiến đấu phải tạo learning/adaptation/execution; stat, camera, AI hoặc clutter không được là nguồn khó chính không thể học.
 - Không feature combat nào vô hiệu hóa toàn bộ category counterplay mà không có ngoại lệ hiển thị rõ.
 - First-person và third-person có parity về rule, dù presentation khác.
 - Mining/building/item vanilla không bị action layer chiếm input ngoài context rõ.

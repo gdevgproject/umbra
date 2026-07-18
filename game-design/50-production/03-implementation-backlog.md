@@ -18,13 +18,14 @@ Chưa gameplay ticket nào `READY`. Candidate epics dưới đây chỉ mở sau
 | Animation/render adapters + UI token/component/fixed-width meter primitives | C2 | DB-025/031/033 approved |
 | Traversal state/surface/Vigor + Free Climb/mantle + voxel room/debug overlay | C2B | DB-049/050 implementation-ready |
 | Authoritative health/environment adapter + Mana/Focus transactions | C3 | DB-042/046 implementation-ready |
-| Action/hit/light/Dodge/one-charge Combat Flask/early-danger enemy slice | C3 | DB-003–006/034/035/047 implementation-ready |
+| Action/hit/light/Dodge/one-charge Combat Flask/early-danger enemy slice | C3 | DB-003–006/034/035/047/053/054 implementation-ready |
 | Grounding Strike + Lightness launch/apex/descent + vertical enemy/follower seams | C3B | DB-051/052 implementation-ready; DB-049/050 proof green |
 | Quest Kernel + Gate/objective/typed reward instance slice | C4 | DB-036/007 implementation-ready |
 | Arise/identity/one Shadow + first bonded slot | C5 | DB-008–010 implementation-ready; `CTR-SHADOW-RETINUE` approved cho identity/membership baseline |
 | Progression/build/skills + bounded vitals/Flask upgrades | C6 | DB-011–012/046/047 implementation-ready |
-| Slot 2→5/full-roster claim/reserve + command/Retinue AI/expression | C7 | DB-013/018/044/045 + perf/balance budget approved |
+| Slot 2→8/full-roster claim/reserve rotation/home + command/Retinue AI/expression | C7 | DB-013/018/044/045 + perf/balance budget approved |
 | Rich quest/world/economy/home return loop | C8 | DB-015–017/020/031/033 approved |
+| Gate boss teaching vertical: move kit/AI pattern/phase/camera–target/animation–hit/audio-VFX/difficulty–assist/retry/reward | C9 | DB-055 + boss-specific Teaching Card (Iron Knight: DB-014) implementation-ready |
 
 Mỗi epic được cắt thành ticket theo [Ticket Standard](04-ticket-standard.md), chạy [Engineering/Git Workflow](../00-governance/06-engineering-and-git-workflow.md) và kết thúc bằng playable snapshot gate.
 

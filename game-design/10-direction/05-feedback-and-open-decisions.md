@@ -51,7 +51,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-028` | Attribute/damage/Potential/counterplay được mở lại như discovery toàn hệ | công thức corpus cũ chỉ là candidate; user review + research + prototype mới được approve |
 | `PD-029` | Fabric là loader hiện tại; NeoForge là first-class future target bắt buộc | common semantics/save + ports-and-adapters có chọn lọc; artifact/test/perf manifest riêng, chưa claim NeoForge support |
 | `PD-030` | Agent tự gán performance risk cho mọi runtime change | `PR-0–PR-3` quyết lane đo; không benchmark mọi thay đổi và không bỏ đo feature có rủi ro |
-| `PD-031` | Shadow là một Retinue tinh nhuệ: tối đa 5 sở hữu, tối đa 4 triển khai chiến đấu | bắt đầu với 1 slot khi mở hệ; slot 5 rất muộn và là dự bị chiến lược; không kho/quân đoàn ẩn; exact unlock/full-roster flow theo `CTR-SHADOW-RETINUE`/`DB-044` |
+| `PD-031` | Shadow là một Retinue tinh nhuệ: tối đa 8 sở hữu, tối đa 4 triển khai chiến đấu | bắt đầu với 1 slot khi mở hệ; slot 5–8 tăng chiều rộng dự bị/home chứ không tăng active power; không kho/quân đoàn ẩn; exact unlock/full-roster flow theo `CTR-SHADOW-RETINUE`/`DB-044` |
 | `PD-032` | Shadow cần biểu cảm/ritual theo context và personality | quỳ là dấu câu hiếm; semantic/priority/group reservation/fallback theo `SYS-SHADOW-EXPRESSION`, không emote spam hoặc cắt combat |
 | `PD-033` | UMBRA dùng một health authoritative tương thích Minecraft, nhưng sở hữu damage semantics và HUD thanh cố định | không tạo “RPG HP” song song; Max HP tăng không sinh thêm hàng tim, mọi damage môi trường phải qua matrix có attribution/test |
 | `PD-034` | Mana và Focus là hai resource riêng; Focus hồi nhanh cho phòng thủ chủ động, không là stamina di chuyển chung | HUD fixed-width có cost preview/notch; exact cap/regen/cost vẫn do `DB-046/042` chứng minh |
@@ -60,6 +60,8 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-037` | Vertical traversal là core first-party capability: Free Climb, Hạ Kình khi rơi và Khinh Công | tạo `SYS-PLAYER-TRAVERSAL` + `CTR-TRAVERSAL`; world/Gate/enemy/Shadow/camera/animation phải xét chiều dọc từ foundation |
 | `PD-038` | Khí Lực (`Vigor`) tách khỏi Focus/Fatigue/Hunger | Focus giữ Dodge/parry; Vigor chỉ dùng cho climb/Lightness và hiện theo context; ladder/scaffolding vanilla không mặc định drain |
 | `PD-039` | Traversal core là năng lực phổ quát mở rất sớm bằng milestone + training, không là Potential/build choice | basic mantle candidate có từ đầu; exact level/quest do `DB-049–052`, implementation snapshot dùng capability grant trước Quest Kernel |
+| `PD-040` | Tệp action RPG được định nghĩa bởi embodiment, luyện phản xạ, mastery, phối hợp build–skill và chinh phục đối thủ xứng đáng—not chỉ camera/boss/animation | Combat, Camera, Animation, AI, Encounter, Skills, Balance, Accessibility và QA cùng chịu quality bar; Gate boss không được sản xuất như mob nhiều máu |
+| `PD-041` | Emotional architecture không bị khóa vào con số bảy; `PIL-EMBODIMENT` và `PIL-TRIUMPH` là hai lời hứa riêng | phân biệt chất lượng điều khiển từng giây, năng lực tích lũy, chiến thắng xứng đáng và quyền lực dài hạn; Feature Cell phải test đúng failure mode |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 

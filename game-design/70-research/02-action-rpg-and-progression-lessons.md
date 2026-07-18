@@ -17,6 +17,9 @@ Các bài học đã được rút từ case study corpus; chúng là hypothesis
 10. **Graduation moment:** milestone/rank/boss cần khoảnh khắc người chơi tự nhận thấy mình đã vượt một giới hạn cũ.
 11. **Viral/spectacle moment cần nền:** Arise, nghi lễ cận vệ hay boss turn chỉ có lực nếu rule trước đó nhất quán và player có agency.
 12. **Không bê exploitative loop:** không daily lock, FOMO, false odds hoặc punishment giả làm tiến trình.
+13. **Control mastery là cửa vào, không phải đích:** input/camera/animation phải trở nên đáng tin để người chơi tiếp cận competence/agency; “mượt” mà không có quyết định, counter hoặc growth vẫn nông.
+14. **Độ khó là curriculum nhiều band:** người học cần cue và recovery để hình thành model; competent cần pattern composition/adaptation; expert cần execution/style/efficiency space. Một HP multiplier không tạo ba lớp này.
+15. **Spectacle phải chứng kiến agency:** animation/VFX/SFX/camera đẹp nhất khi chúng làm người chơi thấy quyết định và timing của mình có trọng lượng; che cue hoặc auto-resolve biến vẻ đẹp thành nhiễu.
 
 ## Cách dùng
 

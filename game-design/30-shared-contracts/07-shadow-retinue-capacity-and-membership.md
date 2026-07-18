@@ -14,17 +14,17 @@ Contract không sở hữu xác suất Trỗi Dậy, moveset từng Shadow, côn
 ## 2. Topology đã khóa ở cấp Product
 
 ```text
-1 ≤ bonded_slot_capacity ≤ 5
+1 ≤ bonded_slot_capacity ≤ 8
 0 ≤ bonded_roster_count ≤ bonded_slot_capacity
 0 ≤ combat_deployed_count ≤ min(bonded_roster_count, 4)
 0 ≤ unresolved_claim_count ≤ 1
 ```
 
 - Khi hệ Trỗi Dậy được mở, người chơi có **một slot kết ước** để thu phục Shadow đầu tiên; không được tặng sẵn một Shadow chỉ vì có slot.
-- Slot 2–4 mở dần bằng milestone chứng minh năng lực kết ước/chỉ huy; exact milestone thuộc `DB-044`.
-- Slot 5 là đột phá rất muộn và khó, có challenge/mastery rõ, deterministic và preview được. Không mở bằng RNG, thanh toán, lịch đăng nhập hoặc grind tiền thuần túy.
-- Tối đa bốn Shadow được materialize như đồng đội chiến đấu gần người chơi. Thành viên thứ năm là **dự bị chiến lược** để đổi đội hình tại boundary hợp lệ, không phải nguồn DPS/HP thứ năm miễn phí.
-- Tại nhà/hub, cả năm có thể hiện diện xã hội theo budget/LOD vì đây không phải combat deployment.
+- Slot 2–4 mở dần bằng milestone chứng minh năng lực kết ước/chỉ huy; slot 5–8 mở chiều rộng roster, rotation và home/social presence. Exact milestone/cadence thuộc `DB-044`.
+- Các slot sau phải có challenge/mastery rõ, deterministic và preview được. Không mở bằng RNG, thanh toán, lịch đăng nhập hoặc grind tiền thuần túy; không mặc định dồn cả bốn slot 5–8 vào một mốc.
+- Tối đa bốn Shadow được materialize như đồng đội chiến đấu gần người chơi. Tối đa bốn thành viên còn lại là **dự bị chiến lược/home assignment** để đổi đội hình tại boundary hợp lệ, không phải nguồn DPS/HP miễn phí.
+- Tại nhà/hub, cả tám có thể hiện diện xã hội theo budget/LOD/scene staging vì đây không phải combat deployment; “có thể hiện diện” không buộc tám full-AI actor cùng tick/diễn một lúc.
 
 Exact cost, rank, bond threshold, quest/trial và điều kiện đổi dự bị chưa được duyệt. Parameter Registry không được suy ra chúng từ level/INT bằng công thức tự động.
 
@@ -47,7 +47,7 @@ Deployment chỉ đổi representation/assignment của thành viên đã kết 
 UMBRA phải bảo vệ cả cơ hội hiếm lẫn attachment hiện có:
 
 1. Không bao giờ tự xóa, tự thay hoặc tự giải phóng một Shadow.
-2. Không được tạo identity sở hữu thứ sáu.
+2. Không được tạo identity sở hữu thứ chín.
 3. Một mục tiêu đủ điều kiện có thể trở thành tối đa **một Dư Âm đang chờ phán quyết** (`UNRESOLVED_CLAIM`). Đây chưa phải Shadow, không chiến đấu, không tăng trưởng, không có bond và không thể chuyển thành vật phẩm giao dịch.
 4. Phán quyết diễn ra ở safe decision boundary với hồ sơ so sánh, hậu quả và xác nhận rõ: từ chối Dư Âm, hoặc chủ động chia tay một thành viên rồi mới hoàn tất Trỗi Dậy.
 5. Không tích lũy nhiều claim thành một “quân đoàn ẩn”. Khi đã có một claim, attempt tạo claim khác bị chặn trước commit và giải thích cách xử lý claim hiện tại; không overwrite im lặng.
@@ -61,7 +61,7 @@ Release/parting là quyết định hiếm, có preview về identity, gear, mem
 - **Identity:** cùng một stable Shadow ID đi qua mọi state; không clone record khi summon/assign/home.
 - **Balance:** reserve không đóng góp power budget trận hiện tại; chỉ active party mới được xét, có cap và role-fit do Balance sở hữu.
 - **Encounter:** composition scale theo player + tối đa bốn active Shadow, objective/terrain/readability; không chỉ nhân HP hoặc số quái theo roster count.
-- **Command/UI:** giao diện ưu tiên bốn role/portrait/acknowledgement rõ; không thiết kế spreadsheet/RTS control cho đội quân lớn.
+- **Command/UI:** combat UI ưu tiên bốn active role/portrait/acknowledgement rõ; roster UI hỗ trợ so sánh/rotation tối đa tám member mà không thành spreadsheet/RTS control.
 - **Persistence:** slot unlock, membership và claim là world-owned persistent state có migration; animation/temporary selection là derived/ephemeral.
 - **Death:** death recall deployment theo Death Contract nhưng không làm mất slot, member hoặc claim.
 - **Creative:** debug grant phải tôn trọng cap hoặc dùng fixture/provenance tách biệt; không âm thầm tạo save không thể load ở Survival.
@@ -76,14 +76,13 @@ Release/parting là quyết định hiếm, có preview về identity, gear, mem
 - summon đồng thời/reordered packet không vượt bốn combat-deployed;
 - reserve swap không hồi miễn phí hoặc né cooldown;
 - death/dimension unload/missing content không mất member;
-- hạ version/migration không cắt member thứ năm im lặng;
+- hạ version/migration không cắt member thứ năm tới thứ tám im lặng;
 - Creative/command invalid không làm roster hợp lệ trở thành corrupt.
 
 ## 7. Bằng chứng để approve
 
-- `DB-044`: prototype slot 1→5, full-roster claim/parting, reserve swap và command usability.
+- `DB-044`: prototype slot 1→8, full-roster claim/parting, reserve rotation và command/roster usability.
 - Balance simulation ít nhất `player + 0/1/2/4 active Shadow` qua các mastery/build/enemy mix.
 - Save/reload/death/reconnect/dimension/duplicate/reorder/migration tests cho mọi membership state.
-- UI comprehension: người chơi phân biệt slot, active party, reserve và pending claim mà không cần đọc tooltip dài.
-- Attachment playtest: slot 5 được cảm nhận là lựa chọn chiến lược/quan hệ, không là hình phạt quản lý hoặc power tax.
-
+- UI comprehension: người chơi phân biệt slot, bốn active, tối đa bốn reserve/home và pending claim mà không cần đọc tooltip dài.
+- Attachment playtest: slot 5–8 được cảm nhận là lựa chọn chiến lược/quan hệ/collection có danh tính, không là hình phạt quản lý, filler bắt buộc hoặc power tax.

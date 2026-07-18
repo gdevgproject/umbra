@@ -7,7 +7,7 @@
 |---|---|---|---|
 | R01–02 | Gate đóng đúng luật; leave/deadline có hậu quả | Dungeon/Gate | transition + reload/Break tests |
 | R03–04 | Corpse/Echo và ba Arise công bằng, boss không gacha | Shadows/Capture | expiry/idempotency/UI probability tests |
-| R05 | Retinue tối đa năm sâu, không upkeep; tối đa bốn active có command/reserve/home/revive | Shadows + `CTR-SHADOW-RETINUE` | slot/membership/claim/deployment/identity/LOD tests |
+| R05 | Retinue tối đa tám identity sâu, không upkeep; tối đa bốn active có command và tối đa bốn reserve/home/revive | Shadows + `CTR-SHADOW-RETINUE` | slot/membership/claim/deployment/identity/LOD tests |
 | R06 | Combat mastery, chống spam, Focus/dodge/parry có cap | Combat + Contracts | action/hit/latency/feel tests |
 | R07–09 | Tự build, rank đầy đủ, endgame giữ world cũ | Player + World | migration/build/Strata snapshot |
 | R10–11 | Boss dạy; faction/AI khác định tính | Encounter + AI + Content | teaching/fairness/distinctness playtests |
@@ -21,7 +21,7 @@
 | R22 | Research rộng nhưng sản phẩm nguyên bản | Research + Content | Reference Card/transformation review |
 | R23 | Scale không phá TPS/save | Platform + Performance | p95/p99 benchmark, migration, soak |
 | R24 | Phát triển theo slice chơi/test được | Production | capability exit evidence |
-| R25 | Tệp cày cuốc, shōnen, action góc ba, sandbox và living world cùng được hiểu bằng nhu cầu, không copy feature | Product + Research | audience/research cards + cohort playtest |
+| R25 | Tệp cày cuốc, shōnen, action góc ba, sandbox và living world được hiểu bằng động lực–hành vi–quality proof; action cohort cần embodiment, luyện phản xạ, skill/build expression và worthy boss challenge—not copy feature | Product + Research | `DB-053`, audience/reference cards, learning–competent–expert cohort playtest + failure attribution |
 | R26 | Third-person overhaul là core; aim/target/obstruction/first-person được thiết kế trước combat polish | Camera + Presentation | camera room, ray/target oracle, comfort/readability playtest |
 | R27 | Public goal là full game nhưng mọi phase nội bộ luôn chơi được | Scope + Production + Git | playable snapshot manifest + mainline smoke |
 | R28 | User test ít; máy tự test lifecycle/logic/render có thể tự động | Quality + Observability | unit/server/client GameTest + Test Card/diagnostics bundle |
@@ -47,7 +47,7 @@
 | R48 | Attribute, Potential, damage, hệ/counter và display được quyết từ fantasy/evidence, không từ công thức cũ | Player + Balance + Combat + UX | DB-042 research, simulations, multi-build/mastery playtests, migration |
 | R49 | Agent tự nhận diện feature cần performance test, không benchmark mọi thay đổi hoặc bỏ sót hot path | Test Architecture + Performance + Production | `PR-0–PR-3`, ticket trigger, targeted/stress/soak evidence và regression routing |
 | R50 | Fabric tối ưu hiện tại nhưng UMBRA có thể trở thành first-class NeoForge build mà không fork gameplay/save | Platform + Compatibility + QA + Release | import guard, Fabric conformance, loader port catalog; future cross-loader save/parity/perf matrix |
-| R51 | Shadow roster nhỏ để từng identity/AI/relationship sâu: slot 1→5, active cap 4, reserve cuối rất muộn, không army archive | Shadows + Balance + UX + Platform | `DB-044`, full-roster claim/parting, 0/1/2/4 balance, save/command/usability proof |
+| R51 | Shadow roster bounded để identity/AI/relationship sâu: slot 1→8, active cap 4, tối đa bốn reserve/home, sparse relationship, không army archive | Shadows + Balance + UX + Platform | `DB-044`, full-roster claim/parting/rotation/home, 0/1/2/4 balance, eight-member save/command/usability proof |
 | R52 | Shadow quỳ/cúi/biểu cảm theo context/personality mà không spam hoặc cắt gameplay | AI + Narrative + Animation + Accessibility | `DB-045`, semantic/priority/reservation/fallback tests + attachment playtest |
 | R53 | Max HP scale nhưng chỉ có một Minecraft-compatible health truth; HUD thanh cố định và mọi damage source giữ attribution | `CTR-VITALS-HUD` + Combat + Platform + UI | `DB-046`, environmental/mode/lifecycle matrix, HUD fallback/screenshot, save/death parity |
 | R54 | Mana và Focus tách nghĩa; Focus hồi nhanh cho phòng thủ, không phạt traversal; progression không tạo refill/infinite Dodge | `CTR-VITALS-HUD` + Resource + Dodge + Balance | transaction/property tests, notch/readability, capacity/cost/regen simulation và migration |

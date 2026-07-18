@@ -15,8 +15,8 @@ Tên gameplay dưới đây là working canonical để tài liệu nhất quán
 | Trỗi Dậy | Arise | hành động thu phục mục tiêu đủ điều kiện thành Shadow |
 | Bóng / Hắc Ảnh | Shadow | đồng đội undead persistent có identity; chọn một display term sau tone test |
 | Dư Âm Linh Hồn | Soul Echo | representation sau corpse window, gắn Gate lifecycle |
-| Hắc Ảnh Cận Vệ | Shadow Retinue | toàn bộ roster tối đa năm Shadow đã kết ước; không đồng nghĩa quân đội số lượng lớn |
-| Đội Hình Chiến Đấu | Active Retinue | tối đa bốn Shadow được triển khai chiến đấu; member thứ năm là dự bị/home |
+| Hắc Ảnh Cận Vệ | Shadow Retinue | toàn bộ roster tối đa tám Shadow đã kết ước; không đồng nghĩa quân đội số lượng lớn |
+| Đội Hình Chiến Đấu | Active Retinue | tối đa bốn Shadow được triển khai chiến đấu; các member còn lại là dự bị/home |
 | Dư Âm Chờ Phán Quyết | Unresolved Claim | một cơ hội thu phục chưa thành Shadow khi roster đầy; cap một, không chiến đấu/tăng trưởng/giao dịch |
 | Tán Vỡ | Shattered | Shadow tạm mất materialized form, không chết vĩnh viễn |
 | Tầng Giới | Stratum | world/progression layer tự chọn sau endgame; không ghi đè World Gốc |

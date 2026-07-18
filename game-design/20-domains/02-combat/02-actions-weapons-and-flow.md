@@ -46,3 +46,15 @@ Physical, Fire, Ice, Lightning, Arcane và Shadow là taxonomy ứng viên để
 ## Tiêu chí cảm giác
 
 Responsive không đồng nghĩa bỏ commitment. Impact đến từ timing, âm thanh, phản lực, hit pause có kiểm soát, camera và phản ứng mục tiêu. Readability luôn thắng spectacle khi hai thứ xung đột.
+
+## Combat expression grammar cần chứng minh
+
+Action RPG audience không được phục vụ bằng số lượng animation/skill. Một combat vertical hợp lệ phải cho người chơi kết hợp ít nhất các trục sau thành nhiều câu trả lời có chủ đích:
+
+- **đọc và phòng thủ:** né theo hướng, parry/guard, spacing, interrupt hoặc rút lui;
+- **tạo cơ hội:** bait, posture pressure, target/position control, command hoặc skill setup;
+- **chuyển hóa cơ hội:** đòn/skill phù hợp commitment, resource và trạng thái mục tiêu;
+- **biểu đạt build/style:** weapon rhythm, skill/loadout, Shadow role và risk preference đổi cách giải chứ không chỉ màu damage;
+- **thực hiện đẹp:** animation/audio/VFX/camera làm rõ timing và impact của input, không che telegraph hay kéo người chơi qua target ngoài ý muốn.
+
+Quality proof phải phân biệt `learning / competent / expert`: người học xác định được lỗi và thử lại; người competent thắng ổn định bằng nhiều route hợp lệ; expert có thể tối ưu nhịp, resource, style hoặc no-hit mà không cần exploit. `DB-053/054` sở hữu cohort/rubric và combat-craft vertical; exact cancel, buffer, timing và moveset vẫn thuộc từng Feature Cell/contract.

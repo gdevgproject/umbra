@@ -5,11 +5,11 @@
 > **Reviewers:** Combat, AI, Narrative, Dungeon, Rewards, Accessibility, QA
 > **Status:** `DISCOVERY`
 
-Boss là giáo viên: giới thiệu một luật, cho người chơi luyện, kết hợp nó dưới áp lực rồi kiểm tra mastery. Difficulty không đến từ HP/damage che mất lỗi readability.
+Boss là giáo viên **và đối thủ xứng đáng**: giới thiệu một luật, cho người chơi luyện, kết hợp nó dưới áp lực rồi kiểm tra mastery. Difficulty không đến từ HP/damage che mất lỗi readability; chiến thắng phải tạo `PIL-TRIUMPH` vì người chơi đọc, thích nghi và tự thực hiện được, không vì AI nhường bí mật hay build bỏ qua bài học.
 
 ## Boss Teaching Card bắt buộc
 
-Mỗi boss khai báo fantasy, lesson, prior knowledge, phase purpose, move grammar, telegraph channels, punish, recovery opportunity, build checks, accessibility alternate cue, reward transformation và capture relation.
+Mỗi boss khai báo fantasy, lesson, prior knowledge, phase purpose, move grammar, telegraph channels, punish, recovery opportunity, mastery bands, retry/learning delta, build checks, accessibility alternate cue, reward transformation và capture relation.
 
 ## Roster ứng viên
 

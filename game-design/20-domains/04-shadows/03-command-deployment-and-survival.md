@@ -16,7 +16,7 @@ BONDED_RESERVE ↔ ASSIGNED_HOME
 - Summon/dismiss là transition có feedback và idempotency.
 - Shattered không xóa identity. Người chơi chọn hồi sinh nhanh có mana cost hoặc chờ hồi miễn phí chậm; công thức thuộc Parameter Registry.
 - `ASSIGNED_HOME` cho Shadow hiện diện/bảo vệ/đóng góp tại một nơi hợp lệ mà không giả vờ nó vẫn là combat-deployed gần player; nó vẫn chiếm slot roster.
-- Active party có hard cap bốn. Shadow thứ năm là dự bị/home; đổi vào giữa combat không được reset HP/cooldown, né Tán Vỡ hoặc nhân bản contribution.
+- Active party có hard cap bốn. Tối đa bốn Shadow còn lại là dự bị/home; đổi vào giữa combat không được reset HP/cooldown, né Tán Vỡ hoặc nhân bản contribution.
 
 ## Command stack
 

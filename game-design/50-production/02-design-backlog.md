@@ -3,7 +3,7 @@
 > **DRI:** Lead Designer + Producer
 > **Status:** `ACTIVE`
 
-Item là câu hỏi cần đóng, không phải ticket code. Priority được phép đổi; ID giữ ổn định. User đã khóa full-game/all-in-one direction; breadth content không bị ép vào fixed count, còn Shadow topology đã khóa `5 bonded / 4 active` và backlog chỉ research cách vận hành/chứng minh—không hỏi lại cap.
+Item là câu hỏi cần đóng, không phải ticket code. Priority được phép đổi; ID giữ ổn định. User đã khóa full-game/all-in-one direction; breadth content không bị ép vào fixed count, còn Shadow topology đã khóa `8 bonded / 4 active` và backlog chỉ research cách vận hành/chứng minh—không hỏi lại cap.
 
 ## Foundation và embodiment queue
 
@@ -36,31 +36,34 @@ Item là câu hỏi cần đóng, không phải ticket code. Priority được p
 
 | Priority | ID | Outcome/câu hỏi | Owner | Dependencies | Exit artifact |
 |---:|---|---|---|---|---|
-| 23 | `DB-042` | Attribute topology, power budget, damage/defense, hệ/counterplay, damage UI và ruleset separation nào đúng fantasy? | Balance + Player + Combat + UX | product feedback + DB-031/035 | Balance Constitution + research/prototype plan |
-| 24 | `DB-046` | Một health substrate, HP/Mana/Focus numerical band, fixed HUD và environmental damage matrix nào scale nhưng vẫn giữ Minecraft lifecycle? | Combat Systems + UI + Platform + Balance | DB-021/024/031/039/042 | Vitals/HUD prototype + damage-source/lifecycle matrix |
-| 25 | `DB-003` | Light attack chống click/packet spam, cancel và buffer ra sao? | Combat | DB-002/004/025/048 | Feature Cell + timeline/hit matrix |
-| 26 | `DB-051` | Hạ Kình dùng time-to-impact/Vigor/weapon adapter/fall conversion/AoE nào để phản xạ đáng tin nhưng không auto-save? | Traversal + Combat + Animation + Balance | DB-003/025/046/049/050 | Grounding Strike Feature Cell + fall/action/hit proof |
-| 27 | `DB-005` | Dodge neutral/sector/resource/i-frame/collision ra sao trên movement basis đã khóa? | Combat | DB-003/037/046/048 | Dodge validation package |
-| 28 | `DB-052` | Khinh Công launch–apex–descent/steering/Vigor/collision/combat interaction và early progression nào tạo tự do mà không thành flight? | Traversal + Controls + World + Balance | DB-002/025/037/048/049/050/051 | Lightness Feature Cell + trajectory/world validation package |
-| 29 | `DB-047` | Combat Flask initial/max charge, potency, refill/economy, commit/cancel/hit matrix, key và HUD nào tạo recovery có rủi ro nhưng không thành chore? | Combat + Items + Economy + UX | DB-002/003/005/031/046 | Flask Feature Cell + economy/action/usability prototype |
-| 30 | `DB-034` | Player–zombie–world levers nào tạo sợ đầu game nhưng giữ agency sau Free Climb/Khinh Công? | Combat + World + AI | DB-003/004/005/042/046/047/050/051/052 | Early Danger experiment report |
-| 31 | `DB-006` | Enemy đầu dạy attack–dodge–escape–recover và phản ứng vertical escape bằng pattern nào? | AI + Encounter | DB-003/004/005/034/035/042/047/050/051/052 | Enemy Content Dossier + Teaching Card |
-| 32 | `DB-007` | Gate + Quest Kernel clock/leave/death/reconnect/recovery chính xác? | Dungeon + Quest + Platform | DB-024/036/040 + authority | activity vertical contract + tests |
-| 33 | `DB-008` | Arise eligibility/attempt/cost/echo/ownership? | Shadows | DB-007 + resources | Capture Feature Cell + ADR |
-| 34 | `DB-009` | Shadow Identity tối thiểu nào tạo gắn kết lâu dài? | Shadows + Narrative | persistence/content instance | state intent + content exemplar |
-| 35 | `DB-010` | Summon/shatter/revive không upkeep cân bằng bằng gì? | Shadows + Balance | DB-008–009/042/046 | resource experiment |
-| 36 | `DB-044` | Slot 1→5 mở bằng milestone nào; pending claim/full-roster/parting/reserve swap và active cap 4 tạo lựa chọn mà không thành power tax ra sao? | Shadows + Balance + UX + Platform | DB-008–010/031/042 | Retinue Capacity prototype + membership/save/usability matrix |
-| 37 | `DB-011` | Candidate stat/specialization/Potential nào qua combat/traversal proof và migration/respec test? | Player + Balance | DB-042/046/049/050/051/052 + combat proof | approved build parameters + migration rules |
-| 38 | `DB-012` | Skill tree/rune/loadout 4+1 có breadth mà không overload input/UI? | Skill + UX | DB-002/011/031/035 | two-build/input test |
-| 39 | `DB-013` | Command UX nhỏ nhất cho tối đa bốn active Shadow là gì? | Shadows + UX | DB-044 + camera/input/traversal follower seam | usability test |
-| 40 | `DB-045` | Quỳ/cúi/acknowledgement/ritual/idle social được chọn, phối hợp và fallback theo personality thế nào mà không spam/cắt combat? | AI + Narrative + Animation + UX | DB-009/013/025/033/044 | Expression semantic registry + exemplar/playtest plan |
-| 41 | `DB-014` | Iron Knight dạy gì; Arise beat có gây bực? | Encounter + Narrative | combat/capture | Boss Card + playtest |
-| 42 | `DB-016` | Currency/shop/item reward contracts và source/sink nào cần cho quest và Combat Flask production? | Economy | reward loop + C4 typed reward + DB-047 | source-sink/refill simulation |
-| 43 | `DB-015` | Một rich quest vertical có branch/recovery/reward/world effect/pacing ra sao? | Quest + World | DB-007/016/031 + world state | quest content dossier + playable proof |
-| 44 | `DB-041` | Living society identity/ledger, hub behavior, relationship, settlement/faction layers và simulation tier scale ra sao? | World + AI + Quest + Performance | DB-024/035/036/039 | Living Society Contract + hub exemplar plan |
-| 45 | `DB-017` | Home/family/hub xuất hiện thế nào ở first return loop? | World + Narrative | DB-015/041 + C8 scope | playable return brief |
-| 46 | `DB-018` | Player + 4 active Shadow và hostile mix/crowd dùng composition, vertical follower policy, representation tier và cue nào cho `PERF-S02A/B`? | Performance + AI + Encounter | DB-039/044/049/050/051/052 + squad/content prototypes | encounter + spectacle benchmark results |
-| 47 | `DB-020` | Accessibility/onboarding baseline hoàn thiện theo core mechanics nào? | UX + Localization | core list + DB-030/031/046/047/049/050/051/052 | communication/onboarding contract |
+| 23 | `DB-053` | Action RPG cohort thực sự nhận ra embodiment/mastery/triumph qua hành vi, lỗi và quality threshold nào—not chỉ qua stated preference? | User Research + Combat + UX | `PD-040/041`, `RES-AUDIENCE`, DB-004/031/033 | cohort profiles + interview/reference-capture protocol + combat/boss quality rubric |
+| 24 | `DB-042` | Attribute topology, power budget, damage/defense, hệ/counterplay, damage UI và ruleset separation nào đúng fantasy? | Balance + Player + Combat + UX | product feedback + DB-031/035/053 | Balance Constitution + research/prototype plan |
+| 25 | `DB-046` | Một health substrate, HP/Mana/Focus numerical band, fixed HUD và environmental damage matrix nào scale nhưng vẫn giữ Minecraft lifecycle? | Combat Systems + UI + Platform + Balance | DB-021/024/031/039/042 | Vitals/HUD prototype + damage-source/lifecycle matrix |
+| 26 | `DB-003` | Light attack chống click/packet spam, cancel và buffer ra sao? | Combat | DB-002/004/025/048/053 | Feature Cell + timeline/hit matrix |
+| 27 | `DB-051` | Hạ Kình dùng time-to-impact/Vigor/weapon adapter/fall conversion/AoE nào để phản xạ đáng tin nhưng không auto-save? | Traversal + Combat + Animation + Balance | DB-003/025/046/049/050 | Grounding Strike Feature Cell + fall/action/hit proof |
+| 28 | `DB-005` | Dodge neutral/sector/resource/i-frame/collision ra sao trên movement basis đã khóa? | Combat | DB-003/037/046/048/053 | Dodge validation package |
+| 29 | `DB-052` | Khinh Công launch–apex–descent/steering/Vigor/collision/combat interaction và early progression nào tạo tự do mà không thành flight? | Traversal + Controls + World + Balance | DB-002/025/037/048/049/050/051 | Lightness Feature Cell + trajectory/world validation package |
+| 30 | `DB-047` | Combat Flask initial/max charge, potency, refill/economy, commit/cancel/hit matrix, key và HUD nào tạo recovery có rủi ro nhưng không thành chore? | Combat + Items + Economy + UX | DB-002/003/005/031/046 | Flask Feature Cell + economy/action/usability prototype |
+| 31 | `DB-034` | Player–zombie–world levers nào tạo sợ đầu game nhưng giữ agency sau Free Climb/Khinh Công? | Combat + World + AI | DB-003/004/005/042/046/047/050/051/052 | Early Danger experiment report |
+| 32 | `DB-006` | Enemy đầu dạy attack–dodge–escape–recover và phản ứng vertical escape bằng pattern nào? | AI + Encounter | DB-003/004/005/034/035/042/047/050/051/052/053 | Enemy Content Dossier + Teaching Card |
+| 33 | `DB-054` | Combat Craft grammar nào nối input–camera–animation–audio/VFX–enemy question với dodge/parry/spacing/weapon/skill/build để người học hiểu, competent ứng biến và expert biểu diễn? | Combat + Skills + AI + Camera + Animation + Audio/VFX + UX | DB-003/005/006/033/037/042/046/053 | paired combat vertical + expression/synergy matrix + learning/competent/expert evidence plan |
+| 34 | `DB-007` | Gate + Quest Kernel clock/leave/death/reconnect/recovery chính xác? | Dungeon + Quest + Platform | DB-024/036/040 + authority | activity vertical contract + tests |
+| 35 | `DB-008` | Arise eligibility/attempt/cost/echo/ownership? | Shadows | DB-007 + resources | Capture Feature Cell + ADR |
+| 36 | `DB-009` | Shadow Identity tối thiểu nào tạo gắn kết lâu dài? | Shadows + Narrative | persistence/content instance | state intent + content exemplar |
+| 37 | `DB-010` | Summon/shatter/revive không upkeep cân bằng bằng gì? | Shadows + Balance | DB-008–009/042/046 | resource experiment |
+| 38 | `DB-044` | Slot 1→8 mở bằng milestone/cadence nào; pending claim/full-roster/parting/rotation tối đa bốn reserve và active cap 4 tạo breadth mà không thành power tax, filler hay chore ra sao? | Shadows + Balance + UX + Platform | DB-008–010/031/042 | Retinue Capacity prototype + membership/save/rotation/home/usability matrix |
+| 39 | `DB-011` | Candidate stat/specialization/Potential nào qua combat/traversal proof và migration/respec test? | Player + Balance | DB-042/046/049/050/051/052 + combat proof | approved build parameters + migration rules |
+| 40 | `DB-012` | Skill tree/rune/loadout 4+1 có breadth, setup–conversion–fallback synergy mà không overload input/UI hoặc thành một rotation? | Skill + UX | DB-002/011/031/035/054 | two-build/input/synergy test |
+| 41 | `DB-013` | Command UX nhỏ nhất cho tối đa bốn active Shadow và rotation trong roster tám member là gì? | Shadows + UX | DB-044 + camera/input/traversal follower seam | usability test |
+| 42 | `DB-045` | Quỳ/cúi/acknowledgement/ritual/idle social được chọn, phối hợp và fallback theo personality thế nào mà không spam/cắt combat? | AI + Narrative + Animation + UX | DB-009/013/025/033/044 | Expression semantic registry + exemplar/playtest plan |
+| 43 | `DB-055` | Gate Boss Challenge Framework tách lesson/moveset/AI pattern/phase/difficulty–assist/retry/camera/animation–hit/audio-VFX ra sao để khó, đẹp và công bằng qua learning–competent–expert? | Encounter + Combat + AI + Balance + Presentation + Accessibility + QA | DB-003/005/006/007/033/035/037/042/046/053/054 | Boss framework + decomposition template + mastery/difficulty validation plan |
+| 44 | `DB-014` | Iron Knight dạy gì; Arise beat có gây bực? | Encounter + Narrative | DB-055 + capture | Boss Card + playtest |
+| 45 | `DB-016` | Currency/shop/item reward contracts và source/sink nào cần cho quest và Combat Flask production? | Economy | reward loop + C4 typed reward + DB-047 | source-sink/refill simulation |
+| 46 | `DB-015` | Một rich quest vertical có branch/recovery/reward/world effect/pacing ra sao? | Quest + World | DB-007/016/031 + world state | quest content dossier + playable proof |
+| 47 | `DB-041` | Living society identity/ledger, hub behavior, relationship, settlement/faction layers và simulation tier scale ra sao? | World + AI + Quest + Performance | DB-024/035/036/039 | Living Society Contract + hub exemplar plan |
+| 48 | `DB-017` | Home/family/hub xuất hiện thế nào ở first return loop? | World + Narrative | DB-015/041 + C8 scope | playable return brief |
+| 49 | `DB-018` | Player + 4 active Shadow và hostile mix/crowd dùng composition, vertical follower policy, representation tier và cue nào cho `PERF-S02A/B`? | Performance + AI + Encounter | DB-039/044/049/050/051/052/055 + squad/content prototypes | encounter + spectacle benchmark results |
+| 50 | `DB-020` | Accessibility/onboarding baseline hoàn thiện theo core mechanics nào? | UX + Localization | core list + DB-030/031/046/047/049/050/051/052/053/055 | communication/onboarding contract |
 
 ## Product/content direction đã framed
 

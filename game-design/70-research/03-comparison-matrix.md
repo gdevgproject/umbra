@@ -6,11 +6,14 @@
 | Trục | Câu hỏi |
 |---|---|
 | Player intent | người chơi đang cố làm gì? |
+| Audience/mastery band | learning/competent/expert tìm gì và barrier nào là chủ ý/ngoài ý muốn? |
 | Input/context | nút/hold/direction/target và conflict? |
 | Timing/commitment | anticipation, active, recovery, cancel? |
 | Resource/risk | cái gì giới hạn spam và lỗi bị phạt ra sao? |
 | Space/camera | world geometry, first/third view, target lifecycle? |
 | Feedback | animation/VFX/SFX/UI/haptic-textual cue? |
+| Learning delta | sau fail, người chơi biết gì và attempt sau có thể làm khác điều gì? |
+| Embodiment/aesthetic coherence | presentation khuếch đại input/state/impact hay tự chơi/che cue? |
 | Counterplay | địch/người chơi đối phó bằng gì? |
 | Progression | mechanic thay đổi theo build mà không phá invariant? |
 | Accessibility | alternative cue/input/timing/motion? |

@@ -5,11 +5,11 @@
 
 | Vùng | Nội dung đã có canonical home | Độ trưởng thành |
 |---|---|---|
-| Direction | audience stack, emotional architecture, loop/longevity, always-playable scope, decisions | proposal |
+| Direction | audience stack theo động lực–hành vi–quality proof, chín lời hứa cảm xúc gồm Embodiment/Triumph, loop/longevity, always-playable scope, decisions | proposal |
 | Player | level/rank, stat, specialization, Potential, mastery/prestige; Free Climb/Hạ Kình/Khinh Công + Vigor/surface/state/scenario package; guided full-system balance review | proposed traversal topology; parameter/feel discovery |
-| Combat/Skills | action/hit, one-health vitals/environment matrix, fixed-width HP/Mana/Focus HUD, Dodge, Combat Flask, death/mode recovery, trees/runes/class skills | proposed topology; numerical/action discovery |
-| Shadows/AI | Arise, identity, Retinue slot 1→5/active cap 4/pending claim/reserve, command, revive, contextual ritual/expression, fairness, squad/LOD | proposed topology; system discovery |
-| Dungeon/Encounter | Gate, generation, Break/Tower/Strata, boss teaching | discovery |
+| Combat/Skills | action/hit, embodiment/combat-expression grammar, one-health vitals/environment matrix, fixed-width HP/Mana/Focus HUD, Dodge, Combat Flask, death/mode recovery, setup–conversion–fallback skill synergy, trees/runes/class skills | proposed topology; cohort/numerical/action discovery |
+| Shadows/AI | Arise, identity, Retinue slot 1→8/active cap 4/pending claim/reserve rotation, sparse relationship, command, revive, contextual ritual/expression, fairness, squad/LOD | proposed topology; system discovery |
+| Dungeon/Encounter | Gate, generation, Break/Tower/Strata, boss teaching + mastery bands/moveset/AI/phase/difficulty–assist decomposition | discovery |
 | World/Narrative | vanilla/vertical-route integration, early traversal training delivery, early danger, city/family, living-society layers, lore/campaign, Quest Kernel/content/continuity | discovery/proposed society/traversal order |
 | Items/Economy | itemization/crafting, four currencies, source/sink, Combat Flask vessel/charge/refill/upgrade | discovery |
 | Presentation | third-person default-after-gate, camera-relative movement/facing, first-person, aim/target, versioned input/key baseline, fixed-width combat HUD, UI system, localization/access | expanded discovery package |

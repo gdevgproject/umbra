@@ -24,3 +24,4 @@ Case study đã được chưng cất thành nguyên lý, không còn một corp
 8. [Combat vitals, quick recovery và camera controls](08-combat-vitals-recovery-and-camera-control.md)
 9. [Open-world traversal: climb, breakfall và Lightness](09-open-world-traversal-climb-breakfall-lightness.md)
 10. [Boundary verification và causal diagnostics cho mod lớn](10-large-mod-architecture-and-diagnostics.md)
+11. [Danh mục reference và định tuyến nghiên cứu](11-reference-catalog.md)

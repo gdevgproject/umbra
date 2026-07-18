@@ -104,7 +104,7 @@ Mỗi record ghi:
 10. Item từ loot/craft/creative/`/give` có state hợp lệ hoặc bị từ chối rõ.
 11. Integrated và dedicated server cho cùng gameplay outcome ở scenario tương đương.
 12. Camera/reticle không làm server accept target/reach xuyên vật cản.
-13. Roster không vượt năm member, active combat không vượt bốn; full-roster capture không auto-delete/overwrite và retry không duplicate pending claim.
+13. Roster không vượt tám member, active combat không vượt bốn; full-roster capture không auto-delete/overwrite và retry không duplicate pending claim.
 14. Shadow social expression không cắt legal combat action, spam nghi lễ hoặc commit bond/memory hai lần sau interruption/reload.
 15. Health chỉ có một authoritative value; HUD, death, save và damage attribution không lệch do render/reconnect/migration.
 16. Fall/fire/lava/drowning/suffocation/starvation/status/void giữ đúng source profile; Max HP lớn không âm thầm vô hiệu hazard ngoài approved matrix.

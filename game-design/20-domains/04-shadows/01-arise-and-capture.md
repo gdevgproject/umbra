@@ -33,7 +33,7 @@ Các số trên không được hard-code trước balance/narrative review.
 - Success tạo đúng một identity idempotent, có origin/source encounter.
 - Gate cleanup không xóa shadow đã capture.
 - Boss scripted exception phải khai báo dữ liệu và được player-facing giải thích, không nằm trong nhánh code bí mật.
-- Sức chứa, pending claim và full-roster resolution tuân thủ [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md). Không được tạo identity thứ sáu, auto-replace hoặc biến Soul Echo thành kho sưu tập vô hạn.
+- Sức chứa, pending claim và full-roster resolution tuân thủ [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md). Không được tạo identity thứ chín, auto-replace hoặc biến Soul Echo thành kho sưu tập vô hạn.
 - Khi full roster/claim làm attempt bất hợp lệ, server từ chối **trước** khi tiêu cost/attempt; UI nói rõ safe action tiếp theo.
 
 ## Câu hỏi mở

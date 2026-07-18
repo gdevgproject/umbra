@@ -23,25 +23,29 @@ UMBRA kết hợp năm lớp mà không để lớp nào nuốt lớp còn lại
 
 ## 3. Audience stack
 
+Audience không phải nhãn marketing hay danh sách game họ từng chơi. Mỗi lớp dưới đây mô tả **động lực bên trong → hành vi lặp lại → chuẩn chất lượng họ nhận ra**; một người có thể thuộc nhiều lớp. UMBRA không lấy trung bình các tệp thành trải nghiệm nhạt, mà tạo các đường vào khác nhau cùng hội tụ vào fantasy Chúa Tể trong một world Minecraft có chủ quyền.
+
 ### Primary — người chơi Minecraft dài hạn
 
-Muốn survival/build/exploration còn nguyên giá trị nhưng combat, progression, AI, content và thế giới sâu tới mức một save có thể trở thành hành trình nhiều năm.
+Họ xem world/save, công trình và lịch sử phát sinh là tài sản do mình tạo. Họ ở lại vì có thể tự đặt mục tiêu, biến địa hình thành nơi chốn, chuẩn bị bằng vật liệu thật trong world và quay lại thấy dấu vết nhiều tháng/năm vẫn còn giá trị. Họ kỳ vọng survival/build/exploration không bị biến thành phòng chờ cho menu RPG; combat, progression, AI và content phải làm giàu thêm những động từ Minecraft thay vì thay thế chúng.
 
 ### Secondary — người chơi cày cuốc và power fantasy
 
-Tệp quen Ninja School Online/Ngọc Rồng Online hoặc truyện hành động–trưởng thành như Naruto, Dragon Ball, Hunter × Hunter, Solo Leveling: thích luyện tập, tích lũy, đột phá, năng lực biểu tượng, rival/đồng đội và từ vô danh thành huyền thoại.
+Tệp quen Ninja School Online/Ngọc Rồng Online hoặc truyện hành động–trưởng thành như Naruto, Dragon Ball, Hunter × Hunter, Solo Leveling. Họ thích luyện tập có mục tiêu, tích lũy nhìn thấy được, mốc đột phá hiếm, năng lực biểu tượng, rival/đồng đội và hành trình từ vô danh thành huyền thoại. Họ chấp nhận đầu tư dài khi mỗi chặng tạo năng lực, địa vị, quan hệ hoặc cách chơi mới; họ rời đi khi “cày” chỉ là lặp số, time gate, FOMO hoặc inflation xóa giá trị công sức cũ.
 
 ### Secondary — người chơi action RPG góc ba
 
-Tệp thích Where Winds Meet, Black Myth: Wukong, Genshin Impact: kỳ vọng camera/aim/targeting, animation, boss, build và combat feedback có chất lượng cao; không chấp nhận F5 camera như trải nghiệm cuối.
+Tệp thích Where Winds Meet, Black Myth: Wukong, Genshin Impact và các action game đặt nặng kỹ năng. Họ không chỉ “muốn có boss và animation đẹp”: họ tự nguyện lặp lại một trận để luyện quan sát, né/parry/spacing, phản xạ, camera/target control, quản lý commitment và phối hợp vũ khí–skill–build thành lối đánh của riêng mình. Họ thích nhìn combat vận động đẹp vì hình thể, nhịp, VFX/SFX và phản ứng va chạm làm rõ chính quyết định họ vừa thực hiện—không phải vì animation tự chơi thay họ.
+
+Chiến thắng có giá trị khi đối thủ đáng học: moveset có grammar, telegraph công bằng, AI tạo pressure có chủ đích, phase kiểm tra điều đã dạy, lỗi giải thích được và retry cho thấy tiến bộ. Gate boss vì vậy là quality bar liên ngành của Combat, Camera, Animation, Audio/VFX, AI, Encounter, Skills, Balance, Accessibility và QA; không thể được sản xuất như “mob nhiều máu + vài chiêu”. Dải độ khó phải cho người mới học được và expert còn đất biểu diễn mà không âm thầm gian lận hay làm phẳng mastery. F5 camera, input trễ, hitbox lệch, build một rotation, spectacle che cue hoặc stat bỏ qua toàn bộ kỹ năng đều là lỗi sản phẩm đối với tệp này.
 
 ### Adjacent — người chơi sandbox/living world
 
-Tệp thích Minecraft, ARK, GTA V và systemic open worlds: tìm tự do, căn cứ/công trình, dân cư, sinh thái, cưỡi/điều khiển sinh vật hoặc phương tiện, hoạt động đa dạng và câu chuyện phát sinh.
+Tệp thích Minecraft, ARK, GTA V và systemic open worlds: tìm tự do chuyển mục tiêu, căn cứ/công trình có công dụng, dân cư/sinh thái có quy luật, cưỡi/điều khiển sinh vật hoặc phương tiện, hoạt động đa dạng và câu chuyện phát sinh. Họ nhận ra “thế giới sống” qua phản ứng và lựa chọn quan sát được, không qua hàng nghìn NPC giả lập nhưng không tạo hậu quả.
 
 ### Future social audience
 
-Muốn chơi cùng bạn bè, lập server, cùng xây/đánh Gate, hợp tác, đối đầu hoặc hình thành phe. UMBRA hiện **không phát triển multiplayer gameplay**, nhưng foundation không được khóa đường tới integrated/dedicated server, ownership, permissions, security và sync.
+Muốn biến thành tựu cá nhân thành ký ức chung: chơi cùng bạn bè, lập server, cùng xây/đánh Gate, phân vai, hợp tác, đối đầu hoặc hình thành phe. UMBRA hiện **không phát triển multiplayer gameplay**, nhưng foundation không được khóa đường tới integrated/dedicated server, ownership, permissions, security và sync; tương lai social không được làm solo thành bản thiếu người.
 
 Casual có đường hiểu và tiến; expert có đất thể hiện mastery; grinder có mục tiêu dài nhưng không bị time gate; builder/explorer không bị biến thành người đứng ngoài loop. Chi tiết lens nằm ở [Audience Research](../70-research/04-audience-and-reference-landscape.md).
 
@@ -51,19 +55,21 @@ Casual có đường hiểu và tiến; expert có đất thể hiện mastery; 
 
 Người chơi không chỉ **có** sức mạnh; họ nhớ mình từng yếu, hiểu vì sao mình mạnh, nhận ra dấu vết của lựa chọn và cảm thấy danh hiệu cuối cùng là thứ họ đã sống để trở thành.
 
-### Bảy lời hứa cảm xúc
+### Chín lời hứa cảm xúc
 
 | ID | Lời hứa | Nhu cầu tâm lý | Biểu hiện quan sát được | Failure mode phải tránh |
 |---|---|---|---|---|
 | `PIL-ASCENDANCE` | Thăng tiến và quyền lực | competence, status, momentum | động từ, silhouette, âm thanh, lựa chọn và phản ứng thế giới đổi theo mốc | number inflation, auto-win |
 | `PIL-AGENCY` | Tự do và quyền sở hữu | autonomy, self-expression | chọn đường sống/build/mục tiêu/căn cứ/đội Hắc Ảnh; thế giới không ép một nhịp duy nhất | choice giả, menu railroad |
+| `PIL-EMBODIMENT` | Nhập thân và khoái cảm điều khiển | control fluency, presence, sensorimotor coherence | input→pose→di chuyển→va chạm→phản hồi là một chuỗi có chủ ý; người chơi cảm thấy “mình vừa làm được” | floaty, input lag, camera đánh nhau với người chơi, animation cướp quyền |
 | `PIL-MASTERY` | Tinh thông | học, kiểm soát, tự hào | timing, camera, vị trí, build, chuẩn bị và command đều có thể luyện | input bị animation cướp, stat thắng mọi thứ |
+| `PIL-TRIUMPH` | Chiến thắng xứng đáng | optimal challenge, courage, earned pride | đối thủ đáng học tạo tension; thất bại cho kiến thức; thích nghi và thực hiện đúng dẫn tới giải tỏa/tự hào | khó tùy tiện, AI gian lận, thắng rẻ hoặc assist xóa bài học |
 | `PIL-ATTACHMENT` | Gắn kết | care, memory, companionship | Shadow/NPC/place có tên, lịch sử, quan hệ và hồi đáp lâu dài | pet vô danh, bi kịch rẻ tiền |
 | `PIL-DISCOVERY` | Kỳ quan và bí ẩn | curiosity, surprise | địa điểm, sinh thái, Gate, faction, lore và systemic event tạo câu hỏi mới | checklist map, reskin |
 | `PIL-CONSEQUENCE` | Được thế giới công nhận | impact, responsibility, social status | NPC, đô thị, lãnh thổ, danger và opportunity phản ứng với việc đã làm | simulation giả, consequence không thể đọc |
 | `PIL-BELONGING` | Nơi thuộc về và di sản | safety, identity, continuity | nhà/công trình/gia đình/collection/save khiến việc trở về và ở lại có ý nghĩa | chores, căn cứ chỉ là kho |
 
-`Awe/spectacle`, `tension`, `relief`, `pride`, `wonder` và `responsibility` là **nhịp cảm xúc điều phối**, không tạo thêm pillar. Ví dụ boss dùng tension→mastery→awe; trở về nhà dùng relief→recognition→belonging.
+Ranh giới tránh trùng: `Embodiment` là chất lượng của từng giây điều khiển; `Mastery` là năng lực người chơi tích lũy; `Triumph` là cung căng thẳng–thích nghi–vượt qua một đối trọng xứng đáng; `Ascendance` là thay đổi quyền lực/địa vị còn lại sau chiến thắng. `Awe/spectacle`, `tension`, `relief`, `pride`, `wonder` và `responsibility` là **nhịp cảm xúc điều phối** giữa các pillar, không phải lý do tự động tạo thêm hệ. Ví dụ boss dùng embodiment→tension→mastery→triumph→awe; trở về nhà dùng relief→recognition→belonging.
 
 Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một failure mode cảm xúc cần test. Không tối ưu “gây nghiện” bằng thao túng; UMBRA hướng tới **voluntary long-term return** nhờ ý nghĩa, mastery, ownership và curiosity.
 
@@ -75,12 +81,12 @@ Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một
 4. **Always-playable development:** mỗi capability kết thúc bằng snapshot tự chạy/test được; public 1.0 không bị đồng nhất với build nội bộ.
 5. **Một feature không được khóa tương lai:** stable IDs, versioned state, migration, feature boundaries/config và recovery là nền ngay từ đầu.
 6. **Cảm xúc trước số lượng:** feature phải tạo/thay đổi quyết định hoặc quan hệ, không chỉ tăng catalog.
-7. **Đọc được và công bằng:** telegraph, state, cost, failure, authority và hậu quả có ngôn ngữ rõ.
+7. **Đọc được, công bằng và đáng học:** telegraph, state, cost, failure, authority và hậu quả có ngôn ngữ rõ; difficulty tăng bài kiểm tra/nhịp phối hợp trước stat và mọi thất bại quan trọng phải để lại kiến thức hành động được.
 8. **Không FOMO/manipulative retention:** không calendar lockout, streak bắt buộc, odds giả hoặc phần thưởng độc quyền theo giờ đăng nhập.
 9. **Hiệu năng là contract:** quy mô lớn dùng LOD/representation/budget, không hứa entity full-simulation vô hạn.
 10. **Original by transformation:** reference tạo principle/hypothesis; UMBRA tự sở hữu premise, rule, asset, lore, moveset và consequence.
 11. **Save của người chơi là tài sản:** world cũ, công trình, Shadow identity và irreversible choice không bị update tùy tiện xóa giá trị.
-12. **Retinue depth before count:** tối đa năm Shadow sở hữu, bốn triển khai chiến đấu; không mở kho/quân đoàn ẩn để đánh đổi attachment, readability và AI depth lấy quân số.
+12. **Retinue depth before combat count:** tối đa tám Shadow sở hữu, bốn triển khai chiến đấu; bốn chỗ dự bị mở chiều rộng đội hình/quan hệ chứ không tăng actor hoặc power budget trận hiện tại, và không có kho/quân đoàn ẩn ngoài roster.
 
 ## 6. Anti-goals đã hiệu chỉnh
 
@@ -124,7 +130,7 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Living society phát triển từ identity/event ledger và hành vi hub nhìn thấy được trước khi mở settlement/faction/deep individual simulation.
 - Fabric là loader tối ưu hiện tại; NeoForge là first-class future target bắt buộc. Hai loader dùng artifact/adapter riêng nhưng không được fork gameplay semantics hoặc canonical save.
 - Mọi runtime change được Agent phân loại performance risk để đo đúng lúc; không benchmark mù mọi commit và không bỏ qua feature có hot-path/cardinality risk.
-- Shadow roster mở từ một tới tối đa năm slot; tối đa bốn Shadow triển khai chiến đấu. Slot thứ năm là đột phá muộn/dự bị chiến lược, không là actor thứ năm cộng sức mạnh miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
+- Shadow roster mở từ một tới tối đa tám slot; tối đa bốn Shadow triển khai chiến đấu. Các slot 5–8 mở chiều rộng dự bị/home và lựa chọn đội hình, không cộng actor hay power budget miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
 
 ## 9. Cửa feedback Product hiện tại
 

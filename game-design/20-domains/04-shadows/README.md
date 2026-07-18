@@ -15,7 +15,7 @@ Biến một số ít kẻ địch đáng nhớ thành đồng đội lâu dài 
 - Shadow không phải vật phẩm tiêu hao hoặc bản sao vô danh.
 - Triệu hồi cơ bản không có mana upkeep theo thời gian.
 - Mọi Shadow có identity ổn định dù đang dự bị, materialized, Tán Vỡ hay hiện diện tại nhà.
-- Sức chứa tuân thủ [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md): mở từ một tới tối đa năm thành viên, tối đa bốn triển khai chiến đấu.
+- Sức chứa tuân thủ [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md): mở từ một tới tối đa tám thành viên, tối đa bốn triển khai chiến đấu.
 - Không có kho phụ/quân đoàn ẩn; giới hạn nhỏ phải được dùng để đầu tư AI, animation, quan hệ và command sâu hơn cho từng cá thể.
 - Capture, command, growth và social memory dùng chung một identity, không tạo bốn bản dữ liệu rời.
 
@@ -26,11 +26,11 @@ Biến một số ít kẻ địch đáng nhớ thành đồng đội lâu dài 
 | Capture | corpse/Soul Echo, Arise attempt, eligibility, boss exception |
 | Identity | tên, origin, personality, bond, memory, role, rank |
 | Growth | XP, evolution, mastery, trait và giới hạn |
-| Membership | slot 1→5, full-roster claim, reserve, parting |
+| Membership | slot 1→8, full-roster claim, reserve, parting |
 | Deployment | summon, dismiss, shatter/revive, active party 4, home assignment |
 | Command | formation, role, direct order, ping, autonomy |
 | Society | relationship, ritual expression, banter, family/home presence, special shadow arcs |
 
 ## Feature order
 
-Capture contract → identity/persistence → một Shadow chiến đấu → summon/shatter/revive → sức chứa/reserve → command nhỏ → đội hình bốn thành viên → social/ritual/bond/content depth.
+Capture contract → identity/persistence → một Shadow chiến đấu → summon/shatter/revive → sức chứa/reserve → command nhỏ → đội hình bốn thành viên → roster tám thành viên có rotation/home/social depth.

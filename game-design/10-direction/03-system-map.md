@@ -10,7 +10,7 @@
 | `DOM-PLAYER` | identity, năng lực thân thể và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige, Free Climb, Hạ Kình, Khinh Công | `DISCOVERY` |
 | `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, vitals/damage/status, Combat Flask interaction, death/recovery | `DISCOVERY` |
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
-| `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→5, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
+| `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→8, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
 | `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI | `DISCOVERY` |
 | `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
 | `DOM-DUNGEONS` | lifecycle không gian instance | Gate spawn/state, objective ledger, room grammar, generation, cleanup, Break/Field, Tower | `DISCOVERY` |
@@ -96,7 +96,7 @@ Slice này lớn hơn một ticket input nhưng nhỏ hơn combat system hoàn c
 Các ý sau được giữ làm `CANDIDATE`, không mặc định `DECIDED`:
 
 - rank F→Vương Giả, level 1→100, năm attributes và ba specialization;
-- Shadow vĩnh viễn, Arise ba lần, Soul Echo, Retinue slot 1→5/active cap 4, identity/formation/home assignment;
+- Shadow vĩnh viễn, Arise ba lần, Soul Echo, Retinue slot 1→8/active cap 4, identity/formation/home assignment;
 - action combat với Focus/Fatigue, dodge/parry/combo và năm weapon class;
 - vertical traversal với Vigor, Free Climb, Hạ Kình và Khinh Công universal mở sớm;
 - faction/role/squad/morale/director, Gate lifecycle và dungeon grammar;

@@ -12,6 +12,7 @@ UMBRA không cân bằng để mọi lựa chọn có cùng damage trong mọi t
 - tăng trưởng nhìn thấy được mà không biến content thành số vô nghĩa;
 - nhiều build có **cách thắng và điểm yếu khác nhau**;
 - mastery đủ sức cứu sai số build hợp lý, nhưng chuẩn bị/counter vẫn đáng giá;
+- learning→competent→expert đều có challenge band và cách biểu đạt tiến bộ; difficulty không đồng nghĩa clear rate thấp;
 - enemy có luật đọc được, không gian lận hoặc trở thành damage sponge;
 - Self và Hắc Ảnh Cận Vệ cùng mạnh nhưng không làm một phía vô nghĩa;
 - world chơi nhiều năm không buộc power creep vô hạn hoặc grind/FOMO.
@@ -25,7 +26,7 @@ UMBRA không cân bằng để mọi lựa chọn có cùng damage trong mọi t
 | Gear/items | chuẩn bị và thích nghi encounter | loot vô hiệu hóa build cũ |
 | Skill/loadout | động từ và cách giải tình huống | một rotation tối ưu duy nhất |
 | Potential/mastery | identity dài hạn và expression | irreversible trap, grind |
-| Active Retinue | role, phối hợp và kiểm soát chiến trường | auto-win, slot 5 thành power tax hoặc player chỉ đứng nhìn |
+| Active Retinue | role, phối hợp và kiểm soát chiến trường | auto-win, slot 5–8 thành power tax hoặc player chỉ đứng nhìn |
 
 `Power Budget` chỉ là mô hình phân tích, không là một con số truth che mọi khác biệt. Mỗi lớp phải khai phần nó sở hữu, cap/diminishing return và cách migration khi topology đổi.
 
@@ -37,6 +38,7 @@ UMBRA không cân bằng để mọi lựa chọn có cùng damage trong mọi t
 - Enemy không đọc input bí mật hoặc đổi luật sau commit; reaction theo perception/AI contract.
 - Randomness không quyết định outcome lớn nếu player không thể quản lý xác suất.
 - Difficulty không âm thầm buff/nerf sau lưng người chơi. Adaptive behavior vẫn là candidate cần ethics/accessibility review.
+- Assist/preset được phép giảm barrier ngoài ý muốn hoặc execution margin, nhưng phải khai lesson nào giữ, cue nào thêm và achievement/ruleset implication; accessibility không bị đánh đồng với auto-win.
 
 ## 4. Balance theo encounter ecology
 
@@ -67,7 +69,7 @@ Band/rank không tự quyết HP/damage multiplier. World scaling, authored band
 
 Damage pipeline/order/rounding chỉ có một canonical owner trong Parameter Registry sau khi `DB-042` khóa semantics. Crit, variance, armor, penetration, resistance, status buildup, posture và elemental relationship chưa được duyệt.
 
-TTK là **cửa sổ biểu đạt pattern và số lỗi được dung thứ**, không là một số toàn game. Regular phải kịp dạy/biểu lộ archetype; elite buộc thích nghi; boss dạy rồi kiểm tra mà không lặp phase vô ích. Candidate `3–8s`, `20–40s`, `2–4m`, `5–12m` chỉ là corpus hypothesis.
+TTK là **cửa sổ biểu đạt pattern, learning delta và số lỗi được dung thứ**, không là một số toàn game. Regular phải kịp dạy/biểu lộ archetype; elite buộc thích nghi; boss dạy rồi kiểm tra mà không lặp phase vô ích. Candidate `3–8s`, `20–40s`, `2–4m`, `5–12m` chỉ là corpus hypothesis. Clear rate/TTK không đủ: proof còn cần cause-of-failure, cue recognition, adaptation between attempts, input/camera error và build-route diversity.
 
 Damage display là một phần balance evidence: multi-hit/Retinue + hostile đông phải gộp/cap đủ để player đọc nguyên nhân mà không gây clutter hoặc performance spike. Exact number scale, bar/icon/color/crit/blocked presentation thuộc `DB-042` + UI contract.
 
@@ -75,7 +77,7 @@ Damage display là một phần balance evidence: multi-hit/Retinue + hostile đ
 
 Sức chứa/active cap do [`CTR-SHADOW-RETINUE`](../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md) sở hữu. Balance không được tăng HP/số quái theo công thức `roster_count × multiplier`.
 
-- Reserve thứ năm không đóng góp power budget trận hiện tại và không phải yêu cầu để đạt content baseline.
+- Tối đa bốn reserve (roster slot 5–8) không đóng góp power budget trận hiện tại và không phải yêu cầu để đạt content baseline.
 - Encounter chứng minh qua profile `Self only`, `Self + 1`, `Self + 2` và `Self + 4`; mỗi profile cần đường thắng hợp lệ nếu content không ghi rõ party requirement.
 - Thêm Shadow chủ yếu tăng role coverage, target control và recovery option; diminishing return/counter/objective/terrain ngăn bốn member thành bốn lần DPS.
 - Director tăng composition, pressure lane, objective hoặc counterplay trước HP sponge/quân số vô hạn.
