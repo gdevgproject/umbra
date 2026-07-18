@@ -13,7 +13,7 @@ The repository is currently in the **pre-production / design foundation** phase.
 | Platform | Minecraft Java Edition 26.2.x |
 | Mod loader | Fabric Loader + Fabric API |
 | Development baseline | Java / Gradle / data-driven content |
-| Current milestone | Design Foundation v4.0 |
+| Current milestone | Design-system rebuild / discovery |
 
 Version support, loader/API versions, Java requirements, dependencies, and save migration guarantees will be published with each release. Compatibility with older Minecraft versions is not assumed.
 
@@ -29,11 +29,11 @@ Version support, loader/API versions, Java requirements, dependencies, and save 
 
 | Path | Purpose |
 |---|---|
-| [`game-design/`](game-design/) | Studio design documentation and production decisions |
+| [`game-design/`](game-design/) | Modular studio design system and canonical design work |
 | [`game-design/design-assets/`](game-design/design-assets/) | Design-reference diagrams and concept visuals |
 | [`.gitignore`](.gitignore) | Fabric, Gradle, IDE, runtime, and secret-file exclusions |
 
-Start with [`game-design/00-readme.md`](game-design/00-readme.md), then follow its recommended reading order.
+Start with [`game-design/README.md`](game-design/README.md). The numbered v4 monoliths are archived inputs and are no longer implementation authority.
 
 ## Design principles
 
@@ -43,7 +43,7 @@ Performance is a feature: large shadow armies, intelligent enemies, and stable f
 
 ## Development
 
-Implementation tooling and contribution conventions will be added as the project enters production. Until then, the design documents are the source of truth for scope, terminology, technical constraints, and release gates.
+Gameplay implementation is gated per Feature Cell. A legacy ticket or formula is not sufficient authorization to code; see [`AGENTS.md`](AGENTS.md) and the design lifecycle.
 
 ## License
 
