@@ -8,7 +8,7 @@
 | Domain ID | Năng lực sở hữu | Feature/System chính đã nhận diện | Trạng thái tái thẩm định |
 |---|---|---|---|
 | `DOM-PLAYER` | identity và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige | `DISCOVERY` |
-| `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, damage/status, death/recovery | `DISCOVERY` |
+| `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, vitals/damage/status, Combat Flask interaction, death/recovery | `DISCOVERY` |
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
 | `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→5, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
 | `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI | `DISCOVERY` |
@@ -18,7 +18,7 @@
 | `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, Quest Kernel/content/dialogue | `DISCOVERY` |
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
-| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | versioned input/actions, core third-person default, first-person support, aim/targeting, UI design system, animation, VFX, audio, onboarding | `DISCOVERY` |
+| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | versioned input/actions, camera-relative movement/facing, core third-person default, first-person support, aim/targeting, fixed-width combat HUD, UI design system, animation, VFX, audio, onboarding | `DISCOVERY` |
 | `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, portable save/migration/recovery, Fabric-first/NeoForge-ready loader ports | `DISCOVERY` |
 | `DOM-QUALITY` | oracle và ngân sách | balance, automation, playtest, performance, accessibility, localization, compatibility | `DISCOVERY` |
 
@@ -29,7 +29,7 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 1. `CTR-INPUT-ACTION` — action context, remap, buffer, intent và conflict.
 2. `CTR-ACTION-TIMELINE` — startup/commit/active/recovery/cancel và game tick.
 3. `CTR-COMBAT-HIT` — hit authorization, attack cadence, damage instance, immunity, spam prevention.
-4. `CTR-RESOURCE` — HP/Mana/Focus/Fatigue ownership, cost timing, recovery.
+4. `CTR-RESOURCE` + `CTR-VITALS-HUD` — cost transaction; một health truth, Mana/Focus semantics, damage mapping và fixed-width HUD.
 5. `CTR-CAMERA-TARGET` — core rig góc 3, góc 1, aim basis, obstruction, crosshair/soft/lock target.
 6. `CTR-ANIMATION-EVENT` — animation state, gameplay event, hitbox và cancel synchronization.
 7. `CTR-ACTOR-AUTHORITY` — client intent, server authority, prediction/correction.
@@ -43,6 +43,7 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 15. `CTR-PERFORMANCE-BUDGET` — budget, representation/degradation và evidence theo risk.
 16. `CTR-LOADER-PORTABILITY` — common semantics/schema, loader ports, adapter conformance và artifact parity.
 17. `CTR-SHADOW-RETINUE` — slot/membership/claim/active cap dùng chung Capture, AI, UI, Balance và Save.
+18. `CTR-VITALS-HUD` — health/environment/Mana/Focus/HUD dùng chung Combat, World, Item, Death, UI và Save.
 
 Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/catalog.md).
 
@@ -50,10 +51,10 @@ Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/cat
 
 ```text
 Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
-→ Action Registry/Localization/UI primitives + Camera/Aim
+→ Action Registry/Localization/UI/vitals primitives + Camera/Movement/Aim
 → Action Timeline
-→ Attack / Dodge / Parry
-→ Hit & Resource Resolution + Early Danger exemplar
+→ Attack / Dodge / Parry + Combat Flask action
+→ Hit, Vitals & Resource Resolution + Early Danger exemplar
 → Enemy Telegraph / Encounter
 → Quest Kernel / Persistent Activity
 → Progression & Production Reward

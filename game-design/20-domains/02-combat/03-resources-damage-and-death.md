@@ -12,7 +12,7 @@
 | Focus | nhịp phòng thủ chủ động như dodge/parry | stamina chung trừng phạt mọi di chuyển |
 | Fatigue | áp lực dài hạn giữa các cuộc chinh phục | timer ép đăng nhập hay nghỉ chơi |
 
-Focus riêng cho hành động phòng thủ là phương án dẫn đầu nhưng chưa khóa. Fatigue tác động hồi phục/chuẩn bị theo nhịp dài, không drain theo giây trong combat.
+Direction Product đã khóa: Focus là resource hồi nhanh cho phòng thủ chủ động, không là stamina chung cho đi/chạy/đào. Exact cap/cost/regen và progression vẫn là balance candidate. Topology, fixed-width HUD, rule đổi Max và environmental mapping thuộc [`CTR-VITALS-HUD`](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md); file này chỉ giữ vai trò từng resource trong combat.
 
 ## Damage pipeline khái niệm
 
@@ -22,7 +22,7 @@ legal hit → base profile → attacker modifiers → target mitigation
 → reaction, attribution, telemetry
 ```
 
-Thứ tự và rounding chỉ có một canonical home trong Parameter Registry. Crit, armor penetration, elemental resistance, level scaling và damage variance đều là candidate cho tới khi prototype có dữ liệu.
+Pipeline này cuối cùng commit vào một health authoritative của living actor; UMBRA không duy trì một HP song song. Combat hit và fall/fire/lava/drowning/suffocation/starvation/status/void giữ source/tag/attribution rồi đi qua profile tương ứng. Thứ tự, mapping và rounding chỉ có một canonical home trong Parameter Registry sau `DB-046/042`. Crit, armor penetration, elemental resistance, level scaling và damage variance đều là candidate cho tới khi prototype có dữ liệu.
 
 ## Time-to-kill
 

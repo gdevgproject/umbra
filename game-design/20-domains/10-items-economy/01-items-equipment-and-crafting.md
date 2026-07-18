@@ -16,3 +16,5 @@ Item definition gồm identity, category, equip slot/use context, base profile, 
 ## Contract
 
 Preview mọi thay đổi khó đảo ngược. Affix có vocabulary/tier/compatibility rõ. Set bonus không ép một bộ duy nhất ở mọi content. Crafting recipe gắn source/sink và discovery; không duplicate vanilla recipe nếu không thêm quyết định.
+
+Combat recovery không được suy ra từ consumable category chung. Vessel/charge/refill/capacity/quick-slot có contract riêng tại [Combat Flask và quick recovery](03-combat-flask-and-quick-recovery.md); item/reagent chỉ cung cấp definition và acquisition cho contract đó.

@@ -7,12 +7,12 @@
 |---|---|---|
 | Direction | audience stack, emotional architecture, loop/longevity, always-playable scope, decisions | proposal |
 | Player | level/rank, stat, specialization, Potential, mastery/prestige; guided full-system balance review | discovery |
-| Combat/Skills | action/hit, weapons, resources, Dodge, death/mode recovery, trees/runes/class skills | discovery/proposed death policy |
+| Combat/Skills | action/hit, one-health vitals/environment matrix, fixed-width HP/Mana/Focus HUD, Dodge, Combat Flask, death/mode recovery, trees/runes/class skills | proposed topology; numerical/action discovery |
 | Shadows/AI | Arise, identity, Retinue slot 1→5/active cap 4/pending claim/reserve, command, revive, contextual ritual/expression, fairness, squad/LOD | proposed topology; system discovery |
 | Dungeon/Encounter | Gate, generation, Break/Tower/Strata, boss teaching | discovery |
 | World/Narrative | vanilla, early danger, city/family, living-society layers, lore/campaign, Quest Kernel/content/continuity | discovery/proposed society order |
-| Items/Economy | itemization/crafting, four currencies, source/sink | discovery |
-| Presentation | third-person default-after-gate, first-person, aim/target, versioned input/key baseline, UI system, localization/access | expanded discovery package |
+| Items/Economy | itemization/crafting, four currencies, source/sink, Combat Flask vessel/charge/refill/upgrade | discovery |
+| Presentation | third-person default-after-gate, camera-relative movement/facing, first-person, aim/target, versioned input/key baseline, fixed-width combat HUD, UI system, localization/access | expanded discovery package |
 | Platform | foundation kernel, portable world save/recovery, authority/security, 26.2 baseline/port policy, Fabric-first/NeoForge-ready adapter contract, future M1 co-op 2–4 → M2 PvP 1v1/3v3 seams | proposed/discovery |
 | Content/Quality | instance architecture, asset registry/provenance, originality, Test OS, `PR-0–PR-3` performance routing, automation boundary, lifecycle/user capture, Performance Constitution, Balance Constitution | framework ready; targets discovery |
 | Production | C0–C10 playable roadmap, design/implementation queues, ticket/release gates, ticket autopilot + canonical execution ledger | framework ready |

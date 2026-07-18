@@ -20,6 +20,8 @@ Quy ước: `L` = level người chơi · `La` = level mục tiêu · `⌊x⌋` 
 
 Các số section giữ lại để tham chiếu nội bộ trong registry; chúng không phải số file cũ.
 
+Topology đã khóa ngoài registry: một authoritative health substrate; Health/Mana/Focus hiển thị bằng fixed-width meter; Focus là defensive resource chứ không phải locomotion stamina; Combat Flask là quick slot riêng. Công thức dưới đây không được dùng để suy ngược presentation hoặc tạo HP song song. `DB-046/047` phải thay candidate bằng evidence đồng thời cho combat, hazard, HUD, save và economy.
+
 ---
 
 ## 14.1. Chỉ số cơ bản của người chơi
@@ -319,6 +321,18 @@ SoulEcho_cap_per_gate   = 128 eligible targets (boss/elite/unique protected firs
 ```
 
 `SoulEcho_cap_per_gate` là rào chắn hiệu năng, không phải tước phần thưởng: khi chạm trần, quái thường thấp nhất được gộp thành **Mảnh Bóng bảo lưu** theo tỷ lệ hiển thị trước; boss/elite/unique không bao giờ bị gộp. UI hiển thị số Echo và cảnh báo đóng Gate ở 25.
+
+## 14.22. Combat Flask và vitals presentation
+
+```text
+CombatFlask_initial_charges = 1                         [USER DIRECTION]
+CombatFlask_max_charges     = 10                        [USER HYPOTHESIS — NOT APPROVED]
+CombatFlask_potency         ∈ {FLAT, PERCENT_MAX, HYBRID, TIERED}
+Health/Mana/Focus meter width = FIXED; fill = clamp(current / max, 0, 1)
+Max-change default = keep current then clamp; refill only by explicit event
+```
+
+Không có con số potency/refill/timing mặc định trước `DB-047`; capacity 10 phải được so với encounter attrition, upgrade cost, UI, death/refill loop và 0/1/2/4 Shadow balance. Environmental damage dùng profile `ABSOLUTE / PERCENT_MAX / HYBRID / SOURCE_FORMULA / SCRIPTED_LETHAL` theo `DB-046`; không áp một model cho mọi source.
 
 ---
 

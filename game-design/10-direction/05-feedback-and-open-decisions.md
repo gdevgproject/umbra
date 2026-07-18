@@ -53,6 +53,10 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-030` | Agent tự gán performance risk cho mọi runtime change | `PR-0–PR-3` quyết lane đo; không benchmark mọi thay đổi và không bỏ đo feature có rủi ro |
 | `PD-031` | Shadow là một Retinue tinh nhuệ: tối đa 5 sở hữu, tối đa 4 triển khai chiến đấu | bắt đầu với 1 slot khi mở hệ; slot 5 rất muộn và là dự bị chiến lược; không kho/quân đoàn ẩn; exact unlock/full-roster flow theo `CTR-SHADOW-RETINUE`/`DB-044` |
 | `PD-032` | Shadow cần biểu cảm/ritual theo context và personality | quỳ là dấu câu hiếm; semantic/priority/group reservation/fallback theo `SYS-SHADOW-EXPRESSION`, không emote spam hoặc cắt combat |
+| `PD-033` | UMBRA dùng một health authoritative tương thích Minecraft, nhưng sở hữu damage semantics và HUD thanh cố định | không tạo “RPG HP” song song; Max HP tăng không sinh thêm hàng tim, mọi damage môi trường phải qua matrix có attribution/test |
+| `PD-034` | Mana và Focus là hai resource riêng; Focus hồi nhanh cho phòng thủ chủ động, không là stamina di chuyển chung | HUD fixed-width có cost preview/notch; exact cap/regen/cost vẫn do `DB-046/042` chứng minh |
+| `PD-035` | Combat Flask là quick-recovery action/slot chuyên biệt; food vẫn giữ vai trò hunger/survival | bắt đầu một charge là direction; giả thuyết tối đa 10 chưa khóa, cần `DB-047` cân bằng capacity–potency–refill–interrupt |
+| `PD-036` | Third-person free movement mặc định camera-relative và camera orbit không kéo thân nhân vật khi đứng yên | lock-on/precision dùng basis riêng; ranged không mặc định ép first-person, chuyển mode phải predictable và có setting |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 
@@ -60,6 +64,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 - Default keyboard/mouse layout, Dodge key, skill/hotbar/command mapping.
 - Exact early-game zombie/player/world levers và difficulty parameters.
 - UI visual direction/component layouts và asset production tools.
+- Exact numerical band của HP/Mana/Focus, Combat Flask capacity/potency/refill và health-environment mapping.
 - Authored/systemic/player-created mix, content batch size và release breadth.
 
 Các mục này chỉ quay lại hỏi user khi prototype tạo trade-off fantasy thật sự; trước đó Agent chịu trách nhiệm research/evidence.

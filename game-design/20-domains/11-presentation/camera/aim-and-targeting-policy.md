@@ -7,6 +7,8 @@
 
 UMBRA nhắm tới combat góc ba mượt và thông minh, không phải đưa hồng tâm vào mọi lúc hoặc ép first-person cho mọi projectile. Presentation phải trả lời ba thứ tách biệt: **player nhìn đâu, action định hướng đâu, gameplay target nào hợp lệ**.
 
+Movement/facing không được suy từ reticle; canonical basis và transition nằm tại [Movement basis, actor facing và transition](movement-and-facing-policy.md).
+
 ## 2. Candidate mode policy
 
 | Context | Presentation candidate | Không được giả định |

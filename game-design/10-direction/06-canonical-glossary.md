@@ -24,6 +24,9 @@ Tên gameplay dưới đây là working canonical để tài liệu nhất quán
 | Tiềm Năng | Potential | lớp cam kết build irreversible sau preview |
 | Tinh Thông | Mastery | tiến bộ do thực hành weapon/shadow/content role |
 | Tập Trung | Focus | resource nhịp phòng thủ chủ động |
+| Mana | Mana | resource sức mạnh skill/phép/triệu hồi đặc biệt; không phải Focus hoặc upkeep Retinue |
+| Bình Hồi Phục Chiến Đấu | Combat Flask | vessel quick-recovery chuyên biệt có charge; không thay toàn bộ food/potion |
+| Cơ sở di chuyển | Move Basis | frame biến input thành hướng world; camera-relative/target-relative/aim-relative tùy context |
 | Thể Lực / Mệt Mỏi | Fatigue | áp lực phiên săn dài, không là stamina di chuyển thường |
 | Thế | Posture | khả năng giữ thế trước pressure, mở stagger/finisher |
 | Kính Trọng | Respect | quan hệ/nhận thức theo NPC/context, không là reputation toàn cục |

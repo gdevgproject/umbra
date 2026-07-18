@@ -60,6 +60,8 @@ Controls screen phải có search, filter theo context/device, conflict explanat
 
 Các category dự kiến: `Core Movement & Combat`, `Skills & Loadout`, `Shadow Command`, `World Interaction`, `Interface`. Tên và mô tả đều là localization keys.
 
+Action Catalog phải dành `umbra.action.quick_recovery` với semantics `PRESS`, remappable và context-aware. Đây không phải permission chọn phím mặc định trước audit 26.2/layout experiment; key repeat/packet retry chỉ tạo tối đa một recovery intent mỗi press.
+
 ## 7. Read next
 
 - [Vanilla 26.2 key baseline](vanilla-26.2-key-baseline.md)

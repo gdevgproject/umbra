@@ -35,7 +35,8 @@ Combat vẫn là approver hoặc reviewer khi các domain đó thay đổi nhị
 | `SYS-COMBAT-CONTEXT` | enter/exit combat, vanilla action coexistence | high |
 | `SYS-ACTION-RESOLUTION` | light attack, heavy attack, dodge, parry, skill activation, weapon swap | critical |
 | `SYS-HIT-RESOLUTION` | hit cadence, hitbox/hurtbox, immunity, damage, multi-hit, friendly ownership | critical |
-| `SYS-COMBAT-RESOURCES` | Focus use/recovery, Fatigue contribution, HP/Mana touchpoints | high |
+| `SYS-COMBAT-VITALS` | một health truth, environmental damage, fixed HUD, Mana/Focus semantics | critical |
+| `SYS-COMBAT-RESOURCES` | Focus use/recovery, Mana cost, Fatigue contribution, Combat Flask touchpoints | high |
 | `SYS-COMBAT-FLOW` | combo, posture, stagger, finisher, recovery/death | high |
 | `SYS-WEAPON-RHYTHM` | dagger/sword/polearm/ranged/staff moveset grammar | medium after foundation |
 
@@ -61,11 +62,14 @@ Combat vẫn là approver hoặc reviewer khi các domain đó thay đổi nhị
 | `FEAT-COMBAT-COMBO` | chuỗi hành động tốt duy trì nhịp mà không ép spam | `SEED` |
 | `FEAT-COMBAT-POSTURE` | áp lực đúng loại mở stagger/finisher, không chỉ HP thứ hai | `SEED` |
 | `FEAT-COMBAT-DEATH-REVIEW` | thất bại giải thích được và dẫn tới lựa chọn học/retry | `SEED` |
+| `FEAT-COMBAT-FLASK` | một press tạo recovery có commitment, charge và interrupt đọc được | `DISCOVERY` |
 
 Feature Cell và system spec chi tiết:
 
 - [Dodge](dodge/README.md)
 - [Death, consequence và trở lại cuộc chơi](death/README.md)
+- [Vitals, Mana, Focus và HUD](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md)
+- [Combat Flask và quick recovery](../10-items-economy/03-combat-flask-and-quick-recovery.md)
 
 ## Domain invariants đề xuất
 

@@ -14,12 +14,13 @@ Chưa gameplay ticket nào `READY`. Candidate epics dưới đây chỉ mở sau
 | Integrated + dedicated + lifecycle/client screenshot/performance-risk harness | C1 | DB-022/024/039 approved |
 | Việt/Anh resource skeleton + locale/key parity validation | C1 | DB-030 approved |
 | Action registry/key baseline/conflict diagnostics + camera harness room | C2 | DB-029/002/004 approved |
-| Camera rig/occlusion/aim + first-person parity | C2 | camera Feature Cells implementation-ready |
-| Animation/render adapters + UI token/component baseline | C2 | DB-025/031/033 approved |
-| Action/hit/light/Dodge/early-danger enemy slice | C3 | DB-003–006/034/035 implementation-ready |
+| Camera rig/occlusion + camera-relative movement/facing/aim + first-person parity | C2 | DB-004/048/037 Feature Cells implementation-ready |
+| Animation/render adapters + UI token/component/fixed-width meter primitives | C2 | DB-025/031/033 approved |
+| Authoritative health/environment adapter + Mana/Focus transactions | C3 | DB-042/046 implementation-ready |
+| Action/hit/light/Dodge/one-charge Combat Flask/early-danger enemy slice | C3 | DB-003–006/034/035/047 implementation-ready |
 | Quest Kernel + Gate/objective/typed reward instance slice | C4 | DB-036/007 implementation-ready |
 | Arise/identity/one Shadow + first bonded slot | C5 | DB-008–010 implementation-ready; `CTR-SHADOW-RETINUE` approved cho identity/membership baseline |
-| Progression/build/skills | C6 | DB-011–012 implementation-ready |
+| Progression/build/skills + bounded vitals/Flask upgrades | C6 | DB-011–012/046/047 implementation-ready |
 | Slot 2→5/full-roster claim/reserve + command/Retinue AI/expression | C7 | DB-013/018/044/045 + perf/balance budget approved |
 | Rich quest/world/economy/home return loop | C8 | DB-015–017/020/031/033 approved |
 

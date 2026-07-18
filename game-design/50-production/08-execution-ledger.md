@@ -14,10 +14,10 @@ capability_slice: C0-DESIGN-OS
 active_ticket: NONE
 active_state: NONE
 branch: main
-base_commit: b00e023
-head_commit_verified: b00e023
+base_commit: 5d7620a
+head_commit_verified: 5d7620a
 worktree_state: DIRTY_DESIGN_DOCS
-uncommitted_scope: performance/loader-portability package plus Retinue/expression/ticket-autopilot design changes; audit git status for exact files.
+uncommitted_scope: vitals/Mana/Focus/HUD, Combat Flask, camera movement/facing và backlog/quality/research design-feedback transaction; audit git status for exact files.
 last_verified_ticket: NONE
 last_automated_evidence: design-doc-validator
 last_human_playtest: N/A

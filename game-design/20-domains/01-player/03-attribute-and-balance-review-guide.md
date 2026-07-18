@@ -16,8 +16,10 @@ Bạn không cần trả lời tất cả trong một lần. Đọc tuyến này
 1. File này — định nghĩa các quyết định thật sự cần bạn góp ý.
 2. [Attributes, build và mastery](02-attributes-build-and-mastery.md) — candidate hiện tại.
 3. [Balance framework](../../60-quality/01-balance-framework.md) — fairness, power curve và cách chứng minh.
-4. [Resources, damage và death](../02-combat/03-resources-damage-and-death.md) — resource/damage pipeline.
-5. Chỉ khi muốn xem số cũ: [Parameter Registry](../../60-quality/02-parameter-registry.md). Mọi số ở đó vẫn là hypothesis.
+4. [Vitals, Mana, Focus và HUD](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md) — health truth, environmental damage và presentation.
+5. [Resources, damage và death](../02-combat/03-resources-damage-and-death.md) — vai trò resource/damage pipeline.
+6. [Combat Flask](../10-items-economy/03-combat-flask-and-quick-recovery.md) — heal trong combat, capacity/refill/interrupt.
+7. Chỉ khi muốn xem số cũ: [Parameter Registry](../../60-quality/02-parameter-registry.md). Mọi số ở đó vẫn là hypothesis.
 
 ## 3. Vòng A — khóa fantasy và topology trước công thức
 
@@ -35,6 +37,17 @@ Bạn không cần trả lời tất cả trong một lần. Đọc tuyến này
 10. Counter nên là **soft counter có thể outplay** hay có một số hard gate buộc chuẩn bị đúng hệ/skill/Shadow?
 11. Bạn thích damage scale nhỏ, đọc nhanh (hàng chục–nghìn) hay tăng rất lớn theo fantasy lâu năm? Điều này ảnh hưởng UI, cảm nhận và numerical stability.
 12. Khi đánh bất lợi hệ/level, mastery giỏi có luôn có cửa thắng không; nếu có, bất lợi tối đa nên biểu hiện bằng thời gian, rủi ro hay thiếu khả năng xuyên cơ chế?
+
+### Vòng A.5 — Vitals và hồi phục vừa mở
+
+Có thể trả lời sau Vòng A hoặc cùng lúc nếu bạn đang có hình dung rõ:
+
+1. Bạn muốn cảm giác tăng Max HP là “chịu thêm mấy sai lầm”, chống burst, hay phục hồi bền hơn? Không cần chọn số.
+2. Mana chủ yếu đại diện cho phép/kỹ năng cá nhân, quyền lực triệu hồi đặc biệt, hay một pool chung có trade-off giữa hai fantasy?
+3. Một thanh Focus đầy nên cho phép khoảng bao nhiêu Dodge cơ bản trước khi phải tạo nhịp hồi; progression nên tăng capacity, hồi, hiệu suất hay mở động từ?
+4. Combat Flask nên mạnh nhờ số charge, potency, tốc độ dùng hay utility; lớp nào bạn muốn tránh để không thành nâng cấp bắt buộc?
+5. Refill bình nên gắn rest/checkpoint, craft, shop, loot/Gate hay kết hợp; điều gì tạo chuẩn bị thú vị thay vì chore?
+6. Fall/lửa/lava/ngạt/đói/status nên giữ độ nguy hiểm theo Max HP bằng flat, phần trăm, hybrid hay luật riêng theo từng family?
 
 ## 4. Vòng B — damage, phòng thủ và hiển thị
 
@@ -80,3 +93,14 @@ Video/screenshot hoặc tên menu giúp định vị; con số không rõ nguồ
 ## 8. Output của discovery
 
 `DB-042` chỉ đóng khi có: Attribute Topology, Power Budget Map, Damage/Defense Contract, Counterplay Taxonomy, UI Readability Contract, mode/ruleset separation, simulation plan và migration strategy. Sau đó Parameter Registry mới được sửa từ candidate thành con số approved qua prototype evidence.
+
+## 9. Bản đồ đọc cho hệ quái, hệ tộc và từng đối tượng
+
+- **Thuộc tính/Potential/build:** [Attributes, build và mastery](02-attributes-build-and-mastery.md).
+- **Máu/Mana/Focus/damage/hệ khắc chế:** file này → [Balance Framework](../../60-quality/01-balance-framework.md) → [`CTR-VITALS-HUD`](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md); con số candidate ở Parameter Registry.
+- **Tộc/faction là gì, văn hóa và silhouette:** [Faction Bible Standard](../../40-content/03-faction-bible-standard.md).
+- **Enemy suy nghĩ, phối hợp, morale/director:** [Enemy, squad, morale và director](../05-ai/02-enemy-squad-morale-and-director.md).
+- **Encounter dùng enemy nào để dạy/kiểm tra:** [Encounter Domain](../07-encounters/README.md).
+- **Từng quái/tướng/item/skill có dossier riêng và variant ra sao:** [Content Instance Architecture](../../40-content/07-content-instance-architecture.md).
+
+Vì vậy không có một file “hệ quái” khổng lồ: faction sở hữu identity, AI sở hữu hành vi, Encounter sở hữu composition/teaching, Balance sở hữu counter/number và Content Instance sở hữu từng cá thể cụ thể.

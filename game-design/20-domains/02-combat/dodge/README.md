@@ -23,7 +23,7 @@ Khi người chơi nhận ra một mối đe dọa có thể né và bấm actio
 | Candidate | Canonical owner | Nhãn |
 |---|---|---|
 | action remappable, không hardcode phím | Presentation/Input | `DECIDED` ở mức nguyên tắc, contract input chưa duyệt |
-| tám hướng local, neutral backstep | Dodge | `CANDIDATE` |
+| camera-relative trong third-person free; target-relative khi lock | Camera Movement + Dodge | `DECIDED` ở basis; neutral/sector/transition còn `CANDIDATE` |
 | dodge ưu tiên hơn recovery chung | Combat Action | `CANDIDATE`, cần cancel matrix |
 | chỉ thay horizontal velocity khi ở trên không | Dodge | `CANDIDATE` |
 | Focus cost 25, tổng chuyển động 0.35s, i-frame ≤0.40s | Parameter Registry 14.18–19 | `CANDIDATE PARAMETER`, chưa có evidence |
@@ -80,17 +80,20 @@ Mỗi phase phải có:
 
 Không dùng một câu “Dodge hủy recovery” thay cancel matrix của Light/Heavy/Skill/Parry/Item Use.
 
-## 7. Hướng và camera — câu hỏi trung tâm
+## 7. Hướng và camera
 
-Ba option cần prototype:
+Product direction và canonical vector policy nằm tại [Movement basis và actor facing](../../11-presentation/camera/movement-and-facing-policy.md): third-person free dùng camera-relative horizontal basis; lock-on dùng target-relative; precision aim dùng aim-relative. Basis được snapshot khi action được authority chấp nhận để xoay camera sau đó không bẻ cong cú né.
 
-| Option | Ưu | Nhược |
+Phần còn phải prototype:
+
+| Quyết định | Candidate | Rủi ro cần chứng minh |
 |---|---|---|
-| Camera-relative 8 hướng; neutral backstep | quen thuộc action RPG, phản ứng nhanh | góc 1 có thể gây mất phương hướng; target lock chưa tồn tại |
-| Facing-relative; neutral backstep | animation/character intent ổn định | người chơi mouse-look nhanh có thể thấy lệch ý |
-| Hybrid theo camera mode/context | tối ưu riêng góc 1/3 | luật khó học, dễ khác parity |
+| neutral Dodge | backstep trong combat; hướng nhìn trong exploration | hành động bất ngờ khi không có target |
+| sector/animation | 8 sector normalized hoặc blend | diagonal distance, foot sliding, turn cost |
+| first-person basis | view-relative với comfort policy | mất phương hướng/đảo input |
+| basis transition | freeze/blend tới neutral | held input đảo hướng khi acquire/break lock |
 
-Chưa chọn option. `CTR-CAMERA-TARGET` phải định nghĩa facing, camera basis, target mode và recenter trước khi Feature Cell qua `PROPOSED`.
+`DOD-OQ-01` chỉ còn khóa neutral/sector/transition, không mở lại camera-relative baseline.
 
 ## 8. Defensive window — câu hỏi category
 
@@ -108,9 +111,9 @@ Không được dùng boolean “invulnerable”. Cần ma trận ít nhất:
 
 Mỗi category chọn `avoid`, `mitigate`, `unchanged` hoặc `special rule` cùng feedback. Encounter designer không được tạo “đòn đọc dodge” bằng input peeking; counter phải đến từ timing lệch, tracking có telegraph, vùng kéo dài hoặc vị trí.
 
-## 9. Resource — chưa được chốt
+## 9. Resource — topology đã định hướng, con số chưa chốt
 
-Candidate hiện hành dùng Focus cho nhịp action và Fatigue cho phiên săn, đồng thời perfect dodge hoàn Fatigue/hồi Mana. Cần trả lời:
+Focus là bar phòng thủ hồi nhanh, tách khỏi locomotion và hiển thị notch/ghost cost theo [`CTR-VITALS-HUD`](../../../30-shared-contracts/08-vitals-resource-and-hud-contract.md). Fatigue vẫn là áp lực dài hạn. Exact Focus cap/cost/regen, số Dodge liên tiếp và perfect reward còn cần trả lời:
 
 1. Dodge thường có nên tăng Fatigue hay chỉ action burst đặc biệt?
 2. Focus có tạo nhịp ra quyết định hay chỉ là cooldown trá hình?
@@ -130,7 +133,7 @@ Không đưa Dodge vào cây Potential cho tới khi base action đã vui mà kh
 | Camera/target | parity góc 1/3, camera-relative basis, crosshair/lock policy | `OPEN` |
 | Animation | first-person arms + third-person body; markers/cancel/blend/root motion policy | `OPEN` |
 | VFX/SFX | start/active/perfect/collision/reject cues; reduced-motion variant | `OPEN` |
-| UI/UX | Focus/cooldown/readability; reject reason không spam | `OPEN` |
+| UI/UX | Focus fixed bar + cost notch/ghost preview; reject reason không spam | `OPEN` |
 | Accessibility | toggle double-tap nếu có, hold/toggle N/A, timing assist policy, motion/camera shake | `OPEN` |
 | Localization | “Dodge/Né/Lăn/Bước né”, perfect timing terminology | `OPEN` |
 | AI/encounter | telegraph đủ, fair anti-dodge pattern | `OPEN` |
@@ -151,7 +154,7 @@ Không đưa Dodge vào cây Potential cho tới khi base action đã vui mà kh
 | `CTR-CAMERA-TARGET` | blocker | direction basis và camera parity |
 | `CTR-ANIMATION-EVENT` | blocker | marker/gameplay authority |
 | `CTR-ACTOR-AUTHORITY` | blocker | prediction/correction/duplicate intent |
-| `CTR-RESOURCE` | blocker trước Approved | cost/recovery/persistence |
+| `CTR-RESOURCE` + `CTR-VITALS-HUD` | blocker trước Approved | cost transaction, Focus semantics/HUD/recovery/persistence |
 | `FEAT-COMBAT-LIGHT-ATTACK` | paired prototype | cancel interaction và click rhythm |
 
 ## 12. Acceptance hypothesis

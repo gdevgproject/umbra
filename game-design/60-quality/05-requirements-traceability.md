@@ -49,6 +49,10 @@
 | R50 | Fabric tối ưu hiện tại nhưng UMBRA có thể trở thành first-class NeoForge build mà không fork gameplay/save | Platform + Compatibility + QA + Release | import guard, Fabric conformance, loader port catalog; future cross-loader save/parity/perf matrix |
 | R51 | Shadow roster nhỏ để từng identity/AI/relationship sâu: slot 1→5, active cap 4, reserve cuối rất muộn, không army archive | Shadows + Balance + UX + Platform | `DB-044`, full-roster claim/parting, 0/1/2/4 balance, save/command/usability proof |
 | R52 | Shadow quỳ/cúi/biểu cảm theo context/personality mà không spam hoặc cắt gameplay | AI + Narrative + Animation + Accessibility | `DB-045`, semantic/priority/reservation/fallback tests + attachment playtest |
+| R53 | Max HP scale nhưng chỉ có một Minecraft-compatible health truth; HUD thanh cố định và mọi damage source giữ attribution | `CTR-VITALS-HUD` + Combat + Platform + UI | `DB-046`, environmental/mode/lifecycle matrix, HUD fallback/screenshot, save/death parity |
+| R54 | Mana và Focus tách nghĩa; Focus hồi nhanh cho phòng thủ, không phạt traversal; progression không tạo refill/infinite Dodge | `CTR-VITALS-HUD` + Resource + Dodge + Balance | transaction/property tests, notch/readability, capacity/cost/regen simulation và migration |
+| R55 | Combat Flask cho heal quick-use có commitment/charge/interrupt; food vẫn có giá trị survival | Items + Combat + Economy + Input + UI | `DB-047`, action idempotency/cancel/hit matrix, source-sink simulation, comprehension playtest |
+| R56 | Góc ba dùng camera-relative movement với facing tách; lock/aim transition không đảo hướng và ranged không mặc định ép góc một | Camera Movement + Aim + Input + Animation | `DB-048/037`, basis trace, held-input/±180°/parallax/two-view comfort tests |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 

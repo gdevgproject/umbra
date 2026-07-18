@@ -70,6 +70,8 @@
 | `DOD-S-086` | reduced motion/camera shake off | cue redundancy |
 | `DOD-S-087` | save/reload/disconnect mid-action | ephemeral state/reconnect policy |
 | `DOD-S-088` | death/dimension change during action | cleanup/no ghost immunity |
+| `DOD-S-089` | capacity/cost modifier đổi khi Focus đang không đầy | current clamp, notch/ghost cost và không refill miễn phí |
+| `DOD-S-090` | giữ W khi orbit/recenter/acquire–break lock qua ±180° | world direction không đảo đột ngột; accepted Dodge giữ basis snapshot |
 
 ## Exit của scenario inventory
 

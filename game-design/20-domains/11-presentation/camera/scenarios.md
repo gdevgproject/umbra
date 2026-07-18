@@ -9,6 +9,7 @@
 |---|---|
 | tường sát lưng, góc 90°, hành lang một block, trần thấp | camera co/đổi policy ổn định, không xuyên/rung |
 | chạy, sprint, crouch, crawl, jump, fall, swim, ladder, elytra | mode/basis/comfort policy rõ; không snap vô cớ |
+| đứng yên orbit 360°, giữ W qua yaw ±180°, recenter/đổi vai | camera không kéo thân khi idle; held movement không đảo world direction do basis transition |
 | cửa/fence/foliage/transparent block/fluid | occlusion theo collision/visibility taxonomy, không heuristic rải |
 | teleport/portal/dimension/reload/death/respawn | rig rebind đúng actor, không giữ target/offset ma |
 | FPS thấp/cao, tick lag, pause/unpause | smoothing theo render time, gameplay không đổi |
@@ -29,6 +30,7 @@
 |---|---|
 | melee ở sát tường hoặc target rất gần | actor/telegraph vẫn thấy, hit không phụ camera clipping |
 | projectile với reticle lệch muzzle | server ray/projectile policy nhất quán và preview được |
+| vào precision aim với vũ khí tầm xa ở góc ba | giữ shoulder aim hợp lệ; không ép first-person ngoài setting/context rule đã báo trước |
 | target đi sau vật cản/chết/despawn/teleport | soft/lock target break/reacquire có feedback |
 | nhiều target, target cao/thấp/bay | switch/vertical framing không giật hoặc chọn ngoài rule |
 | dodge tám hướng/neutral | basis không đổi giữa frame; first/third rule parity |

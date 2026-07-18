@@ -105,6 +105,11 @@ Mỗi record ghi:
 12. Camera/reticle không làm server accept target/reach xuyên vật cản.
 13. Roster không vượt năm member, active combat không vượt bốn; full-roster capture không auto-delete/overwrite và retry không duplicate pending claim.
 14. Shadow social expression không cắt legal combat action, spam nghi lễ hoặc commit bond/memory hai lần sau interruption/reload.
+15. Health chỉ có một authoritative value; HUD, death, save và damage attribution không lệch do render/reconnect/migration.
+16. Fall/fire/lava/drowning/suffocation/starvation/status/void giữ đúng source profile; Max HP lớn không âm thầm vô hiệu hazard ngoài approved matrix.
+17. Đổi Max HP/Mana/Focus không refill miễn phí; resource transaction không âm hoặc commit hai lần.
+18. Quick Recovery mỗi action ID chỉ trừ một charge/heal một lần; cancel trước commit hoàn reservation, sau commit không rollback heal.
+19. Orbit/recenter/lock/aim transition không đảo held movement; Dodge/attack đã accepted giữ đúng basis snapshot.
 
 ## 7. Feature readiness test pack
 

@@ -66,6 +66,7 @@ Không áp luật “vũ khí tầm xa luôn ép first-person”. Melee, free ca
 | `FEAT-CAMERA-TARGETING` | soft target/lock lifecycle đọc được | encounter/target contract |
 | `FEAT-CAMERA-FRAMING` | boss/squad/arena giữ readability | encounter + performance |
 | `FEAT-CAMERA-COMFORT` | shake/FOV/smoothing/motion options | accessibility |
+| `SYS-CAMERA-MOVEMENT` | camera-relative movement, actor facing và transition basis | input + locomotion/animation |
 
 ## 7. Gate trước combat polish
 
@@ -76,3 +77,4 @@ Base rig + occlusion + context + aim ray phải được prototype cùng mining/
 - [Scenario Matrix](scenarios.md)
 - [Research và Prototype Plan](research-plan.md)
 - [Aim và targeting policy](aim-and-targeting-policy.md)
+- [Movement basis, actor facing và transition](movement-and-facing-policy.md)
