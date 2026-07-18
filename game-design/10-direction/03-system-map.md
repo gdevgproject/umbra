@@ -10,7 +10,7 @@
 | `DOM-PLAYER` | identity và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige | `DISCOVERY` |
 | `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, damage/status, death/recovery | `DISCOVERY` |
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
-| `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, roster, summon/revive, identity, role, formation, command, progression, garrison | `DISCOVERY` |
+| `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→5, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
 | `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI | `DISCOVERY` |
 | `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
 | `DOM-DUNGEONS` | lifecycle không gian instance | Gate spawn/state, objective ledger, room grammar, generation, cleanup, Break/Field, Tower | `DISCOVERY` |
@@ -19,7 +19,7 @@
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
 | `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | versioned input/actions, core third-person default, first-person support, aim/targeting, UI design system, animation, VFX, audio, onboarding | `DISCOVERY` |
-| `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, portable save/migration/recovery, baseline/port adapters | `DISCOVERY` |
+| `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, portable save/migration/recovery, Fabric-first/NeoForge-ready loader ports | `DISCOVERY` |
 | `DOM-QUALITY` | oracle và ngân sách | balance, automation, playtest, performance, accessibility, localization, compatibility | `DISCOVERY` |
 
 ## 2. Shared contracts ưu tiên nền tảng
@@ -40,13 +40,16 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 12. `CTR-CONTENT-DEFINITION` — definition/instance/schema validation/versioning.
 13. `CTR-CAPABILITY-OWNERSHIP` — availability, owner, death/reconnect/creative/migration policy.
 14. `CTR-MULTIPLAYER-READINESS` — logical-server authority, ownership, packet/security/sync seams.
+15. `CTR-PERFORMANCE-BUDGET` — budget, representation/degradation và evidence theo risk.
+16. `CTR-LOADER-PORTABILITY` — common semantics/schema, loader ports, adapter conformance và artifact parity.
+17. `CTR-SHADOW-RETINUE` — slot/membership/claim/active cap dùng chung Capture, AI, UI, Balance và Save.
 
 Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/catalog.md).
 
 ## 3. Chuỗi phụ thuộc chính
 
 ```text
-Pinned Baseline + Foundation Kernel + Test/Diagnostics
+Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
 → Action Registry/Localization/UI primitives + Camera/Aim
 → Action Timeline
 → Attack / Dodge / Parry
@@ -55,7 +58,7 @@ Pinned Baseline + Foundation Kernel + Test/Diagnostics
 → Quest Kernel / Persistent Activity
 → Progression & Production Reward
 → Shadow Capture
-→ Legion Command
+→ Retinue Capacity / Command / Expression
 → World/Narrative Consequence
 ```
 
@@ -91,7 +94,7 @@ Slice này lớn hơn một ticket input nhưng nhỏ hơn combat system hoàn c
 Các ý sau được giữ làm `CANDIDATE`, không mặc định `DECIDED`:
 
 - rank F→Vương Giả, level 1→100, năm attributes và ba specialization;
-- shadow vĩnh viễn, Arise ba lần, Soul Echo, identity/formation/garrison;
+- Shadow vĩnh viễn, Arise ba lần, Soul Echo, Retinue slot 1→5/active cap 4, identity/formation/home assignment;
 - action combat với Focus/Fatigue, dodge/parry/combo và năm weapon class;
 - faction/role/squad/morale/director, Gate lifecycle và dungeon grammar;
 - Hunter City, Respect, Home/Family, strata/world events;
@@ -121,3 +124,5 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 - asset provenance/AI/originality/LOD/VFX-audio budget và content interaction scale;
 - early-game player–zombie–world pressure;
 - engineering/Git/test handoff để Agent mới không phụ thuộc lịch sử chat.
+- performance risk routing `PR-0–PR-3` và benchmark selection tự động theo impact;
+- Fabric adapter/import boundary, canonical save và future NeoForge conformance/port train.

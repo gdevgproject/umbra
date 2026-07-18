@@ -9,6 +9,7 @@
 đánh bại mục tiêu đủ điều kiện
 → corpse capture window
 → nếu hết hạn, tạo Soul Echo gắn Gate
+→ kiểm slot/claim theo CTR-SHADOW-RETINUE
 → chọn Arise và xem chance/cost/hậu quả
 → resolve một attempt duy nhất
 → thành công tạo Shadow Identity; thất bại giảm attempts
@@ -32,7 +33,9 @@ Các số trên không được hard-code trước balance/narrative review.
 - Success tạo đúng một identity idempotent, có origin/source encounter.
 - Gate cleanup không xóa shadow đã capture.
 - Boss scripted exception phải khai báo dữ liệu và được player-facing giải thích, không nằm trong nhánh code bí mật.
+- Sức chứa, pending claim và full-roster resolution tuân thủ [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md). Không được tạo identity thứ sáu, auto-replace hoặc biến Soul Echo thành kho sưu tập vô hạn.
+- Khi full roster/claim làm attempt bất hợp lệ, server từ chối **trước** khi tiêu cost/attempt; UI nói rõ safe action tiếp theo.
 
 ## Câu hỏi mở
 
-Chance phụ thuộc rank gap, Potential, perk, achievement hay context nào; thất bại có tiêu Essence/Focus; multiplayer ownership; corpse vanilla ngoài Gate; và người chơi có thể từ chối/giải phóng mục tiêu ra sao.
+Chance phụ thuộc rank gap, Potential, perk, achievement hay context nào; thất bại có tiêu Essence/Focus; multiplayer ownership; corpse vanilla ngoài Gate; exact timing/presentation của pending claim và nghi thức từ chối/chia tay.

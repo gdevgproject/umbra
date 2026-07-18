@@ -7,7 +7,7 @@
 
 ## 1. North-star promise
 
-UMBRA là một game dark-fantasy dài hạn được xây **bên trong và cùng với Minecraft**: người chơi bắt đầu bằng đời sống sinh tồn hữu hạn, tự rèn luyện thành một chủ thể quyền lực, đánh bại và Trỗi Dậy những đối thủ đáng nhớ thành quân đoàn có danh tính, rồi dùng sức mạnh, công trình, quan hệ và lựa chọn của mình để làm một thế giới sống thay đổi theo thời gian.
+UMBRA là một game dark-fantasy dài hạn được xây **bên trong và cùng với Minecraft**: người chơi bắt đầu bằng đời sống sinh tồn hữu hạn, tự rèn luyện thành một chủ thể quyền lực, đánh bại và Trỗi Dậy một số đối thủ đáng nhớ thành Hắc Ảnh Cận Vệ có danh tính, rồi dùng sức mạnh, công trình, quan hệ và lựa chọn của mình để làm một thế giới sống thay đổi theo thời gian.
 
 Đây không phải “một combat mod cộng vài hệ RPG”. Đích đến là một **coherent total-overhaul** đủ sâu để người chơi có thể chọn nó làm mod trung tâm duy nhất, nhưng mỗi capability vẫn phải Minecraft-native, bật/tắt/test/migrate được và không kéo theo cả game chưa hoàn thành.
 
@@ -18,7 +18,7 @@ UMBRA kết hợp năm lớp mà không để lớp nào nuốt lớp còn lại
 1. **Minecraft survival sandbox:** ăn ở, tài nguyên, xây dựng, địa hình, sáng tạo và save do người chơi sở hữu.
 2. **Action embodiment:** camera góc ba chuyên nghiệp, điều khiển/animation/combat có trọng lượng; góc một vẫn được tôn trọng.
 3. **Long-form progression:** cày cuốc có mục tiêu, breakthrough, build, mastery và graduation; không grind rỗng/FOMO.
-4. **Shadow sovereign fantasy:** thu phục, gắn kết, phát triển và chỉ huy một quân đoàn bất tử có danh tính.
+4. **Shadow sovereign fantasy:** thu phục, gắn kết, phát triển và chỉ huy một đội Hắc Ảnh tinh nhuệ; từng thành viên đủ sâu để người chơi nhớ, phối hợp và lựa chọn.
 5. **Living systemic world:** Gate, dân cư, faction, công trình, sinh vật/mount và narrative phản ứng với hành động người chơi.
 
 ## 3. Audience stack
@@ -56,7 +56,7 @@ Người chơi không chỉ **có** sức mạnh; họ nhớ mình từng yếu,
 | ID | Lời hứa | Nhu cầu tâm lý | Biểu hiện quan sát được | Failure mode phải tránh |
 |---|---|---|---|---|
 | `PIL-ASCENDANCE` | Thăng tiến và quyền lực | competence, status, momentum | động từ, silhouette, âm thanh, lựa chọn và phản ứng thế giới đổi theo mốc | number inflation, auto-win |
-| `PIL-AGENCY` | Tự do và quyền sở hữu | autonomy, self-expression | chọn đường sống/build/mục tiêu/căn cứ/quân đoàn; thế giới không ép một nhịp duy nhất | choice giả, menu railroad |
+| `PIL-AGENCY` | Tự do và quyền sở hữu | autonomy, self-expression | chọn đường sống/build/mục tiêu/căn cứ/đội Hắc Ảnh; thế giới không ép một nhịp duy nhất | choice giả, menu railroad |
 | `PIL-MASTERY` | Tinh thông | học, kiểm soát, tự hào | timing, camera, vị trí, build, chuẩn bị và command đều có thể luyện | input bị animation cướp, stat thắng mọi thứ |
 | `PIL-ATTACHMENT` | Gắn kết | care, memory, companionship | Shadow/NPC/place có tên, lịch sử, quan hệ và hồi đáp lâu dài | pet vô danh, bi kịch rẻ tiền |
 | `PIL-DISCOVERY` | Kỳ quan và bí ẩn | curiosity, surprise | địa điểm, sinh thái, Gate, faction, lore và systemic event tạo câu hỏi mới | checklist map, reskin |
@@ -80,6 +80,7 @@ Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một
 9. **Hiệu năng là contract:** quy mô lớn dùng LOD/representation/budget, không hứa entity full-simulation vô hạn.
 10. **Original by transformation:** reference tạo principle/hypothesis; UMBRA tự sở hữu premise, rule, asset, lore, moveset và consequence.
 11. **Save của người chơi là tài sản:** world cũ, công trình, Shadow identity và irreversible choice không bị update tùy tiện xóa giá trị.
+12. **Retinue depth before count:** tối đa năm Shadow sở hữu, bốn triển khai chiến đấu; không mở kho/quân đoàn ẩn để đánh đổi attachment, readability và AI depth lấy quân số.
 
 ## 6. Anti-goals đã hiệu chỉnh
 
@@ -99,11 +100,11 @@ Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một
 
 ```text
 Sinh tồn/quan sát thế giới và tự chọn tham vọng
-→ Xây nơi đứng chân, chuẩn bị build/quân đoàn/vật tư
+→ Xây nơi đứng chân, chuẩn bị build/đội Hắc Ảnh/vật tư
 → Di chuyển, khám phá, giao tiếp hoặc nhận diện nguy cơ/cơ hội
 → Chiến đấu/chinh phục bằng control, mastery, build và command
 → Thu hoạch kiến thức, vật chất, quan hệ hoặc đối thủ có thể Trỗi Dậy
-→ Chuyển hóa phần thưởng thành năng lực, công trình, quân đoàn và world consequence
+→ Chuyển hóa phần thưởng thành năng lực, công trình, đội Hắc Ảnh và world consequence
 → Trở về để thấy thế giới ghi nhận mình
 → Chọn một tham vọng lớn hơn hoặc một cách sống khác
 ```
@@ -121,6 +122,9 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Hiệu năng là constraint thiết kế của mọi capability và world dài; không để tới giai đoạn polish cuối.
 - Death giữ progression dài hạn/Shadow identity, recall deployment và tạo consequence tạm thời theo mode/activity; Creative là first-class author/debug sandbox có provenance.
 - Living society phát triển từ identity/event ledger và hành vi hub nhìn thấy được trước khi mở settlement/faction/deep individual simulation.
+- Fabric là loader tối ưu hiện tại; NeoForge là first-class future target bắt buộc. Hai loader dùng artifact/adapter riêng nhưng không được fork gameplay semantics hoặc canonical save.
+- Mọi runtime change được Agent phân loại performance risk để đo đúng lúc; không benchmark mù mọi commit và không bỏ qua feature có hot-path/cardinality risk.
+- Shadow roster mở từ một tới tối đa năm slot; tối đa bốn Shadow triển khai chiến đấu. Slot thứ năm là đột phá muộn/dự bị chiến lược, không là actor thứ năm cộng sức mạnh miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
 
 ## 9. Cửa feedback Product hiện tại
 

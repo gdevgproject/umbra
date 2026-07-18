@@ -24,7 +24,7 @@ Bạn không cần trả lời tất cả trong một lần. Đọc tuyến này
 Đây là 12 câu có đòn bẩy lớn nhất; ưu tiên trả lời vòng tới.
 
 1. Khi hai người cùng level nhưng build khác, bạn muốn **động từ/cách chơi** khác rõ hay chủ yếu khác hiệu quả con số?
-2. Ở đầu, giữa và cuối game, sức mạnh nên nghiêng bao nhiêu về bản thân player so với Legion? Không cần phần trăm; mô tả ai “kết liễu”, ai “kiểm soát”, ai “gánh sai lầm”.
+2. Ở đầu, giữa và cuối game, sức mạnh nên nghiêng thế nào giữa bản thân player và tối đa bốn Hắc Ảnh đang triển khai? Không cần phần trăm; mô tả ai “kết liễu”, ai “kiểm soát”, ai “gánh sai lầm”, và khi chỉ mang 0/1/2 Shadow thì game bù bằng lựa chọn hay encounter ra sao.
 3. Mọi build có phải tự solo được main progression, hay game được phép buộc đổi loadout/Shadow nhưng không buộc respec?
 4. Năm fantasy `sức mạnh–nhanh nhẹn–sinh tồn–pháp/điều quân–nhận thức` có đúng không? Nếu đúng, tên/ranh giới nào đang trùng hoặc thiếu?
 5. Attribute nên mở capability/milestone mới, hay chỉ tăng liên tục? Ví dụ STR mở phá posture, PER mở đọc weakness.
@@ -45,7 +45,7 @@ Bạn không cần trả lời tất cả trong một lần. Đọc tuyến này
 17. “Hệ” là vòng khắc chế cố định, quan hệ ngữ nghĩa theo tình huống, hay cả hai? Enemy có một weakness hay profile nhiều lớp?
 18. Guard, posture, stagger, poise và crowd-control là một hay nhiều resource/state? Ai nhìn thấy chúng và bằng cue nào?
 19. Resistance chống damage, chống buildup hay giảm duration/control? Có cap và diminishing return không?
-20. Multi-hit/AoE/Legion đông nên hiện từng số, gộp theo cửa sổ, chỉ số tổng, hay adaptive theo density?
+20. Multi-hit/AoE/Retinue + hostile đông nên hiện từng số, gộp theo cửa sổ, chỉ số tổng, hay adaptive theo density?
 21. Damage number mặc định bật hay contextual/optional? Người chơi cần thấy HP exact, bar, màu, icon hệ, crit, absorbed, blocked và overkill tới đâu?
 22. Damage recap cần đủ sâu cho buildcraft nhưng không biến combat thành bảng tính như thế nào?
 

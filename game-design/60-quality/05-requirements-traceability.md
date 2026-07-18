@@ -7,7 +7,7 @@
 |---|---|---|---|
 | R01–02 | Gate đóng đúng luật; leave/deadline có hậu quả | Dungeon/Gate | transition + reload/Break tests |
 | R03–04 | Corpse/Echo và ba Arise công bằng, boss không gacha | Shadows/Capture | expiry/idempotency/UI probability tests |
-| R05 | Quân đoàn sâu, không upkeep, có command/garrison/revive | Shadows | identity/deployment/LOD tests |
+| R05 | Retinue tối đa năm sâu, không upkeep; tối đa bốn active có command/reserve/home/revive | Shadows + `CTR-SHADOW-RETINUE` | slot/membership/claim/deployment/identity/LOD tests |
 | R06 | Combat mastery, chống spam, Focus/dodge/parry có cap | Combat + Contracts | action/hit/latency/feel tests |
 | R07–09 | Tự build, rank đầy đủ, endgame giữ world cũ | Player + World | migration/build/Strata snapshot |
 | R10–11 | Boss dạy; faction/AI khác định tính | Encounter + AI + Content | teaching/fairness/distinctness playtests |
@@ -25,7 +25,7 @@
 | R26 | Third-person overhaul là core; aim/target/obstruction/first-person được thiết kế trước combat polish | Camera + Presentation | camera room, ray/target oracle, comfort/readability playtest |
 | R27 | Public goal là full game nhưng mọi phase nội bộ luôn chơi được | Scope + Production + Git | playable snapshot manifest + mainline smoke |
 | R28 | User test ít; máy tự test lifecycle/logic/render có thể tự động | Quality + Observability | unit/server/client GameTest + Test Card/diagnostics bundle |
-| R29 | Một người + Agent không mất context qua chat | Governance + Git + Ticket | read set/handoff/test/commit records |
+| R29 | Một người + Agent không mất context qua chat; user chỉ báo pass/next và làm human Test Card khi cần | Governance + Ticket Autopilot + Execution Ledger + Git | cold-start reconcile, change-surface/read set, exact test/commit/handoff/next-action records |
 | R30 | Offline hiện tại, multiplayer-ready về authority/ownership/security | Platform | integrated/dedicated parity, packet/reconnect/ownership tests |
 | R31 | Death/respawn/reload/creative/`/give`/dimension/chunk/crash không làm mất hoặc nhân state | Platform + QA + domains | lifecycle matrix + migration/recovery fixtures |
 | R32 | UMBRA all-in-one first-party; external overhaul không làm méo core và có support tier rõ | Scope + Content + Platform | capability contract, compatibility tier/matrix |
@@ -45,7 +45,11 @@
 | R46 | Living society có NPC sâu nhưng scale bằng identity/event/aggregate tiers | World + AI + Data + Performance | hub exemplar, hydrate/dehydrate continuity, ledger compaction/soak |
 | R47 | Future multiplayer ưu tiên co-op 2–4 rồi PvP 1v1/3v3/ranking mà không bóp PvE/solo | Platform + Security + Balance | ownership/threat/ruleset contracts; future dedicated multi-client evidence |
 | R48 | Attribute, Potential, damage, hệ/counter và display được quyết từ fantasy/evidence, không từ công thức cũ | Player + Balance + Combat + UX | DB-042 research, simulations, multi-build/mastery playtests, migration |
+| R49 | Agent tự nhận diện feature cần performance test, không benchmark mọi thay đổi hoặc bỏ sót hot path | Test Architecture + Performance + Production | `PR-0–PR-3`, ticket trigger, targeted/stress/soak evidence và regression routing |
+| R50 | Fabric tối ưu hiện tại nhưng UMBRA có thể trở thành first-class NeoForge build mà không fork gameplay/save | Platform + Compatibility + QA + Release | import guard, Fabric conformance, loader port catalog; future cross-loader save/parity/perf matrix |
+| R51 | Shadow roster nhỏ để từng identity/AI/relationship sâu: slot 1→5, active cap 4, reserve cuối rất muộn, không army archive | Shadows + Balance + UX + Platform | `DB-044`, full-roster claim/parting, 0/1/2/4 balance, save/command/usability proof |
+| R52 | Shadow quỳ/cúi/biểu cảm theo context/personality mà không spam hoặc cắt gameplay | AI + Narrative + Animation + Accessibility | `DB-045`, semantic/priority/reservation/fallback tests + attachment playtest |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 
-Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, multiplayer gameplay, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Multiplayer **foundation seams** đã framed theo `M1–M3`; gameplay/service vẫn future và không nằm current roadmap.
+Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, multiplayer gameplay, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Multiplayer **foundation seams** đã framed theo `M1–M3`; gameplay/service vẫn future. NeoForge là future loader target bắt buộc nhưng adapter/artifact chưa nằm current implementation backlog; C1 chỉ đạt portability `L0`.

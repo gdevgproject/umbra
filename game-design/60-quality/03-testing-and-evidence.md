@@ -20,19 +20,60 @@ Người dùng không làm thay automated oracle. User time chỉ dùng cho feel
 | Integration | command→event→state→sync/persistence | integrated + dedicated harness | capability gate |
 | Simulation/property | progression/economy/TTK/generation/edge space | seeded simulation/property tests | balance/content change |
 | Soak/chaos | unload/reload/reconnect/lag/crash/long-run | bot, fault injection, repeated seeds | snapshot/release |
-| Performance | tick/frame/network/save budgets | benchmark scenes/profilers | capability/release |
+| Performance | tick/frame/memory/GC/network/save/cardinality budgets | counters, benchmark scenes, soak/profilers | theo `PR-0–PR-3`, capability/release |
 | Compatibility | versions/mods/shaders/config/world modes | pinned matrix | release baseline/change |
 | Human playtest | feel, learning, agency, attachment, comfort | protocol + capture bundle | sau automated green |
 
-Fabric documentation hiện hỗ trợ Loader JUnit, server GameTest và client GameTest có screenshot; đây là baseline hypothesis cần pin theo release. [Fabric Automated Testing](https://docs.fabricmc.net/develop/automatic-testing)
+Fabric documentation hiện hỗ trợ Loader JUnit, server GameTest và client GameTest có screenshot; đây là current baseline hypothesis cần pin theo release. NeoForge cũng có GameTest runner nhưng chỉ trở thành required lane khi adapter/target được mở; shared oracle không phụ thuộc runner. [Fabric Automated Testing](https://docs.fabricmc.net/develop/automatic-testing), [NeoForge Game Tests](https://docs.neoforged.net/docs/misc/gametest/)
 
 Ranh giới claim và thuật toán khi nào mới nhờ user nằm tại [Automation Boundaries](09-automation-boundaries-and-escalation.md).
 
-## 3. Test pyramid không được dùng máy móc
+## 3. Performance Risk Routing — Agent tự quyết khi nào phải đo
+
+Mọi Feature Cell/ticket/runtime change phải gán đúng một class; `N/A` không thay `PR-0` và luôn cần lý do. Khi không chắc cardinality/thread/hot-path, chọn mức cao hơn rồi hạ bằng evidence.
+
+| Class | Khi dùng | Evidence bắt buộc |
+|---|---|---|
+| `PR-0 — NONE` | docs/text/data thuần không đổi runtime work hoặc asset weight | `N/A — reason`; không chạy benchmark |
+| `PR-1 — WATCH` | thay nhỏ ngoài hot path nhưng chạm runtime/config/content count có cap | counter/smoke của scene gần nhất; xác nhận không mở cardinality mới |
+| `PR-2 — TARGETED` | đổi tick/render/input callback, loop/query, AI/path, entity count, allocation/cache, VFX/audio/UI repetition, serialization/save/network, generation hoặc async work | baseline trước/sau + benchmark scene/subsystem profile + budget verdict |
+| `PR-3 — STRESS/SOAK` | capability mới có systemic load; scheduler/persistence/render/worldgen/loader/version boundary; cap/backpressure đổi; regression performance/crash; snapshot/release | targeted + stress/soak/lifecycle + relevant hardware/backend/loader matrix |
+
+### Trigger nâng tối thiểu lên `PR-2`
+
+- work chạy theo tick/frame/entity/chunk/player/packet/item/UI row;
+- nested iteration hoặc query có input/cardinality do content/save quyết;
+- tạo object/buffer/path/task/particle/sound thường xuyên;
+- cache/pool/queue có owner, cap hoặc invalidation thay đổi;
+- main-thread I/O, codec, migration, world mutation hoặc network payload đổi;
+- camera/render/animation hook, Mixin/patch/event callback đổi;
+- feature thêm degradation/LOD hoặc dựa vào async/concurrency.
+
+### Trigger nâng lên `PR-3`
+
+- chưa biết worst-case cardinality hoặc chưa có backpressure;
+- ảnh hưởng nhiều subsystem hay world chơi dài;
+- thay Minecraft/Java/loader/backend hoặc adapter lifecycle;
+- thêm group AI, generation, persistent simulation, large battle/VFX hoặc save graph;
+- chuẩn bị capability snapshot/public release;
+- sửa lag, freeze, memory leak, crash hoặc regression budget.
+
+### Quy trình evidence
+
+1. Impact Map khai risk class, trigger, budget owner và benchmark ID trước implementation.
+2. `PR-2/3` lấy baseline/control trước khi đổi nếu build hiện tại chạy được; ghi warm-up, seed, profile, profiler state và noise.
+3. Thêm counter/label/fixture cùng feature; không đợi lag mới instrument.
+4. Chạy lane nhỏ nhất chứng minh risk, rồi escalation nếu tail/cardinality bất thường.
+5. So median/p95/p99, spike, live-set/queue và outcome correctness; không tối ưu theo FPS average hoặc một run.
+6. Nếu regression vượt budget/noise: giữ gate đỏ, profile attribution, isolate cause, sửa và chạy lại cùng fixture. Không nới threshold để làm xanh nếu chưa có waiver/timebox/owner.
+
+Exact scene, metric và release condition do [Performance Constitution](04-performance-budgets.md) sở hữu. Test Architecture chỉ sở hữu routing này, không lặp budget.
+
+## 4. Test pyramid không được dùng máy móc
 
 Unit nhiều nhưng không thay integration Minecraft. GameTest không chứng minh combat hay camera dễ chịu. Screenshot không chứng minh animation timing. Playtest cảm giác không chứng minh idempotency/save. Mỗi risk phải chọn đúng oracle.
 
-## 4. Evidence record
+## 5. Evidence record
 
 Mỗi record ghi:
 
@@ -44,10 +85,11 @@ Mỗi record ghi:
 - expected/actual và reproduction rate;
 - limitation/flakiness/quarantine owner;
 - verdict + linked bug/ADR/follow-up.
+- performance risk class/trigger, benchmark/control ID và before/after khi liên quan.
 
 “Đã test” hoặc ảnh không có build/scenario ID không phải evidence đủ.
 
-## 5. Regression invariants nền
+## 6. Regression invariants nền
 
 1. Gate chỉ `CLOSED` sau full objective + valid exit.
 2. Leave/save/reload giữ Gate/objective/enemy/Soul Echo hợp lệ và không duplicate reward.
@@ -61,12 +103,14 @@ Mỗi record ghi:
 10. Item từ loot/craft/creative/`/give` có state hợp lệ hoặc bị từ chối rõ.
 11. Integrated và dedicated server cho cùng gameplay outcome ở scenario tương đương.
 12. Camera/reticle không làm server accept target/reach xuyên vật cản.
+13. Roster không vượt năm member, active combat không vượt bốn; full-roster capture không auto-delete/overwrite và retry không duplicate pending claim.
+14. Shadow social expression không cắt legal combat action, spam nghi lễ hoặc commit bond/memory hai lần sau interruption/reload.
 
-## 6. Feature readiness test pack
+## 7. Feature readiness test pack
 
-Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance, missing content/config và backward migration khi liên quan. `N/A` cần lý do.
+Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. `N/A` cần lý do.
 
-## 7. Failure handling
+## 8. Failure handling
 
 Flaky test bị coi là defect: ghi owner, reproduction, quarantine deadline; không rerun tới xanh rồi bỏ qua. Khi test fail, không sửa expectation cho khớp code nếu contract chưa đổi. Bug player-visible cần regression trước hoặc cùng fix.
 

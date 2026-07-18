@@ -11,7 +11,7 @@ Người chơi là ngoại lệ duy nhất có thể tăng trưởng trong một
 
 ## Invariants đề xuất
 
-- Hai trục: `Self` và `Legion`, cộng hưởng nhưng không trùng vai trò.
+- Hai trục: `Self` và `Active Retinue`, cộng hưởng nhưng không trùng vai trò; reserve thứ năm không tính power trận hiện tại.
 - Rank là danh tính/xã hội/quyền truy cập, không chỉ level gate.
 - Free attribute có respec hợp lý; lựa chọn irreversible chỉ dành cho Potential đã preview.
 - Mỗi giai đoạn mở một loại quyết định mới.

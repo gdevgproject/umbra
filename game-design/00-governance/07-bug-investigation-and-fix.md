@@ -36,6 +36,7 @@ Bug ID, build/commit/schema, environment/mod/config, game mode, world/seed, prec
 - Regression khó định vị dùng last-known-good và `git bisect` khi test có thể tự động.
 - Một bug ở boundary phải audit mọi consumer cùng pattern.
 - Nếu bug có thể duplicate damage/reward/item hoặc mất save, thêm idempotency/invariant audit chứ không chỉ fix một call site.
+- Nếu root cause là invariant/engine quirk khó thấy, regression test là bộ nhớ chính; thêm guarded comment `INVARIANT/ENGINE_QUIRK/AUTHORITY/SAVE_COMPAT/PERF_BUDGET/WORKAROUND` dẫn ID/test theo Ticket Autopilot. Không để lại “đừng sửa đoạn này” không có oracle.
 
 ## 5. Severity
 
@@ -48,4 +49,4 @@ Bug ID, build/commit/schema, environment/mod/config, game mode, world/seed, prec
 
 ## 6. Fix Definition of Done
 
-Reproduction cũ fail trước/fix sau; neighboring scenarios xanh; save/authority/perf impact xét; diagnostics reason rõ; docs/known issues/migration cập nhật; commit nguyên tử; không còn temporary bypass không có ticket.
+Reproduction cũ fail trước/fix sau; neighboring scenarios xanh; save/authority/perf impact xét; diagnostics reason rõ; docs/known issues/migration cập nhật; guarded invariant/comment đồng bộ khi cần; Execution Ledger/handoff ghi exact evidence và next action; commit nguyên tử; không còn temporary bypass không có ticket.

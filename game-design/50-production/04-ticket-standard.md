@@ -12,12 +12,15 @@
 - dependencies và files/modules dự kiến, không áp đặt solution nếu chưa review;
 - acceptance theo scenario/oracle;
 - data/save/migration, client/server, performance, accessibility/localization impact;
+- performance risk class `PR-0–PR-3`, trigger, budget/benchmark ID và before/after evidence hoặc `N/A — reason`;
+- loader portability impact: common contract, Fabric adapter, loader patch/import boundary, save/artifact parity hoặc `N/A — reason`;
 - test/observability artifact;
 - rollback/feature flag khi rủi ro;
 - DRI, reviewers và Definition of Done.
 - branch/commit delivery policy và exact handoff artifact;
 - Minecraft lifecycle IDs phải chạy hoặc `N/A — reason`;
 - baseline test command/result trước khi sửa nếu là bug/refactor.
+- execution-ledger transition dự kiến và điều kiện chọn ticket tiếp theo.
 
 ## Quy tắc chia
 
@@ -30,3 +33,5 @@ Bug trái spec: sửa + regression. Chi tiết nội bộ không đổi behavior
 ## Quy trình thực thi
 
 Ticket đã ready được triển khai theo [Engineering/Git Workflow](../00-governance/06-engineering-and-git-workflow.md); bug theo [Bug Workflow](../00-governance/07-bug-investigation-and-fix.md). Ticket không hoàn tất nếu chỉ có code mà thiếu self-review, exact test evidence, doc sync và context handoff cho Agent sau.
+
+Khi một task mới nhận tín hiệu “ticket trước đạt/tiếp”, Agent dùng [Ticket Autopilot](07-ticket-autopilot-protocol.md) và [Execution Ledger](08-execution-ledger.md). User verdict chỉ đóng human question; `DONE` cần automated evidence, commit/handoff và ledger khớp. Hướng dẫn user luôn là Test Card tiếng Việt, không giao checklist regression rộng.

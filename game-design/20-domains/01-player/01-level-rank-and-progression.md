@@ -20,7 +20,7 @@ Thời lượng cũ `1–20 nhanh; 20–40 45–90 phút/level; 40–70 2–3 gi
 | E | level 10 + reassessment | Gate E, skill slot 2 |
 | D | level 20 + boss E | Gate D, Job Change |
 | C | level 35 + boss D | Gate C, Instant key, slot 3 |
-| B | level 50 + command achievement | formation/garrison |
+| B | level 50 + command achievement | formation/home assignment candidate |
 | A | level 65 + Gate B feat | tactical boss, ground mount |
 | S | level 80 + boss A trial | Gate S, Exchange, Domain |
 | S+ | level 95 + S chain | Tower/deep challenge |

@@ -43,7 +43,7 @@ Mỗi capability phải:
 
 ### Foundation bắt buộc dù người chơi ít nhìn thấy
 
-Logical server authority, stable IDs/content registry, save/migration/recovery, capability flags, input contexts, third-person camera seam, action/hit cadence, localization, observability, automated tests, performance budgets và compatibility adapters.
+Logical server authority, stable IDs/content registry, save/migration/recovery, capability flags, input contexts, third-person camera seam, action/hit cadence, localization, observability, automated tests, performance risk/budgets và Fabric-first/NeoForge-ready compatibility adapters.
 
 ### Core identity của public product
 
@@ -59,11 +59,11 @@ Logical server authority, stable IDs/content registry, save/migration/recovery, 
 
 ### First-party expansion capabilities được xếp theo dependency
 
-Co-op/PvP/server society, mount nước/bay, vehicle, aquatic civilization, thêm dimension/Strata, content packs, controller, replay/photo/streamer và social routes đều có thể trở thành phần UMBRA chính chủ. Chúng không bị loại vì scope lớn; chúng được xếp sau capability nền cần thiết để không phá save/camera/world/AI. Chuẩn bị bằng owner IDs, authority, content contracts và adapters—không bằng empty interfaces cho mọi ý tưởng tưởng tượng được.
+Co-op/PvP/server society, mount nước/bay, vehicle, aquatic civilization, thêm dimension/Strata, content packs, controller, replay/photo/streamer và social routes đều có thể trở thành phần UMBRA chính chủ. NeoForge là future platform target đã khóa, đi theo port train riêng chứ không phải feature gameplay. Các mục này được xếp sau capability nền cần thiết để không phá save/camera/world/AI. Chuẩn bị bằng owner IDs, authority, content contracts và adapters—không bằng empty interfaces cho mọi ý tưởng tưởng tượng được.
 
 ## 5. 1.0 scope policy
 
-Product direction gồm F→Vương Giả, campaign dài, nhiều faction/boss, Gate/Red/Break, Tower/Strata, Shadow Legion, city/home/family, living world và items/economy. Không đặt một “vision ceiling” hoặc roster count giả ở giai đoạn design. Release manifest cụ thể được Game Director khóa bằng coherence, quality và dependency evidence sau vertical slices; không tiếp tục hỏi user một con số boss/quest tùy ý.
+Product direction gồm F→Vương Giả, campaign dài, nhiều faction/boss, Gate/Red/Break, Tower/Strata, Hắc Ảnh Cận Vệ, city/home/family, living world và items/economy. Breadth boss/quest/world content không bị khóa bằng một “vision ceiling” giả; riêng Shadow topology đã khóa tối đa năm sở hữu/bốn triển khai để bảo vệ chiều sâu. Release manifest cụ thể được Game Director khóa bằng coherence, quality và dependency evidence sau vertical slices; không tiếp tục hỏi user một con số boss/quest tùy ý.
 
 Nếu phải giảm breadth, giảm số instance trước khi cắt depth của identity/core loop. Một boss/Shadow/faction sâu tốt hơn nhiều reskin. “Full game” nghĩa lời hứa đã công bố hoàn chỉnh, không nghĩa mọi ý tưởng tương lai đã có mặt.
 

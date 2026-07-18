@@ -1,51 +1,96 @@
-# SYS-COMPAT — Version, compatibility và porting policy
+# SYS-COMPAT — Version, loader, compatibility và porting policy
 
 > **DRI:** Release Engineer + Platform/Compatibility Engineer
+> **Approver:** Technical Director
 > **Status:** `PROPOSED`
 
-## 1. Baseline hiện hành
+## 1. Support truth hiện hành
 
-Baseline discovery là Minecraft Java `26.2`, Java `25`, Fabric; vanilla 26.2 công bố Data Pack `107.1`, Resource Pack `88.0` và experimental Vulkan/OpenGL fallback. Tại thời điểm audit 2026-07-18, Fabric hướng dẫn 26.2 dùng Loom `1.17`, Gradle `9.5.1` và stable Loader lúc công bố là `0.19.3`; exact Fabric API/build plugin vẫn phải pin trong release ADR, không lấy chữ “latest” làm reproducible build.
+Baseline discovery hiện tại là Minecraft Java `26.2`, Java `25`, Fabric. Vanilla 26.2 công bố Data Pack `107.1`, Resource Pack `88.0` và experimental Vulkan/OpenGL fallback. Fabric 26.2 guidance dùng Loom `1.17`, Gradle `9.5.1` và Loader stable lúc công bố `0.19.3`; exact API/plugin/build phải pin trong release ADR, không dùng chữ “latest”.
 
-Nguồn: [Minecraft Java 26.2](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-2), [Fabric for Minecraft 26.2](https://fabricmc.net/2026/06/15/262.html).
+NeoForge là future loader bắt buộc nhưng **chưa supported và chưa có 26.2 manifest được UMBRA kiểm chứng** tại audit 2026-07-19. Official NeoForge docs/news hiện cung cấp guidance 26.1 trong research set; Agent không được suy ra 26.2 bằng version name.
 
-## 2. Support policy
+Nguồn: [Minecraft Java 26.2](https://www.minecraft.net/en-us/article/minecraft-java-edition-26-2), [Fabric for Minecraft 26.2](https://fabricmc.net/2026/06/15/262.html), [NeoForge docs](https://docs.neoforged.net/), [NeoForge news](https://neoforged.net/news/).
+
+## 2. Hai trục compatibility độc lập
+
+| Trục | Ví dụ | Gate riêng |
+|---|---|---|
+| Minecraft baseline | Fabric 26.2 → Fabric 26.3 | API/data/resource/render/key/save diff |
+| Loader target | Fabric 26.2 → NeoForge cùng Minecraft baseline | adapter/conformance/parity/package/save/perf |
+
+Không đổi cả Minecraft baseline và loader trong cùng một port spike nếu có thể; nếu fail sẽ không biết trục nào gây lỗi. Mỗi artifact target đúng một `Minecraft × loader × Java × UMBRA schema/content` manifest.
+
+## 3. Support tiers
 
 | Tier | Cam kết |
 |---|---|
-| `SUPPORTED` | exact Minecraft/Fabric/Java baseline trong release manifest; vanilla survival/creative/spectator đã khai; first/third-person UMBRA |
-| `VERIFIED OPTIONAL` | integration/config/resource pack được liệt kê và chạy matrix |
+| `SUPPORTED` | exact manifest và loader artifact đã qua release gate; hiện chỉ Fabric khi C1 tồn tại |
+| `REQUIRED_FUTURE` | target Product đã khóa nhưng chưa có user support promise; NeoForge hiện ở đây |
+| `VERIFIED OPTIONAL` | integration/config/resource pack cụ thể chạy matrix |
 | `BEST EFFORT` | mod không đụng cùng boundary; bug được xem nhưng không block release |
-| `UNSUPPORTED CONFLICT` | combat/camera/animation/UI/progression/world-overhaul khác ghi đè cùng contract |
+| `UNSUPPORTED CONFLICT` | combat/camera/animation/UI/progression/world overhaul khác ghi đè cùng contract |
 
-UMBRA là overhaul ưu tiên và có thể can thiệp sâu. Không hứa tương thích mọi mod; khi xung đột, UMBRA không làm méo core experience để nhường một overhaul khác. Tuy vậy, feature vanilla không liên quan—đặc biệt first-person, mining, building, inventory và world save—không được phá chỉ vì UMBRA ưu tiên.
+UMBRA có thể can thiệp sâu và không hứa tương thích mọi mod. Feature vanilla không liên quan—first-person, mining, building, inventory và world save—không được phá chỉ vì UMBRA ưu tiên.
 
-## 3. Minecraft version strategy
+## 4. Minecraft version strategy
 
-- Mỗi release artifact target một baseline/minor đã kiểm chứng; không khai range rộng chỉ vì Fabric cho phép syntax semver.
-- Minecraft không tuân semantic versioning; patch/minor đều phải qua compatibility evidence.
-- Không làm một JAR đa-minor hoặc backward binary compatibility nếu adapter/test cost lớn hơn giá trị. Thường port source sang release branch mới an toàn hơn.
-- Backward compatibility ưu tiên **world/save migration**, không phải chạy cùng binary trên mọi Minecraft cũ.
-- Giữ previous stable branch đủ lâu để xuất/khôi phục save và sửa lỗi mất dữ liệu nghiêm trọng; feature mới đi vào active baseline.
-- Upgrade save chỉ từ các schema được công bố. Downgrade world không support; game cảnh báo/refuse hoặc yêu cầu copy backup, không thử “best effort” trên save chính.
+- Mỗi release artifact target một baseline đã kiểm chứng; không khai range rộng chỉ vì metadata cho phép.
+- Patch/drop đều qua compatibility evidence; Minecraft không cho UMBRA một semantic-versioning promise.
+- Không làm một JAR đa-minor nếu adapter/test cost vượt giá trị. Port source trên branch mới thường an toàn hơn.
+- Backward compatibility ưu tiên world/save migration, không phải binary chạy mọi bản Minecraft cũ.
+- Giữ previous stable branch đủ lâu để restore/export và sửa data-loss nghiêm trọng.
+- Downgrade world không support: cảnh báo/refuse hoặc restore copy, không thử best-effort trên save chính.
 
-## 4. Architecture chống break
+## 5. Loader strategy
 
-Minecraft/Fabric hooks nằm sau adapter theo capability: input, camera/render, registry/data, networking, persistence, UI và lifecycle. Gameplay domain không gọi raw platform API khắp nơi. Ưu tiên Fabric event/API; mixin có owner, target, failure symptom, version sensitivity và regression test.
+Canonical boundary nằm tại [Loader Portability Contract](07-loader-portability-and-adapter-contract.md).
 
-26.2 có experimental Vulkan và Fabric cảnh báo raw OpenGL sẽ break; UMBRA dùng Minecraft/Blaze3D render abstraction, không raw OpenGL trong gameplay/presentation modules. Backend OpenGL/Vulkan là matrix riêng khi renderer được triển khai.
+- Fabric là composition root/adapter hiện tại và được tối ưu bằng API/hook phù hợp.
+- NeoForge dùng adapter/artifact riêng; không đọc Fabric adapter hoặc fork gameplay rule.
+- Stable ID, content definitions, payload semantics, save schema và scenario oracle dùng chung.
+- Loader event, lifecycle, config, attachment, packet context, patch/mixin/AT và packaging nằm ngoài domain core.
+- Không phát hành universal JAR hoặc dùng runtime reflection để đoán loader.
+- Feature parity được khai bằng capability manifest; khác biệt có chủ ý cần ADR/fallback, không im lặng.
 
-## 5. Porting train
+## 6. Architecture chống break
+
+Minecraft/loader hooks nằm sau port theo capability: bootstrap/lifecycle, side, registry/content, input, camera/render, networking, persistence, config, UI, scheduler và tests. Gameplay domain không gọi raw platform API khắp nơi.
+
+Fabric event/API được ưu tiên; Mixin có owner, Hook Requirement, target, failure symptom, version sensitivity và regression. NeoForge future re-evaluate bằng official event/extension trước khi dùng AT/Mixin. 26.2 có experimental Vulkan nên UMBRA dùng Minecraft render abstraction và kiểm OpenGL/Vulkan riêng.
+
+## 7. Version port train — cùng loader
 
 ```text
-Release note/API diff → sandbox branch → compile/bootstrap
-→ adapter/mixin inventory → data/resource pack diff → key baseline diff
+Official/API diff → sandbox branch → compile/bootstrap
+→ adapter/patch inventory → data/resource/key diff
 → automated/lifecycle/save migration → render/perf matrix
-→ manual feel/readability smoke → compatibility ADR → promote baseline
+→ feel/readability smoke → compatibility ADR → promote
 ```
 
-Mỗi port record khóa Minecraft, data/resource pack versions, Fabric Loader/API/Loom/Gradle/Java, mappings, OS/JVM/GPU backend, dedicated server, known conflicts và rollback. Không nâng baseline trên `main` trước khi world copy và previous snapshot đều có đường khôi phục.
+Record khóa Minecraft, loader/API/build plugin/Gradle/Java, mappings khi liên quan, data/resource versions, OS/JVM/GPU backend, dedicated server, known conflicts và rollback.
 
-## 6. Release decision
+## 8. Loader port train — cùng Minecraft baseline
 
-Không buộc update ngày đầu Minecraft ra bản mới. Ưu tiên bảo toàn save và experience; new baseline chỉ được công bố khi capability gates xanh. Nếu Mojang update phá rendering/input/data lớn, duy trì bản UMBRA stable cũ trong khi port branch hoàn thiện là hành vi đúng, không phải thất bại.
+```text
+Matching stable loader/toolchain → adapter capability map
+→ harmless vertical spike → import/dependency audit
+→ shared contract + adapter conformance
+→ registry/network/save/lifecycle/dedicated
+→ cross-loader save fixture → render/input/perf parity
+→ capability manifest/known differences → technical preview
+→ supported gate
+```
+
+NeoForge port không bắt đầu chỉ vì loader phát hành. `DB-043` phải chứng minh Fabric boundary trước; port branch không thay đổi canonical gameplay để “làm NeoForge dễ hơn”.
+
+## 9. Artifact và save policy
+
+- Artifact name/manifest luôn chứa loader classifier; mod ID/namespace và UMBRA version giữ nhất quán.
+- Release notes nói rõ loader, Minecraft, Java, schema/content, supported features và known differences.
+- Cross-loader world portability chỉ được claim cho matrix đã test; restore-as-copy + backup manifest bắt buộc.
+- Loader-specific state không được lọt vào canonical payload. Nếu extension bất khả tránh, nó có version/fallback/migration owner.
+
+## 10. Release decision
+
+Không buộc update ngày đầu Minecraft/loader ra bản mới. New baseline/loader chỉ được công bố khi capability gates xanh. Duy trì Fabric stable trong lúc NeoForge port hoặc Minecraft update lớn là đúng; không trì hoãn trải nghiệm hiện tại để chạy theo version badge.

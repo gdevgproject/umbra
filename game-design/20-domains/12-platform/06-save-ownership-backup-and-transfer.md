@@ -32,7 +32,7 @@ Minecraft Java đã có flow mở thư mục backup và backup có thể chuyể
 
 ## 4. Backup bundle
 
-Một backup được hỗ trợ gồm full world directory và manifest đọc được chứa: world ID/name, timestamp, Minecraft/UMBRA/Fabric versions, schema/content versions, enabled first-party packs/capabilities, checksum/size, migration source và known warnings. Preferences export là bundle riêng tùy chọn.
+Một backup được hỗ trợ gồm full world directory và manifest đọc được chứa: world ID/name, timestamp, Minecraft/UMBRA/loader/API versions, schema/content versions, enabled first-party packs/capabilities, checksum/size, migration source và known warnings. Preferences export là bundle riêng tùy chọn.
 
 Không gọi backup “thành công” nếu chưa thử restore vào đường dẫn sạch và load–save–quit lại. Rotation mặc định giữ nhiều generation; không xóa backup duy nhất để tiết kiệm chỗ mà không hỏi.
 
@@ -45,6 +45,8 @@ close world cleanly → create/verify backup → copy archive to USB/drive
 ```
 
 Không mở save 26.2 bằng baseline cũ. Khi chuyển máy, đường dẫn tuyệt đối, username hệ điều hành và cache GPU không được nằm trong persistent references. UUID/player ownership mismatch phải có support flow rõ, không tự chuyển tài sản cho người khác.
+
+Chuyển Fabric ↔ NeoForge là một migration matrix riêng, không phải copy tùy ý. Chỉ support khi exact Minecraft/schema/content pair đã có cross-loader fixture; luôn restore-as-copy. Canonical state không serialize loader handle/class/runtime registry ordinal; quy tắc chi tiết do `SYS-LOADER-PORTABILITY` sở hữu.
 
 ## 6. Player-facing tools dự kiến
 

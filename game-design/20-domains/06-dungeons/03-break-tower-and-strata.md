@@ -13,4 +13,4 @@ Tower là chuỗi thử thách curated/procedural-hybrid với floor contract, c
 
 ## Strata
 
-Strata là lớp thế giới/progression sau endgame làm nội dung cũ có nghĩa mới qua rule set, encounter và reward mới. Prestige không reset trắng danh tính, nhà hay quân đoàn. Mọi Strata cần giải thích thứ gì được giữ, chuyển hóa, mở lại và vì sao người chơi tự nguyện bước vào.
+Strata là lớp thế giới/progression sau endgame làm nội dung cũ có nghĩa mới qua rule set, encounter và reward mới. Prestige không reset trắng danh tính, nhà hay Hắc Ảnh Cận Vệ. Mọi Strata cần giải thích thứ gì được giữ, chuyển hóa, mở lại và vì sao người chơi tự nguyện bước vào.

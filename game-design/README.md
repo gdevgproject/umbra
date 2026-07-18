@@ -3,7 +3,7 @@
 > **Trạng thái dự án:** `DESIGN_DISCOVERY`
 > **Mục đích:** một nguồn sự thật để người dùng đọc tuyến tính, feedback bằng lời; Agent tự định tuyến và duy trì toàn bộ hệ.
 
-UMBRA là Minecraft Java dark-fantasy gameplay overhaul quy mô lớn: người chơi đi từ kẻ vô danh tới Chúa Tể Hắc Ảnh, chinh phục Gate, tự xây build và biến đối thủ đáng nhớ thành quân đoàn có danh tính—trong khi xây dựng, khám phá, sinh tồn, nhà và thế giới Minecraft vẫn có giá trị.
+UMBRA là Minecraft Java dark-fantasy gameplay overhaul quy mô lớn: người chơi đi từ kẻ vô danh tới Chúa Tể Hắc Ảnh, chinh phục Gate, tự xây build và biến một số đối thủ đáng nhớ thành đội Hắc Ảnh Cận Vệ có danh tính—trong khi xây dựng, khám phá, sinh tồn, nhà và thế giới Minecraft vẫn có giá trị.
 
 Không còn bộ tài liệu cũ song song. Tất cả ý thiết kế đã có canonical home trong cây này; Git giữ lịch sử. Một mục có chữ `CANDIDATE`, `OPEN`, `DISCOVERY` không phải nội dung cần né mà là điều được trình bày trung thực để người dùng quyết hoặc cho phép nghiên cứu tiếp.
 
@@ -35,12 +35,15 @@ Chỉ đọc sau năm file trên hoặc khi muốn review đúng chủ đề:
 8. [Performance Constitution](60-quality/04-performance-budgets.md)
 9. [Death và game-mode policy](20-domains/02-combat/death/README.md)
 10. [Living Society](20-domains/08-world/05-living-society-simulation.md) → [Future Multiplayer Readiness](20-domains/12-platform/04-offline-first-multiplayer-readiness.md)
+11. [Performance Test Routing](60-quality/03-testing-and-evidence.md) → [Fabric/NeoForge Loader Portability](20-domains/12-platform/07-loader-portability-and-adapter-contract.md)
 
 Không cần đọc cả gói một lần; feedback sau từng file vẫn được Agent đồng bộ toàn hệ.
 
 ### Tuyến ưu tiên cho feedback thuộc tính/cân bằng hiện tại
 
 Đọc [Balance Discovery Guide](20-domains/01-player/03-attribute-and-balance-review-guide.md) trước. Hãy trả lời 12 câu Vòng A hoặc gửi nghiên cứu Where Winds Meet/Genshin theo format trong file; chưa cần đọc Parameter Registry. Sau vòng A, Agent mới dẫn sang damage/defense, enemy/counter và progression longevity để tránh khóa công thức khi fantasy còn mơ hồ.
+
+Nếu muốn review thay đổi Shadow vừa chốt trước, đọc theo thứ tự: [Shadow domain](20-domains/04-shadows/README.md) → [Retinue Capacity Contract](30-shared-contracts/07-shadow-retinue-capacity-and-membership.md) → [Shadow Expression](20-domains/05-ai/04-shadow-expression-and-ritual-coordination.md). Sau đó quay lại Balance Guide; câu 2 đã được viết lại để xét `Self ↔ active Retinue` thay vì một quân đoàn vô hạn.
 
 ### Vòng 2 — Đọc game tuyến tính theo miền
 
@@ -53,7 +56,8 @@ Mỗi domain README cho biết mission, ranh giới, invariant và các file chi
 1. [Capability Roadmap](50-production/01-capability-roadmap.md)
 2. [Design Backlog](50-production/02-design-backlog.md)
 3. [Implementation Backlog](50-production/03-implementation-backlog.md)
-4. [Quality Coverage](60-quality/06-design-coverage.md)
+4. [Ticket Autopilot](50-production/07-ticket-autopilot-protocol.md) → [Execution Ledger](50-production/08-execution-ledger.md)
+5. [Quality Coverage](60-quality/06-design-coverage.md)
 
 Đọc governance/content/quality/research khi muốn review quy trình hoặc bằng chứng, không bắt buộc để hiểu fantasy.
 

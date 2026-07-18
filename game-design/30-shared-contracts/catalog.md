@@ -24,6 +24,8 @@ Shared Contract chỉ tồn tại khi ít nhất hai Feature Cell dùng chung m�
 | `CTR-MULTIPLAYER-READINESS` | Platform + Security | action, Gate, Shadow, quest, reward | logical server, ownership, payload validation, permission/rate/sync | `DISCOVERY` |
 | `CTR-PERFORMANCE-BUDGET` | Performance + Technical Director | all runtime/content features | frame/tick/memory/I/O/network/cardinality budget, tier, degradation, evidence | `DISCOVERY` |
 | `CTR-DEATH-RECOVERY` | Systems + Platform | combat, Shadow, Gate, quest, game mode | retain/reset/recall, consequence composition, provenance, re-entry | `PROPOSED` |
+| `CTR-LOADER-PORTABILITY` | Platform + Compatibility | bootstrap, registry, network, save, config, render, tests | common semantics/schema, port boundary, adapter conformance, artifact/parity | `PROPOSED` |
+| `CTR-SHADOW-RETINUE` | Shadows + Systems | capture, identity, deployment, AI, UI, balance, save | slot 1→5, active cap 4, full-roster claim, membership lifecycle | `PROPOSED` |
 
 Chi tiết chỉ có hiệu lực tại canonical file của contract; catalog dùng để tìm owner và consumer, không lặp luật.
 
@@ -43,3 +45,5 @@ Chi tiết chỉ có hiệu lực tại canonical file của contract; catalog d
 - [Save ownership/backup/transfer](../20-domains/12-platform/06-save-ownership-backup-and-transfer.md)
 - [Performance Constitution](../60-quality/04-performance-budgets.md)
 - [Death và recovery](../20-domains/02-combat/death/README.md)
+- [Fabric-first/NeoForge-ready Loader Portability](../20-domains/12-platform/07-loader-portability-and-adapter-contract.md)
+- [Sức chứa và tư cách thành viên Hắc Ảnh Cận Vệ](07-shadow-retinue-capacity-and-membership.md)

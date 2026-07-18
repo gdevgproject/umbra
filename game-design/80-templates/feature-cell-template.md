@@ -74,7 +74,7 @@ Phải phủ: neutral, bốn hướng/chéo nếu liên quan, boundary, conflict
 | World/vanilla | | |
 | Authority/network | | |
 | Data/save/migration | | |
-| Performance/compatibility/config | | |
+| Performance/compatibility/config/loader | | |
 | Test/debug/telemetry | | |
 
 ## 9. Dependencies và impact
@@ -101,7 +101,9 @@ Không ghi một số là final nếu chưa có evidence/approval.
 
 - Automated oracle:
 - Manual feel question:
+- Performance risk: `PR-0/1/2/3`, trigger và lane evidence:
 - Performance budget: client frame/server tick/memory/I/O/network/cardinality; representation tier, degradation và benchmark ID:
+- Loader portability: common semantics/schema, current Fabric binding, future adapter seam hoặc `N/A — reason`:
 - Compatibility matrix:
 - Accessibility/localization check:
 - Prototype/playtest record:

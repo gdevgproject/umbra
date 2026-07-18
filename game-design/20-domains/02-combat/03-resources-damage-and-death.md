@@ -8,7 +8,7 @@
 | Tài nguyên | Quyết định nó tạo | Không được biến thành |
 |---|---|---|
 | HP | còn chịu được bao nhiêu sai lầm | damage sponge không feedback |
-| Mana | phân bổ sức mạnh skill/phép/triệu hồi đặc biệt | phí duy trì làm fantasy quân đoàn khó chịu |
+| Mana | phân bổ sức mạnh skill/phép/triệu hồi đặc biệt | phí duy trì làm fantasy Hắc Ảnh Cận Vệ khó chịu |
 | Focus | nhịp phòng thủ chủ động như dodge/parry | stamina chung trừng phạt mọi di chuyển |
 | Fatigue | áp lực dài hạn giữa các cuộc chinh phục | timer ép đăng nhập hay nghỉ chơi |
 

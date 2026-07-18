@@ -13,12 +13,15 @@ Mỗi Shadow Identity có tên/epithet, nguồn gốc, archetype chiến đấu,
 - **Evolution:** thay đổi định tính có điều kiện, có preview và không phá identity.
 - **Synergy:** quan hệ giữa các shadow/role tạo quyết định đội hình.
 
-Special shadows có arc riêng nhưng dùng cùng contract. Release là hành động phá hủy khó đảo ngược: cần preview, confirm mạnh và không dùng như thao tác dọn kho thường xuyên.
+Special shadows có arc riêng nhưng dùng cùng contract. Release/parting là hành động phá hủy khó đảo ngược: cần preview, confirm mạnh, kiểm dependency quest/relationship/gear và không dùng như thao tác dọn kho thường xuyên. Mỗi identity luôn chiếm một trong tối đa năm slot theo [`CTR-SHADOW-RETINUE`](../../30-shared-contracts/07-shadow-retinue-capacity-and-membership.md); reserve không làm bond/memory bị đóng băng hoặc biến Shadow thành item.
 
 ## Chống homogenization
 
 Hai shadow cùng loài vẫn phải khác ở origin, trait/bond/history hoặc vai trò. Random trait không được tạo reroll grind; điểm khác biệt cần đọc được trong chiến đấu hoặc social scene.
 
-## Candidate capacity
+## Chiều sâu được mở nhờ giới hạn nhỏ
 
-Corpus cũ đề xuất tối đa 200 identity lưu và 40 shadow materialized. Đây là capacity hypothesis; representation budget, UI commandability và save size quyết định con số cuối.
+- Tối đa năm identity tạo nhiều nhất mười cặp quan hệ, đủ để authored rivalry/affinity/mentor/protector có chiều sâu mà vẫn audit được.
+- Không phải mọi cặp đều cần relationship edge. Chỉ lưu edge khi nó tạo hành vi, combo, lựa chọn hoặc ký ức quan sát được.
+- Thành viên dự bị vẫn có home/social presence và cơ hội phát triển phù hợp, nhưng không nhận combat power credit như active party.
+- Slot cuối phải làm tăng **độ rộng lựa chọn đội hình và attachment**, không biến thành yêu cầu bắt buộc để đạt DPS chuẩn.

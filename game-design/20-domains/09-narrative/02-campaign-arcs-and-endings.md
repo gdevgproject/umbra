@@ -7,7 +7,7 @@
 
 - **Prologue — Kẻ vô danh:** thiết lập đời sống, giới hạn và first irreversible call.
 - **Act I — Legacy thức tỉnh:** học System, Gate, combat và shadow đầu tiên; reveal 1.
-- **Act II — Quyền lực có mắt nhìn:** faction, society, family và quân đoàn xung đột; reveal 2.
+- **Act II — Quyền lực có mắt nhìn:** faction, society, family và Hắc Ảnh Cận Vệ xung đột; reveal 2.
 - **Act III — Ai sở hữu ai:** Rulers/System/Legacy buộc người chơi định nghĩa quyền lực; reveal 3.
 - **Endgame:** Tower/Strata và consequence tiếp tục, không xóa world.
 

@@ -19,3 +19,5 @@ Case study đã được chưng cất thành nguyên lý, không còn một corp
 3. [Comparison matrix](03-comparison-matrix.md)
 4. [Audience và reference landscape](04-audience-and-reference-landscape.md)
 5. [Fabric foundation findings](05-fabric-foundation-findings.md)
+6. [Fabric/NeoForge loader portability findings](06-loader-portability-findings.md)
+7. [Đội Hắc Ảnh tinh nhuệ và biểu cảm companion](07-elite-retinue-and-companion-expression.md)

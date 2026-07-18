@@ -17,12 +17,12 @@ Foundation không phải một “God Core” biết mọi feature. Nó là tậ
 | Authority/security guards | ownership/permission/range/rate/rejection | speculative anti-cheat game |
 | Scheduler/work budget | cadence, queue, backpressure, labels | AI/combat decision |
 | Observability/test hooks | trace, state inspector, diagnostics bundle, fixture APIs | production cheat behavior |
-| Compatibility adapters | Fabric/Minecraft/render/event seams pin theo baseline | promise mọi version/mod |
+| Compatibility adapters | Minecraft/loader/render/event ports; Fabric binding hiện tại và conformance diagnostics | NeoForge implementation sớm hoặc promise mọi version/mod |
 | Communication resources | locale/resource reload, key/placeholder validation hooks | prose/translation quality |
 
 ## Dependency rule
 
-Domain phụ thuộc contract/ports của kernel; kernel không import feature implementation. Domain không đọc persistence/network/render API trực tiếp ngoài adapter đã sở hữu nếu việc đó làm lifecycle khó test/migrate. Không xây event bus tổng quát nếu command/call trực tiếp trong cùng boundary rõ hơn.
+Domain phụ thuộc contract/ports của kernel; kernel không import feature implementation. Domain không đọc persistence/network/render/loader API trực tiếp ngoài adapter đã sở hữu nếu việc đó làm lifecycle khó test/migrate. Fabric/NeoForge type không đi qua port. Không xây event bus tổng quát nếu command/call trực tiếp trong cùng boundary rõ hơn.
 
 ## Capability availability
 
@@ -40,5 +40,6 @@ Mỗi feature có `ABSENT`, `DEV_ONLY`, `ENABLED`, `DISABLED_BY_CONFIG`, `UNAVAI
 - input Action ID/key-registry diff và locale/resource reload boundary;
 - portable world backup/restore manifest;
 - ownership/idempotency/error taxonomy.
+- loader-neutral domain/save boundary, Fabric adapter inventory và import/dependency guard.
 
-Class/package/framework cụ thể chưa được khóa. DB-021 chỉ qua discovery khi hai consumer thật chứng minh mỗi abstraction và một vertical fixture kiểm được failure/recovery.
+Class/package/framework cụ thể chưa được khóa. `DB-021/043` chỉ qua discovery khi hai consumer thật chứng minh mỗi abstraction, một vertical fixture kiểm failure/recovery và Fabric conformance không cần NeoForge code giả.

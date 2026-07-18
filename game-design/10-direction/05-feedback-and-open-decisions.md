@@ -40,7 +40,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-017` | Mỗi enemy/skill/quest/item đáng kể có dossier riêng | grammar → kit → instance → variant, interaction tags/tests |
 | `PD-018` | UMBRA là all-in-one first-party overhaul | full vanilla baseline; external overhaul conflict có thể unsupported |
 | `PD-019` | Third-person mặc định sau `C2`; first-person luôn được hỗ trợ | camera switch/aim policy và parity tests |
-| `PD-020` | Không hỏi lại fixed roster/quest count cho “1.0” | breadth tăng theo quality/dependency; release manifest khóa khi đủ coherent |
+| `PD-020` | Không hỏi lại fixed boss/quest/world breadth cho “1.0” | breadth content tăng theo quality/dependency; Shadow cap là quyết định riêng tại `PD-031` |
 | `PD-021` | Quest Kernel được chứng minh sớm, rich quest content mở theo dependency | state/reward/save trước; campaign breadth sau core systems |
 | `PD-022` | Asset có registry, provenance, direction và technical gates | AI/reference không thay originality, art direction hoặc in-game QA |
 | `PD-023` | Hiệu năng là design budget và release evidence của mọi capability | không chờ tối ưu cuối; client/tick/memory/I/O/network/cardinality có owner, benchmark và degradation |
@@ -49,6 +49,10 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-026` | Living society đi theo identity/ledger → hub observable → relationship → settlement → faction → deep individual | chứng minh chiều sâu nhìn thấy trước khi scale simulation |
 | `PD-027` | Future multiplayer ưu tiên co-op 2–4; sau đó PvP 1v1/3v3, ranking/event | chỉ khóa ownership/security/performance seam; current scope vẫn offline |
 | `PD-028` | Attribute/damage/Potential/counterplay được mở lại như discovery toàn hệ | công thức corpus cũ chỉ là candidate; user review + research + prototype mới được approve |
+| `PD-029` | Fabric là loader hiện tại; NeoForge là first-class future target bắt buộc | common semantics/save + ports-and-adapters có chọn lọc; artifact/test/perf manifest riêng, chưa claim NeoForge support |
+| `PD-030` | Agent tự gán performance risk cho mọi runtime change | `PR-0–PR-3` quyết lane đo; không benchmark mọi thay đổi và không bỏ đo feature có rủi ro |
+| `PD-031` | Shadow là một Retinue tinh nhuệ: tối đa 5 sở hữu, tối đa 4 triển khai chiến đấu | bắt đầu với 1 slot khi mở hệ; slot 5 rất muộn và là dự bị chiến lược; không kho/quân đoàn ẩn; exact unlock/full-roster flow theo `CTR-SHADOW-RETINUE`/`DB-044` |
+| `PD-032` | Shadow cần biểu cảm/ritual theo context và personality | quỳ là dấu câu hiếm; semantic/priority/group reservation/fallback theo `SYS-SHADOW-EXPRESSION`, không emote spam hoặc cắt combat |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 

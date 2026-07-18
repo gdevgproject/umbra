@@ -29,7 +29,7 @@ Decision table về khả năng screenshot/input/motion/audio/emotion nằm tạ
 
 Một nút/command debug nên xuất:
 
-- build/commit, Minecraft/Fabric/Java/mod list/config hash;
+- build/commit, Minecraft/loader/API/Java/mod list/config hash;
 - world/seed/dimension/position/game mode;
 - recent action/network/state transition trace;
 - camera mode/target/ray/obstruction state nếu liên quan;
