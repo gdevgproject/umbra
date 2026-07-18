@@ -43,4 +43,3 @@ Tên, silhouette, animation, VFX/SFX, UI, lore, encounter/moveset nào tuyệt �
 - Confidence:
 - Missing comparison:
 - Staleness risk:
-

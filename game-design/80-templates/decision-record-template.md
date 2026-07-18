@@ -42,4 +42,3 @@ Chọn gì, trong phạm vi nào, từ khi nào. Nếu chưa chọn, giữ `PROP
 ## Rollback/supersession trigger
 
 Tín hiệu nào buộc xem lại và cách chuyển dữ liệu/contract nếu đổi.
-

@@ -1,55 +1,77 @@
-# UMBRA Design System
+# UMBRA Design System — Cổng đọc duy nhất
 
-> **Trạng thái toàn dự án:** `DESIGN_DISCOVERY`
->
-> Đây là cổng vào nguồn chân lý mới. Các file đánh số kiểu cũ và thư mục `90-archive/` chỉ là đầu vào lịch sử, không cho phép bắt đầu code.
+> **Trạng thái dự án:** `DESIGN_DISCOVERY`
+> **Mục đích:** một nguồn sự thật để người dùng đọc tuyến tính, feedback bằng lời; Agent tự định tuyến và duy trì toàn bộ hệ.
 
-UMBRA là một Minecraft Java gameplay overhaul dark-fantasy quy mô lớn: người chơi đi từ một cư dân yếu ớt tới Chúa Tể Hắc Ảnh, tự phát triển năng lực, chinh phục Gate và biến đối thủ đáng nhớ thành một quân đoàn có danh tính; đồng thời vẫn giữ xây dựng, khai phá, sinh tồn và tính mở của Minecraft.
+UMBRA là Minecraft Java dark-fantasy gameplay overhaul quy mô lớn: người chơi đi từ kẻ vô danh tới Chúa Tể Hắc Ảnh, chinh phục Gate, tự xây build và biến đối thủ đáng nhớ thành quân đoàn có danh tính—trong khi xây dựng, khám phá, sinh tồn, nhà và thế giới Minecraft vẫn có giá trị.
 
-## Đọc theo nhu cầu
+Không còn bộ tài liệu cũ song song. Tất cả ý thiết kế đã có canonical home trong cây này; Git giữ lịch sử. Một mục có chữ `CANDIDATE`, `OPEN`, `DISCOVERY` không phải nội dung cần né mà là điều được trình bày trung thực để người dùng quyết hoặc cho phép nghiên cứu tiếp.
 
-| Bạn cần | Đọc |
-|---|---|
-| Hiểu cách toàn bộ tài liệu vận hành | [Kiến trúc tài liệu](00-governance/01-document-architecture.md) |
-| Giao việc cho AI/Agent | [Agent protocol](00-governance/02-agent-operating-protocol.md) |
-| Biết studio có những vai trò nào | [Bản đồ trách nhiệm](00-governance/03-studio-responsibility-map.md) |
-| Biết khi nào được research/design/code | [Lifecycle và quality gates](00-governance/04-design-lifecycle-and-gates.md) |
-| Theo dõi nội dung cũ đã di trú tới đâu | [Migration catalog](00-governance/05-migration-catalog.md) |
-| Hiểu game ở cấp sản phẩm | [Product charter](10-direction/product-charter.md) |
-| Xem toàn bộ domain/hệ thống/phụ thuộc | [System map](10-direction/system-map.md) |
-| Xem lỗi cấu trúc và mâu thuẫn đã phát hiện | [Baseline audit](10-direction/baseline-audit.md) |
-| Thiết kế combat | [Combat domain](20-domains/combat/README.md) |
-| Xem mẫu chi tiết hóa dodge | [Dodge Feature Cell](20-domains/combat/dodge/README.md) |
-| Xem thứ tự discovery hợp lý | [Design Discovery Queue](50-production/design-discovery-queue.md) |
-| Tạo tính năng mới | [Feature Cell template](80-templates/feature-cell-template.md) |
-| Tra nội dung v4 cũ | [Archive policy](90-archive/README.md) |
+## Tuyến đọc dành cho người dùng
 
-## Cấu trúc
+### Vòng 1 — Hiểu game và cho feedback lớn
+
+1. [Product Charter](10-direction/01-product-charter.md)
+2. [Experience Framework](10-direction/02-experience-framework.md)
+3. [System Map](10-direction/03-system-map.md)
+4. [Scope và Release Strategy](10-direction/04-scope-and-release-strategy.md)
+5. [Feedback và Open Decisions](10-direction/05-feedback-and-open-decisions.md)
+
+[Canonical Glossary](10-direction/06-canonical-glossary.md) là tài liệu tra cứu khi gặp thuật ngữ, không bắt buộc đọc liền mạch.
+
+Sau vòng này, có thể feedback fantasy, scope, core loop, camera, progression hoặc thứ tự ưu tiên. Không cần đọc kỹ thuật.
+
+### Vòng 2 — Đọc game tuyến tính theo miền
+
+Đọc `README.md` của 12 domain theo thứ tự: [Player](20-domains/01-player/README.md) → [Combat](20-domains/02-combat/README.md) → [Skills](20-domains/03-skills/README.md) → [Shadows](20-domains/04-shadows/README.md) → [AI](20-domains/05-ai/README.md) → [Dungeons](20-domains/06-dungeons/README.md) → [Encounters](20-domains/07-encounters/README.md) → [World](20-domains/08-world/README.md) → [Narrative](20-domains/09-narrative/README.md) → [Items/Economy](20-domains/10-items-economy/README.md) → [Presentation](20-domains/11-presentation/README.md) → [Platform](20-domains/12-platform/README.md).
+
+Mỗi domain README cho biết mission, ranh giới, invariant và các file chi tiết. Chỉ mở file con khi muốn feedback mechanic đó.
+
+### Vòng 3 — Xem cách dự án được làm
+
+1. [Capability Roadmap](50-production/01-capability-roadmap.md)
+2. [Design Backlog](50-production/02-design-backlog.md)
+3. [Implementation Backlog](50-production/03-implementation-backlog.md)
+4. [Quality Coverage](60-quality/06-design-coverage.md)
+
+Đọc governance/content/quality/research khi muốn review quy trình hoặc bằng chứng, không bắt buộc để hiểu fantasy.
+
+## Khi gửi feedback
+
+Chỉ cần nói điều mong muốn, ví dụ “dodge lùi nên là backstep và không xoay camera”, “tôi muốn gia đình có vai trò lớn từ đầu”, hoặc “thêm lock-on giống action RPG nhưng phải giữ góc một”. Agent áp dụng [Feedback Routing](00-governance/05-feedback-routing-and-edit-policy.md): phân loại quy mô, đọc các owner liên quan, lập impact map, sửa đúng canonical homes, cập nhật backlog/quality và báo lại câu hỏi cần quyết.
+
+## Kiến trúc thư mục
 
 ```text
 game-design/
-├─ 00-governance/       luật vận hành tài liệu và team
-├─ 10-direction/        tầm nhìn, phạm vi, bản đồ toàn game
-├─ 20-domains/          thiết kế theo domain → system → Feature Cell
-├─ 30-shared-contracts/ luật dùng chung có một owner
-├─ 40-content/          faction, boss, quest, item, room và narrative instance
-├─ 50-production/       discovery queue, initiative, release slice, ticket sau gate
-├─ 60-quality/          test, balance, performance, compatibility, telemetry
-├─ 70-research/         nghiên cứu nguồn và thư viện nguyên lý
-├─ 80-templates/        mẫu chuẩn
-└─ 90-archive/          corpus cũ, chỉ đọc
+├─ 00-governance/       luật tài liệu, Agent, vai trò và quality gates
+├─ 10-direction/        lời hứa sản phẩm, trải nghiệm, scope và quyết định lớn
+├─ 20-domains/          game design theo 12 miền có owner
+├─ 30-shared-contracts/ vocabulary/state/rule dùng qua nhiều miền
+├─ 40-content/          pipeline và chuẩn faction/boss/asset/content instance
+├─ 50-production/       roadmap, design backlog, ticket và release gate
+├─ 60-quality/          balance, parameter, test, performance, traceability
+├─ 70-research/         protocol và nguyên lý đã chưng cất
+├─ 80-templates/        mẫu tạo artifact mới
+└─ design-assets/       hình minh họa thiết kế còn dùng
 ```
 
-## Nguyên tắc nguồn chân lý
+## Một luật — một nơi
 
-Tầm nhìn trả lời **vì sao**. Domain charter trả lời **ranh giới**. Feature Cell trả lời **người chơi làm gì và luật nào áp dụng**. Shared Contract trả lời **nhiều feature phải giao tiếp ra sao**. Content Instance điền **nội dung cụ thể**. Quality Spec định nghĩa **bằng chứng**. Production chỉ quyết định **thứ tự**, không được viết lại thiết kế.
+- Product giải thích **vì sao và lời hứa gì**.
+- Domain/System/Feature giải thích **người chơi làm gì và luật thuộc ai**.
+- Shared Contract giải thích **nhiều feature giao tiếp ra sao**.
+- Content Instance điền **boss/quest/item/faction cụ thể**.
+- Parameter Registry sở hữu **mọi con số/công thức**.
+- Quality định nghĩa **bằng chứng nào chứng minh đúng/tốt/nhanh**.
+- Production chỉ định **thứ tự và proof**, không tự viết game rule.
 
-Nếu hai nơi cùng phát biểu một luật, cấu trúc đang sai. Chọn một owner, chuyển luật về đó và thay bản sao bằng liên kết.
+Nếu hai nơi phát biểu cùng một luật, Agent phải chọn owner, giữ luật ở đó và thay nơi còn lại bằng link.
 
-## Trạng thái hiện tại
+## Trạng thái thật hiện tại
 
-- Tầm nhìn và fantasy cốt lõi: có nền tốt, đang chuẩn hóa.
-- Phạm vi game: rất lớn, chưa được greenlight toàn bộ cho 1.0.
-- Hệ thống cũ: đã lập inventory nhưng phần lớn mới ở `DISCOVERY` hoặc `PROPOSED`.
-- Dodge: được dùng làm Feature Cell mẫu; **chưa** `IMPLEMENTATION_READY`.
-- Backlog code M0–M8 cũ: đóng băng làm tham khảo cho tới khi các Feature Cell tương ứng qua gate.
+- Corpus đã được hợp nhất; không còn legacy doc để người dùng phải né.
+- Product/scope vẫn `PROPOSED`: cần feedback của Game Director (người dùng).
+- Phần lớn gameplay ở `DISCOVERY`; nhiều con số chi tiết chỉ là candidate cần test.
+- Dodge là Feature Cell mẫu sâu nhất nhưng chưa `IMPLEMENTATION_READY`.
+- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là đọc/feedback rồi đóng lần lượt `DB-001` trở đi.

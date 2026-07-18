@@ -4,8 +4,12 @@ $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $designRoot = Join-Path $repoRoot 'game-design'
 $errors = [System.Collections.Generic.List[string]]::new()
 
-$canonicalFiles = Get-ChildItem -LiteralPath $designRoot -Recurse -File -Filter '*.md' |
-    Where-Object { $_.FullName -notmatch '[\\/]90-archive[\\/]' }
+$canonicalFiles = Get-ChildItem -LiteralPath $designRoot -Recurse -File -Filter '*.md'
+
+$parallelLegacyRoot = Join-Path $designRoot '90-archive'
+if (Test-Path -LiteralPath $parallelLegacyRoot) {
+    $errors.Add("Parallel legacy documentation is forbidden: $parallelLegacyRoot")
+}
 
 $legacyAtRoot = Get-ChildItem -LiteralPath $designRoot -File -Filter '*.md' |
     Where-Object { $_.Name -match '^\d' }
@@ -18,7 +22,8 @@ $allowedStatuses = @(
     'SEED', 'DISCOVERY', 'PROPOSED', 'VALIDATION', 'APPROVED',
     'IMPLEMENTATION_READY', 'IMPLEMENTING', 'IMPLEMENTED', 'VERIFIED',
     'RELEASED', 'RETIRED', 'COMPLETE', 'IN_PROGRESS', 'ACTIVE', 'PLANNED',
-    'APPROVED_FOR_DOCUMENTATION'
+    'APPROVED_FOR_DOCUMENTATION', 'CANDIDATE', 'EVIDENCE_SEED', 'DEFERRED',
+    'BLOCKED_BY_DESIGN'
 )
 
 foreach ($file in $canonicalFiles) {

@@ -1,4 +1,4 @@
-# Research library
+# 70 — Research library
 
 Research phục vụ một Decision Question và dùng [Research Card template](../80-templates/research-card-template.md).
 
@@ -10,5 +10,10 @@ Research phục vụ một Decision Question và dùng [Research Card template](
 - `market-and-scope/`: audience, comparable scope, production risk;
 - `originality/`: principle extraction và IP guardrails.
 
-Case study v4 được giữ trong archive. Khi cần dùng, tách từng quan sát liên quan thành card có câu hỏi; không copy toàn case study vào canonical.
+Case study đã được chưng cất thành nguyên lý, không còn một corpus tham chiếu song song phải né đọc.
 
+## Đọc theo thứ tự
+
+1. [Research protocol](01-research-protocol.md)
+2. [Action-RPG và progression lessons](02-action-rpg-and-progression-lessons.md)
+3. [Comparison matrix](03-comparison-matrix.md)

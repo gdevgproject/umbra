@@ -120,4 +120,3 @@ Không ghi một số là final nếu chưa có evidence/approval.
 ## 15. Gate checklist
 
 Link tới `GOV-LIFE`; không tự tạo Definition of Done riêng mâu thuẫn lifecycle.
-

@@ -10,9 +10,9 @@ The repository is currently in the **pre-production / design foundation** phase.
 
 | Area | Current target |
 |---|---|
-| Platform | Minecraft Java Edition 26.2.x |
-| Mod loader | Fabric Loader + Fabric API |
-| Development baseline | Java / Gradle / data-driven content |
+| Platform | Minecraft Java Edition; release baseline chưa khóa |
+| Mod loader | Fabric candidate; cần compatibility proof |
+| Development baseline | Java / Gradle / data-driven content candidate |
 | Current milestone | Design-system rebuild / discovery |
 
 Version support, loader/API versions, Java requirements, dependencies, and save migration guarantees will be published with each release. Compatibility with older Minecraft versions is not assumed.
@@ -33,7 +33,7 @@ Version support, loader/API versions, Java requirements, dependencies, and save 
 | [`game-design/design-assets/`](game-design/design-assets/) | Design-reference diagrams and concept visuals |
 | [`.gitignore`](.gitignore) | Fabric, Gradle, IDE, runtime, and secret-file exclusions |
 
-Start with [`game-design/README.md`](game-design/README.md). The numbered v4 monoliths are archived inputs and are no longer implementation authority.
+Start with [`game-design/README.md`](game-design/README.md). There is one canonical document tree; superseded text is kept by Git history, not a parallel legacy library.
 
 ## Design principles
 

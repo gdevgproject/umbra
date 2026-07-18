@@ -76,7 +76,6 @@ Feature phải lùi trạng thái nếu thay đổi:
 
 Sửa typo, link hoặc làm rõ câu không đổi nghĩa không làm lùi trạng thái.
 
-## 7. Trạng thái dự án UMBRA sau audit
+## 7. Trạng thái dự án UMBRA hiện tại
 
-Không có gameplay feature nào mặc định `IMPLEMENTATION_READY` chỉ vì corpus v4 đã có formula/schema/ticket. Các status phải được tái xác nhận theo từng Feature Cell. M0 tooling thuần tài liệu/validation có thể được thiết kế riêng; M1 dodge, quest, progression và combat không được thừa kế readiness cũ.
-
+Không có gameplay feature nào mặc định `IMPLEMENTATION_READY` chỉ vì đã có formula/schema/ticket candidate. Các status phải được xác nhận theo từng Feature Cell. Tooling thuần tài liệu/validation có thể sẵn sàng riêng; Dodge, quest, progression và combat không thừa kế readiness từ độ chi tiết của văn bản.

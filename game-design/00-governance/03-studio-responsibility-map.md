@@ -90,4 +90,3 @@ Mỗi artifact có:
 Ví dụ `FEAT-COMBAT-DODGE`: DRI Combat Designer; approver Lead Game Designer; reviewers UX/Input, Animation, Gameplay Engineering, QA, Accessibility; consulted Balance, Camera, Compatibility; Game Director được informed nếu fantasy không đổi.
 
 Solo developer vẫn ghi các mũ này để biết mình đang ra quyết định ở vai trò nào và tránh một suy nghĩ kỹ thuật vô tình thay thế quyết định UX.
-

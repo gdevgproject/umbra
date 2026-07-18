@@ -116,6 +116,5 @@ Nếu formula trái Feature Cell, đó là conflict phải xử lý; không tài
 - Sửa canonical text tại chỗ.
 - Lý do và phương án bị loại nằm trong ADR.
 - Git giữ diff và lịch sử tác giả.
-- Nội dung không còn hiệu lực chuyển sang archive, có banner và replacement link.
+- Nội dung không còn hiệu lực bị thay trực tiếp trong canonical home; Git giữ provenance. Không duy trì một cây tài liệu cũ song song bắt người đọc phải né.
 - Changelog chỉ tạo ở release, không dùng làm cấu trúc GDD.
-
