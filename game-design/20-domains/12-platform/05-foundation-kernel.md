@@ -24,6 +24,8 @@ Foundation không phải một “God Core” biết mọi feature. Nó là tậ
 
 Domain phụ thuộc contract/ports của kernel; kernel không import feature implementation. Domain không đọc persistence/network/render/loader API trực tiếp ngoài adapter đã sở hữu nếu việc đó làm lifecycle khó test/migrate. Fabric/NeoForge type không đi qua port. Không xây event bus tổng quát nếu command/call trực tiếp trong cùng boundary rõ hơn.
 
+Bounded capability, logical layer, public/internal surface, transaction/process, thread owner, failure containment và Change Surface Map tuân [`SYS-RUNTIME`](02-runtime-boundaries-and-authority.md). Kernel cung cấp primitive để thực thi contract đó nhưng không tự trở thành owner của mọi state hoặc orchestration. C1 phải có architecture fitness tests cho cycle, allowed dependency/internal access, forbidden loader/client import và public contract inventory; diagram/comment không thay automated proof.
+
 ## Capability availability
 
 Mỗi feature có `ABSENT`, `DEV_ONLY`, `ENABLED`, `DISABLED_BY_CONFIG`, `UNAVAILABLE_INCOMPATIBLE` hoặc `MIGRATION_BLOCKED`. UI/content registration và save behavior theo state này; disabled không có nghĩa xóa persistent data. Capability dependency được validate khi load, không phát hiện giữa combat.
@@ -41,5 +43,7 @@ Mỗi feature có `ABSENT`, `DEV_ONLY`, `ENABLED`, `DISABLED_BY_CONFIG`, `UNAVAI
 - portable world backup/restore manifest;
 - ownership/idempotency/error taxonomy.
 - loader-neutral domain/save boundary, Fabric adapter inventory và import/dependency guard.
+- causal trace/reason/state-inspector envelope và diagnostic bundle contribution.
+- public command/query/event/port inventory, owner-thread/async commit và cross-capability process journal boundary.
 
-Class/package/framework cụ thể chưa được khóa. `DB-021/043` chỉ qua discovery khi hai consumer thật chứng minh mỗi abstraction, một vertical fixture kiểm failure/recovery và Fabric conformance không cần NeoForge code giả.
+Class/package/framework cụ thể chưa được khóa. `DB-021/043` chỉ qua discovery khi hai consumer thật chứng minh mỗi abstraction, một vertical fixture kiểm failure/recovery, architecture violation fixture chứng minh guard thật sự bắt lỗi và Fabric conformance không cần NeoForge code giả.

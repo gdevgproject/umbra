@@ -10,11 +10,13 @@
 - exact in-scope/non-goals;
 - design links ở trạng thái `IMPLEMENTATION_READY`;
 - dependencies và files/modules dự kiến, không áp đặt solution nếu chưa review;
+- Change Surface Map: authoritative writer, public command/query/event/port, direct callers/subscribers, persistence/network/render/loader surfaces và dependency-edge class `PRIVATE/CONTRACT/BEHAVIORAL`;
 - acceptance theo scenario/oracle;
 - data/save/migration, client/server, performance, accessibility/localization impact;
 - performance risk class `PR-0–PR-3`, trigger, budget/benchmark ID và before/after evidence hoặc `N/A — reason`;
 - loader portability impact: common contract, Fabric adapter, loader patch/import boundary, save/artifact parity hoặc `N/A — reason`;
 - test/observability artifact;
+- architecture conformance impact/report diff, typed failure/reason và causality trace; `N/A` cần lý do;
 - rollback/feature flag khi rủi ro;
 - DRI, reviewers và Definition of Done.
 - branch/commit delivery policy và exact handoff artifact;

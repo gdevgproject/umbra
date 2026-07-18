@@ -14,6 +14,7 @@ Người dùng không làm thay automated oracle. User time chỉ dùng cho feel
 | Lane | Chứng minh | Công cụ dự kiến | Khi chạy |
 |---|---|---|---|
 | Static | docs/schema/ref/localization/assets hợp lệ | validator, data generation checks | mọi change |
+| Architecture conformance | capability/layer dependency, public/internal surface, cycle, loader/client import và contract inventory đúng | Java dependency/bytecode rule + generated architecture report; exact tool do `DB-021` chọn | mọi code/build; violation fixtures ở C1 |
 | Pure unit/model | formula/state/idempotency/modifier/codec | Fabric Loader JUnit | mọi build |
 | Server GameTest | world/entity/block/action/save rule | Minecraft/Fabric GameTest | build/CI |
 | Client GameTest | input/UI/render/camera/screenshot | Fabric client GameTest | camera/UI/render change |
@@ -115,10 +116,12 @@ Mỗi record ghi:
 22. Quit/reconnect/death/portal/resource reload không refill Vigor, giữ contact ma, ghost flight hoặc fall immunity.
 23. Grounding Strike chỉ chuyển đúng fall component tại valid impact của một action ID; không xóa lava/void/status hoặc gây AoE/block damage lặp.
 24. Lightness không thể hover, midair relaunch, wall-touch ground-reset hoặc modifier-stack thành infinite upward/level flight.
+25. Capability không dependency cycle, gọi internals hoặc để loader/client type thoát boundary; architecture report khớp public surface/allowed edge canonical.
+26. Correlation/causation/operation ID không đứt hoặc đổi owner qua async, adapter, save/reload và presentation; instrumentation overflow/off không đổi gameplay outcome.
 
 ## 7. Feature readiness test pack
 
-Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. Movement/traversal feature còn phải có collision-shape, velocity, ground/support, stuck/no-clip và anti-refill/anti-flight fixtures. `N/A` cần lý do.
+Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. Runtime feature còn khai public surface, authoritative writer, thread/clock/transaction, failure reasons, direct consumers và architecture conformance; movement/traversal feature thêm collision-shape, velocity, ground/support, stuck/no-clip và anti-refill/anti-flight fixtures. `N/A` cần lý do.
 
 ## 8. Failure handling
 

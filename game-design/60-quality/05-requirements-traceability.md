@@ -57,6 +57,7 @@
 | R58 | Khí Lực tách Focus/Fatigue/Hunger và không bị relog/refill/cost exploit | `CTR-TRAVERSAL` + Resource + UI + Platform | transaction/property/save/reconnect tests, contextual meter comprehension |
 | R59 | Hạ Kình là phản xạ có cửa sổ: valid landing mới chuyển fall damage và commit một impact nhẹ, không auto-save/hazard immunity/grief | Grounding Strike + Combat Hit + Vitals | `DB-051`, time-to-impact/fall-source/weapon/AoE/idempotency matrix + feel test |
 | R60 | Khinh Công là ground launch→apex→controlled descent, không cánh/hover/infinite flight; core unlock phổ quát rất sớm, không là Potential | Lightness + Progression + Camera + World | `DB-052`, trajectory/Vigor/collision/security/migration tests + traversal/world playtest |
+| R61 | Kiến trúc modular monolith khoanh blast radius và truy nguyên nhân khi game scale: owner/layer/dependency/state-thread-transaction/failure/causality đều kiểm được, không dựa diagram/comment | `SYS-RUNTIME` + `CTR-DEBUG-OBSERVABILITY` + Foundation + Test Architecture | `DB-021/022`, State/Public-Surface/Dependency matrix schema + fixture rows, architecture fitness + violation fixtures, intent→mutation→projection trace, cold-agent Change Surface proof |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 

@@ -8,7 +8,7 @@
 1. **Intent:** outcome/pillar/scope/owner rõ.
 2. **Design:** scenarios, dependencies, state, player communication và non-goals đầy đủ.
 3. **Validation:** research/prototype/playtest/simulation đúng loại rủi ro.
-4. **Implementation Ready:** contract/parameters/acceptance/data/migration/performance risk/budget/debug/loader-boundary review xong.
+4. **Implementation Ready:** contract/parameters/acceptance/data/migration/performance risk/budget/debug/loader-boundary review xong; runtime feature có public surface/state-thread-transaction owner/failure/consumer map và architecture conformance proof.
 5. **Integrated:** automated proof xanh, human playtest đạt, docs/content đồng bộ.
 6. **Release:** compatibility, accessibility, localization, performance, soak, migration và recovery đạt.
 

@@ -55,6 +55,7 @@ SEED → DISCOVERY → PROPOSED → VALIDATION → APPROVED → IMPLEMENTATION_R
 
 - State machine/action phases/data ownership rõ.
 - Input/output/event/error contract rõ.
+- Public/internal capability surface, authoritative writer, clock/thread/transaction boundary, direct consumers và failure containment rõ theo `SYS-RUNTIME`.
 - Dependency version/ID ổn định; không chờ decision khác.
 - Content, animation, VFX/SFX, UI string và locale requirement có plan.
 - Acceptance gồm automated oracle, manual feel check, perf/compat/save test.

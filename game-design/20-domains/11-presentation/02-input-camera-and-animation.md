@@ -19,6 +19,22 @@ Sau khi `C2-PLAYER-EMBODIMENT` hoàn tất camera base, occlusion, aim ray và f
 
 ## Animation
 
-Animation biểu đạt phase/intent; gameplay marker được server xác nhận. Dodge cần clip/pose theo hướng hoặc blend grammar, nhưng hitbox/i-frame không suy ra từ frame hình. Root motion, cancel, foot sliding, weapon alignment, first/third-person parity và fallback khi asset thiếu đều cần contract.
+Animation dùng ba lớp không được nhập làm một:
+
+```text
+authoritative action/locomotion/expression semantic
+→ animation request + normalized phase/marker/facing contract
+→ rig/body-topology asset graph + camera-specific presentation
+```
+
+- Gameplay owner phát semantic/action state; Animation chọn clip/blend/IK/fallback tương thích. Clip name, frame hoặc state máy animation không là gameplay truth.
+- Marker gameplay mang action/transition ID và chỉ có hiệu lực khi owner contract xác nhận; animation/VFX/audio callback lặp, thiếu hoặc đến trễ không tự gây damage, cost, movement hay relationship mutation.
+- Body topology profile khai humanoid/beast/flying/large-form capabilities, normalized semantic slots, missing-slot fallback và asset tier. Không ép mọi actor vào một skeleton hoặc copy graph thành nhánh `if actor_id`.
+- Root motion là presentation/desired displacement input có policy; movement/collision/velocity cuối do server movement owner commit. Reconciliation không teleport xuyên block hoặc làm clip thay hitbox/i-frame.
+- First-person arms/camera và third-person full body là projection của cùng action; khác clip được phép, khác timing/outcome không được phép nếu thiếu Feature/ADR riêng.
+- Animation graph không đọc domain internals hoặc loader event trực tiếp; adapter chuyển resource reload/render hook, asset registry chuyển stable semantic→asset profile.
+- Mỗi transition khai cancel/interruption/blend, weapon/hand anchor, foot contact, visibility/LOD, reduced-motion và fallback pose. Missing/reloaded asset không được kẹt action hoặc đổi luật.
+
+Architecture proof trước production batch: một player action, một enemy telegraph và một non-humanoid/Shadow expression đi qua cùng semantic contract; marker duplicate/missing/late, resource reload, camera switch, LOD và dedicated-server-without-client-assets đều có oracle. Exact graph/runtime library chưa khóa; owner `DB-025/033`.
 
 Traversal bổ sung grammar attach/climb four-direction/idle/leap/eject/mantle/slip, Grounding orient–descent–impact theo weapon adapter và Lightness launch–apex–descent–landing. IK tay/chân, cloth/trail và root motion chỉ trình bày; collision/velocity/Vigor/fall conversion thuộc [`CTR-TRAVERSAL`](../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md). Mỗi transition phải có fallback clip/pose để missing asset không đổi gameplay.

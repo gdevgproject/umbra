@@ -82,6 +82,8 @@ Phải phủ: neutral, bốn hướng/chéo nếu liên quan, boundary, conflict
 | ID | Quan hệ | Điều feature cần | Điều feature cam kết |
 |---|---|---|---|
 
+Runtime feature bổ sung Change Surface Map: authoritative writer; public command/query/result/event/port; state/clock/thread/transaction owner; direct callers/subscribers; persistence/network/render/loader surfaces; dependency edge `PRIVATE/CONTRACT/BEHAVIORAL`; typed failure/recovery và causality IDs. `N/A` cần lý do.
+
 ## 10. Parameters
 
 | Parameter | Candidate range | Hypothesis | Evidence | Final owner |
@@ -100,6 +102,8 @@ Không ghi một số là final nếu chưa có evidence/approval.
 ## 12. Acceptance và validation
 
 - Automated oracle:
+- Architecture conformance/public-surface/consumer proof:
+- Causality trace, rejection reason, inspector và recovery proof:
 - Manual feel question:
 - Performance risk: `PR-0/1/2/3`, trigger và lane evidence:
 - Performance budget: client frame/server tick/memory/I/O/network/cardinality; representation tier, degradation và benchmark ID:

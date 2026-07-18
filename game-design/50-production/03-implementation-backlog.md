@@ -7,10 +7,10 @@ Chưa gameplay ticket nào `READY`. Candidate epics dưới đây chỉ mở sau
 
 | Epic theo thứ tự | Slice | Design gate mở |
 |---|---|---|
-| Pin reproducible Fabric 26.2 toolchain + project shell; common/loader dependency guard + Fabric adapter conformance | C1 | DB-019/021/043 approved |
+| Pin reproducible Fabric 26.2 toolchain + project shell; bounded capability/layer/public-surface fitness rules, common/loader dependency guard + Fabric adapter conformance | C1 | DB-019/021/043 approved |
 | Stable IDs/content validation/config/capability flags | C1 | DB-021 approved |
 | Save schema/migration/portable backup/restore fixtures | C1 | DB-021/024/038 approved |
-| Authority/payload/ownership/diagnostics kernel | C1 | DB-022/023 approved |
+| Authority/payload/ownership/typed failure + causal trace/inspector/recovery diagnostics kernel | C1 | DB-021/022/023 approved |
 | Integrated + dedicated + lifecycle/client screenshot/performance-risk harness | C1 | DB-022/024/039 approved |
 | Việt/Anh resource skeleton + locale/key parity validation | C1 | DB-030 approved |
 | Action registry/key baseline/conflict diagnostics + camera harness room | C2 | DB-029/002/004 approved |

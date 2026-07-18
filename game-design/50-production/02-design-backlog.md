@@ -10,7 +10,7 @@ Item là câu hỏi cần đóng, không phải ticket code. Priority được p
 | Priority | ID | Outcome/câu hỏi | Owner | Dependencies | Exit artifact |
 |---:|---|---|---|---|---|
 | 1 | `DB-019` | Exact Minecraft 26.2/Fabric/Java/build/render baseline và port train nào được pin? | Release Tech | Product invariants | Compatibility ADR + version matrix |
-| 2 | `DB-021` | Foundation kernel sở hữu lifecycle/config/ID/event/feature flag/diagnostics nào mà không overengineer? | Technical Director | DB-019 | Foundation Architecture Contract |
+| 2 | `DB-021` | Modular-monolith boundary/layer/public surface/state-thread-transaction owner/failure taxonomy/kernel nào giữ blast radius nhỏ mà không thành framework vô hạn? | Technical Director | DB-019 | Foundation Architecture Contract + State/Public-Surface/Dependency matrix schema và C1 fixture rows + architecture fitness/violation proof + causal vertical fixtures |
 | 3 | `DB-043` | Fabric-first/NeoForge-ready boundary, loader port catalog, import rules, save schema và adapter conformance nào khóa từ foundation? | Compatibility + Tech + QA | DB-019/021 | Loader Portability ADR + architecture/conformance plan |
 | 4 | `DB-022` | Test OS tự động hóa claim nào; `PR-0–PR-3`, screenshot/input/human escalation ra sao? | QA + Tools | DB-019/021/043 | Test Architecture + harness backlog |
 | 5 | `DB-039` | Hardware/settings profile, hierarchical budget, benchmark scene, profiler và degradation contract nào áp cho mọi capability? | Performance + Tech + QA | DB-019/021/022 | Performance Constitution + benchmark manifest |
