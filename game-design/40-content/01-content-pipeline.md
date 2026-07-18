@@ -9,7 +9,7 @@ Seed → Reference/Problem Card → Content Contract → Paper review
 → Integration → Quality/performance/localization review → Release candidate
 ```
 
-Không sản xuất hero asset trước khi grammar/lesson được graybox chứng minh. Mỗi content instance có DRI, domain owner, stable ID, dependencies, budget, acceptance, fixtures và replacement/migration policy.
+Không sản xuất hero asset trước khi grammar/lesson được graybox chứng minh. Mỗi content instance tuân [Content Instance Architecture](07-content-instance-architecture.md), có DRI, domain owner, stable ID, dependencies, interaction tags, budget, acceptance, fixtures và replacement/migration policy.
 
 ## Definition of Done
 

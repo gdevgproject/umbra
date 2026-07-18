@@ -24,3 +24,4 @@ Platform tạo nền để Feature Cell thay đổi mà không làm vỡ save, a
 - [Compatibility và release baseline](03-compatibility-and-release-baseline.md)
 - [Offline-first và multiplayer readiness](04-offline-first-multiplayer-readiness.md)
 - [Foundation Kernel](05-foundation-kernel.md)
+- [Save ownership, backup và transfer](06-save-ownership-backup-and-transfer.md)

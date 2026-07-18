@@ -7,10 +7,11 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 1. `game-design/README.md`
 2. `game-design/00-governance/01-document-architecture.md`
 3. `game-design/00-governance/02-agent-operating-protocol.md`
-4. Nếu code/fix: `game-design/00-governance/06-engineering-and-git-workflow.md` và `07-bug-investigation-and-fix.md` khi liên quan.
-5. Product charter, domain charter và Feature Cell nằm trong phạm vi công việc.
-6. Shared Contract được Feature Cell dẫn tới.
-7. Đọc production backlog/quality proof nếu yêu cầu thay đổi readiness hoặc thứ tự.
+4. `game-design/00-governance/08-session-bootstrap-and-continuity.md`; xác định work mode trước khi chọn read set.
+5. Nếu code/fix: `game-design/00-governance/06-engineering-and-git-workflow.md` và `07-bug-investigation-and-fix.md` khi liên quan.
+6. Product charter, domain charter và Feature Cell nằm trong phạm vi công việc.
+7. Shared Contract được Feature Cell dẫn tới.
+8. Đọc production backlog/quality proof nếu yêu cầu thay đổi readiness hoặc thứ tự.
 
 ## Luật không được phá
 
@@ -25,6 +26,7 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 - Ticket là đơn vị triển khai sau cùng, không phải nơi nghiên cứu game design.
 - `main` phải luôn playable theo capability hiện có; không push/merge/rewrite/tag khi chưa được user cho phép.
 - User không làm thay test tự động. Chỉ yêu cầu user playtest sau automated pack phù hợp và cung cấp Test Card + diagnostics/capture protocol.
+- Không hỏi lại điều user đã khóa trong Product Feedback/ADR. Khi chat mới, repo là bộ nhớ; mọi task phải qua continuity bootstrap.
 
 ## Trước khi sửa tài liệu
 

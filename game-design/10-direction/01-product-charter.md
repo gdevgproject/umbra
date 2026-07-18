@@ -121,10 +121,9 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 
 ## 9. Câu hỏi Product còn mở
 
-- Public 1.0 cần campaign/roster/world breadth cụ thể tới đâu để xứng “full coherent game”?
-- Mức tương thích với vanilla combat/third-party mods nào là support promise, best-effort hay không support?
-- Player có thể chuyển giữa góc một/góc ba trong mọi context hay một số action cần presentation policy riêng?
-- Tới đâu UMBRA cung cấp capability như mount/vehicle/world generation, và tới đâu mở integration seam cho add-on?
-- Long-term content dùng tỷ lệ authored/systemic/player-created nào để không thành grind hoặc production impossibility?
+- Player death giữ/reset cụ thể progression, Gate, Shadow deployment và inventory thế nào?
+- Creative mode là author/debug sandbox hoàn toàn hay tách progression/reward khỏi survival history?
+- Living society ưu tiên simulation sâu ở NPC, settlement/economy hay faction/world state trước?
+- Future multiplayer ưu tiên co-op, persistent server society hay PvP để khóa ownership seam nào trước?
 
-Các câu hỏi này thuộc discovery backlog; chúng không phủ định các quyết định đã khóa ở mục 8.
+Exact camera/input/UI/content breadth là delegated research do Agent giải bằng prototype/evidence, không phải câu hỏi Product đẩy lại cho user. Các câu hỏi trên thuộc discovery backlog và không phủ định quyết định đã khóa.

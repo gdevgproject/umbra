@@ -12,6 +12,8 @@ Agent tự chạy static/unit/GameTest/integration/simulation/performance có th
 3. hardware/driver/input/mod interaction Agent không có;
 4. lỗi không tái hiện được trong harness.
 
+Decision table về khả năng screenshot/input/motion/audio/emotion nằm tại [Automation Boundaries](09-automation-boundaries-and-escalation.md). Nếu cùng một manual check lặp lại, Agent phải xem xét tự động hóa/instrument trước lần kế tiếp.
+
 ## 2. Test Card Agent phải chuẩn bị
 
 - `PLAY-ID`, câu hỏi duy nhất và vì sao cần con người;

@@ -13,5 +13,7 @@ Third-person camera overhaul là core foundation capability. Presentation sở h
 
 - [HUD, menus và System language](01-ui-hud-and-system-language.md)
 - [Input, camera và animation](02-input-camera-and-animation.md)
+- [Input System — action/context/key baseline](input/README.md)
 - [Camera System — core](camera/README.md)
+- [UI/UX Design System](ui/README.md)
 - [Accessibility, localization và onboarding](03-accessibility-localization-and-onboarding.md)

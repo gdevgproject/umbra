@@ -21,3 +21,4 @@ Narrative biến progression thành hành trình có nguyên nhân, lựa chọn
 2. [Campaign, arc và endings](02-campaign-arcs-and-endings.md)
 3. [Quest architecture](03-quest-architecture.md)
 4. [Delivery, character và continuity](04-delivery-characters-and-continuity.md)
+5. [Quest dependency và production](05-quest-dependency-and-production.md)

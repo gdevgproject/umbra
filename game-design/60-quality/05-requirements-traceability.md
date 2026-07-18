@@ -28,7 +28,17 @@
 | R29 | Một người + Agent không mất context qua chat | Governance + Git + Ticket | read set/handoff/test/commit records |
 | R30 | Offline hiện tại, multiplayer-ready về authority/ownership/security | Platform | integrated/dedicated parity, packet/reconnect/ownership tests |
 | R31 | Death/respawn/reload/creative/`/give`/dimension/chunk/crash không làm mất hoặc nhân state | Platform + QA + domains | lifecycle matrix + migration/recovery fixtures |
-| R32 | UMBRA all-in-one nhưng add-on/vehicle/mount/world breadth không phá boundary | Scope + Content + Platform | capability contract, two-consumer proof, compatibility matrix |
+| R32 | UMBRA all-in-one first-party; external overhaul không làm méo core và có support tier rõ | Scope + Content + Platform | capability contract, compatibility tier/matrix |
+| R33 | Keybind không dựa vào ký ức: audit 26.2, action/context/remap/conflict và ergonomics | Input + Compatibility | registry diff, Action Catalog, layout experiment, stuck/duplicate tests |
+| R34 | Mọi player text có Việt/Anh và tự theo Minecraft locale | Localization + UI | key/placeholder parity, runtime locale reload, glyph/overflow screenshots |
+| R35 | Minecraft update không âm thầm break UMBRA | Platform + Release | pinned manifest, adapter/mixin inventory, port train, old/new save and render matrix |
+| R36 | Copy backup/world sang USB/máy khác giữ toàn bộ gameplay state | Data + Release + QA | backup manifest/checksum, restore-as-copy, clean-path load/save test |
+| R37 | UI phức tạp vẫn nhất quán, dễ tìm và scale | UI/UX + Art + Accessibility | task graph, token/component states, Việt/Anh interactive prototypes |
+| R38 | Phàm Nhân đầu game sợ hostile nhưng còn agency và học được | World + Combat + AI | player–zombie–world exemplar, escape/readability/growth playtest |
+| R39 | Từng enemy/skill/item/quest có chiều sâu mà engine vẫn scale | Content + Domains + QA | dossiers, provides/requires tags, validators, representative/stress sets |
+| R40 | Asset/audio/VFX nguyên bản, có provenance, budget và fallback | Art/Audio + Tech Art | registry manifest, IP review, two-camera/perf/accessibility evidence |
+| R41 | Quest Kernel sớm; rich quest chỉ làm khi reward/world dependencies Ready | Quest + Platform + Production | C4 lifecycle vertical, dependency audit, C8 content dossier/continuity proof |
+| R42 | Third-person default sau C2; aim/reticle/lock/first-person không auto-switch mơ hồ | Camera + Input + Combat | mode/transition/ray tests + comfort/comprehension playtest |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 

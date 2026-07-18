@@ -20,3 +20,4 @@ World domain bảo đảm UMBRA lớn lên bên trong Minecraft thay vì thay th
 - [Tích hợp Minecraft](01-minecraft-integration.md)
 - [Hunter City, NPC và faction](02-city-npcs-and-factions.md)
 - [Home, family, events và world layers](03-home-family-events-and-world-layers.md)
+- [Early-game survival pressure](04-early-game-survival-pressure.md)

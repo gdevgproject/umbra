@@ -21,6 +21,20 @@ Không còn bộ tài liệu cũ song song. Tất cả ý thiết kế đã có 
 
 Sau vòng này, có thể feedback fantasy, scope, core loop, camera, progression hoặc thứ tự ưu tiên. Không cần đọc kỹ thuật.
 
+### Vòng 1.5 — Gói lo ngại nền tảng vừa được giải quyết
+
+Chỉ đọc sau năm file trên hoặc khi muốn review đúng chủ đề:
+
+1. [Input System](20-domains/11-presentation/input/README.md) → [Vanilla 26.2 Key Baseline](20-domains/11-presentation/input/vanilla-26.2-key-baseline.md)
+2. [Camera Aim/Target Policy](20-domains/11-presentation/camera/aim-and-targeting-policy.md)
+3. [UI/UX Design System](20-domains/11-presentation/ui/README.md)
+4. [Version/Compatibility Policy](20-domains/12-platform/03-compatibility-and-release-baseline.md) → [Save Portability](20-domains/12-platform/06-save-ownership-backup-and-transfer.md)
+5. [Early-game Danger](20-domains/08-world/04-early-game-survival-pressure.md)
+6. [Content Instance Architecture](40-content/07-content-instance-architecture.md) → [Asset Pipeline](40-content/06-asset-production-and-registry.md)
+7. [Quest Dependency/Production](20-domains/09-narrative/05-quest-dependency-and-production.md)
+
+Không cần đọc cả gói một lần; feedback sau từng file vẫn được Agent đồng bộ toàn hệ.
+
 ### Vòng 2 — Đọc game tuyến tính theo miền
 
 Đọc `README.md` của 12 domain theo thứ tự: [Player](20-domains/01-player/README.md) → [Combat](20-domains/02-combat/README.md) → [Skills](20-domains/03-skills/README.md) → [Shadows](20-domains/04-shadows/README.md) → [AI](20-domains/05-ai/README.md) → [Dungeons](20-domains/06-dungeons/README.md) → [Encounters](20-domains/07-encounters/README.md) → [World](20-domains/08-world/README.md) → [Narrative](20-domains/09-narrative/README.md) → [Items/Economy](20-domains/10-items-economy/README.md) → [Presentation](20-domains/11-presentation/README.md) → [Platform](20-domains/12-platform/README.md).
@@ -74,4 +88,4 @@ Nếu hai nơi phát biểu cùng một luật, Agent phải chọn owner, giữ
 - Product/scope vẫn `PROPOSED`: cần feedback của Game Director (người dùng).
 - Phần lớn gameplay ở `DISCOVERY`; nhiều con số chi tiết chỉ là candidate cần test.
 - Dodge là Feature Cell mẫu sâu nhất nhưng chưa `IMPLEMENTATION_READY`.
-- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là tiếp tục đọc/feedback Product; khi chuyển sang design execution, foundation queue bắt đầu tại `DB-021`, trước camera/combat gameplay.
+- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là tiếp tục đọc/feedback Product; khi chuyển sang design execution, foundation queue bắt đầu tại `DB-019` (pin baseline 26.2), trước kernel, camera và combat.

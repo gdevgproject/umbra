@@ -5,11 +5,12 @@
 
 ## Decision questions
 
-1. Baseline third-person là centered, over-shoulder hay context-adaptive?
+1. Context-adaptive baseline phối hợp centered exploration, combat framing và over-shoulder precision theo transition rule nào?
 2. Mouse/gamepad-like input sở hữu camera yaw hay character facing ở từng context?
 3. Aim ray bắt đầu camera, mắt, actor hay muzzle; parallax được trình bày/validate ra sao?
 4. Occlusion dùng retract, fade actor/block, shoulder swap hay tổ hợp nào trong block geometry?
 5. Soft target và lock-on có cần cùng một target lifecycle không?
+6. Weapon/action nào cần reticle, soft target, lock-on hoặc first-person option; có auto-switch nào thật sự tốt hơn player choice?
 
 ## Reference lenses
 
@@ -23,11 +24,12 @@ Không chép distance/FOV/lock rule. Mỗi quan sát cần clip/timecode/version
 ## Prototype sequence
 
 1. Camera harness room: corridor, wall, stair, foliage, fluid, flying target, large actor.
-2. Three base rigs behind config; record obstruction, aim error, motion comfort.
+2. Centered/shoulder/context-adaptive rigs sau config; record obstruction, aim error, transition surprise và motion comfort.
 3. Mining/place/interact parity before combat.
 4. Light attack + Dodge basis; projectile parallax.
 5. Soft target/lock prototype; boss/squad stress.
 6. First/third switch, death/portal/reload and client GameTest screenshot baselines.
+7. Mỗi reference claim về Genshin/Where Winds/Black Myth phải có capture/version/platform; không dùng ký ức “game đó chắc có/không có reticle” làm fact.
 
 ## Evidence
 

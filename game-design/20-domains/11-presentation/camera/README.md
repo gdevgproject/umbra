@@ -9,6 +9,8 @@
 
 Camera góc ba của UMBRA phải biến Minecraft thành một action-adventure có embodiment chuyên nghiệp: người chơi luôn hiểu mình đang nhìn, nhắm, di chuyển và tương tác theo cơ sở nào; camera tránh vật cản, chuyển context ổn định và không tạo hit/aim khác luật. Góc một vẫn là mode được hỗ trợ, không phải casualty của overhaul.
 
+Sau khi camera package vượt gate `C2`, third-person UMBRA là default cho save/profile mới. First-person vẫn là supported gameplay mode cho đào/xây/hầm/precision và preference; chuyển góc nhìn không phải developer fallback.
+
 ## 2. Vì sao là foundation
 
 Camera ảnh hưởng hướng Dodge, facing, projectile ray, mining/building, interaction reach, animation/root motion, target UI, enemy telegraph, command, mount/vehicle, accessibility và screenshot/readability. Nếu combat được khóa trước camera basis, gần như mọi action sẽ phải sửa contract sau.
@@ -38,9 +40,12 @@ Camera có thể dự đoán/hiển thị aim nhưng server resolve interaction/
 
 Lock-on và aim là Feature Cell riêng. Không gắn chúng vào Dodge hoặc camera base như boolean.
 
+Không áp luật “vũ khí tầm xa luôn ép first-person”. Melee, free camera, soft target, lock-on, third-person precision aim và first-person precision là các presentation policy cần prototype theo weapon/action. Player choice và predictability thắng cinematic auto-switch; auto transition nếu có phải là setting/context rule nhìn thấy được.
+
 ## 5. Invariants
 
 - Third-person là core; không được fallback vĩnh viễn về offset F5.
+- Third-person trở thành default chỉ sau khi base rig/occlusion/aim/mining parity đạt gate; không ship default nửa hoàn thiện.
 - First/third-person khác presentation nhưng cùng gameplay eligibility, reach, target và action timing.
 - Camera không xuyên block để tiết lộ/nhắm hợp lệ qua vật cản.
 - Camera collision co ngắn/đổi vai mượt, không teleport player hoặc rung liên tục ở góc hẹp.
@@ -70,3 +75,4 @@ Base rig + occlusion + context + aim ray phải được prototype cùng mining/
 
 - [Scenario Matrix](scenarios.md)
 - [Research và Prototype Plan](research-plan.md)
+- [Aim và targeting policy](aim-and-targeting-policy.md)

@@ -7,6 +7,8 @@
 
 Agent là một thành viên studio mang một hoặc nhiều “chiếc mũ”, không phải máy điền chữ. Agent phải phân biệt điều đã biết, giả thuyết, lựa chọn, quyết định và bằng chứng.
 
+Mỗi task bắt đầu bằng [Session Bootstrap và Continuity](08-session-bootstrap-and-continuity.md). Agent tìm quyết định đã có trước khi hỏi, và audit từng mệnh đề feedback trước handoff để không miss yêu cầu dài.
+
 ## 2. Quy trình cho mọi yêu cầu thiết kế
 
 ### Bước 1 — Resolve scope

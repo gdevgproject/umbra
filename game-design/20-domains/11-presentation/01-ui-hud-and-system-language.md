@@ -1,10 +1,12 @@
-# SYS-UI — HUD, menu và ngôn ngữ System
+# SYS-UI — HUD, menu và ngôn ngữ hệ thống
 
-> **DRI:** UX Designer
+> **DRI:** UX Designer + UI Art Director
 > **Status:** `DISCOVERY`
 
-Visual language “Legacy” là dark-fantasy chính xác, phân cấp rõ, không hy sinh khả năng đọc. HUD chỉ hiển thị thông tin cần ra quyết định hiện tại: HP/Mana/Focus/Fatigue theo context, target/posture, skill loadout, command feedback và status quan trọng.
+Canonical rules nằm tại [UI/UX Design System](ui/README.md). Visual direction hiện là hypothesis cần concept/wireframe proof, không phải một nhãn “dark fantasy” đủ để sản xuất asset.
 
-Menu families: character/progression, skills/loadout, shadows/formation, inventory/equipment/crafting, quest/journal, Gate/map và settings/accessibility. Mỗi menu có entry/exit, controller chưa cam kết nhưng focus order không được khóa kiến trúc.
+HUD chỉ hiển thị thông tin cần ra quyết định hiện tại: HP/resource theo context, target/posture, action loadout, command feedback và status quan trọng. Tất cả cue phải giữ block/telegraph readability, scale được và có reduced-effects/contrast policy.
 
-Notification dùng severity/queue/dedupe; System message có voice nhưng không che combat. Gate, Arise, Domain/Strata và irreversible choice đều cần preview–confirm–result rõ.
+Menu families gồm character/build, skills/loadout, Shadows/formation, inventory/equipment/crafting, quest/journal, Gate/map và settings/accessibility. Đây là information domains, không mặc định biến thành một hàng tab dài. Navigation, search/filter, compare, back-stack, focus order và resume-to-game phải được thiết kế theo task.
+
+Notification dùng severity/queue/dedupe; System voice không che combat. Gate, Arise, Domain/Strata và irreversible choice đều cần preview–confirm–result rõ.

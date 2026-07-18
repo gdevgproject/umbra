@@ -15,11 +15,11 @@
 | `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
 | `DOM-DUNGEONS` | lifecycle không gian instance | Gate spawn/state, objective ledger, room grammar, generation, cleanup, Break/Field, Tower | `DISCOVERY` |
 | `DOM-WORLD` | thế giới persistent và vanilla integration | city, respect, home/family, events, strata, dimensions, mounts, territory | `DISCOVERY` |
-| `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, quest grammar/dialogue | `DISCOVERY` |
+| `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, Quest Kernel/content/dialogue | `DISCOVERY` |
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
-| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | core third-person camera, first-person support, input, aim/targeting, HUD, animation, VFX, audio, onboarding | `DISCOVERY` |
-| `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, save/migration, config/capability, compatibility adapters | `DISCOVERY` |
+| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | versioned input/actions, core third-person default, first-person support, aim/targeting, UI design system, animation, VFX, audio, onboarding | `DISCOVERY` |
+| `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, portable save/migration/recovery, baseline/port adapters | `DISCOVERY` |
 | `DOM-QUALITY` | oracle và ngân sách | balance, automation, playtest, performance, accessibility, localization, compatibility | `DISCOVERY` |
 
 ## 2. Shared contracts ưu tiên nền tảng
@@ -46,21 +46,22 @@ Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/cat
 ## 3. Chuỗi phụ thuộc chính
 
 ```text
-Foundation Kernel + Test/Diagnostics
-→ Camera/Aim + Input Context
+Pinned Baseline + Foundation Kernel + Test/Diagnostics
+→ Action Registry/Localization/UI primitives + Camera/Aim
 → Action Timeline
 → Attack / Dodge / Parry
-→ Hit & Resource Resolution
+→ Hit & Resource Resolution + Early Danger exemplar
 → Enemy Telegraph / Encounter
-→ Progression & Reward
+→ Quest Kernel / Persistent Activity
+→ Progression & Production Reward
 → Shadow Capture
 → Legion Command
 → World/Narrative Consequence
 ```
 
 ```text
-Content Definition
-→ Enemy/Faction/Skill/Item/Quest authoring
+Content Definition + Asset Registry + Instance Architecture
+→ Enemy/Faction/Skill/Item/Quest exemplars
 → Save/Instance State
 → Migration + Compatibility
 → Release Confidence
@@ -106,6 +107,8 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 - camera/targeting hai góc nhìn như core capability;
 - animation architecture và authoring contract;
 - localization/terminology/string pipeline;
+- vanilla 26.2 key inventory, action catalog, ergonomic default layout và conflict UX;
+- UI information architecture/design tokens cho số lượng screen/object lớn;
 - quest grammar đủ cho branch, recovery, world change và sandbox;
 - combat hit cadence/chống spam click;
 - action context trong mining/building/item use/water/vehicle/ladder/fall;
@@ -114,4 +117,7 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 - player research profiles và prototype questions;
 - scope ladder: prototype → slice → alpha → 1.0 → expansion.
 - Minecraft lifecycle: load/save/quit/death/respawn/creative/dimension/reconnect/crash recovery;
+- world backup/restore/USB transfer và version port train;
+- asset provenance/AI/originality/LOD/VFX-audio budget và content interaction scale;
+- early-game player–zombie–world pressure;
 - engineering/Git/test handoff để Agent mới không phụ thuộc lịch sử chat.

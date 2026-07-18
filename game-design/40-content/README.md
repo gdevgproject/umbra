@@ -19,3 +19,5 @@ Mỗi instance trỏ tới Feature/Shared Contract version đang dùng, có orig
 3. [Faction Bible](03-faction-bible-standard.md)
 4. [Boss Teaching Card](04-boss-teaching-card-standard.md)
 5. [Asset Bible](05-art-audio-and-asset-bible.md)
+6. [Asset production và registry](06-asset-production-and-registry.md)
+7. [Content instance architecture](07-content-instance-architecture.md)
