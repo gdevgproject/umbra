@@ -9,4 +9,4 @@ Contract này sở hữu giao dịch chung. Semantic riêng của Health/Mana/Fo
 
 Modifier có source ID, target stat/tag, operation, priority/layer, duration/expiry, stacking key, cap và dispel/persistence. Thứ tự chuẩn phải được Parameter Registry khóa trước implementation. Không cộng stat bằng callback ẩn rải trong feature.
 
-HP, Mana, Focus, Fatigue, posture, currency và attempt đều dùng vocabulary này nhưng có policy riêng ở domain owner.
+HP, Mana, Focus, Vigor, Fatigue, posture, currency và attempt đều dùng vocabulary này nhưng có policy riêng ở domain owner. Vigor/surface/locomotion transition thuộc [`CTR-TRAVERSAL`](09-traversal-state-surface-and-vigor-contract.md).

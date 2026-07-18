@@ -23,13 +23,17 @@ dialogue/character/world mutation/cinematics/content breadth
 |---|---|
 | `C1` | ID/schema/event envelope, save/migration, localization/test fixtures—chưa quest content |
 | `C2` | prompt/journal/navigation primitives và input/accessibility proof |
+| `C2B` | disposable traversal training/grant scenario; chưa production quest hoặc dialogue |
 | `C3` | authoritative combat/survive/interact event oracles; training micro-scenario có thể disposable |
+| `C3B` | disposable Grounding Strike/Lightness training proof; capability không phụ thuộc Quest Kernel |
 | `C4` | Quest Kernel vertical: một activity/Gate quest rời–reload–death–return, typed test reward |
 | `C5–C7` | Arise/identity/build/squad objective/effect adapters và character quest exemplars |
 | `C8` | home/family/world/economy/faction consequences; rich quest verticals và campaign kits |
 | `C9+` | chapter/campaign breadth, systemic recombination, continuity/soak/polish |
 
 Typed test reward ở C4 không phải production economy. Quest trao item/currency/reputation thật chỉ khi owner contract và source/sink policy Ready.
+
+Production delivery của Free Climb/Hạ Kình/Khinh Công là early universal training chain sau Quest Kernel: level/milestone tạo eligibility, quest trao capability + tutorial, migration/over-level có catch-up grant. Quest không biến core traversal thành missable branch, Potential choice hoặc inventory token.
 
 ## 3. Quest production gates
 

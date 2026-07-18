@@ -16,7 +16,7 @@ UMBRA là một game dark-fantasy dài hạn được xây **bên trong và cùn
 UMBRA kết hợp năm lớp mà không để lớp nào nuốt lớp còn lại:
 
 1. **Minecraft survival sandbox:** ăn ở, tài nguyên, xây dựng, địa hình, sáng tạo và save do người chơi sở hữu.
-2. **Action embodiment:** camera góc ba chuyên nghiệp, điều khiển/animation/combat có trọng lượng; góc một vẫn được tôn trọng.
+2. **Action embodiment:** camera góc ba chuyên nghiệp, điều khiển/animation/combat và traversal chiều dọc có trọng lượng; góc một vẫn được tôn trọng.
 3. **Long-form progression:** cày cuốc có mục tiêu, breakthrough, build, mastery và graduation; không grind rỗng/FOMO.
 4. **Shadow sovereign fantasy:** thu phục, gắn kết, phát triển và chỉ huy một đội Hắc Ảnh tinh nhuệ; từng thành viên đủ sâu để người chơi nhớ, phối hợp và lựa chọn.
 5. **Living systemic world:** Gate, dân cư, faction, công trình, sinh vật/mount và narrative phản ứng với hành động người chơi.

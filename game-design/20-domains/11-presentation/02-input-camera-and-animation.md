@@ -20,3 +20,5 @@ Sau khi `C2-PLAYER-EMBODIMENT` hoàn tất camera base, occlusion, aim ray và f
 ## Animation
 
 Animation biểu đạt phase/intent; gameplay marker được server xác nhận. Dodge cần clip/pose theo hướng hoặc blend grammar, nhưng hitbox/i-frame không suy ra từ frame hình. Root motion, cancel, foot sliding, weapon alignment, first/third-person parity và fallback khi asset thiếu đều cần contract.
+
+Traversal bổ sung grammar attach/climb four-direction/idle/leap/eject/mantle/slip, Grounding orient–descent–impact theo weapon adapter và Lightness launch–apex–descent–landing. IK tay/chân, cloth/trail và root motion chỉ trình bày; collision/velocity/Vigor/fall conversion thuộc [`CTR-TRAVERSAL`](../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md). Mỗi transition phải có fallback clip/pose để missing asset không đổi gameplay.

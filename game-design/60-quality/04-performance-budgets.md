@@ -106,6 +106,8 @@ Không giảm hoặc bỏ: input intent đã nhận, legal hit, telegraph nguy h
 | `PERF-S06` | world dài + save/backup/migrate/restore | live-set, file growth, integrity |
 | `PERF-S07` | soak AFK và play script kéo dài | leak, queue drift, degradation |
 | `PERF-S08` | future proof: dedicated server + 4 test clients | serialization, relevance, authority; chưa mở multiplayer feature |
+| `PERF-S09A` | voxel traversal room: dense full/partial/moving faces, corner/mantle loop, first/third camera | face/ledge probe, collision, animation/IK, correction, allocation |
+| `PERF-S09B` | Lightness/Grounding loop qua terrain + combat dummy + 4 Shadow follower seam | trajectory/sweep/hit/VFX, follower path/rejoin, state cleanup/security |
 
 Mỗi run ghi version/build, seed, hardware/driver/JDK, heap, backend, resolution, render/simulation distance, quality preset, warm-up, duration và feature flags. Báo median/p95/p99, 1% low/spike, không chỉ average. So với vanilla control và baseline UMBRA gần nhất; regression phải truy được subsystem/feature ID.
 

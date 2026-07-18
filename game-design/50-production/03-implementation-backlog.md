@@ -16,8 +16,10 @@ Chưa gameplay ticket nào `READY`. Candidate epics dưới đây chỉ mở sau
 | Action registry/key baseline/conflict diagnostics + camera harness room | C2 | DB-029/002/004 approved |
 | Camera rig/occlusion + camera-relative movement/facing/aim + first-person parity | C2 | DB-004/048/037 Feature Cells implementation-ready |
 | Animation/render adapters + UI token/component/fixed-width meter primitives | C2 | DB-025/031/033 approved |
+| Traversal state/surface/Vigor + Free Climb/mantle + voxel room/debug overlay | C2B | DB-049/050 implementation-ready |
 | Authoritative health/environment adapter + Mana/Focus transactions | C3 | DB-042/046 implementation-ready |
 | Action/hit/light/Dodge/one-charge Combat Flask/early-danger enemy slice | C3 | DB-003–006/034/035/047 implementation-ready |
+| Grounding Strike + Lightness launch/apex/descent + vertical enemy/follower seams | C3B | DB-051/052 implementation-ready; DB-049/050 proof green |
 | Quest Kernel + Gate/objective/typed reward instance slice | C4 | DB-036/007 implementation-ready |
 | Arise/identity/one Shadow + first bonded slot | C5 | DB-008–010 implementation-ready; `CTR-SHADOW-RETINUE` approved cho identity/membership baseline |
 | Progression/build/skills + bounded vitals/Flask upgrades | C6 | DB-011–012/046/047 implementation-ready |

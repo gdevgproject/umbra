@@ -53,6 +53,10 @@
 | R54 | Mana và Focus tách nghĩa; Focus hồi nhanh cho phòng thủ, không phạt traversal; progression không tạo refill/infinite Dodge | `CTR-VITALS-HUD` + Resource + Dodge + Balance | transaction/property tests, notch/readability, capacity/cost/regen simulation và migration |
 | R55 | Combat Flask cho heal quick-use có commitment/charge/interrupt; food vẫn có giá trị survival | Items + Combat + Economy + Input + UI | `DB-047`, action idempotency/cancel/hit matrix, source-sink simulation, comprehension playtest |
 | R56 | Góc ba dùng camera-relative movement với facing tách; lock/aim transition không đảo hướng và ranged không mặc định ép góc một | Camera Movement + Aim + Input + Animation | `DB-048/037`, basis trace, held-input/±180°/parallax/two-view comfort tests |
+| R57 | Vertical freedom là core nhưng không phá Minecraft: Free Climb dùng face contract, ladder/building vẫn có lợi ích và boundary có sequence-break audit | `SYS-PLAYER-TRAVERSAL` + `CTR-TRAVERSAL` + World | `DB-049/050`, voxel surface/mantle fixtures, route comparison, world/Gate audit |
+| R58 | Khí Lực tách Focus/Fatigue/Hunger và không bị relog/refill/cost exploit | `CTR-TRAVERSAL` + Resource + UI + Platform | transaction/property/save/reconnect tests, contextual meter comprehension |
+| R59 | Hạ Kình là phản xạ có cửa sổ: valid landing mới chuyển fall damage và commit một impact nhẹ, không auto-save/hazard immunity/grief | Grounding Strike + Combat Hit + Vitals | `DB-051`, time-to-impact/fall-source/weapon/AoE/idempotency matrix + feel test |
+| R60 | Khinh Công là ground launch→apex→controlled descent, không cánh/hover/infinite flight; core unlock phổ quát rất sớm, không là Potential | Lightness + Progression + Camera + World | `DB-052`, trajectory/Vigor/collision/security/migration tests + traversal/world playtest |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 

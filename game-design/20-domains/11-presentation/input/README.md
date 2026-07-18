@@ -62,6 +62,8 @@ Các category dự kiến: `Core Movement & Combat`, `Skills & Loadout`, `Shadow
 
 Action Catalog phải dành `umbra.action.quick_recovery` với semantics `PRESS`, remappable và context-aware. Đây không phải permission chọn phím mặc định trước audit 26.2/layout experiment; key repeat/packet retry chỉ tạo tối đa một recovery intent mỗi press.
 
+Traversal dành `umbra.action.climb` và `umbra.action.lightness`. `Primary Attack` chỉ context-transform thành Hạ Kình khi eligibility/cue deterministic và phải có alternative binding. Exact mapping, Jump/Crouch reuse, auto-grab, hold/toggle descent và precedence với mining/building thuộc `DB-002/049–052`; không dùng double-tap làm đường duy nhất.
+
 ## 7. Read next
 
 - [Vanilla 26.2 key baseline](vanilla-26.2-key-baseline.md)

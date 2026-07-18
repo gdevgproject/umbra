@@ -57,6 +57,9 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-034` | Mana và Focus là hai resource riêng; Focus hồi nhanh cho phòng thủ chủ động, không là stamina di chuyển chung | HUD fixed-width có cost preview/notch; exact cap/regen/cost vẫn do `DB-046/042` chứng minh |
 | `PD-035` | Combat Flask là quick-recovery action/slot chuyên biệt; food vẫn giữ vai trò hunger/survival | bắt đầu một charge là direction; giả thuyết tối đa 10 chưa khóa, cần `DB-047` cân bằng capacity–potency–refill–interrupt |
 | `PD-036` | Third-person free movement mặc định camera-relative và camera orbit không kéo thân nhân vật khi đứng yên | lock-on/precision dùng basis riêng; ranged không mặc định ép first-person, chuyển mode phải predictable và có setting |
+| `PD-037` | Vertical traversal là core first-party capability: Free Climb, Hạ Kình khi rơi và Khinh Công | tạo `SYS-PLAYER-TRAVERSAL` + `CTR-TRAVERSAL`; world/Gate/enemy/Shadow/camera/animation phải xét chiều dọc từ foundation |
+| `PD-038` | Khí Lực (`Vigor`) tách khỏi Focus/Fatigue/Hunger | Focus giữ Dodge/parry; Vigor chỉ dùng cho climb/Lightness và hiện theo context; ladder/scaffolding vanilla không mặc định drain |
+| `PD-039` | Traversal core là năng lực phổ quát mở rất sớm bằng milestone + training, không là Potential/build choice | basic mantle candidate có từ đầu; exact level/quest do `DB-049–052`, implementation snapshot dùng capability grant trước Quest Kernel |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 
@@ -65,6 +68,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 - Exact early-game zombie/player/world levers và difficulty parameters.
 - UI visual direction/component layouts và asset production tools.
 - Exact numerical band của HP/Mana/Focus, Combat Flask capacity/potency/refill và health-environment mapping.
+- Exact Free Climb input/surface/speed, Vigor band, Grounding Strike window và Lightness launch/descent curve.
 - Authored/systemic/player-created mix, content batch size và release breadth.
 
 Các mục này chỉ quay lại hỏi user khi prototype tạo trade-off fantasy thật sự; trước đó Agent chịu trách nhiệm research/evidence.

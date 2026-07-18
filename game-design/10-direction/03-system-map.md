@@ -7,7 +7,7 @@
 
 | Domain ID | Năng lực sở hữu | Feature/System chính đã nhận diện | Trạng thái tái thẩm định |
 |---|---|---|---|
-| `DOM-PLAYER` | identity và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige | `DISCOVERY` |
+| `DOM-PLAYER` | identity, năng lực thân thể và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige, Free Climb, Hạ Kình, Khinh Công | `DISCOVERY` |
 | `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, vitals/damage/status, Combat Flask interaction, death/recovery | `DISCOVERY` |
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
 | `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→5, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
@@ -43,7 +43,7 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 15. `CTR-PERFORMANCE-BUDGET` — budget, representation/degradation và evidence theo risk.
 16. `CTR-LOADER-PORTABILITY` — common semantics/schema, loader ports, adapter conformance và artifact parity.
 17. `CTR-SHADOW-RETINUE` — slot/membership/claim/active cap dùng chung Capture, AI, UI, Balance và Save.
-18. `CTR-VITALS-HUD` — health/environment/Mana/Focus/HUD dùng chung Combat, World, Item, Death, UI và Save.
+18. `CTR-TRAVERSAL` — locomotion state, Vigor, climbable surface, fall transition và authority dùng chung Player, World, Combat, Camera, Animation và Save.
 
 Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/catalog.md).
 
@@ -52,8 +52,9 @@ Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/cat
 ```text
 Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
 → Action Registry/Localization/UI/vitals primitives + Camera/Movement/Aim
+→ Traversal State/Surface/Vigor → Free Climb/Mantle
 → Action Timeline
-→ Attack / Dodge / Parry + Combat Flask action
+→ Attack / Dodge / Parry + Grounding Strike/Lightness + Combat Flask action
 → Hit, Vitals & Resource Resolution + Early Danger exemplar
 → Enemy Telegraph / Encounter
 → Quest Kernel / Persistent Activity
@@ -97,6 +98,7 @@ Các ý sau được giữ làm `CANDIDATE`, không mặc định `DECIDED`:
 - rank F→Vương Giả, level 1→100, năm attributes và ba specialization;
 - Shadow vĩnh viễn, Arise ba lần, Soul Echo, Retinue slot 1→5/active cap 4, identity/formation/home assignment;
 - action combat với Focus/Fatigue, dodge/parry/combo và năm weapon class;
+- vertical traversal với Vigor, Free Climb, Hạ Kình và Khinh Công universal mở sớm;
 - faction/role/squad/morale/director, Gate lifecycle và dungeon grammar;
 - Hunter City, Respect, Home/Family, strata/world events;
 - skill/rune/tree, loot/affix/growth weapon và bốn currency;
@@ -127,3 +129,4 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 - engineering/Git/test handoff để Agent mới không phụ thuộc lịch sử chat.
 - performance risk routing `PR-0–PR-3` và benchmark selection tự động theo impact;
 - Fabric adapter/import boundary, canonical save và future NeoForge conformance/port train.
+- voxel surface/collision, Vigor, fall conversion, Khinh Công và world sequence-break/follower response.

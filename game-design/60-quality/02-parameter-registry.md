@@ -334,6 +334,25 @@ Max-change default = keep current then clamp; refill only by explicit event
 
 Không có con số potency/refill/timing mặc định trước `DB-047`; capacity 10 phải được so với encounter attrition, upgrade cost, UI, death/refill loop và 0/1/2/4 Shadow balance. Environmental damage dùng profile `ABSOLUTE / PERCENT_MAX / HYBRID / SOURCE_FORMULA / SCRIPTED_LETHAL` theo `DB-046`; không áp một model cho mọi source.
 
+## 14.23. Traversal parameter registry skeleton
+
+Mọi key dưới đây là `TBD`, không phải zero/default implementation:
+
+```text
+Vigor.max / regen_per_tick / recovery_delay / offline_recovery
+FreeClimb.attach_distance / face_tolerance / vertical_speed / lateral_speed
+FreeClimb.idle_drain / move_drain / leap_cost / leap_impulse
+FreeClimb.corner_angle / mantle_clearance / mantle_grace / hit_detach_profile
+Grounding.min_fall_state / accept_time_to_impact / input_buffer
+Grounding.vigor_cost_or_overdraw / arrest_duration / correction_cap
+Grounding.impact_radius / damage_profile / posture_profile / recovery
+Lightness.windup / horizontal_impulse / vertical_impulse / steering_accel
+Lightness.apex_window / descent_terminal_velocity / descent_drain
+Lightness.reentry_cost / landing_recovery / collision_response
+```
+
+`DB-049–052` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
+
 ---
 
 ## Quy trình thay đổi tham số

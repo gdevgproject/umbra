@@ -49,6 +49,15 @@ Có thể trả lời sau Vòng A hoặc cùng lúc nếu bạn đang có hình 
 5. Refill bình nên gắn rest/checkpoint, craft, shop, loot/Gate hay kết hợp; điều gì tạo chuẩn bị thú vị thay vì chore?
 6. Fall/lửa/lava/ngạt/đói/status nên giữ độ nguy hiểm theo Max HP bằng flat, phần trăm, hybrid hay luật riêng theo từng family?
 
+### Vòng A.6 — Traversal progression
+
+Mechanic core đã có direction; feedback của bạn nên tập trung vào progression/quest thay vì phải tự thiết kế physics:
+
+1. Bạn muốn Free Climb xuất hiện ngay sau Awakening, sau lần dựng shelter đầu tiên hay qua một training quest có nhân vật dạy?
+2. Hạ Kình nên được dạy bằng một tình huống rơi bắt buộc an toàn hay người chơi tự khám phá rồi System giải thích?
+3. Khinh Công nên là reward của level milestone, first Gate/trial hay một quest thân pháp riêng—miễn vẫn rất sớm và không miss?
+4. Upgrade traversal về sau nên ưu tiên route dài hơn, hồi nhanh hơn hay thêm expression/move mới; loại nào dễ làm mất giá trị building nhất với bạn?
+
 ## 4. Vòng B — damage, phòng thủ và hiển thị
 
 13. Damage nên gần deterministic hay có variance; nếu có variance, nó tạo thích nghi gì ngoài may rủi?
@@ -102,5 +111,6 @@ Video/screenshot hoặc tên menu giúp định vị; con số không rõ nguồ
 - **Enemy suy nghĩ, phối hợp, morale/director:** [Enemy, squad, morale và director](../05-ai/02-enemy-squad-morale-and-director.md).
 - **Encounter dùng enemy nào để dạy/kiểm tra:** [Encounter Domain](../07-encounters/README.md).
 - **Từng quái/tướng/item/skill có dossier riêng và variant ra sao:** [Content Instance Architecture](../../40-content/07-content-instance-architecture.md).
+- **Leo/Hạ Kình/Khinh Công và Khí Lực:** [Traversal System](traversal/README.md) → [`CTR-TRAVERSAL`](../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md).
 
 Vì vậy không có một file “hệ quái” khổng lồ: faction sở hữu identity, AI sở hữu hành vi, Encounter sở hữu composition/teaching, Balance sở hữu counter/number và Content Instance sở hữu từng cá thể cụ thể.

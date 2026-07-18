@@ -18,6 +18,8 @@ Toàn bộ topology và con số dưới đây là hypothesis kế thừa, chưa
 
 Secondary resistances (poison, bleed, cold, fire, control) đến từ VIT/gear/Potential, không tạo thêm năm primary stats.
 
+Core Free Climb/Hạ Kình/Khinh Công không phụ thuộc đạt ngưỡng AGI/Potential. Nếu AGI hoặc node sau này ảnh hưởng traversal, chúng chỉ đổi bounded Vigor efficiency/recovery/route expression theo [`CTR-TRAVERSAL`](../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md); không mở/khóa world access, auto timing hoặc infinite flight.
+
 ## Allocation decision
 
 Canonical candidate hiện tại: **5 điểm tự phân bổ mỗi level, không auto +1**. Lý do cũ viện dẫn hybrid `auto + free` là mô tả nguồn tham chiếu và bị loại vì mâu thuẫn. Tuy nhiên option auto baseline vẫn cần so sánh qua balance prototype trước Approved.

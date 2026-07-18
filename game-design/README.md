@@ -37,12 +37,13 @@ Chỉ đọc sau năm file trên hoặc khi muốn review đúng chủ đề:
 10. [Living Society](20-domains/08-world/05-living-society-simulation.md) → [Future Multiplayer Readiness](20-domains/12-platform/04-offline-first-multiplayer-readiness.md)
 11. [Performance Test Routing](60-quality/03-testing-and-evidence.md) → [Fabric/NeoForge Loader Portability](20-domains/12-platform/07-loader-portability-and-adapter-contract.md)
 12. [Vitals/Mana/Focus/HUD](30-shared-contracts/08-vitals-resource-and-hud-contract.md) → [Combat Flask](20-domains/10-items-economy/03-combat-flask-and-quick-recovery.md) → [Camera Movement/Facing](20-domains/11-presentation/camera/movement-and-facing-policy.md)
+13. [Traversal System](20-domains/01-player/traversal/README.md) → [Free Climb](20-domains/01-player/traversal/01-free-climbing.md) → [Hạ Kình](20-domains/01-player/traversal/02-aerial-grounding-strike.md) → [Khinh Công](20-domains/01-player/traversal/03-lightness-art.md)
 
 Không cần đọc cả gói một lần; feedback sau từng file vẫn được Agent đồng bộ toàn hệ.
 
 ### Tuyến ưu tiên cho feedback thuộc tính/cân bằng hiện tại
 
-Đọc [Balance Discovery Guide](20-domains/01-player/03-attribute-and-balance-review-guide.md) trước. Hãy trả lời 12 câu Vòng A; nếu đang muốn góp ý máu/Mana/Focus/bình hồi phục thì trả lời thêm 6 câu Vòng A.5. Có thể gửi nghiên cứu Where Winds Meet/Genshin theo format trong file; chưa cần đọc Parameter Registry. Phần 9 trong guide chỉ đúng nơi đọc hệ tộc, AI quái, encounter và từng enemy dossier.
+Đọc [Balance Discovery Guide](20-domains/01-player/03-attribute-and-balance-review-guide.md) trước. Hãy trả lời 12 câu Vòng A; nếu đang muốn góp ý máu/Mana/Focus/bình hồi phục thì trả lời thêm 6 câu Vòng A.5; progression/quest của traversal nằm ở 4 câu Vòng A.6. Có thể gửi nghiên cứu Where Winds Meet/Genshin theo format trong file; chưa cần đọc Parameter Registry. Phần 9 trong guide chỉ đúng nơi đọc hệ tộc, AI quái, encounter và từng enemy dossier.
 
 Nếu muốn review thay đổi Shadow vừa chốt trước, đọc theo thứ tự: [Shadow domain](20-domains/04-shadows/README.md) → [Retinue Capacity Contract](30-shared-contracts/07-shadow-retinue-capacity-and-membership.md) → [Shadow Expression](20-domains/05-ai/04-shadow-expression-and-ritual-coordination.md). Sau đó quay lại Balance Guide; câu 2 đã được viết lại để xét `Self ↔ active Retinue` thay vì một quân đoàn vô hạn.
 

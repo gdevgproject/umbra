@@ -22,3 +22,4 @@ Case study đã được chưng cất thành nguyên lý, không còn một corp
 6. [Fabric/NeoForge loader portability findings](06-loader-portability-findings.md)
 7. [Đội Hắc Ảnh tinh nhuệ và biểu cảm companion](07-elite-retinue-and-companion-expression.md)
 8. [Combat vitals, quick recovery và camera controls](08-combat-vitals-recovery-and-camera-control.md)
+9. [Open-world traversal: climb, breakfall và Lightness](09-open-world-traversal-climb-breakfall-lightness.md)

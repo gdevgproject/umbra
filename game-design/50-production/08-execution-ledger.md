@@ -14,10 +14,10 @@ capability_slice: C0-DESIGN-OS
 active_ticket: NONE
 active_state: NONE
 branch: main
-base_commit: 5d7620a
-head_commit_verified: 5d7620a
+base_commit: f94b5d3
+head_commit_verified: f94b5d3
 worktree_state: DIRTY_DESIGN_DOCS
-uncommitted_scope: vitals/Mana/Focus/HUD, Combat Flask, camera movement/facing và backlog/quality/research design-feedback transaction; audit git status for exact files.
+uncommitted_scope: Free Climb/Grounding Strike/Lightness/Vigor traversal design-feedback transaction plus backlog/quality/research synchronization; audit git status for exact files.
 last_verified_ticket: NONE
 last_automated_evidence: design-doc-validator
 last_human_playtest: N/A

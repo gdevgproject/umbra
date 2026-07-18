@@ -110,10 +110,15 @@ Mỗi record ghi:
 17. Đổi Max HP/Mana/Focus không refill miễn phí; resource transaction không âm hoặc commit hai lần.
 18. Quick Recovery mỗi action ID chỉ trừ một charge/heal một lần; cancel trước commit hoàn reservation, sau commit không rollback heal.
 19. Orbit/recenter/lock/aim transition không đảo held movement; Dodge/attack đã accepted giữ đúng basis snapshot.
+20. Focus và Vigor không rút/hoàn chéo; leo/Khinh Công không làm mất Dodge và combat không khóa traversal ngoài action/context explicit.
+21. Một actor không đồng thời ở hai locomotion mode; attach/mantle/launch/landing packet retry không double cost/impulse/transition hoặc xuyên block.
+22. Quit/reconnect/death/portal/resource reload không refill Vigor, giữ contact ma, ghost flight hoặc fall immunity.
+23. Grounding Strike chỉ chuyển đúng fall component tại valid impact của một action ID; không xóa lava/void/status hoặc gây AoE/block damage lặp.
+24. Lightness không thể hover, midair relaunch, wall-touch ground-reset hoặc modifier-stack thành infinite upward/level flight.
 
 ## 7. Feature readiness test pack
 
-Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. `N/A` cần lý do.
+Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. Movement/traversal feature còn phải có collision-shape, velocity, ground/support, stuck/no-clip và anti-refill/anti-flight fixtures. `N/A` cần lý do.
 
 ## 8. Failure handling
 

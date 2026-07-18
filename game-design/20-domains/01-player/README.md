@@ -1,9 +1,9 @@
-# DOM-PLAYER — Player Progression Charter
+# DOM-PLAYER — Player Character và Progression Charter
 
 > **DRI:** Systems Designer
 > **Status:** `DISCOVERY`
 
-Domain sở hữu level/EXP, attributes, rank, specialization, talent, Potential, mastery, authority và prestige. Nó không sở hữu combat feel, item definition hay social reaction; các domain đó tiêu thụ progression events.
+Domain sở hữu player-owned capability, level/EXP, attributes, rank, specialization, talent, Potential, mastery và prestige. `SYS-PLAYER-TRAVERSAL` sở hữu luật Free Climb/Hạ Kình/Khinh Công; Presentation sở hữu camera/input/animation, Combat sở hữu hit/damage và World sở hữu geometry/content response.
 
 ## Fantasy
 
@@ -19,10 +19,14 @@ Người chơi là ngoại lệ duy nhất có thể tăng trưởng trong một
 
 ## Feature map
 
-`Awakening → XP/Level → Attributes → Reassessment/Rank → Job Change/Specialization → Potential/Mastery → Stratum/Prestige`.
+```text
+Awakening → early universal traversal training → XP/Level → Attributes
+→ Reassessment/Rank → Job Change/Specialization → Potential/Mastery → Stratum/Prestige
+```
 
 ## Tài liệu
 
 - [Level, rank và progression](01-level-rank-and-progression.md)
 - [Attributes, build và mastery](02-attributes-build-and-mastery.md)
 - [Tuyến review thuộc tính và cân bằng](03-attribute-and-balance-review-guide.md)
+- [Traversal: Free Climb, Hạ Kình và Khinh Công](traversal/README.md)

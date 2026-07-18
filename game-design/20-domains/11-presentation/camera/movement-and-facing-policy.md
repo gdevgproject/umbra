@@ -33,6 +33,8 @@ Camera yaw không được ghi thẳng thành player yaw mỗi frame ở third-p
 | Build/mine/tight tunnel | mode hiện tại + precision ray | không auto xoay ngoài interaction need | suggest first-person được; không ép mặc định |
 | Swim/climb/elytra/mount | feature-specific basis | theo physics/vehicle owner | không reuse humanoid rule mù |
 
+Free Climb dùng surface-relative basis; Lightness launch snapshot camera-relative horizontal basis và descent steering có cap. Canonical states/chuyển đổi tại [`CTR-TRAVERSAL`](../../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md); camera không tự sở hữu attach, ground hoặc fall truth.
+
 Direction Product: camera-relative là default cho third-person free movement. Character-relative “tank control” không phải baseline UMBRA. Lock-on/object-relative và precision aim là context riêng, không biến thành exception tùy tiện.
 
 ## 4. Transition invariants
@@ -79,10 +81,10 @@ Direction Product: camera-relative là default cho third-person free movement. C
 - Dodge cùng tick camera/lock đổi; attack turn assist; hit/knockback trong transition;
 - first↔third mid movement/action, portal/death/reload/lag/FPS thấp–cao;
 - keyboard layout/remap/controller harness, motion settings và comfort/comprehension playtest.
+- attach/climb/mantle, Lightness launch–apex–descent và Grounding Strike ở two-view; camera collision không xuyên surface/đảo traversal intent.
 
 ## 10. Open decision
 
 - `DB-048`: turn rate/auto-align/recenter, transition frame, lock-relative sectors, precision strafe và animation/root-motion contract qua camera room prototype.
 - `DB-004/037`: rig/occlusion/aim/target/reticle và first-person parity.
 - `DOD-OQ-01`: neutral dodge + exact direction behavior sau khi `DB-048` có evidence.
-

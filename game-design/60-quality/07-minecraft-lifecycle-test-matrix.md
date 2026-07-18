@@ -32,6 +32,7 @@
 | `PLY-08` | sleep/bed/skip time | Fatigue, deadlines, events, spawn, offline clocks? |
 | `PLY-09` | Hardcore death → spectator | flush/recall/cleanup; UMBRA không tạo respawn trái world rule |
 | `PLY-10` | Creative ↔ Survival rồi save/reload | state giữ đúng, provenance/eligibility theo event, không taint/delete cả world |
+| `PLY-11` | quit/reconnect/death/portal/dimension khi attached, launching, descending hoặc pre-impact | cleanup locomotion mode/reservation/contact/fall conversion; preserve unlock/Vigor theo contract, không ghost flight/refill |
 
 Mỗi persistent field có bảng `copy on death / reset / retain / derive / forbidden` trước code. Không dùng mặc định API thay cho quyết định game.
 
