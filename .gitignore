@@ -1,0 +1,101 @@
+# Umbra — Minecraft Fabric / Gradle project
+# Keep source, design documents, assets, and reproducible build configuration in Git.
+
+# --- Gradle ---------------------------------------------------------------
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# --- Fabric / Minecraft generated runtime data ----------------------------
+run/
+logs/
+crash-reports/
+screenshots/
+*.log
+*.lck
+usercache.json
+usernamecache.json
+servers.dat
+servers.dat_old
+options.txt
+realms_persistence.json
+launcher_profiles.json
+launcher_accounts.json
+
+# Local worlds and runtime saves (never commit test instances)
+saves/
+world/
+*/saves/
+*/world/
+
+# --- Java / Kotlin / build outputs ----------------------------------------
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# --- IDEs ------------------------------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.fleet/
+.project
+.classpath
+.settings/
+
+# --- OS / editors ----------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# --- Generated / local development files ----------------------------------
+generated/
+generated-resources/
+data/generated/
+src/generated/
+src/main/generated/
+*.tmp
+*.temp
+*.bak
+
+# --- Local secrets and environment ----------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+credentials.json
+secrets.json
+
+# --- Coverage / reports ----------------------------------------------------
+.coverage/
+coverage/
+reports/
+test-results/
+
+# --- Dependency / tooling caches ------------------------------------------
+.mvn/
+node_modules/
+/.externalNativeBuild/
+/.cxx/
+
