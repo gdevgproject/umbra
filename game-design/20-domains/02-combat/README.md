@@ -62,6 +62,11 @@ Combat vẫn là approver hoặc reviewer khi các domain đó thay đổi nhị
 | `FEAT-COMBAT-POSTURE` | áp lực đúng loại mở stagger/finisher, không chỉ HP thứ hai | `SEED` |
 | `FEAT-COMBAT-DEATH-REVIEW` | thất bại giải thích được và dẫn tới lựa chọn học/retry | `SEED` |
 
+Feature Cell và system spec chi tiết:
+
+- [Dodge](dodge/README.md)
+- [Death, consequence và trở lại cuộc chơi](death/README.md)
+
 ## Domain invariants đề xuất
 
 - Một click không được tạo nhiều hit chỉ vì client gửi lặp.

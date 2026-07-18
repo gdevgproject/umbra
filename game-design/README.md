@@ -32,8 +32,15 @@ Chỉ đọc sau năm file trên hoặc khi muốn review đúng chủ đề:
 5. [Early-game Danger](20-domains/08-world/04-early-game-survival-pressure.md)
 6. [Content Instance Architecture](40-content/07-content-instance-architecture.md) → [Asset Pipeline](40-content/06-asset-production-and-registry.md)
 7. [Quest Dependency/Production](20-domains/09-narrative/05-quest-dependency-and-production.md)
+8. [Performance Constitution](60-quality/04-performance-budgets.md)
+9. [Death và game-mode policy](20-domains/02-combat/death/README.md)
+10. [Living Society](20-domains/08-world/05-living-society-simulation.md) → [Future Multiplayer Readiness](20-domains/12-platform/04-offline-first-multiplayer-readiness.md)
 
 Không cần đọc cả gói một lần; feedback sau từng file vẫn được Agent đồng bộ toàn hệ.
+
+### Tuyến ưu tiên cho feedback thuộc tính/cân bằng hiện tại
+
+Đọc [Balance Discovery Guide](20-domains/01-player/03-attribute-and-balance-review-guide.md) trước. Hãy trả lời 12 câu Vòng A hoặc gửi nghiên cứu Where Winds Meet/Genshin theo format trong file; chưa cần đọc Parameter Registry. Sau vòng A, Agent mới dẫn sang damage/defense, enemy/counter và progression longevity để tránh khóa công thức khi fantasy còn mơ hồ.
 
 ### Vòng 2 — Đọc game tuyến tính theo miền
 

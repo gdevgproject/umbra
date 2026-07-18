@@ -101,7 +101,7 @@ Không ghi một số là final nếu chưa có evidence/approval.
 
 - Automated oracle:
 - Manual feel question:
-- Performance budget:
+- Performance budget: client frame/server tick/memory/I/O/network/cardinality; representation tier, degradation và benchmark ID:
 - Compatibility matrix:
 - Accessibility/localization check:
 - Prototype/playtest record:

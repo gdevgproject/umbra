@@ -39,7 +39,13 @@
 | R40 | Asset/audio/VFX nguyên bản, có provenance, budget và fallback | Art/Audio + Tech Art | registry manifest, IP review, two-camera/perf/accessibility evidence |
 | R41 | Quest Kernel sớm; rich quest chỉ làm khi reward/world dependencies Ready | Quest + Platform + Production | C4 lifecycle vertical, dependency audit, C8 content dossier/continuity proof |
 | R42 | Third-person default sau C2; aim/reticle/lock/first-person không auto-switch mơ hồ | Camera + Input + Combat | mode/transition/ray tests + comfort/comprehension playtest |
+| R43 | World dài, AI/combat đông vẫn mượt và không crash/lag tích lũy | Performance + Platform + all domains | frame/tick/memory/I/O/cardinality profiles, soak, degradation and crash-recovery gates |
+| R44 | Death có giá nhưng không xóa progression/Shadow identity hoặc gây death spiral; mode vanilla vẫn có nghĩa | Death/Recovery + Platform + Shadows | state matrix, mode/activity/death lifecycle + consequence playtest |
+| R45 | Creative là author/debug sandbox đầy đủ, state có provenance thay vì taint cả save | Platform + Death/Recovery + QA | Creative↔Survival/reload/grant/eligibility tests |
+| R46 | Living society có NPC sâu nhưng scale bằng identity/event/aggregate tiers | World + AI + Data + Performance | hub exemplar, hydrate/dehydrate continuity, ledger compaction/soak |
+| R47 | Future multiplayer ưu tiên co-op 2–4 rồi PvP 1v1/3v3/ranking mà không bóp PvE/solo | Platform + Security + Balance | ownership/threat/ruleset contracts; future dedicated multi-client evidence |
+| R48 | Attribute, Potential, damage, hệ/counter và display được quyết từ fantasy/evidence, không từ công thức cũ | Player + Balance + Combat + UX | DB-042 research, simulations, multi-build/mastery playtests, migration |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 
-Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, multiplayer gameplay, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Multiplayer **foundation seams** không deferred; chỉ gameplay/social feature deferred.
+Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, multiplayer gameplay, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Multiplayer **foundation seams** đã framed theo `M1–M3`; gameplay/service vẫn future và không nằm current roadmap.

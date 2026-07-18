@@ -15,4 +15,4 @@ Mỗi Feature Cell khai:
 - missing/disabled/old-version fallback;
 - diagnostics và test fixture.
 
-Disable feature không tự xóa state. Death không mặc định copy hoặc reset. Creative không mặc định grant progression ownership. Những hành vi này cần State Ownership Matrix của domain.
+Disable feature không tự xóa state. Death không mặc định copy hoặc reset; policy canonical nằm tại `CTR-DEATH-RECOVERY`. Creative được phép grant/spawn/test theo author intent nhưng mọi mutation có provenance; challenge/ranked eligibility xét theo event thay vì “taint” cả save. Exact state vẫn cần State Ownership Matrix của domain.

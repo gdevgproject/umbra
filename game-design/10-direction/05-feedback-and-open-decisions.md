@@ -43,6 +43,12 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-020` | Không hỏi lại fixed roster/quest count cho “1.0” | breadth tăng theo quality/dependency; release manifest khóa khi đủ coherent |
 | `PD-021` | Quest Kernel được chứng minh sớm, rich quest content mở theo dependency | state/reward/save trước; campaign breadth sau core systems |
 | `PD-022` | Asset có registry, provenance, direction và technical gates | AI/reference không thay originality, art direction hoặc in-game QA |
+| `PD-023` | Hiệu năng là design budget và release evidence của mọi capability | không chờ tối ưu cuối; client/tick/memory/I/O/network/cardinality có owner, benchmark và degradation |
+| `PD-024` | Death bảo vệ progression dài hạn và Shadow identity; deployment được recall | consequence tạm thời, mode/activity-aware, không death spiral hoặc cộng nhiều hình phạt |
+| `PD-025` | Creative là first-class author/debug sandbox theo ý định Minecraft | cho phép grant/spawn/test; provenance theo event bảo vệ challenge/ranked eligibility, không “taint” cả save |
+| `PD-026` | Living society đi theo identity/ledger → hub observable → relationship → settlement → faction → deep individual | chứng minh chiều sâu nhìn thấy trước khi scale simulation |
+| `PD-027` | Future multiplayer ưu tiên co-op 2–4; sau đó PvP 1v1/3v3, ranking/event | chỉ khóa ownership/security/performance seam; current scope vẫn offline |
+| `PD-028` | Attribute/damage/Potential/counterplay được mở lại như discovery toàn hệ | công thức corpus cũ chỉ là candidate; user review + research + prototype mới được approve |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 
@@ -56,10 +62,9 @@ Các mục này chỉ quay lại hỏi user khi prototype tạo trade-off fantas
 
 ## 4. Câu hỏi Product còn mở
 
-1. Player death giữ/reset cụ thể level/stat, temporary combat state, Fatigue, Gate participation, Shadow deployment và inventory thế nào?
-2. Creative mode là author/debug sandbox hoàn toàn hay có rule ngăn progression/reward ghi vào survival save?
-3. Living society ưu tiên simulation sâu ở NPC cá nhân, settlement/economy hay faction/world-state trước?
-4. Future multiplayer ưu tiên co-op cùng save, persistent server society hay PvP? Câu trả lời chỉ chọn seam, chưa mở feature.
+Bốn câu hỏi death, Creative, living society và multiplayer trước đây đã được khóa ở `PD-024–027`; Agent không hỏi lại. Vòng feedback có đòn bẩy lớn tiếp theo là fantasy/topology thuộc tính, damage và counterplay tại [Balance Discovery Guide](../20-domains/01-player/03-attribute-and-balance-review-guide.md), ưu tiên 12 câu Vòng A.
+
+Exact death penalty/preset là tuning discovery của `DB-040`, không phải câu hỏi Product. Exact performance target theo hardware/profile là technical evidence của `DB-039`, không xin một con số cảm tính từ user.
 
 ## 5. Cách trả lời
 

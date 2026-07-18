@@ -30,6 +30,8 @@
 | `PLY-06` | operator commands and `/give` | validation/audit/default component/progression exploit? |
 | `PLY-07` | inventory full/drop/pickup/despawn/death | item identity, ownership, rollback? |
 | `PLY-08` | sleep/bed/skip time | Fatigue, deadlines, events, spawn, offline clocks? |
+| `PLY-09` | Hardcore death → spectator | flush/recall/cleanup; UMBRA không tạo respawn trái world rule |
+| `PLY-10` | Creative ↔ Survival rồi save/reload | state giữ đúng, provenance/eligibility theo event, không taint/delete cả world |
 
 Mỗi persistent field có bảng `copy on death / reset / retain / derive / forbidden` trước code. Không dùng mặc định API thay cho quyết định game.
 
@@ -37,11 +39,11 @@ Mỗi persistent field có bảng `copy on death / reset / retain / derive / for
 
 Mỗi item/weapon/skill token kiểm acquisition từ intended loot/craft, creative tab, `/give`, clone stack, split/merge, drop/pickup, container/hopper nếu hợp lệ, death, dimension, save/reload, repair/enchant/anvil, missing/old component và invalid forged data.
 
-Item creative không có unlock/history có thể:
+Item creative không có unlock/history phải:
 
 - hoạt động với safe default;
-- trở thành debug/test instance có nhãn;
-- bị chặn chức năng progression bằng reason rõ.
+- có provenance creative/debug và inspect được;
+- chỉ bị loại khỏi challenge/ranked eligibility tương ứng, không bị vô hiệu hóa trong solo sandbox.
 
 Không được crash, silently corrupt hoặc gây damage chỉ vì UI unlock chưa chạy.
 
@@ -60,7 +62,7 @@ Không được crash, silently corrupt hoặc gây damage chỉ vì UI unlock c
 
 ## 5. Server matrix
 
-Mỗi capability chạy ít nhất integrated single-player và dedicated server one-client smoke. Future-ready lanes thêm reconnect, two-client visibility/ownership fixture chỉ để bắt singleton/client-truth bug; không gọi đó là multiplayer gameplay support.
+Mỗi capability chạy ít nhất integrated single-player và dedicated server one-client smoke. Future-ready lanes thêm reconnect, two-client visibility/ownership fixture chỉ để bắt singleton/client-truth bug; future performance lane có tối đa 4 automated clients theo `PERF-S08`. Không gọi các fixture đó là multiplayer gameplay support.
 
 ## 6. Exit artifact
 

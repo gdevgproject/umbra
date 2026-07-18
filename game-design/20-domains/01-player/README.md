@@ -20,3 +20,9 @@ Người chơi là ngoại lệ duy nhất có thể tăng trưởng trong một
 ## Feature map
 
 `Awakening → XP/Level → Attributes → Reassessment/Rank → Job Change/Specialization → Potential/Mastery → Stratum/Prestige`.
+
+## Tài liệu
+
+- [Level, rank và progression](01-level-rank-and-progression.md)
+- [Attributes, build và mastery](02-attributes-build-and-mastery.md)
+- [Tuyến review thuộc tính và cân bằng](03-attribute-and-balance-review-guide.md)

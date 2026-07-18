@@ -2,6 +2,10 @@
 
 > **Status:** `DISCOVERY`
 
+## Trạng thái discovery
+
+Toàn bộ topology và con số dưới đây là hypothesis kế thừa, chưa là luật. [Tuyến review thuộc tính và cân bằng](03-attribute-and-balance-review-guide.md) là cửa vào cho vòng quyết định `DB-042`; Parameter Registry không được nâng các candidate này trước evidence.
+
 ## Năm attributes candidate
 
 | Attribute | Combat | Minecraft integration |
@@ -49,7 +53,4 @@ Sau Job Change, ba specialization:
 
 ## Open decisions
 
-- Năm stats có tạo “2 stat thật, 3 stat phụ” không?
-- Talent có cần tồn tại nếu specialization/Potential đã nhiều lớp?
-- Potential irreversible có tạo giá trị hay anxiety/save trap?
-- AGI/PER được phép ảnh hưởng dodge window đến đâu?
+Các câu hỏi topology, damage, counterplay, Potential, difficulty và UI nằm duy nhất tại [Balance Discovery Guide](03-attribute-and-balance-review-guide.md). File này chỉ giữ candidate hiện hành để review, không tạo danh sách câu hỏi song song.

@@ -14,7 +14,7 @@ Platform tạo nền để Feature Cell thay đổi mà không làm vỡ save, a
 - Definition tách khỏi persistent instance và derived runtime view.
 - Stable ID, schema version, validation và migration là bắt buộc cho content/save.
 - Feature có config/flag hoặc harness đủ để test cô lập khi hợp lý.
-- Integrated single-player và dedicated server dùng cùng authority path; không implement multiplayer feature nhưng không lưu gameplay truth ở client.
+- Integrated single-player và dedicated server dùng cùng authority path; không implement multiplayer hiện tại nhưng giữ seam cho co-op 2–4 trước, PvP 1v1/3v3 sau và không lưu gameplay truth ở client.
 - Compatibility baseline là release record có kiểm chứng, không là lời hứa vĩnh viễn.
 
 ## Tài liệu

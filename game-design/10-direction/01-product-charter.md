@@ -115,15 +115,15 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Public goal là **full coherent game promise**, không phải phát hành sớm chỉ vì một slice chạy được.
 - Trong phát triển, mọi phase phải cho chủ dự án chạy/chơi/test được mà không chờ toàn game hoàn tất.
 - Camera góc ba cải tổ là capability cốt lõi và foundation dependency.
-- Hiện tại làm offline/single-player; chuẩn bị authority/data/security seams cho multiplayer về sau, không implement multiplayer feature.
+- Hiện tại làm offline/single-player; future ladder là co-op party 2–4 trước, PvP 1v1/3v3 rồi ranking/event sau. Chỉ chuẩn bị authority/data/security/performance seams, không implement multiplayer feature hiện tại.
 - Prologue/gia đình được thiết kế sớm để giữ meaning/continuity, nhưng platform–control–combat foundation được triển khai trước; first core-loop build phải có một return/home beat tối thiểu.
 - Dự án hướng tới một save chơi nhiều năm và mở rộng liên tục; không cam kết longevity bằng grind vô hạn.
+- Hiệu năng là constraint thiết kế của mọi capability và world dài; không để tới giai đoạn polish cuối.
+- Death giữ progression dài hạn/Shadow identity, recall deployment và tạo consequence tạm thời theo mode/activity; Creative là first-class author/debug sandbox có provenance.
+- Living society phát triển từ identity/event ledger và hành vi hub nhìn thấy được trước khi mở settlement/faction/deep individual simulation.
 
-## 9. Câu hỏi Product còn mở
+## 9. Cửa feedback Product hiện tại
 
-- Player death giữ/reset cụ thể progression, Gate, Shadow deployment và inventory thế nào?
-- Creative mode là author/debug sandbox hoàn toàn hay tách progression/reward khỏi survival history?
-- Living society ưu tiên simulation sâu ở NPC, settlement/economy hay faction/world state trước?
-- Future multiplayer ưu tiên co-op, persistent server society hay PvP để khóa ownership seam nào trước?
+Các câu hỏi death, Creative, living society và multiplayer đã được khóa ở mức Product; exact parameter/tier/ruleset nằm ở system discovery, không hỏi lại. Cửa feedback có đòn bẩy lớn tiếp theo là fantasy/topology thuộc tính, damage, Potential và counterplay tại [Balance Discovery Guide](../20-domains/01-player/03-attribute-and-balance-review-guide.md).
 
-Exact camera/input/UI/content breadth là delegated research do Agent giải bằng prototype/evidence, không phải câu hỏi Product đẩy lại cho user. Các câu hỏi trên thuộc discovery backlog và không phủ định quyết định đã khóa.
+Exact camera/input/UI/content breadth, death penalty và performance target theo hardware là delegated research do Agent giải bằng prototype/evidence; chỉ quay lại Product khi xuất hiện trade-off fantasy hoặc scope khó đảo ngược.
