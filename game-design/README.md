@@ -74,4 +74,4 @@ Nếu hai nơi phát biểu cùng một luật, Agent phải chọn owner, giữ
 - Product/scope vẫn `PROPOSED`: cần feedback của Game Director (người dùng).
 - Phần lớn gameplay ở `DISCOVERY`; nhiều con số chi tiết chỉ là candidate cần test.
 - Dodge là Feature Cell mẫu sâu nhất nhưng chưa `IMPLEMENTATION_READY`.
-- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là đọc/feedback rồi đóng lần lượt `DB-001` trở đi.
+- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là tiếp tục đọc/feedback Product; khi chuyển sang design execution, foundation queue bắt đầu tại `DB-021`, trước camera/combat gameplay.

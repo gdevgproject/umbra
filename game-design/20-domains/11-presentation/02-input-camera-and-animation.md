@@ -9,9 +9,9 @@ Thiết kế dùng action names/context, không dùng phím cố định. Mọi 
 
 ## Camera
 
-First-person giữ cảm giác Minecraft gốc; third-person cải tổ là mode ứng viên trọng yếu cho combat/squad spectacle. Hai mode cùng gameplay rule và target state. Camera contract gồm facing, crosshair/soft target/lock-on, obstruction, recenter, sensitivity, FOV, shake và motion reduction.
+Third-person overhaul đã được khóa là core capability, không còn là optional presentation. Canonical contract, decomposition và test nằm tại [Camera System](camera/README.md). File này chỉ sở hữu ranh giới camera–input–animation.
 
-Lock-on là Feature Cell riêng, không phải một cờ trong Dodge. Không chốt third-person kiểu Genshin bằng cảm giác tham chiếu; cần prototype khoảng cách, yaw ownership, target switch, verticality và block-space obstruction.
+First-person và third-person dùng cùng action/target authority. Input layer gửi action/aim intent; camera client trình bày/predict nhưng không tự quyết hit/interaction. Lock-on, aim, obstruction và context transition là các Feature Cell riêng.
 
 ## Animation
 

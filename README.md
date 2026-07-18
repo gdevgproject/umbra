@@ -6,7 +6,7 @@ UMBRA turns Minecraft Survival into a progression-driven dark-fantasy adventure.
 
 ## Project status
 
-The repository is currently in the **pre-production / design foundation** phase. The game-design corpus is being consolidated before implementation begins. No playable mod build is available yet.
+The repository is currently in the **pre-production / design foundation** phase. The canonical design system is consolidated and is being refined through Product Director feedback. No playable mod build is available yet.
 
 | Area | Current target |
 |---|---|
@@ -17,13 +17,9 @@ The repository is currently in the **pre-production / design foundation** phase.
 
 Version support, loader/API versions, Java requirements, dependencies, and save migration guarantees will be published with each release. Compatibility with older Minecraft versions is not assumed.
 
-## Core pillars
+## Emotional promise
 
-- **Power:** rise from an unknown survivor to the Shadow Monarch.
-- **Attachment:** shadows are a persistent legion and trusted companions.
-- **Discovery:** every Gate, dungeon, boss, and parallel world reveals something new.
-- **Mastery:** combat, builds, AI, economy, and progression reward deliberate play.
-- **Rootedness:** a home, family, and living society give the journey meaning.
+The north star is **self-authored becoming**: the player remembers being vulnerable, understands how they became powerful, and sees their choices persist in the world. Seven supporting promises guide design: ascendance, agency, mastery, attachment, discovery, consequence, and belonging.
 
 ## Repository layout
 
@@ -43,7 +39,7 @@ Performance is a feature: large shadow armies, intelligent enemies, and stable f
 
 ## Development
 
-Gameplay implementation is gated per Feature Cell. A legacy ticket or formula is not sufficient authorization to code; see [`AGENTS.md`](AGENTS.md) and the design lifecycle.
+Gameplay implementation is gated per Feature Cell. A detailed candidate or formula is not sufficient authorization to code. Mainline development must remain playable per completed capability; see [`AGENTS.md`](AGENTS.md) and the design lifecycle.
 
 ## License
 

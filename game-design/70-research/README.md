@@ -17,3 +17,5 @@ Case study đã được chưng cất thành nguyên lý, không còn một corp
 1. [Research protocol](01-research-protocol.md)
 2. [Action-RPG và progression lessons](02-action-rpg-and-progression-lessons.md)
 3. [Comparison matrix](03-comparison-matrix.md)
+4. [Audience và reference landscape](04-audience-and-reference-landscape.md)
+5. [Fabric foundation findings](05-fabric-foundation-findings.md)

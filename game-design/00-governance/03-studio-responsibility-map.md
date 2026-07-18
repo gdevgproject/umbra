@@ -90,3 +90,6 @@ Mỗi artifact có:
 Ví dụ `FEAT-COMBAT-DODGE`: DRI Combat Designer; approver Lead Game Designer; reviewers UX/Input, Animation, Gameplay Engineering, QA, Accessibility; consulted Balance, Camera, Compatibility; Game Director được informed nếu fantasy không đổi.
 
 Solo developer vẫn ghi các mũ này để biết mình đang ra quyết định ở vai trò nào và tránh một suy nghĩ kỹ thuật vô tình thay thế quyết định UX.
+## 7. Mô hình vận hành một người + Agent
+
+Các role trong tài liệu là **góc trách nhiệm**, không giả định có nhân sự thật. Người dùng giữ Game Director/Product Owner. Agent lần lượt đội mũ DRI/reviewer chuyên môn, phải thực hiện review pass tách biệt và ghi risk/evidence; không tự tạo cảm giác “đã được nhiều người duyệt”. Repository, ticket, test report và Git commit là bộ nhớ qua các phiên chat. Quy trình chi tiết: [Engineering/Git Workflow](06-engineering-and-git-workflow.md).

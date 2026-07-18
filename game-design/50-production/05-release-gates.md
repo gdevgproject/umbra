@@ -12,6 +12,8 @@
 5. **Integrated:** automated proof xanh, human playtest đạt, docs/content đồng bộ.
 6. **Release:** compatibility, accessibility, localization, performance, soak, migration và recovery đạt.
 
+Mỗi capability integrated tạo playable snapshot manifest: commit/schema/baseline, automated results, lifecycle IDs, user Test Card result nếu có, known issues và backup/rollback note. Human playtest chỉ kiểm câu hỏi con người; không thay test logic/lifecycle.
+
 ## Go/no-go core release
 
 Core promise chơi được từ new save tới return loop; không blocker/crash/save loss; regression invariants xanh; p95/p99 trong budget; Việt/Anh complete theo scope; critical cues accessible; install/backup/known issues rõ; content originality/license sạch; deferred không để lại dead-end trong UI/save.

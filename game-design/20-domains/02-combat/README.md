@@ -41,9 +41,9 @@ Combat vẫn là approver hoặc reviewer khi các domain đó thay đổi nhị
 
 ## Thứ tự discovery hợp lý
 
-1. Combat context và `CTR-INPUT-ACTION`.
-2. Action timeline + hit cadence/chống spam click.
-3. Camera/target + animation event contracts.
+1. Camera base/aim/occlusion và `CTR-CAMERA-TARGET` cùng vanilla interaction proof.
+2. Combat context và `CTR-INPUT-ACTION`.
+3. Action timeline + hit cadence/chống spam click + animation event contract.
 4. Light attack và Dodge như một paired prototype; không đánh giá dodge trong chân không.
 5. Parry/posture.
 6. Skill activation/weapon swap.

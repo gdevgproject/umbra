@@ -15,6 +15,9 @@
 - test/observability artifact;
 - rollback/feature flag khi rủi ro;
 - DRI, reviewers và Definition of Done.
+- branch/commit delivery policy và exact handoff artifact;
+- Minecraft lifecycle IDs phải chạy hoặc `N/A — reason`;
+- baseline test command/result trước khi sửa nếu là bug/refactor.
 
 ## Quy tắc chia
 
@@ -23,3 +26,7 @@ Một ticket phải review/test được độc lập nhưng không nhỏ đến
 ## Khi phát hiện gap trong code
 
 Bug trái spec: sửa + regression. Chi tiết nội bộ không đổi behavior: implementation note. Rule/player outcome mới: dừng phần liên quan, đưa Feature Cell về lifecycle và cập nhật impact map. Không biến quyết định design thành comment TODO.
+
+## Quy trình thực thi
+
+Ticket đã ready được triển khai theo [Engineering/Git Workflow](../00-governance/06-engineering-and-git-workflow.md); bug theo [Bug Workflow](../00-governance/07-bug-investigation-and-fix.md). Ticket không hoàn tất nếu chỉ có code mà thiếu self-review, exact test evidence, doc sync và context handoff cho Agent sau.

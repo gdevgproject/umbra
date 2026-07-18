@@ -18,8 +18,8 @@
 | `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, quest grammar/dialogue | `DISCOVERY` |
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
-| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | input, first/third camera, targeting, HUD/screen, animation, VFX, audio, onboarding | `DISCOVERY` |
-| `DOM-PLATFORM` | dữ liệu và runtime boundary | data authoring, authority, save/migration, config, compatibility, mod API | `DISCOVERY` |
+| `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | core third-person camera, first-person support, input, aim/targeting, HUD, animation, VFX, audio, onboarding | `DISCOVERY` |
+| `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, save/migration, config/capability, compatibility adapters | `DISCOVERY` |
 | `DOM-QUALITY` | oracle và ngân sách | balance, automation, playtest, performance, accessibility, localization, compatibility | `DISCOVERY` |
 
 ## 2. Shared contracts ưu tiên nền tảng
@@ -30,7 +30,7 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 2. `CTR-ACTION-TIMELINE` — startup/commit/active/recovery/cancel và game tick.
 3. `CTR-COMBAT-HIT` — hit authorization, attack cadence, damage instance, immunity, spam prevention.
 4. `CTR-RESOURCE` — HP/Mana/Focus/Fatigue ownership, cost timing, recovery.
-5. `CTR-CAMERA-TARGET` — góc 1/3, camera-relative direction, crosshair/soft/lock target.
+5. `CTR-CAMERA-TARGET` — core rig góc 3, góc 1, aim basis, obstruction, crosshair/soft/lock target.
 6. `CTR-ANIMATION-EVENT` — animation state, gameplay event, hitbox và cancel synchronization.
 7. `CTR-ACTOR-AUTHORITY` — client intent, server authority, prediction/correction.
 8. `CTR-PERSISTENCE` — state taxonomy, save/migration/rollback.
@@ -38,13 +38,16 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 10. `CTR-ACCESSIBILITY` — cue đa kênh, reduced motion, input/timing assistance policy.
 11. `CTR-GATE-LIFECYCLE` — Gate/objective/exit/deadline/cleanup.
 12. `CTR-CONTENT-DEFINITION` — definition/instance/schema validation/versioning.
+13. `CTR-CAPABILITY-OWNERSHIP` — availability, owner, death/reconnect/creative/migration policy.
+14. `CTR-MULTIPLAYER-READINESS` — logical-server authority, ownership, packet/security/sync seams.
 
 Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/catalog.md).
 
 ## 3. Chuỗi phụ thuộc chính
 
 ```text
-Input Context
+Foundation Kernel + Test/Diagnostics
+→ Camera/Aim + Input Context
 → Action Timeline
 → Attack / Dodge / Parry
 → Hit & Resource Resolution
@@ -67,10 +70,11 @@ Content Definition
 
 ## 4. Capability Slice, không phải “mod con” tùy ý
 
-Một slice hợp lệ là một đoạn trải nghiệm có thể chạy và đánh giá. Ví dụ combat foundation:
+Một slice hợp lệ là một đoạn trải nghiệm có thể chạy và đánh giá. Ví dụ embodiment→combat foundation:
 
 ```text
-Combat dummy có telegraph
+Camera room kiểm mine/place/occlusion/aim
+→ Combat dummy có telegraph
 → người chơi dùng một đòn đánh theo nhịp
 → có một dodge với input/camera/animation hoàn chỉnh
 → hit server-authoritative
@@ -79,7 +83,7 @@ Combat dummy có telegraph
 → test spam click, collision, latency và accessibility
 ```
 
-Slice này nhỏ hơn “M1” cũ nhưng lớn hơn một ticket input. Nó cho feedback thật trước khi mở progression, quest hay Gate.
+Slice này lớn hơn một ticket input nhưng nhỏ hơn combat system hoàn chỉnh. Nó khóa foundation có blast radius trước progression, quest hay Gate.
 
 ## 5. Candidate inventory toàn game
 
@@ -99,7 +103,7 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 
 ## 6. Những vùng discovery ưu tiên
 
-- camera/targeting hai góc nhìn;
+- camera/targeting hai góc nhìn như core capability;
 - animation architecture và authoring contract;
 - localization/terminology/string pipeline;
 - quest grammar đủ cho branch, recovery, world change và sandbox;
@@ -109,3 +113,5 @@ Mỗi ý đã có domain owner; chúng phải đi qua Feature Cell/Shared Contra
 - design debug/observability;
 - player research profiles và prototype questions;
 - scope ladder: prototype → slice → alpha → 1.0 → expansion.
+- Minecraft lifecycle: load/save/quit/death/respawn/creative/dimension/reconnect/crash recovery;
+- engineering/Git/test handoff để Agent mới không phụ thuộc lịch sử chat.

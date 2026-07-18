@@ -2,74 +2,129 @@
 
 > **DRI:** Game Director
 > **Approver:** Game Director
-> **Reviewers:** Lead Designer, Creative Director, Technical Director, Producer
+> **Reviewers:** Lead Designer, Creative Director, Technical Director, Producer, UX Research
 > **Status:** `PROPOSED`
 
-## 1. One-line promise
+## 1. North-star promise
 
-UMBRA biến Minecraft Survival thành hành trình dark-fantasy dài hạn nơi người chơi tự tay đi từ kẻ vô danh tới Chúa Tể Hắc Ảnh, biến những đối thủ đáng nhớ thành một quân đoàn có danh tính, trong khi thế giới sandbox, căn nhà và các lựa chọn của họ vẫn còn ý nghĩa.
+UMBRA là một game dark-fantasy dài hạn được xây **bên trong và cùng với Minecraft**: người chơi bắt đầu bằng đời sống sinh tồn hữu hạn, tự rèn luyện thành một chủ thể quyền lực, đánh bại và Trỗi Dậy những đối thủ đáng nhớ thành quân đoàn có danh tính, rồi dùng sức mạnh, công trình, quan hệ và lựa chọn của mình để làm một thế giới sống thay đổi theo thời gian.
 
-## 2. Đối tượng trải nghiệm
+Đây không phải “một combat mod cộng vài hệ RPG”. Đích đến là một **coherent total-overhaul** đủ sâu để người chơi có thể chọn nó làm mod trung tâm duy nhất, nhưng mỗi capability vẫn phải Minecraft-native, bật/tắt/test/migrate được và không kéo theo cả game chưa hoàn thành.
 
-- Người chơi Minecraft thích survival, khám phá, xây dựng nhưng muốn progression và chiến đấu sâu hơn.
-- Người chơi action RPG thích mastery, build và boss nhưng chấp nhận ngôn ngữ không gian/khối của Minecraft.
-- Người chơi summoner/collector muốn đồng đội lâu dài, không phải pet dùng rồi bỏ.
-- Người chơi dài hạn muốn thế giới cũ còn giá trị sau endgame.
+## 2. Bản chất trải nghiệm
 
-Casual phải đọc được và có đường tiến; expert phải có không gian biểu đạt kỹ năng. UMBRA không cân bằng bằng cách giấu thông tin hoặc phá luật sau lưng người chơi.
+UMBRA kết hợp năm lớp mà không để lớp nào nuốt lớp còn lại:
 
-## 3. Năm trụ cảm xúc
+1. **Minecraft survival sandbox:** ăn ở, tài nguyên, xây dựng, địa hình, sáng tạo và save do người chơi sở hữu.
+2. **Action embodiment:** camera góc ba chuyên nghiệp, điều khiển/animation/combat có trọng lượng; góc một vẫn được tôn trọng.
+3. **Long-form progression:** cày cuốc có mục tiêu, breakthrough, build, mastery và graduation; không grind rỗng/FOMO.
+4. **Shadow sovereign fantasy:** thu phục, gắn kết, phát triển và chỉ huy một quân đoàn bất tử có danh tính.
+5. **Living systemic world:** Gate, dân cư, faction, công trình, sinh vật/mount và narrative phản ứng với hành động người chơi.
 
-| ID | Trụ | Lời hứa quan sát được |
-|---|---|---|
-| `PIL-POWER` | Quyền lực | sức mạnh thay đổi động từ, hình ảnh và phản ứng thế giới, không chỉ số damage |
-| `PIL-ATTACHMENT` | Gắn kết | bóng/NPC có danh tính, lịch sử và giá trị lâu dài |
-| `PIL-DISCOVERY` | Khám phá | Gate, faction, dungeon và lore tạo câu hỏi mới, không chỉ đổi màu |
-| `PIL-MASTERY` | Tinh thông | input, timing, build, chỉ huy và chuẩn bị đều có thể học và thể hiện |
-| `PIL-ROOTEDNESS` | Nơi thuộc về | nhà, gia đình, đô thị và công trình khiến việc trở về có ý nghĩa |
+## 3. Audience stack
 
-Mỗi feature phải phục vụ một trụ chính và tối đa hai trụ phụ. Nếu cố phục vụ tất cả, feature chưa có trọng tâm.
+### Primary — người chơi Minecraft dài hạn
 
-## 4. Ràng buộc thiết kế
+Muốn survival/build/exploration còn nguyên giá trị nhưng combat, progression, AI, content và thế giới sâu tới mức một save có thể trở thành hành trình nhiều năm.
 
-1. **Minecraft vẫn là nền:** đào, xây, địa hình, redstone, làng, Nether/End không bị biến thành khoảng nghỉ vô nghĩa giữa các menu RPG.
-2. **Cảm xúc trước số lượng:** feature mới phải tạo hoặc thay đổi một quyết định người chơi.
-3. **Đọc được và công bằng:** telegraph, trạng thái, cost, failure và hậu quả phải có ngôn ngữ rõ.
-4. **Không FOMO:** không streak bắt buộc, calendar lockout hay phần thưởng độc quyền vì đăng nhập đúng giờ.
-5. **Hiệu năng là contract:** fantasy quân đoàn lớn phải dùng LOD/representation phù hợp thay vì hứa entity vô hạn.
-6. **Original by transformation:** reference tạo nguyên lý/hypothesis, không tạo tên, asset, lore hay moveset để sao chép.
-7. **Thế giới cũ không bị xóa giá trị:** tiến trình mới là lựa chọn và chiều sâu, không cưỡng ép toàn save thành stat sponge.
+### Secondary — người chơi cày cuốc và power fantasy
 
-## 5. Anti-goals
+Tệp quen Ninja School Online/Ngọc Rồng Online hoặc truyện hành động–trưởng thành như Naruto, Dragon Ball, Hunter × Hunter, Solo Leveling: thích luyện tập, tích lũy, đột phá, năng lực biểu tượng, rival/đồng đội và từ vô danh thành huyền thoại.
 
-- Không biến Minecraft thành một menu ARPG đặt trên block world.
-- Không làm combat spam click hoặc chuỗi animation tự chạy dài không kiểm soát.
-- Không làm shadow thành consumable/pet vô danh.
-- Không giả lập xã hội/kinh tế chi tiết nếu không tạo quyết định chơi.
-- Không dùng procedural generation để thay thế authored grammar và quality.
-- Không hứa co-op, PvP, controller, mọi loader hay mọi phiên bản trong 1.0 khi chưa qua discovery riêng.
-- Không dùng độ dài checklist làm thước đo độ hoàn thiện.
+### Secondary — người chơi action RPG góc ba
 
-## 6. Core experience loop ở cấp sản phẩm
+Tệp thích Where Winds Meet, Black Myth: Wukong, Genshin Impact: kỳ vọng camera/aim/targeting, animation, boss, build và combat feedback có chất lượng cao; không chấp nhận F5 camera như trải nghiệm cuối.
+
+### Adjacent — người chơi sandbox/living world
+
+Tệp thích Minecraft, ARK, GTA V và systemic open worlds: tìm tự do, căn cứ/công trình, dân cư, sinh thái, cưỡi/điều khiển sinh vật hoặc phương tiện, hoạt động đa dạng và câu chuyện phát sinh.
+
+### Future social audience
+
+Muốn chơi cùng bạn bè, lập server, cùng xây/đánh Gate, hợp tác, đối đầu hoặc hình thành phe. UMBRA hiện **không phát triển multiplayer gameplay**, nhưng foundation không được khóa đường tới integrated/dedicated server, ownership, permissions, security và sync.
+
+Casual có đường hiểu và tiến; expert có đất thể hiện mastery; grinder có mục tiêu dài nhưng không bị time gate; builder/explorer không bị biến thành người đứng ngoài loop. Chi tiết lens nằm ở [Audience Research](../70-research/04-audience-and-reference-landscape.md).
+
+## 4. Emotional architecture
+
+### North-star emotion — `PIL-BECOMING`: Tự mình trở thành Chúa Tể
+
+Người chơi không chỉ **có** sức mạnh; họ nhớ mình từng yếu, hiểu vì sao mình mạnh, nhận ra dấu vết của lựa chọn và cảm thấy danh hiệu cuối cùng là thứ họ đã sống để trở thành.
+
+### Bảy lời hứa cảm xúc
+
+| ID | Lời hứa | Nhu cầu tâm lý | Biểu hiện quan sát được | Failure mode phải tránh |
+|---|---|---|---|---|
+| `PIL-ASCENDANCE` | Thăng tiến và quyền lực | competence, status, momentum | động từ, silhouette, âm thanh, lựa chọn và phản ứng thế giới đổi theo mốc | number inflation, auto-win |
+| `PIL-AGENCY` | Tự do và quyền sở hữu | autonomy, self-expression | chọn đường sống/build/mục tiêu/căn cứ/quân đoàn; thế giới không ép một nhịp duy nhất | choice giả, menu railroad |
+| `PIL-MASTERY` | Tinh thông | học, kiểm soát, tự hào | timing, camera, vị trí, build, chuẩn bị và command đều có thể luyện | input bị animation cướp, stat thắng mọi thứ |
+| `PIL-ATTACHMENT` | Gắn kết | care, memory, companionship | Shadow/NPC/place có tên, lịch sử, quan hệ và hồi đáp lâu dài | pet vô danh, bi kịch rẻ tiền |
+| `PIL-DISCOVERY` | Kỳ quan và bí ẩn | curiosity, surprise | địa điểm, sinh thái, Gate, faction, lore và systemic event tạo câu hỏi mới | checklist map, reskin |
+| `PIL-CONSEQUENCE` | Được thế giới công nhận | impact, responsibility, social status | NPC, đô thị, lãnh thổ, danger và opportunity phản ứng với việc đã làm | simulation giả, consequence không thể đọc |
+| `PIL-BELONGING` | Nơi thuộc về và di sản | safety, identity, continuity | nhà/công trình/gia đình/collection/save khiến việc trở về và ở lại có ý nghĩa | chores, căn cứ chỉ là kho |
+
+`Awe/spectacle`, `tension`, `relief`, `pride`, `wonder` và `responsibility` là **nhịp cảm xúc điều phối**, không tạo thêm pillar. Ví dụ boss dùng tension→mastery→awe; trở về nhà dùng relief→recognition→belonging.
+
+Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một failure mode cảm xúc cần test. Không tối ưu “gây nghiện” bằng thao túng; UMBRA hướng tới **voluntary long-term return** nhờ ý nghĩa, mastery, ownership và curiosity.
+
+## 5. Product invariants
+
+1. **Minecraft là world substrate:** đào, xây, redstone, làng, sinh tồn, Nether/End và creative tooling không trở thành phần thừa giữa các menu RPG.
+2. **Third-person action camera là core system:** không phải polish/optional experiment; góc một giữ support và parity về luật.
+3. **Offline-first, server-authoritative:** single-player là target hiện tại; gameplay truth nằm ở logical server và mọi client intent được validate.
+4. **Always-playable development:** mỗi capability kết thúc bằng snapshot tự chạy/test được; public 1.0 không bị đồng nhất với build nội bộ.
+5. **Một feature không được khóa tương lai:** stable IDs, versioned state, migration, feature boundaries/config và recovery là nền ngay từ đầu.
+6. **Cảm xúc trước số lượng:** feature phải tạo/thay đổi quyết định hoặc quan hệ, không chỉ tăng catalog.
+7. **Đọc được và công bằng:** telegraph, state, cost, failure, authority và hậu quả có ngôn ngữ rõ.
+8. **Không FOMO/manipulative retention:** không calendar lockout, streak bắt buộc, odds giả hoặc phần thưởng độc quyền theo giờ đăng nhập.
+9. **Hiệu năng là contract:** quy mô lớn dùng LOD/representation/budget, không hứa entity full-simulation vô hạn.
+10. **Original by transformation:** reference tạo principle/hypothesis; UMBRA tự sở hữu premise, rule, asset, lore, moveset và consequence.
+11. **Save của người chơi là tài sản:** world cũ, công trình, Shadow identity và irreversible choice không bị update tùy tiện xóa giá trị.
+
+## 6. Anti-goals đã hiệu chỉnh
+
+- Không biến Minecraft thành launcher cho các activity/menu tách khỏi world.
+- Không biến “all-in-one” thành việc sao chép hời hợt mọi mod; capability chỉ vào game khi đạt quality bar chung.
+- Không làm combat gây damage theo click rate, packet rate hoặc animation frame client.
+- Không làm camera góc ba chỉ là offset F5 có crosshair mới.
+- Không tạo animation tự chơi dài làm mất quyền điều khiển.
+- Không làm Shadow thành consumable/pet vô danh hoặc xóa chúng khi mana cạn.
+- Không giả lập dân cư/kinh tế/sinh thái chi tiết nếu không tạo quyết định hoặc hậu quả nhìn thấy.
+- Không dùng procedural generation để thay authored grammar, validation và recovery.
+- Không implement co-op/PvP trước discovery; cũng không viết kiến trúc single-player-only buộc phải phá sau này.
+- Không hứa mọi loader/version/mod compatibility trước evidence.
+- Không dùng số giờ, checklist hoặc số feature làm bằng chứng chất lượng.
+
+## 7. Core experience loop
 
 ```text
-Chọn mục tiêu có ý nghĩa
-→ Chuẩn bị build/quân đoàn/vật tư
-→ Khám phá và chiến đấu trong không gian Minecraft
-→ Thu hoạch kiến thức, loot, tiến trình và đối thủ có thể thu phục
-→ Chuyển hóa thành năng lực, quan hệ hoặc thay đổi thế giới
-→ Trở về nhà/xã hội để thấy hậu quả
-→ Chủ động chọn thử thách tiếp theo
+Sinh tồn/quan sát thế giới và tự chọn tham vọng
+→ Xây nơi đứng chân, chuẩn bị build/quân đoàn/vật tư
+→ Di chuyển, khám phá, giao tiếp hoặc nhận diện nguy cơ/cơ hội
+→ Chiến đấu/chinh phục bằng control, mastery, build và command
+→ Thu hoạch kiến thức, vật chất, quan hệ hoặc đối thủ có thể Trỗi Dậy
+→ Chuyển hóa phần thưởng thành năng lực, công trình, quân đoàn và world consequence
+→ Trở về để thấy thế giới ghi nhận mình
+→ Chọn một tham vọng lớn hơn hoặc một cách sống khác
 ```
 
-Mỗi Capability Slice không cần đủ toàn loop, nhưng phải nói rõ nó cải thiện mắt xích nào và không làm hỏng mắt xích liền kề.
+Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập, quản lý, story và social-world activity phải là các đường hợp lệ quay lại loop.
 
-## 7. Câu hỏi product chưa khóa
+## 8. Quyết định Product Director đã khóa
 
-- Phạm vi tối thiểu của bản phát hành đầu tiên tạo đúng fantasy Shadow Monarch là gì?
-- Prologue và gia đình là bắt buộc từ slice đầu hay được giới thiệu sau combat foundation?
-- Tỷ lệ thời gian mục tiêu giữa vanilla sandbox, Gate, quản lý và narrative là bao nhiêu theo từng giai đoạn?
-- “1.0” nghĩa là câu chuyện hoàn chỉnh, hệ thống hoàn chỉnh hay gói trải nghiệm tối thiểu có thể phát triển lâu dài?
-- Camera góc ba cải tổ là mode cốt lõi hay optional presentation layer?
+- Public goal là **full coherent game promise**, không phải phát hành sớm chỉ vì một slice chạy được.
+- Trong phát triển, mọi phase phải cho chủ dự án chạy/chơi/test được mà không chờ toàn game hoàn tất.
+- Camera góc ba cải tổ là capability cốt lõi và foundation dependency.
+- Hiện tại làm offline/single-player; chuẩn bị authority/data/security seams cho multiplayer về sau, không implement multiplayer feature.
+- Prologue/gia đình được thiết kế sớm để giữ meaning/continuity, nhưng platform–control–combat foundation được triển khai trước; first core-loop build phải có một return/home beat tối thiểu.
+- Dự án hướng tới một save chơi nhiều năm và mở rộng liên tục; không cam kết longevity bằng grind vô hạn.
 
-Cho tới khi các câu hỏi này có evidence/ADR, Product Charter chưa `APPROVED`.
+## 9. Câu hỏi Product còn mở
+
+- Public 1.0 cần campaign/roster/world breadth cụ thể tới đâu để xứng “full coherent game”?
+- Mức tương thích với vanilla combat/third-party mods nào là support promise, best-effort hay không support?
+- Player có thể chuyển giữa góc một/góc ba trong mọi context hay một số action cần presentation policy riêng?
+- Tới đâu UMBRA cung cấp capability như mount/vehicle/world generation, và tới đâu mở integration seam cho add-on?
+- Long-term content dùng tỷ lệ authored/systemic/player-created nào để không thành grind hoặc production impossibility?
+
+Các câu hỏi này thuộc discovery backlog; chúng không phủ định các quyết định đã khóa ở mục 8.

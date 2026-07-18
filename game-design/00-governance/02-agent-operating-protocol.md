@@ -110,7 +110,7 @@ Báo ngắn gọn:
 
 ## 3. Khi được yêu cầu code
 
-Agent kiểm `status: IMPLEMENTATION_READY`, approval và acceptance trước. Nếu chưa đủ, không tự code theo ticket cũ; chuyển yêu cầu về discovery, nêu chính xác gate thiếu và có thể tiếp tục làm tài liệu trong phạm vi được giao.
+Agent kiểm `status: IMPLEMENTATION_READY`, approval và acceptance trước, sau đó làm theo [Engineering/Git Workflow](06-engineering-and-git-workflow.md). Nếu chưa đủ, không tự code; chuyển yêu cầu về discovery, nêu chính xác gate thiếu và có thể tiếp tục làm tài liệu trong phạm vi được giao.
 
 Trong lúc code phát hiện design gap:
 
@@ -118,6 +118,8 @@ Trong lúc code phát hiện design gap:
 - chi tiết triển khai không đổi hành vi: ghi implementation note;
 - thay đổi player-visible rule/contract: dừng phần liên quan, tạo `OPEN`/ADR, đưa feature lùi lifecycle nếu cần;
 - ý tưởng mới: đưa vào discovery queue, không scope-creep ticket.
+
+Bug được điều tra theo [Bug Workflow](07-bug-investigation-and-fix.md); không vá symptom hoặc đổi spec để hợp code.
 
 ## 4. Những hành vi bị cấm
 

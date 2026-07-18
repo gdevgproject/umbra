@@ -7,9 +7,10 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 1. `game-design/README.md`
 2. `game-design/00-governance/01-document-architecture.md`
 3. `game-design/00-governance/02-agent-operating-protocol.md`
-4. Product charter, domain charter và Feature Cell nằm trong phạm vi công việc.
-5. Shared Contract được Feature Cell dẫn tới.
-6. Đọc production backlog/quality proof nếu yêu cầu thay đổi readiness hoặc thứ tự.
+4. Nếu code/fix: `game-design/00-governance/06-engineering-and-git-workflow.md` và `07-bug-investigation-and-fix.md` khi liên quan.
+5. Product charter, domain charter và Feature Cell nằm trong phạm vi công việc.
+6. Shared Contract được Feature Cell dẫn tới.
+7. Đọc production backlog/quality proof nếu yêu cầu thay đổi readiness hoặc thứ tự.
 
 ## Luật không được phá
 
@@ -22,6 +23,8 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 - Mọi research phải tách `quan sát → nguyên lý → lựa chọn UMBRA → bằng chứng → rủi ro IP`; tên/asset/moveset nguồn không được trở thành biểu đạt UMBRA.
 - Mọi tính năng phải xét: hai góc nhìn, input, animation, audio/VFX, UI/UX, accessibility, localization, multiplayer authority, save/migration, performance, compatibility và test; mục không liên quan phải ghi lý do, không được bỏ trống.
 - Ticket là đơn vị triển khai sau cùng, không phải nơi nghiên cứu game design.
+- `main` phải luôn playable theo capability hiện có; không push/merge/rewrite/tag khi chưa được user cho phép.
+- User không làm thay test tự động. Chỉ yêu cầu user playtest sau automated pack phù hợp và cung cấp Test Card + diagnostics/capture protocol.
 
 ## Trước khi sửa tài liệu
 

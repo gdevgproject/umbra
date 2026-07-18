@@ -21,7 +21,15 @@
 | R22 | Research rộng nhưng sản phẩm nguyên bản | Research + Content | Reference Card/transformation review |
 | R23 | Scale không phá TPS/save | Platform + Performance | p95/p99 benchmark, migration, soak |
 | R24 | Phát triển theo slice chơi/test được | Production | capability exit evidence |
+| R25 | Tệp cày cuốc, shōnen, action góc ba, sandbox và living world cùng được hiểu bằng nhu cầu, không copy feature | Product + Research | audience/research cards + cohort playtest |
+| R26 | Third-person overhaul là core; aim/target/obstruction/first-person được thiết kế trước combat polish | Camera + Presentation | camera room, ray/target oracle, comfort/readability playtest |
+| R27 | Public goal là full game nhưng mọi phase nội bộ luôn chơi được | Scope + Production + Git | playable snapshot manifest + mainline smoke |
+| R28 | User test ít; máy tự test lifecycle/logic/render có thể tự động | Quality + Observability | unit/server/client GameTest + Test Card/diagnostics bundle |
+| R29 | Một người + Agent không mất context qua chat | Governance + Git + Ticket | read set/handoff/test/commit records |
+| R30 | Offline hiện tại, multiplayer-ready về authority/ownership/security | Platform | integrated/dedicated parity, packet/reconnect/ownership tests |
+| R31 | Death/respawn/reload/creative/`/give`/dimension/chunk/crash không làm mất hoặc nhân state | Platform + QA + domains | lifecycle matrix + migration/recovery fixtures |
+| R32 | UMBRA all-in-one nhưng add-on/vehicle/mount/world breadth không phá boundary | Scope + Content + Platform | capability contract, two-consumer proof, compatibility matrix |
 
 ## Ý định mở rộng được giữ nhưng chưa thuộc 1.0
 
-Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, co-op/online, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Deferred không đồng nghĩa đã thiết kế xong.
+Dungeon nước/thủy tộc, mount nước/bay, boss 7–12, đầy đủ Cửu Vương, Tower 26–100, multiplayer gameplay, controller, streamer mode và social routes mở rộng đều nằm trong release strategy. Multiplayer **foundation seams** không deferred; chỉ gameplay/social feature deferred.

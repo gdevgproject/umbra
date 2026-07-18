@@ -13,7 +13,7 @@ Khi người chơi nhận ra một mối đe dọa có thể né và bấm actio
 ## 2. Giá trị và ranh giới
 
 - **Pillar chính:** `PIL-MASTERY`.
-- **Pillar phụ:** `PIL-POWER` khi mastery về cuối game vẫn còn giá trị.
+- **Pillar phụ:** `PIL-ASCENDANCE` khi mastery về cuối game vẫn còn giá trị.
 - **In scope:** eligibility, hướng, phase/cancel, movement/collision, defensive window, cost, feedback, first/third view, authority và acceptance.
 - **Non-goals:** lock-on system hoàn chỉnh, dash skill, mount dodge, enemy dodge, toàn bộ locomotion rework, final animation asset.
 - **Success signal:** người chơi có thể giải thích vì sao một cú né thành công/thất bại; spam né không vượt qua positioning/resource/encounter rule.
