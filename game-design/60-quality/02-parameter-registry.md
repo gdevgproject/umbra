@@ -351,15 +351,25 @@ FreeClimb.leap_target_envelope / post_contact_minimum_reserve / leap_recontact_c
 FreeClimb.leap_impulse / entry_momentum_cap / leap_momentum_cap / mantle_cost_by_semantic / modifier_cap
 FreeClimb.assisted_air_grab_default / auto_mantle_default / hold_release_debounce
 FreeClimb.corner_angle / mantle_clearance / mantle_grace / hit_detach_profile
-Grounding.min_fall_state / accept_time_to_impact / input_buffer
+Grounding.min_fall_state / armed_time_to_impact / fresh_attack_buffer / contextual_mining_precedence
 Grounding.vigor_cost_or_overdraw / arrest_duration / correction_cap
-Grounding.impact_radius / damage_profile / posture_profile / recovery
-Lightness.windup / horizontal_impulse / vertical_impulse / steering_accel
+Grounding.impact_shape_by_weapon / radius_cap / damage_cap / posture_cap / recovery_by_weapon
+Grounding.vertical_band / occlusion_profile / target_cap / fall_energy_tier_cap
+Lightness.hold_threshold / tap_gate / movement_deadzone / charge_tier / charge_hold_cap
+Lightness.ground_windup / wall_windup / launch_reserve / charge_drain / wall_double_drain_guard
+Lightness.horizontal_impulse / vertical_impulse / steering_accel / close_ceiling_reject
 Lightness.apex_window / descent_terminal_velocity / descent_drain
-Lightness.reentry_cost / landing_recovery / collision_response
+Lightness.minimum_descent_reserve / reentry_cost / landing_recovery / collision_response
+AerialChain.stable_support_reset_dwell / reconnect_cleanup / wall_touch_reset_policy
+AerialStep.use_cap / vigor_cost / input_buffer / redirect_accel
+AerialStep.rising_lift / apex_lift / falling_arrest_cap / fast_fall_preserve
+AerialStep.horizontal_impulse / redirect_cap / total_route_envelope / collision_response / recovery
+AerialDodge.use_cap / focus_cost / input_buffer / displacement / recovery
+AerialDodge.defense_window_by_category / step_cancel_in / step_cancel_out
+AerialDodge.active_gravity_scale / straight_corridor / suspended_vertical_cap / gravity_reentry_curve
 ```
 
-`DB-049`, `DB-050`, `DB-051`, `DB-052` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
+`DB-049`, `DB-050`, `DB-051`, `DB-052`, `DB-057` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
 
 ---
 

@@ -35,6 +35,9 @@
 | `PLY-09` | Hardcore death → spectator | flush/recall/cleanup; UMBRA không tạo respawn trái world rule |
 | `PLY-10` | Creative ↔ Survival rồi save/reload | state giữ đúng, provenance/eligibility theo event, không taint/delete cả world |
 | `PLY-11` | quit/reconnect/death/portal/dimension khi attached, launching, descending hoặc pre-impact | cleanup locomotion mode/reservation/contact/fall conversion; preserve unlock/Vigor theo contract, không ghost flight/refill |
+| `PLY-12` | quit/reconnect/death/portal/dimension giữa Aerial Step/Aerial Dodge chain | cleanup action/chain/buffer/defense; không refill use/resource, ghost impulse/i-frame hoặc mất fall attribution |
+| `PLY-13` | quit/reconnect/death/portal/resource reload giữa Lightness ground/wall charge, launch hoặc descent | cleanup hold/reserve/contact/gravity/chain; không relaunch, refund kép, wall-freeze, hover hoặc refill |
+| `PLY-14` | lifecycle event giữa Grounding armed/arrest/descent/impact/recovery | cleanup buffer/reserve/fall conversion/hit ID; không ghost immunity, double AoE hoặc held mining reinterpret |
 
 Mỗi persistent field có bảng `copy on death / reset / retain / derive / forbidden` trước code. Không dùng mặc định API thay cho quyết định game.
 

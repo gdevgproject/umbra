@@ -25,7 +25,7 @@ Khi người chơi nhận ra một mối đe dọa có thể né và bấm actio
 | action remappable, không hardcode phím | Presentation/Input | `DECIDED` ở mức nguyên tắc, contract input chưa duyệt |
 | camera-relative trong third-person free; target-relative khi lock | Camera Movement + Dodge | `DECIDED` ở basis; neutral/sector/transition còn `CANDIDATE` |
 | dodge ưu tiên hơn recovery chung | Combat Action | `CANDIDATE`, cần cancel matrix |
-| chỉ thay horizontal velocity khi ở trên không | Dodge | `CANDIDATE` |
+| Dodge trên không là Feature Cell riêng, không dùng nhánh ground Dodge | [`FEAT-COMBAT-AERIAL-DODGE`](aerial-dodge.md) | `DISCOVERY`, `DB-057` |
 | Focus cost 25, tổng chuyển động 0.35s, i-frame ≤0.40s | Parameter Registry 14.18–19 | `CANDIDATE PARAMETER`, chưa có evidence |
 | perfect dodge tick 0–1, hoàn Fatigue/hồi Mana | Parameter Registry 14.19 | `CANDIDATE`, phụ thuộc resource philosophy |
 | client intent/server authority | Platform/Action Authority | `DECIDED` ở mức platform principle; prediction còn mở |
@@ -156,6 +156,8 @@ Không đưa Dodge vào cây Potential cho tới khi base action đã vui mà kh
 | `CTR-ACTOR-AUTHORITY` | blocker | prediction/correction/duplicate intent |
 | `CTR-RESOURCE` + `CTR-VITALS-HUD` | blocker trước Approved | cost transaction, Focus semantics/HUD/recovery/persistence |
 | `FEAT-COMBAT-LIGHT-ATTACK` | paired prototype | cancel interaction và click rhythm |
+| `FEAT-COMBAT-AERIAL-DODGE` | future child/peer | airborne use/Focus/defense/collision, straight active corridor + bounded gravity re-entry và chain với Aerial Step; ground Dodge không tự sở hữu |
+| `CTR-TRAVERSAL` | locomotion interaction | source mode result, `AerialChain`, wall/air/reset/Grounding precedence |
 
 ## 12. Acceptance hypothesis
 
@@ -178,7 +180,7 @@ Không đưa Dodge vào cây Potential cho tới khi base action đã vui mà kh
 | `DOD-OQ-01` | direction basis và neutral behavior | Camera + Combat | prototype 2 camera mode, 3 option |
 | `DOD-OQ-02` | damage category nào defensive window tránh | Combat + Encounter | threat taxonomy + scenario review |
 | `DOD-OQ-03` | cancel matrix theo action phase | Combat + Animation | paired light/heavy prototype |
-| `DOD-OQ-04` | movement/collision trên wall/edge/air/water | Gameplay Tech + Combat | physics spike + test grid |
+| `DOD-OQ-04` | ground movement/collision trên wall-edge/water boundary; airborne variant chuyển `DB-057` | Gameplay Tech + Combat | physics spike + test grid |
 | `DOD-OQ-05` | Focus/Fatigue/perfect reward | Systems + Balance | resource option playtest |
 | `DOD-OQ-06` | prediction/latency policy | Technical Director | local/dedicated latency harness |
 | `DOD-OQ-07` | terminology và tutorial | UX + Localization | comprehension test VI/EN |

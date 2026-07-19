@@ -11,6 +11,9 @@
 4. Camera-relative movement, facing, soft-target và precision aim làm thay đổi nhu cầu ngón tay nào?
 5. Người chơi một tay, bàn phím không US và chuột hai nút có layout hoàn chỉnh nào?
 6. Contextual Jump/Sneak cho Free Climb phân biệt jump-to-wall, build/pillar, auto-jump, dismount/swim và Drop ra sao mà mỗi press vẫn dự đoán được?
+7. Neutral hold Jump cho Khinh Công phân biệt tap Jump/Climb Leap ra sao; ngưỡng nào còn responsive và khi nào phải dùng dedicated/toggle profile?
+8. Fresh Attack cho Hạ Kình phân biệt held mining, normal aerial attack và armed window ra sao; dedicated alternative nằm ở đâu?
+9. Future airborne Jump/Dodge giữ 360° direction trong khi Step↔Dodge chain mà không tạo double-consumer hoặc finger collision nào?
 
 ## 2. Ma trận công thái học bắt buộc
 
@@ -21,6 +24,7 @@ Mỗi candidate được chấm theo:
 - tần suất, thời gian phản ứng, hold duration và accidental activation;
 - tương tác với jump/sprint/sneak/attack/use/hotbar;
 - one-edge-one-consumer, pre-held modifier, auto-jump và external-mode precedence;
+- tap/hold threshold, armed cue, short buffer, key-repeat/deduplication và context switch giữa ground–wall–air;
 - mỏi sau encounter dài và panic reach;
 - bàn phím nhỏ/laptop/AZERTY/QWERTZ, left-handed và mouse 2-button;
 - remap discoverability, conflict và accessibility alternative.
@@ -37,8 +41,9 @@ GTA V là ví dụ hữu ích về context-sensitive controls và extensive rema
 
 1. Graybox movement + camera + mine/place, chưa combat.
 2. Thêm light attack và bốn hướng Dodge; so sánh tối thiểu ba layout.
-3. Thêm hold/toggle variants, aim/lock candidate và hotbar pressure.
-4. Chạy scripted input trace để phát hiện lost/duplicate/stuck actions.
-5. Human test blind: error rate, response time, finger discomfort, remap comprehension và preference.
+3. Thêm Free Climb + neutral tap/hold Lightness + Grounding armed Attack; so contextual/dedicated/toggle profiles trước khi khóa gesture.
+4. Thêm hold/toggle variants, aim/lock candidate, future Step/Dodge chain và hotbar pressure.
+5. Chạy scripted input trace để phát hiện lost/duplicate/stuck actions.
+6. Human test blind: error rate, response time, finger discomfort, remap comprehension và preference.
 
 Không khóa default trước bước 2. Không mở rộng skill roster trước khi layout có đường scale hoặc wheel/context solution được chứng minh.

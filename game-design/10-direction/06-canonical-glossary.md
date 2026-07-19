@@ -29,7 +29,7 @@ Tên gameplay dưới đây là working canonical để tài liệu nhất quán
 | Cơ sở di chuyển | Move Basis | frame biến input thành hướng world; camera-relative/target-relative/aim-relative tùy context |
 | Khí Lực | Vigor | resource traversal ngắn cho Free Climb/Khinh Công; không phải Focus, Fatigue hoặc Hunger |
 | Leo Tự Do | Free Climb | bám và di chuyển trên face voxel hợp lệ bằng Khí Lực; không đồng nghĩa ladder/vine vanilla |
-| Hạ Kình | Grounding Strike | kỹ thuật context khi rơi: hãm/quy hướng, impact nhẹ và chuyển fall damage tại valid landing |
+| Hạ Kình | Grounding Strike | kỹ thuật fresh-Attack khi rơi: hãm/quy hướng, impact vùng bounded theo vũ khí và chuyển đúng fall component tại valid landing |
 | Khinh Công | Lightness Art | giậm đất phóng theo quỹ đạo rồi chủ động hạ chậm; không phải Creative flight/Elytra/cánh |
 | Thể Lực / Mệt Mỏi | Fatigue | áp lực phiên săn dài, không là stamina di chuyển thường |
 | Thế | Posture | khả năng giữ thế trước pressure, mở stagger/finisher |

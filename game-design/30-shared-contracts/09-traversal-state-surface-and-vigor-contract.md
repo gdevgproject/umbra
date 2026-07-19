@@ -9,7 +9,7 @@
 
 Người chơi chinh phục chiều dọc của Minecraft bằng cùng một ngôn ngữ điều khiển có thể học: bám đúng bề mặt, biết còn đủ sức đi tới đâu, hiểu vì sao bị tuột/rơi và chuyển giữa leo–rơi–khinh công–đáp đất mà không xuyên block hoặc bị camera đổi ý định.
 
-Contract này sở hữu luật dùng chung của [`FEAT-TRAVERSAL-FREE-CLIMB`](../20-domains/01-player/traversal/01-free-climbing.md), [`FEAT-AERIAL-GROUNDING-STRIKE`](../20-domains/01-player/traversal/02-aerial-grounding-strike.md) và [`FEAT-TRAVERSAL-LIGHTNESS`](../20-domains/01-player/traversal/03-lightness-art.md):
+Contract này sở hữu luật dùng chung của [`FEAT-TRAVERSAL-FREE-CLIMB`](../20-domains/01-player/traversal/01-free-climbing.md), [`FEAT-AERIAL-GROUNDING-STRIKE`](../20-domains/01-player/traversal/02-aerial-grounding-strike.md), [`FEAT-TRAVERSAL-LIGHTNESS`](../20-domains/01-player/traversal/03-lightness-art.md) và extension seam cho future [`FEAT-TRAVERSAL-AERIAL-STEP`](../20-domains/01-player/traversal/04-aerial-step.md) / [`FEAT-COMBAT-AERIAL-DODGE`](../20-domains/02-combat/dodge/aerial-dodge.md):
 
 - topology trạng thái traversal và precedence với Minecraft movement modes;
 - resource Khí Lực (`Vigor`) và giao dịch cost;
@@ -23,8 +23,8 @@ Feature Cell sở hữu feel/action riêng. Camera, animation, progression, dama
 
 | Resource | Horizon | Tiêu bởi | Không tiêu bởi |
 |---|---|---|---|
-| `Focus` | combat ngắn | Dodge, parry, defensive burst | leo/khinh công/đi/chạy cơ bản |
-| `Vigor` / Khí Lực | traversal ngắn | free climb, climb leap, Lightness launch/descent, technique traversal được khai | Dodge/parry, đi/chạy/jump vanilla, ladder/scaffolding baseline |
+| `Focus` | combat ngắn | ground/future aerial Dodge, parry, defensive burst | leo/khinh công/Aerial Step/đi/chạy cơ bản |
+| `Vigor` / Khí Lực | traversal ngắn | free climb, climb leap, Lightness launch/descent, future Aerial Step, technique traversal được khai | ground/aerial Dodge/parry, đi/chạy/jump vanilla, ladder/scaffolding baseline |
 | `Fatigue` | chuyến đi dài | tích lũy theo activity rule | drain từng tick leo hoặc bay |
 | Hunger | survival Minecraft | hoạt động/food rules Minecraft | thay trực tiếp cost của một action traversal |
 
@@ -56,6 +56,7 @@ SUPPORTED
 SUPPORTED → LIGHTNESS_LAUNCH → AIRBORNE_APEX
 AIRBORNE/APEX → LIGHTNESS_DESCENT → LANDING | AIRBORNE
 AIRBORNE/FALLING → GROUNDING_STRIKE → IMPACT_RECOVERY → SUPPORTED
+future AIRBORNE → AERIAL_STEP | AERIAL_DODGE → AIRBORNE
 ```
 
 - Mỗi actor ở tối đa một authoritative locomotion mode; animation substate không phải gameplay mode.
@@ -147,17 +148,48 @@ Fall giữ `DamageSource`/height/velocity/context theo [`CTR-VITALS-HUD`](08-vit
 ## 7. Input/context invariants
 
 - Stable semantic actions dự kiến gồm `umbra.action.climb` và `umbra.action.lightness`, nhưng semantic không bắt buộc có physical key riêng; exact layout thuộc `DB-002`. Default Free Climb direction dùng contextual `Jump/Traverse Up` và `Sneak/Traverse Down`; optional precision Climb vẫn remap được.
-- Đi/chạy/sprint chỉ va tường không sinh `ClimbIntent`. Explicit player Jump lineage + approach alignment + valid face có thể attach tự nhiên; Jump press khi airborne là grab request, không double-jump. Auto-jump, passive walk-off/fall và external launch/knockback không tự attach.
+- Đi/chạy/sprint chỉ va tường không sinh `ClimbIntent`. Explicit player Jump lineage + approach alignment + valid face có thể attach tự nhiên; Jump press khi airborne đi qua một selector: valid toward-face grab thắng, còn future Aerial Step chỉ được xét khi attach bị suppress/không hợp lệ và budget còn. Auto-jump, passive walk-off/fall và external launch/knockback không tự attach/cast.
 - Use/Place/Destroy đang held/committed, pre-held Sneak, grazing/away input, hard action hoặc external mode là attach inhibitor. Hit/force đủ lớn invalidates inferred lineage; fresh Jump sau control-lock mới rearm. Camera ray/contact/velocity một mình không chứng minh intent.
 - Jump/Traverse Up tại obstacle trong grounded mantle band có thể chọn `STEP_UP/LOW_MANTLE`; vanilla step-up/auto-jump không tự mở Free Climb trên tường cao. Khi actor đã attached và tiếp tục giữ hướng lên, auto-mantle mặc định bật; neutral/down/drop không được tự mantle.
-- Khi attached, fresh Jump chọn targeted leap từ surface-relative direction: neutral/Up lên, Left/Right/diagonal dyno, Down wall-eject. Invalid target không fallback sang hướng khác hoặc charge; action reserve cost + post-contact minimum, còn duplicate/held Jump không repeat.
+- Khi attached, directional fresh Jump chọn targeted leap từ surface-relative direction: Up lên, Left/Right/Up-diagonal dyno, Down wall-eject. Nếu Lightness chưa mở/không eligible, neutral fresh Jump vẫn lên; khi Lightness hold profile active, **neutral tap→leap / neutral hold→wall charge** qua bounded selector. Invalid target không fallback sang hướng khác; action reserve cost + post-contact minimum, còn duplicate/held Jump không repeat.
 - Baseline accessibility là **Jump-to-traverse, bám liên tục, fresh Sneak-to-drop** để không bắt thêm default Climb key hoặc prolonged hold. Sneak pre-held suppress attach; chỉ fresh edge sau latch Drop, mantle pre/post-commit xử lý cancel/sneak-on-landing rõ. Hold-to-cling, assisted-air-grab và auto-mantle là setting tách; external force không được suy ra auto-save kể cả khi assist bật.
-- `Primary Attack` có thể được context-transform thành Grounding Strike chỉ khi eligibility/cue deterministic; người chơi luôn có alternative binding nếu context transform gây khó tiếp cận.
+- `Lightness` có semantic action riêng nhưng default gesture candidate là neutral hold Jump từ stable support hoặc `CLIMB_IDLE`; running/directional Jump và climb leap không chờ hold. Neutral tap gate chỉ được dùng nếu feel/latency proof xanh; dedicated và press-toggle alternative luôn có. Charge không làm attached thành airborne trước launch commit.
+- `Primary Attack` chỉ context-transform thành Grounding Strike từ **fresh edge sau armed cue**; held mining/Attack, edge đã consume trên wall và mining transaction đang active không được sống lại/cướp owner. Người chơi luôn có alternative binding nếu context transform gây khó tiếp cận.
 - Không dùng double-tap làm đường duy nhất. Auto-grab, auto-mantle, hold/toggle descent và input-window assistance là settings tách.
 - Movement intent có representation 2D liên tục; keyboard số hóa vector còn analog future giữ góc/magnitude sau dead-zone. Gameplay không hard-code WASD/tám hướng hoặc yêu cầu controller hiện tại.
 - Buffer lưu Action Intent edge + sequence/expiry, consume đúng một lần ở authoritative tick đầu tiên legal và hủy bằng reason khi context đổi; không buffer raw key, packet repeat hoặc animation frame.
 - Mining/building/use khi attached bị khóa baseline và có feedback; không auto-detach rồi tương tác. Trước attach, build/pillar intent thắng inferred grab. Ladder/scaffolding, swimming và riding giữ vanilla input owner; Sneak là dismount/swim-descend thay vì climb Drop ở mode đó.
 - Mở menu/chat, mất focus, pause, death, portal hoặc mode switch phải release held traversal state để tránh “phím ma”.
+
+### Locomotion interaction result — bắt buộc cho mọi skill/action
+
+Mọi Feature Cell có thể được kích hoạt trong hoặc gần traversal phải khai kết quả cho từng source mode bằng vocabulary duy nhất sau; không được ghi mơ hồ “tùy skill” rồi để implementation tự chọn:
+
+| Result | Nghĩa | Resource/input rule |
+|---|---|---|
+| `ALLOW_IN_PLACE` | action chạy nhưng locomotion mode hiện tại vẫn sở hữu movement | action không được âm thầm sửa pose/velocity/contact ngoài contract |
+| `TRANSITION` | action được accept và chuyển ownership sang mode/action đích explicit | một input consumer; reserve/commit/refund và fall attribution khai đủ |
+| `SHORT_BUFFER` | intent chờ một cửa sổ ngắn để source mode đi tới legal edge | expiry/reason bắt buộc; cấm buffer vô hạn suốt một lần leo |
+| `DENY_NO_COST` | input không legal trong source mode | không cost/cooldown/cancel locomotion; cue có cooldown |
+| `EXTERNAL_OWNER` | vanilla hoặc mode khác như riding/swim/screen sở hữu input | traversal không consume hoặc phát action song song |
+| `FORCED_RELEASE` | external event/action hợp lệ phá contact trước kết quả tiếp theo | giữ velocity/source/cancel reason; không dùng như default cho skill thường |
+
+Mỗi action/skill khai tối thiểu: source modes; `IntentLineage`; control provenance; target/result mode; direction basis; phase/cancel/short-buffer; resource transaction; collision/clearance; fall-damage effect; re-entry/reset guard; conflict precedence; cue; save/reconnect cleanup; first/third presentation và automated oracle. Nếu thiếu profile, default là `DENY_NO_COST`, không phải “thử chạy ground animation”.
+
+`CLIMB_*` và `MANTLE_*` **không phải `AIRBORNE`**. Một action chỉ ghi “dùng trên không” không được chạy khi attached/mantling. Nó cần edge explicit sau `WALL_EJECT`, `DELIBERATE_DROP`, `FORCED_RELEASE` hoặc mantle landing.
+
+### Aerial chain và budget seam cho kỹ thuật tương lai
+
+Các Feature Cell như Aerial Step/Double Jump và Aerial Dodge dùng một `AerialChain` có causality ID thay vì tự giữ boolean rời rạc:
+
+- chain mở khi actor rời stable support bởi player jump, walk-off, traversal launch hoặc controllable external launch; provenance không tự cấp action, chỉ xác định guard/trace;
+- mỗi technique có use budget riêng và resource riêng; baseline candidate là một Aerial Step dùng Vigor và một Aerial Dodge dùng Focus, không chuyển hoặc hoàn chéo hai pool;
+- Aerial Step ↔ Aerial Dodge có thể chain hai chiều chỉ qua cancel edge/commit marker khai rõ; một input edge không kích cả hai;
+- stable ground/support dwell mới reset chain. Climb latch, wall contact/leap, one-tick ledge graze, ladder touch, Lightness re-entry, hit, reconnect hoặc correction không reset use budget;
+- `CLIMB_*` giữ chain suspended, không biến actor thành airborne và không refresh. Sau fresh wall-eject/drop, action aerial chỉ legal nếu budget cũ còn và input edge mới;
+- Grounding Strike có thể consume một fresh Primary Attack sau khi chain action kết thúc và actor thực sự `FALLING` trong time-to-impact band; attached/mantling hoặc attack đã consume trên tường không được reinterpret;
+- Lightness launch từ support mở cùng chain; wall charge giữ chain suspended và launch tiếp tục chain cũ. Lightness không reset Step/Dodge, còn exact consumption/cancel edge phải được `DB-057` khóa để không lift-stack;
+- Elytra/Creative/Spectator/swim/riding/portal/death đóng chain theo external-mode cleanup; save/reconnect không khôi phục nửa action hay refill budget.
 
 ## 8. HUD, save và progression
 
@@ -189,5 +221,6 @@ Fall giữ `DamageSource`/height/velocity/context theo [`CTR-VITALS-HUD`](08-vit
 
 - `DB-049`: state topology, Vigor band/recovery, surface taxonomy, unlock delivery và world rule.
 - `DB-050`: exact free-climb input, speed, ledge/corner/leap/collision và animation grammar.
-- `DB-051`: Grounding Strike eligibility window, Vigor/overdraw, weapon adapters, fall conversion và AoE.
-- `DB-052`: Lightness launch arc, apex/descent control, steering, Vigor drain, combat interaction và progression.
+- `DB-051`: Grounding Strike armed/fresh-Attack precedence, Vigor/overdraw, weapon/AoE adapters, fall conversion và block-safe impact.
+- `DB-052`: Lightness ground/wall charge intent, launch arc, apex/descent control, steering, Vigor reserve/drain, obstruction, combat interaction và progression.
+- `DB-057`: future Aerial Step/Aerial Dodge input, chain/use reset, Vigor/Focus, direction/collision/defense/cancel, Grounding/Climb/Lightness conflict và skill delivery.

@@ -64,11 +64,11 @@ Các category dự kiến: `Core Movement & Combat`, `Skills & Loadout`, `Shadow
 
 Action Catalog phải dành `umbra.action.quick_recovery` với semantics `PRESS`, remappable và context-aware. Đây không phải permission chọn phím mặc định trước audit 26.2/layout experiment; key repeat/packet retry chỉ tạo tối đa một recovery intent mỗi press.
 
-Traversal dành semantic `umbra.action.climb` và `umbra.action.lightness`; semantic Action ID không đồng nghĩa cần một default key riêng. `Primary Attack` chỉ context-transform thành Hạ Kình khi eligibility/cue deterministic và phải có alternative binding. Exact mapping và precedence thuộc `DB-002/049–052`; không dùng double-tap làm đường duy nhất.
+Traversal dành semantic `umbra.action.climb` và `umbra.action.lightness`; semantic Action ID không đồng nghĩa cần một default key riêng. Khinh Công candidate dùng neutral hold Jump khi stable ground/`CLIMB_IDLE`, nhưng running/directional Jump phải commit ngay và neutral tap gate chỉ được giữ nếu latency/feel proof xanh; `DEDICATED_ACTION` cùng press-toggle/single-press assist là alternative bắt buộc. `Primary Attack` chỉ context-transform thành Hạ Kình từ fresh edge sau armed cue; held mining, edge đã consume trên wall và active mining transaction không được cướp, đồng thời có dedicated alternative. Exact mapping và precedence thuộc `DB-002/049–052`; không dùng double-tap làm đường duy nhất.
 
 Free Climb default reuse hai muscle-memory Minecraft:
 
-- `Jump/Traverse Up`: vanilla jump, low mantle, hop-attach, airborne grab request, targeted climb leap hoặc post-mantle jump tùy authoritative context;
+- `Jump/Traverse Up`: vanilla jump, low mantle, hop-attach, airborne grab/Step selector, targeted climb leap, Lightness neutral tap/hold selector hoặc post-mantle jump tùy authoritative context;
 - `Sneak/Traverse Down`: vanilla sneak/dismount/swim-descend theo mode owner; chỉ fresh press sau climb latch mới deliberate Drop.
 
 Đi/chạy/sprint chỉ va tường không attach; explicit player Jump arc trực diện vào valid face thì attach tự nhiên. Auto-jump, passive fall, held build/mine/use, pre-held Sneak và external force là inhibitor. Optional precision Climb/hold-to-cling/assisted-air-grab vẫn remap/configure được nhưng không buộc thêm phím mặc định. Mỗi physical edge có lineage ID và đúng một semantic consumer để Space không vừa jump vừa attach/leap, Shift không vừa dismount vừa Drop, key repeat không spam. Full buffer/vector/precedence dẫn tới [`FEAT-TRAVERSAL-FREE-CLIMB`](../../01-player/traversal/01-free-climbing.md), không định nghĩa lại ở layout.

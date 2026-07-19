@@ -24,14 +24,15 @@ Failure modes:
 | ID | Player intent → outcome | Delivery |
 |---|---|---|
 | `FEAT-TRAVERSAL-FREE-CLIMB` | chủ động bám một face hợp lệ → leo dọc/ngang, bật/tuột và mantle có Vigor | vertical traversal foundation |
-| `FEAT-AERIAL-GROUNDING-STRIKE` | bấm attack đúng lúc đang rơi → chuyển cú rơi thành impact có kiểm soát, đáp an toàn và gây damage nhẹ | combat–fall bridge |
-| `FEAT-TRAVERSAL-LIGHTNESS` | kích hoạt Khinh Công → giậm đất phóng theo quỹ đạo rồi chủ động hạ chậm/điều hướng | aerial traversal reward |
+| `FEAT-AERIAL-GROUNDING-STRIKE` | fresh Attack trong armed falling window → chuyển cú rơi thành weapon-shaped AoE có kiểm soát và đáp an toàn | combat–fall bridge; không cướp held mining/phá block |
+| `FEAT-TRAVERSAL-LIGHTNESS` | neutral hold intent từ stable ground/Climb Idle → bounded charge, phóng cao rồi lướt–hạ chậm/điều hướng bằng Vigor | aerial traversal reward; có dedicated/toggle alternative |
+| `FEAT-TRAVERSAL-AERIAL-STEP` | bấm Jump lần nữa trong airborne chain hợp lệ → sửa quỹ đạo bằng một impulse có hướng và có thể nối Aerial Dodge | future skill/capability candidate; không thuộc core route guarantee hiện tại |
 
 State/surface/resource canonical nằm tại [`CTR-TRAVERSAL`](../../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md). Không feature nào tự định nghĩa lại Vigor, climbable block hoặc fall suppression.
 
 ## 3. Progression direction
 
-Đây là ba **universal capability**, không chiếm `4+1` combat loadout và không là lựa chọn Potential:
+Các technique core dưới đây là **universal**, không chiếm `4+1` combat loadout và không là lựa chọn Potential:
 
 1. **Basic mantle/ledge safety:** có từ đầu để movement không thô.
 2. **Free Climb:** mở cực sớm sau người chơi đã trải nghiệm shelter/hunger và nhận Awakening/training; level chỉ là eligibility candidate.
@@ -41,6 +42,8 @@ State/surface/resource canonical nằm tại [`CTR-TRAVERSAL`](../../../30-share
 Exact level/quest chưa khóa. Production delivery dùng `Quest Kernel`, nhưng implementation snapshot dùng capability flag/debug training grant để traversal không bị chặn bởi `C4`. Player đã vượt level sau migration nhận prompt/grant bù, không bị kẹt vì quest miss.
 
 Progression về sau chỉ tăng bounded capacity/recovery/efficiency, mở route expression hoặc giảm recovery; không xóa collision, tạo hover vô hạn, auto-ground-strike hay biến traversal timing thành stat auto-win.
+
+Nhịp Không Trung/Double Jump là future `DB-057` candidate, chưa được nhập vào core world-access promise. Nó có thể được delivery như passive skill/capability unlock, nhưng Traversal vẫn sở hữu state/physics; Skill tree không được tự định nghĩa impulse, aerial reset hoặc chain với Dodge.
 
 ## 4. Vì sao có Khí Lực riêng
 
@@ -78,7 +81,7 @@ Không dùng thanh Vigor như timer chờ. Route tốt, mastery và preparation 
 ## 7. Camera, animation và feel
 
 - Third-person là reference presentation; first-person vẫn có parity rule với sway/hand cue giảm khó chịu.
-- Climb dùng surface-relative basis; Lightness launch snapshot camera-relative horizontal direction; descent steering có cap.
+- Climb dùng surface-relative basis; Lightness ground/wall charge giữ source contact truth, launch snapshot camera-relative horizontal direction; descent steering có cap.
 - Gameplay position/velocity do authority quyết; animation dùng latch/mantle/apex/impact markers và IK cosmetic.
 - Mọi transition có fallback pose/clip. Missing weapon/animation asset không làm mất collision hoặc fall rule.
 - VFX/SFX đọc start, low Vigor, slip, apex, descent, valid Grounding window, impact và reject bằng nhiều kênh.
@@ -92,6 +95,7 @@ Foundation/authority + Input Catalog + Camera Movement + Animation seam
 → Combat Action/Hit + Environmental Damage
 → Grounding Strike
 → Lightness launch/descent
+→ future Aerial Step ↔ Aerial Dodge chain sau core proof
 → world/quest/enemy/Shadow traversal content
 ```
 
@@ -100,10 +104,10 @@ Foundation/authority + Input Catalog + Camera Movement + Animation seam
 1. [Free Climb](01-free-climbing.md)
 2. [Grounding Strike](02-aerial-grounding-strike.md)
 3. [Lightness Art](03-lightness-art.md)
-4. [Traversal Scenario Matrix](scenarios.md)
-5. [Traversal research](../../../70-research/09-open-world-traversal-climb-breakfall-lightness.md)
+4. [Aerial Step / Double Jump](04-aerial-step.md)
+5. [Traversal Scenario Matrix](scenarios.md)
+6. [Traversal research](../../../70-research/09-open-world-traversal-climb-breakfall-lightness.md)
 
 ## 10. Gate
 
-System vẫn `DISCOVERY`. Không ticket gameplay Ready. `DB-049–052` phải tạo prototype ở voxel camera room, automated movement/collision/fall traces, performance evidence và human feel/comfort test trước khi từng Feature Cell qua lifecycle.
-
+System vẫn `DISCOVERY`. Không ticket gameplay Ready. `DB-049–052` phải chứng minh core traversal; future Aerial Step/Aerial Dodge theo `DB-057` không được chen vào gate core hoặc implementation trước Feature Cell/prototype riêng.

@@ -69,9 +69,10 @@ UMBRA không cần thêm một phím bắt buộc chỉ để leo. Action layer 
 | supported, low obstacle có top sạch | `Jump → STEP_UP/LOW_MANTLE` | không attach giả; hazard/unknown landing vẫn revalidate |
 | đứng sát tall valid face, hướng vào mặt rồi Jump | `Jump → HOP_ATTACH` | một action lineage; không vừa commit vanilla jump vừa attach |
 | đang trong player-authored jump arc và va trực diện valid face | recent Jump lineage → `ATTACH` tự nhiên | approach alignment + expiry + inhibitor; giữ upward/tangent momentum có cap |
-| walk-off/fall rồi bấm Jump trên không | `Jump → AIR_GRAB_REQUEST` | không double-jump; chỉ attach khi face/reach/revision/Vigor hợp lệ |
+| walk-off/fall rồi bấm Jump trên không | selector `AIR_GRAB_REQUEST` → future `AERIAL_STEP` fallback | grab thắng khi valid toward-face; Step chỉ khi attach suppress/invalid và budget còn |
 | chỉ đi/chạy/sprint đâm tường | collision/slide/stop | không Jump lineage thì không attach/prompt spam |
-| đang attached, Jump + neutral hoặc Up | `CLIMB_LEAP_UP` | neutral có nghĩa lên; upfront cost + destination guard |
+| đang attached, Jump + Up | `CLIMB_LEAP_UP` tức thời | upfront cost + destination guard |
+| đang attached, neutral tap/hold | tap → `CLIMB_LEAP_UP`; deliberate hold → Lightness `WALL_CHARGE` nếu unlocked/profile active | bounded selector; nếu cảm giác trễ thì dedicated Lightness profile thắng |
 | đang attached, Jump + Left/Right/Up-diagonal | `CLIMB_DYNO` theo tangent vector | normalize; candidate trong local envelope, không đổi sang hướng khác khi fail |
 | đang attached, Jump + Down | `WALL_EJECT` có directional snapshot | Down thường vẫn leo xuống khi không Jump; không nhầm với drop |
 | đang attached, fresh Sneak press | `DELIBERATE_DROP` | miễn cost; giữ source/velocity, không auto regrab cùng face |
@@ -80,6 +81,24 @@ UMBRA không cần thêm một phím bắt buộc chỉ để leo. Action layer 
 | mantle recovery + buffered Jump | `POST_MANTLE_JUMP` ở tick supported đầu tiên | một press không đồng thời mantle và jump hai lần |
 
 Action layer luôn biểu diễn movement bằng vector chuẩn hóa liên tục. Bàn phím tạo các vector số hóa; thiết bị analog tương lai giữ magnitude/góc sau dead-zone. Gameplay không hard-code `WASD` hoặc tám hướng, nhưng cũng không giả bàn phím có độ phân giải analog.
+
+### Diagonal climb và Space theo tổ hợp hướng
+
+Basis khi attached là surface-relative và giống nhau ở first/third person: `W=Up`, `S=Down`, `A=Left tangent`, `D=Right tangent`. Camera có thể đổi framing nhưng không đảo nghĩa phím giữa một contact episode.
+
+| Input held | Move khi không Space | Fresh Space |
+|---|---|---|
+| `W` | leo lên | `CLIMB_LEAP_UP` tức thời |
+| neutral thật | idle | tap → `CLIMB_LEAP_UP`; hold → eligible Lightness `WALL_CHARGE` |
+| `A` / `D` | shimmy ngang | lateral `CLIMB_DYNO` tới đúng phía |
+| `W+A` / `W+D` | leo chéo lên, vector normalize | upward-diagonal `CLIMB_DYNO`; target giữ cả hai component |
+| `S` | leo xuống | `WALL_EJECT` thẳng khỏi mặt |
+| `S+A` / `S+D` | leo chéo xuống, vector normalize | `WALL_EJECT` có lateral bias; không biến thành downward dyno |
+| `W+S` | trục dọc triệt tiêu | `AMBIGUOUS_DIRECTION`, không leap/cost |
+| `A+D` | trục ngang triệt tiêu | `AMBIGUOUS_DIRECTION`, không leap/cost |
+| `W+S+A/D` | chỉ còn lateral move | raw opposing flag vẫn deny Space để tránh cú nhảy bất ngờ |
+
+“Neutral thật” nghĩa không axis nào vượt dead-zone; nó khác hai phím đối nghịch cùng được giữ. Default không dùng last-key-wins vì packet/order có thể làm outcome khác nhau; accessibility profile khác chỉ được phép nếu Input owner chứng minh deterministic/remap parity. Diagonal speed, accepted displacement và Vigor effort đều normalize để `W+A` không nhanh/rẻ hơn route tương đương.
 
 ### Intent inference: bằng chứng và inhibitor
 
@@ -233,11 +252,12 @@ Surface/status/equipment modifier là deterministic composition có cap; không 
 
 ### Climb leap/dyno như một kỹ thuật có mục tiêu
 
-Jump khi attached không phải “tăng velocity Y”. Solver snapshot input surface-relative và chọn đúng một semantic/target:
+Jump khi attached không phải “tăng velocity Y”. Solver snapshot input surface-relative và chọn đúng một semantic/target; directional press chọn ngay, còn neutral tap/hold chỉ qua selector khi Lightness profile active:
 
 | Input tại accepted tick | Technique | Target/cost rule |
 |---|---|---|
-| dead-zone/neutral hoặc Up | `CLIMB_LEAP_UP` | higher same-face patch hoặc lip; burst cost cao theo positive height |
+| Up hoặc neutral tap | `CLIMB_LEAP_UP` | higher same-face patch hoặc lip; burst cost cao theo positive height |
+| neutral hold đủ threshold | Lightness `WALL_CHARGE` | Lightness owner reserve/charge; contact vẫn phải revalidate |
 | Left/Right/Up-diagonal | `CLIMB_DYNO` | patch/corner kế trong local envelope; base burst + vertical/lateral gap component |
 | Down | `WALL_EJECT` | rời normal khỏi face với lateral bias có cap; cost thấp hơn upward leap nhưng không miễn phí |
 | fresh Sneak | `DELIBERATE_DROP` | không impulse, không Vigor action cost; đường thoát luôn còn nếu người chơi muốn bỏ bám |
@@ -272,11 +292,19 @@ Jump khi attached không phải “tăng velocity Y”. Solver snapshot input su
 | Event/action khi attached | Baseline result |
 |---|---|
 | Move/Jump/Sneak/precision Climb | surface move, targeted leap/eject, deliberate drop hoặc buffer theo grammar ở trên |
-| Attack/Destroy, Mine, Place, Use | `DENIED_ATTACHED` + cue; không auto-detach rồi làm hành động ngoài ý muốn. Jump+Use/Place trước attach ưu tiên build/pillar và suppress inferred grab |
+| Sprint press/hold | `DENY_NO_COST` cho boost; held Sprint có thể được movement owner đọc lại sau supported landing, không buffer một “climb sprint” |
+| Attack/Destroy, Mine, Place, Use | `DENY_NO_COST(reason=ATTACHED)` + cue; không auto-detach rồi làm hành động ngoài ý muốn. Jump+Use/Place trước attach ưu tiên build/pillar và suppress inferred grab |
 | Inventory/chat/menu | screen owner thắng; held inputs neutralize nhưng không tự Drop. Nếu logical server không pause, Vigor/time vẫn chạy và meter/cue phải còn đọc được trong screen |
 | pause thật/focus loss | logical pause dừng clock; focus loss release held state, không sinh Jump/Drop edge khi focus trở lại |
 | hotbar select/camera switch | được phép nếu không mutate world; không reset state/resource |
-| Dodge/Quick Recovery/Lightness/Grounding/skill | deny rõ hoặc explicit transition do owner contract; không fallback mơ hồ |
+| Dodge trong `CLIMB_IDLE/MOVE/LEAP_RECONTACT` | `DENY_NO_COST`; không trừ Focus, không detach, không chạy ground/aerial Dodge. Chỉ `MANTLE_RECOVERY` sau commit được `SHORT_BUFFER` rất ngắn tới supported Dodge |
+| Quick Recovery/food/potion | `DENY_NO_COST`; không tự Drop rồi dùng item, không consume charge |
+| Lightness | neutral hold ở `CLIMB_IDLE` có thể `TRANSITION` thành `WALL_CHARGE` khi unlocked/reserve/contact hợp lệ; directional Jump vẫn là climb leap, `CLIMB_MOVE`/mantle/slip deny. Fresh Sneak cancel/drop luôn thắng |
+| Grounding Strike/Primary Attack | `DENY_NO_COST`; attached/mantling không phải airborne/falling. Sau Drop/eject cần fresh Attack ở legal time-to-impact window |
+| Aerial Step/Double Jump | `DENY_NO_COST`; Jump đang attached đã thuộc climb leap. Sau Drop/eject cần fresh Jump và aerial budget chưa dùng |
+| Aerial Dodge | `DENY_NO_COST`; chỉ legal sau explicit airborne edge, fresh Dodge và Focus/budget hợp lệ |
+| skill tương lai không có locomotion profile | `DENY_NO_COST` mặc định; không buffer/cost/cooldown/animation thử |
+| skill có profile `ALLOW_IN_PLACE/TRANSITION/SHORT_BUFFER` | chạy đúng source mode/phase/resource/collision/fall contract đã duyệt; không được tự gọi actor “airborne” chỉ vì ở trên mặt đất |
 | light hit/DoT | damage luôn áp; flinch/drain chỉ một lần theo hit/severity profile |
 | heavy/stagger/grab/explosion/knockback | forced release; giữ source, velocity, hit ID và cancel reason |
 | projectile impulse trong jump-attach window | impulse đủ lớn invalidates inferred lineage; fresh Jump sau control-lock mới rearm, không auto-save do bị bắn |
@@ -487,6 +515,7 @@ Recommendation hypothesis: geometry + profile + revision solver; contextual Jump
 | `FC-OQ-01` | exact patch span, seam tolerance, assist cone/hysteresis và correction budget? | Gameplay Tech + voxel-room benchmark/feel test | Validation → Approved |
 | `FC-OQ-02` | exact Jump-lineage/approach/inhibitor windows, binding conflict và Jump/Sneak contextual grammar có qua build/pillar, parkour-graze, fatigue, accidental-entry và accessibility proof? | Input/Accessibility; `DB-002/050` experiment | Validation → Approved |
 | `FC-OQ-07` | leap/dyno/eject target envelope, directional cost, post-contact reserve và cadence nào expressive nhưng không thành infinite bunny-climb? | Traversal + Balance + QA route/adversarial simulation | Validation → Approved |
+| `FC-OQ-08` | post-mantle Dodge short-buffer window và near-wall Attach↔Aerial Step override nào responsive nhưng không queue action bất ngờ? | Input + Combat + Traversal; `DB-050/057` paired trace/playtest | Validation → Approved |
 | `FC-OQ-03` | mantle type thresholds/timing/cost/warp envelope và near-zero grace? | Traversal + Animation + Camera paired prototype | Validation → Approved |
 | `FC-OQ-04` | leaves/narrow lattice/local flowing-water profile nào vui và dễ đọc? | World + Traversal route comparison | Validation → Approved |
 | `FC-OQ-05` | light hit/DoT/heavy hit/regrab severity và fall-technique edge? | Combat + Vitals + Traversal adversarial matrix | Validation → Approved |

@@ -76,7 +76,7 @@
 
 | ID | Scenario | Quyết định/oracle cần có |
 |---|---|---|
-| `TRV-S-060` | neutral/W/S/A/D/diagonal launch | camera-relative snapshot/envelope |
+| `TRV-S-060` | ground neutral charge rồi đưa neutral/W/S/A/D/diagonal trước commit; wall charge rồi tangent/away aim | ground camera-relative hoặc wall surface-relative snapshot/envelope, outward clearance |
 | `TRV-S-061` | slope, ledge, partial support, moving surface | stable support/reset guard |
 | `TRV-S-062` | low ceiling/wall at windup/ascending | shorten/reject/collision |
 | `TRV-S-063` | rotate camera after commit | trajectory not instantly bent |
@@ -153,7 +153,7 @@
 | `TRV-S-121` | pillar-jump hoặc bridge-jump: Jump + Use/Place held/commit cạnh wall | build intent thắng, lineage bị cancel; không attach sau placement nếu không có Jump edge mới |
 | `TRV-S-122` | sprint-jump trực diện, jump lướt song song/grazing và đổi hướng away trước contact | chỉ approach trong cone attach; grazing slide/fall, away cancel, không sticky wall |
 | `TRV-S-123` | một Space edge trong grounded wall reach, packet duplicate và Space held | đúng một `HOP_ATTACH` hoặc Jump semantic; không vanilla jump + attach kép, không repeat leap |
-| `TRV-S-124` | attached Jump neutral/Up/Left/Right/diagonal/Down | đúng `LEAP_UP/DYNO/WALL_EJECT` theo surface-relative snapshot; diagonal normalize |
+| `TRV-S-124` | attached Jump neutral tap/hold, Up/Left/Right/diagonal/Down | tap/leap hoặc eligible wall charge đúng selector; directional `LEAP_UP/DYNO/WALL_EJECT` tức thời, diagonal normalize |
 | `TRV-S-125` | directional leap không có patch, patch hazard/deny hoặc ngoài envelope | không fallback Up/face khác, không cost; actor còn cling + reason/cue nhỏ |
 | `TRV-S-126` | upward leap có clean lip và đủ/thiếu composite mantle cost | target `LEAP_TO_MANTLE` reserve tổng; thiếu thì reject, không bắt đầu cú chắc chắn rơi |
 | `TRV-S-127` | leap vừa đủ technique nhưng thiếu `post_contact_minimum_reserve` | reject trước launch; HUD ghost/notch phần thiếu; Drop vẫn luôn legal |
@@ -173,6 +173,36 @@
 | `TRV-S-141` | fire/poison/freeze/DoT vs light/heavy impulse trong climb/leap | source/cadence đúng; không triple punishment; only qualified impulse/interrupt đổi lineage/state |
 | `TRV-S-142` | waterfall/bubble column/swim threshold trong jump-attach/leap | fluid/external mode precedence; không cộng player effort từ flow hoặc tạo underwater fake grab |
 | `TRV-S-143` | deliberate Drop rồi assist thấy lại cùng face; fresh Jump sau inhibit | short same-face regrab inhibit ngăn hút ngược; fresh deliberate rescue vẫn legal sau window |
+
+## 9. Diagonal, action/skill conflict và future aerial chain
+
+| ID | Scenario | Quyết định/oracle cần có |
+|---|---|---|
+| `TRV-S-144` | attached giữ `W+A`, `W+D`, `S+A`, `S+D` | climb diagonal surface-relative, vector/speed/effort normalized, same first/third outcome |
+| `TRV-S-145` | `W+S`, `A+D`, `W+S+A/D` rồi Space | opposing raw input tạo `AMBIGUOUS_DIRECTION`; không leap/eject/cost, không last-packet-wins |
+| `TRV-S-146` | xoay camera 180° giữa diagonal climb/leap buffer | contact basis không đảo; accepted direction snapshot giữ nguyên, camera chỉ presentation |
+| `TRV-S-147` | Dodge ở climb idle/move/recontact và mantle recovery trước/sau commit | climb deny no Focus/detach; chỉ post-commit recovery short-buffer tới supported Dodge |
+| `TRV-S-148` | Primary Attack/Grounding press khi attached, mantle, wall-eject rồi falling | attached/mantle deny no cost và không lưu; wall-eject cần fresh Attack + time-to-impact guard |
+| `TRV-S-149` | Double Jump unlocked, airborne Jump gần wall với input toward/away/Sneak suppress | attach hoặc Aerial Step đúng một consumer; confidence/override/reason deterministic |
+| `TRV-S-150` | Step→Aerial Dodge và Aerial Dodge→Step | mỗi use/resource/marker một lần; no overlap lift+i-frame, direction/collision trace đúng |
+| `TRV-S-151` | Step/Dodge rồi wall latch/leap/drop, ladder/scaffold graze, mantle stable landing | wall/graze không reset; chỉ stable-support dwell reset `AerialChain` |
+| `TRV-S-152` | Lightness ascent/apex/descent + Step/Dodge/re-entry | cancel/deny edge đúng; no descent–lift stutter, extra use hoặc hover loop |
+| `TRV-S-153` | skill mới không khai locomotion profile được bấm khi attached/airborne | `DENY_NO_COST`; không cooldown/resource/ground animation/fall mutation |
+| `TRV-S-154` | skill profile `ALLOW/TRANSITION/SHORT_BUFFER` ở đúng/sai phase | đúng owner/consumer/expiry/cost/refund; unsupported source mode deny |
+| `TRV-S-155` | Focus đủ/Vigor thiếu và ngược lại trong Step↔Dodge chain | pool độc lập; action thiếu resource deny riêng, action kia không bị rút/hoàn chéo |
+| `TRV-S-156` | attack buffer trong Step/Dodge startup/active/recovery gần đất | Grounding chỉ consume tại declared edge khi falling; không bấm sớm từ rất cao để auto-cast |
+| `TRV-S-157` | external launch/knockback, control-lock kết thúc rồi Jump/Dodge | không auto action; fresh input có thể dùng budget cũ, source attribution còn nguyên |
+| `TRV-S-158` | duplicate/reorder Jump+Dodge cùng tick | stable precedence/sequence; tối đa một consumer mỗi edge, không double impulse/window/cost |
+| `TRV-S-159` | death/portal/reconnect/Elytra/swim giữa chain | cleanup runtime/budget theo owner; no refill/ghost step/dodge/fall immunity |
+| `TRV-S-160` | future skill modifier tăng use/refund/reset trên wall hit | validator/contract reject unbounded refresh, resource cross-refill và infinite aerial loop |
+| `TRV-S-161` | grounded chạy + Jump, đứng neutral tap/hold và remap dedicated Lightness | normal Jump không trễ ở moving context; chỉ deliberate hold/action mở charge, một consumer |
+| `TRV-S-162` | `CLIMB_IDLE` neutral hold, directional Jump, Sneak và hit/mất anchor | wall charge/leap/drop/forced fall đúng owner; no attached-as-airborne hoặc double drain |
+| `TRV-S-163` | Lightness charge dưới ceiling sát/thay đổi bởi piston/place/break trước/sau launch | pre-commit reject/refund hoặc post-commit collision/fall, không clip/snap/ghost reserve |
+| `TRV-S-164` | Lightness full charge→apex→descent ở high/low altitude/Vigor 0 | route bounded; low landing không hover, exhausted fall/landing cue đúng |
+| `TRV-S-165` | held mining/Attack từ trước rơi, fresh Attack trước/sau Grounding armed cue | mining/normal attack hoặc Grounding đúng một consumer; press cũ không auto-slam |
+| `TRV-S-166` | Grounding với weapon families/unarmed/tool trên multi-target/occluded/partial-fluid landing | safety parity; bounded shape/target/occlusion/friendly/block-safe result, one hit ID |
+| `TRV-S-167` | Aerial Dodge từ rising/apex/fast fall vào wall/floor/hit/reconnect | straight active corridor; gravity/fall provenance re-entry, không arc xuống/stuck scale/fall cancel |
+| `TRV-S-168` | Aerial Step rising/apex/fast fall với neutral/180° redirect/ceiling | phase rebase + total-route cap; no infinite lift, instant reversal hoặc fall erase |
 
 ## Exit
 

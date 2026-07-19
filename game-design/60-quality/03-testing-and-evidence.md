@@ -125,6 +125,12 @@ Mỗi record ghi:
 29. Đi/chạy/sprint chỉ va tường không attach; explicit player Jump lineage + direct approach có thể attach, còn auto-jump/passive/external/build/grazing context không được auto-save. Optional precision/hold/assist profiles giữ cùng authoritative truth.
 30. Vigor chỉ charge base attached time + accepted actor-effort + committed action đúng một lần; blocked input/assist/correction/external motion không thêm effort, recovery cần stable support, còn HUD lifecycle/current/reserved/next-cost/reason luôn khớp snapshot authority.
 31. Mỗi Jump/Sneak physical edge có đúng một semantic consumer theo locomotion/context: không jump+attach/leap kép, không dismount+Drop, không repeat spam; targeted climb leap không fallback sai hướng, charge invalid target hoặc vượt post-contact/cadence guard.
+32. Mọi action/skill trong locomotion đặc biệt trả một result canonical; thiếu source-mode profile luôn `DENY_NO_COST`, không chạy ground action, trừ resource/cooldown hoặc buffer vô hạn.
+33. `CLIMB_*`/`MANTLE_*` không phải airborne: Dodge, Aerial Step và Grounding không chạy trên tường; chỉ fresh input sau explicit airborne edge có thể được xét, còn diagonal/opposing input giữ deterministic one-consumer outcome.
+34. Future `AerialChain` cho Aerial Step/Aerial Dodge giữ use/resource riêng, chỉ stable-support dwell reset; wall/ladder graze, Lightness re-entry, correction, hit hoặc reconnect không tạo extra use, infinite lift hoặc i-frame/fall immunity.
+35. Lightness hold gesture không trì hoãn moving/directional Jump; ground/wall charge có source owner, Vigor reserve, ceiling/contact-revision revalidation và accessible alternative. Wall charge vẫn attached, không reset aerial chain hoặc giữ người vô hạn.
+36. Grounding chỉ nhận fresh Attack sau armed cue; held mining/Attack trên wall không sống lại. Weapon-shaped AoE có radius/damage/vertical/occlusion/target cap, không phá block hoặc scale vô hạn theo fall height.
+37. Aerial Dodge giữ straight active corridor bằng bounded gravity shaping rồi trả fall provenance/vertical momentum; Aerial Step dùng phase-aware rebase/route envelope. Không action nào để gravity modifier kẹt, xóa fast fall hoặc vượt one-use chain.
 
 ## 7. Feature readiness test pack
 
