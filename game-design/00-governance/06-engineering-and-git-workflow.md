@@ -13,10 +13,15 @@
 ## 2. Quy tắc authority Git
 
 - `main` đại diện trạng thái tích hợp luôn compile/load/save được theo capability hiện có.
-- Implement một ticket đã ready mặc định có thể tạo **local scoped commit** theo workflow này, trừ khi user nói không commit.
-- Không push, merge vào remote protected branch, rebase/reset lịch sử đã chia sẻ, tag release hoặc xóa branch/worktree nếu chưa được user yêu cầu/cho phép.
+- Project Owner cấp **standing authority** cho Agent quản lý vận hành Git/GitHub thường nhật; repo/gate/evidence là authorization source, không yêu cầu Project Owner biết lệnh Git hoặc xác nhận lại từng thao tác.
+- Khi scope đã được giao và gate tương ứng xanh, Agent tự được phép: tạo/switch branch hoặc worktree; commit; push topic/port branch; mở/cập nhật PR; quản lý issue/label/template/workflow/ruleset; merge PR đạt gate; xóa topic branch đã merge; tạo tag và publish snapshot/release kỹ thuật đã có release approval trong repo.
+- Agent không được đẩy việc kỹ thuật như chọn branch, resolve merge method, chạy CI, đặt release metadata hoặc bật protection cho Project Owner. Nếu platform yêu cầu credential/approval UI, Agent yêu cầu đúng quyền tối thiểu rồi tiếp tục, không biến nó thành câu hỏi thiết kế.
+- Vẫn phải xin Project Owner trước: public 1.0 greenlight hoặc thay public promise; repo visibility/transfer/billing/collaborator/secret; force-push/rebase/reset shared history; xóa/sửa published tag/release asset; xóa branch/worktree có unique unmerged work; bỏ qua gate đỏ hoặc hành động có thể mất save/provenance.
+- Routine Minecraft successor promotion/EOL theo `PD-043` không cần prompt riêng khi exact port/release/EOL gates đã xanh; ngoại lệ đổi support promise hoặc respin EOL ngoài policy mới cần Project Owner.
 - Không ghi đè thay đổi có sẵn của user; dirty worktree được audit và giữ nguyên.
 - Không dùng Git để che/xóa failure evidence.
+
+Standing authority không biến Agent thành approver giả: Agent phải chứng minh từng gate bằng artifact/test, ghi role pass tách biệt và để lại PR/release/audit record. Một thao tác được phép nhưng thiếu evidence vẫn phải dừng ở gate, không hỏi Project Owner “cho qua”.
 
 ## 3. Branch và worktree
 
@@ -29,11 +34,19 @@ refactor/<ticket-id>-<slug>
 test/<ticket-id>-<slug>
 docs/<id>-<slug>
 spike/<decision-id>-<slug>
+port/mc-<version>-<loader>
+release/mc-<version>
 ```
 
 Một branch = một outcome/review unit. Worktree riêng khi có hai task song song hoặc cần giữ main chạy được. Không đổi branch với uncommitted state không liên quan. Spike không merge nguyên trạng nếu chứa shortcut; chưng cất decision rồi viết production implementation.
 
+`main` luôn theo `DEVELOPMENT_BASELINE`/`SUPPORTED_CURRENT`, không theo snapshot upstream. `port/mc-*` là branch chuyển baseline có thời hạn và `PR-3`; current line vẫn chạy trên `main` cho tới promote gate. `release/mc-*` chỉ được tạo khi đã có release line thật cần finalization/exceptional maintenance, sau EOL bị đóng băng; không tạo một branch cho mọi snapshot và không dùng long-lived `develop` song song. Topic/fix branch phải fork từ đúng support line mà nó sửa.
+
+Fix áp cho current và old line được merge/port riêng theo cùng bug ID + regression oracle; không merge successor wholesale vào maintenance branch. Tag/release đã publish không di chuyển hoặc thay asset; correction dùng version/tag mới. Lifecycle/version coordinates do [`SYS-COMPAT`](../20-domains/12-platform/03-compatibility-and-release-baseline.md) sở hữu.
+
 Git khuyến nghị topic branches để cô lập thay đổi; `git bisect` hỗ trợ tìm commit gây regression. [Git Branching Workflows](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows), [Git Debugging](https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git)
+
+Khi repository public/CI hoạt động, GitHub ruleset cho `main`, `release/mc-*` và release tags phải yêu cầu PR + status checks phù hợp, chặn force-push/delete và giới hạn bypass ở Project Owner cho incident có record. Settings trên GitHub là external state: file trong repo chỉ mô tả/kiểm trợ, không được báo “đã bảo vệ” trước khi audit Settings/Rulesets.
 
 ## 4. Ticket execution lifecycle
 

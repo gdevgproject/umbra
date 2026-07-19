@@ -1,0 +1,83 @@
+name: Compatibility or upgrade bug
+description: Report a reproducible Minecraft, Fabric, render, save-upgrade, or mod-conflict problem.
+title: "[Compatibility]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the support table in the root README first. Snapshots, unlisted Minecraft versions, and unverified loader targets are not supported. Never upload a private world or tokens publicly; attach the sanitized UMBRA diagnostic bundle when it exists.
+  - type: dropdown
+    id: family
+    attributes:
+      label: Suspected failure family
+      options:
+        - Minecraft or Java baseline
+        - Fabric Loader or Fabric API
+        - UMBRA adapter or patch
+        - Data or resource pack
+        - Save migration or recovery
+        - OpenGL or Vulkan rendering
+        - Conflict with another mod
+        - Launcher or installation environment
+        - Unknown
+    validations:
+      required: true
+  - type: input
+    id: umbra
+    attributes:
+      label: Exact UMBRA tag and JAR filename
+      placeholder: v0.4.2-mc26.2 / umbra-0.4.2-mc26.2-fabric.jar
+    validations:
+      required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Exact Minecraft version
+      placeholder: 26.2
+    validations:
+      required: true
+  - type: input
+    id: toolchain
+    attributes:
+      label: Java, Fabric Loader, and Fabric API versions
+      placeholder: Java 25; Loader 0.19.3; Fabric API 0.154.2+26.2
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS, graphics backend, GPU/driver, and launcher
+      description: Launcher is reproduction context, not a compatibility coordinate.
+      placeholder: Windows 11; Vulkan; GPU/driver; launcher name/version
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods, packs, and relevant config changes
+      description: Try an UMBRA-only copy when safe; do not mutate the only copy of a world.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include new/existing world, upgrade source version, exact steps, frequency, expected result, and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics and last-known-good version
+      description: Attach the diagnostic bundle, crash report, or log excerpt; remove usernames, server addresses, chat, tokens, and private save data.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety checks
+      options:
+        - label: I reproduced on a copy or have a verified backup before any upgrade/recovery attempt.
+          required: true
+        - label: I confirmed this exact Minecraft × loader target is listed as supported or development-testable.
+          required: true

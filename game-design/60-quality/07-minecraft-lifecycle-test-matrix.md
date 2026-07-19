@@ -17,6 +17,8 @@
 | `LIFE-08` | datapack/config/resource reload | validation/version/fallback/no half-applied state |
 | `LIFE-09` | crash/forced stop during transaction | journal/recovery/no duplicate reward |
 | `LIFE-10` | upgrade save, downgrade attempt, missing definition | backup/migration/refusal/placeholder/report |
+| `LIFE-11` | final previous-line release → successor candidate → save/reload | exact manifest, restore-as-copy, migration journal, invariant parity, downgrade refusal |
+| `LIFE-12` | wrong Minecraft/loader/artifact or EOL line | fail-fast compatibility reason, no world mutation, correct download/support guidance |
 
 ## 2. Player lifecycle
 

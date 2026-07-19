@@ -131,6 +131,7 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Death giữ progression dài hạn/Shadow identity, recall deployment và tạo consequence tạm thời theo mode/activity; Creative là first-class author/debug sandbox có provenance.
 - Living society phát triển từ identity/event ledger và hành vi hub nhìn thấy được trước khi mở settlement/faction/deep individual simulation.
 - Fabric là loader tối ưu hiện tại; NeoForge là first-class future target bắt buộc. Hai loader dùng artifact/adapter riêng nhưng không được fork gameplay semantics hoặc canonical save.
+- UMBRA chỉ có một Minecraft baseline phát hành chính tại một thời điểm: snapshot upstream chỉ để research; dòng cũ vẫn tải được ở bản cuối và chỉ thành EOL sau khi successor đã qua port/release gate, không biến mất hoặc bị ghi đè.
 - Mọi runtime change được Agent phân loại performance risk để đo đúng lúc; không benchmark mù mọi commit và không bỏ qua feature có hot-path/cardinality risk.
 - Shadow roster mở từ một tới tối đa tám slot; tối đa bốn Shadow triển khai chiến đấu. Các slot 5–8 mở chiều rộng dự bị/home và lựa chọn đội hình, không cộng actor hay power budget miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
 - Discovery là strength cốt lõi: UMBRA phải tạo cả nội dung/cơ chế/sinh vật thật sự mới và lý do nhìn lại Minecraft quen thuộc bằng một model mới; không đo bằng catalog count hoặc đồng nhất với activity breadth của reference open-world.

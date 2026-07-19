@@ -46,6 +46,8 @@ close world cleanly → create/verify backup → copy archive to USB/drive
 
 Không mở save 26.2 bằng baseline cũ. Khi chuyển máy, đường dẫn tuyệt đối, username hệ điều hành và cache GPU không được nằm trong persistent references. UUID/player ownership mismatch phải có support flow rõ, không tự chuyển tài sản cho người khác.
 
+Mỗi Minecraft successor phải chứng minh upgrade từ **final supported release gần nhất của previous line** bằng restore-as-copy; không hứa migrate trực tiếp từ mọi snapshot hoặc mọi build dev lịch sử. Release notes ghi exact `migration-from` matrix và chuỗi intermediate bắt buộc nếu có. Sau khi một copy đã save bằng successor, không mở ngược bằng dòng EOL; final artifact cũ được giữ để đọc/backup/export world cũ, không phải để downgrade world mới.
+
 Chuyển Fabric ↔ NeoForge là một migration matrix riêng, không phải copy tùy ý. Chỉ support khi exact Minecraft/schema/content pair đã có cross-loader fixture; luôn restore-as-copy. Canonical state không serialize loader handle/class/runtime registry ordinal; quy tắc chi tiết do `SYS-LOADER-PORTABILITY` sở hữu.
 
 ## 6. Player-facing tools dự kiến

@@ -13,7 +13,7 @@ User đã khóa full-game/all-in-one direction; breadth content không bị ép 
 
 | Priority | ID | Outcome/câu hỏi | Owner | Dependencies | Exit artifact |
 |---:|---|---|---|---|---|
-| 1 | `DB-019` | Exact Minecraft 26.2/Fabric/Java/build/render baseline và port train nào được pin? | Release Tech | `PROD-UMBRA`, `PD-013`, `PD-029` | Compatibility ADR + version matrix |
+| 1 | `DB-019` | Exact Minecraft 26.2/Fabric/Java/build/render baseline, support-line lifecycle và GitHub port/release/EOL train nào được pin? | Release Tech | `PROD-UMBRA`, `PD-013`, `PD-029`, `PD-043` | Compatibility ADR + canonical version/support matrix + release manifest schema |
 | 2 | `DB-021` | Bounded capability/layer/public surface/state-thread-transaction owner/failure taxonomy/kernel nào giữ blast radius nhỏ mà không thành framework vô hạn? | Technical Director | `DB-019` | Foundation Architecture Contract + State/Public-Surface/Dependency matrix schema + C1 fixture rows + fitness/violation/causal vertical proof |
 | 3 | `DB-043` | Fabric-first/NeoForge-ready boundary, loader port catalog, import rules, save schema và adapter conformance nào khóa từ foundation? | Compatibility + Tech + QA | `DB-019`, `DB-021` | Loader Portability ADR + architecture/conformance plan |
 | 4 | `DB-022` | Test OS tự động hóa claim nào; `PR-0–PR-3`, screenshot/input/human escalation ra sao? | QA + Tools | `DB-019`, `DB-021`, `DB-043` | Test Architecture + harness backlog |

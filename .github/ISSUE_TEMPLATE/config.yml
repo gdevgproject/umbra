@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Version support policy
+    url: https://github.com/gdevgproject/umbra/blob/main/game-design/20-domains/12-platform/03-compatibility-and-release-baseline.md
+    about: Check the exact Minecraft, loader, support-line, upgrade, and end-of-life policy before filing.

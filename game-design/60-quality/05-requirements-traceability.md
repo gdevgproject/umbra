@@ -31,7 +31,7 @@
 | R32 | UMBRA all-in-one first-party; external overhaul không làm méo core và có support tier rõ | Scope + Content + Platform | capability contract, compatibility tier/matrix |
 | R33 | Keybind không dựa vào ký ức: audit 26.2, action/context/remap/conflict và ergonomics | Input + Compatibility | registry diff, Action Catalog, layout experiment, stuck/duplicate tests |
 | R34 | Mọi player text có Việt/Anh và tự theo Minecraft locale | Localization + UI | key/placeholder parity, runtime locale reload, glyph/overflow screenshots |
-| R35 | Minecraft update không âm thầm break UMBRA | Platform + Release | pinned manifest, adapter/mixin inventory, port train, old/new save and render matrix |
+| R35 | Minecraft update không âm thầm break UMBRA hoặc làm người dùng mất dấu bản cuối của line cũ | Platform + Release | pinned manifest, support-line state, README/release projection, adapter/mixin inventory, port train, old/new save/render matrix, immutable final EOL artifact |
 | R36 | Copy backup/world sang USB/máy khác giữ toàn bộ gameplay state | Data + Release + QA | backup manifest/checksum, restore-as-copy, clean-path load/save test |
 | R37 | UI phức tạp vẫn nhất quán, dễ tìm và scale | UI/UX + Art + Accessibility | task graph, token/component states, Việt/Anh interactive prototypes |
 | R38 | Phàm Nhân đầu game sợ hostile nhưng còn agency và học được | World + Combat + AI | player–zombie–world exemplar, escape/readability/growth playtest |
