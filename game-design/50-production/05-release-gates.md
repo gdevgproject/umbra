@@ -16,6 +16,8 @@ Mỗi capability integrated tạo playable snapshot manifest: commit/schema/base
 
 Port/release đổi Minecraft phải kèm official/API diff, key baseline diff, adapter/patch inventory, data/resource version check, clean restore + migration, dedicated/integrated và graphics-backend evidence. Port loader phải giữ cùng Minecraft baseline khi khả thi và thêm adapter conformance, artifact manifest, cross-loader save fixture, parity/performance matrix. Content batch phải có dossier/asset provenance/interaction validation; số lượng không bù quality gate.
 
+Promote Minecraft successor chỉ khi current line vẫn có final green build, successor qua `PR-3` port matrix và README/manifest/release/issue-support projection đồng bộ. EOL gate yêu cầu immutable final tag/assets/checksum, migration-to successor, EOL date/reason, branch freeze và downgrade warning; upstream release date một mình không được đóng support.
+
 ## Go/no-go core release
 
 Core promise chơi được từ new save tới return loop; không blocker/crash/save loss; regression invariants xanh; p95/p99 trong budget; Việt/Anh complete theo scope và đổi locale runtime đúng; critical cues accessible; third-person default/first-person supported; install/verified backup-transfer/known issues rõ; content originality/license sạch; deferred không để lại dead-end trong UI/save. Mỗi loader chỉ được ghi `SUPPORTED` bằng artifact/test/performance manifest riêng; Fabric pass không tự cấp NeoForge support.

@@ -27,6 +27,8 @@ Người dùng không làm thay automated oracle. User time chỉ dùng cho feel
 
 Fabric documentation hiện hỗ trợ Loader JUnit, server GameTest và client GameTest có screenshot; đây là current baseline hypothesis cần pin theo release. NeoForge cũng có GameTest runner nhưng chỉ trở thành required lane khi adapter/target được mở; shared oracle không phụ thuộc runner. [Fabric Automated Testing](https://docs.fabricmc.net/develop/automatic-testing), [NeoForge Game Tests](https://docs.neoforged.net/docs/misc/gametest/)
 
+Compatibility lane không chạy một ma trận Cartesian vô hạn. Manifest canonical sinh exact jobs cho `SUPPORTED_CURRENT`, port candidate và control cần thiết; snapshot chỉ có diff/spike job khi có decision question. Minecraft baseline promotion luôn là `PR-3` và phải so final previous-line fixture với successor, không lấy clean new world làm bằng chứng migration.
+
 Ranh giới claim và thuật toán khi nào mới nhờ user nằm tại [Automation Boundaries](09-automation-boundaries-and-escalation.md).
 
 ## 3. Performance Risk Routing — Agent tự quyết khi nào phải đo

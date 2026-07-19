@@ -89,12 +89,14 @@ Runtime giữ recent-history ring buffer hữu hạn cho high-value events. Buff
 
 Mỗi playable snapshot có một export gom tự động:
 
-- build/commit, Minecraft/Java/loader/API, schema/content/capability manifest và mod/config hash;
+- build/commit/tag/source workflow, Minecraft support-line state, Java/loader/API, schema/content/capability manifest, artifact checksum/provenance và mod/config hash;
 - world/player context đã sanitize, game mode/dimension/seed policy và fixture/scenario ID;
 - recent causal trace, state inspectors, validation/migration/recovery report;
 - error/crash tail, queue/performance sample và optional JFR/renderer reference;
 - screenshot marker/camera/input/locale/backend khi liên quan;
 - active waiver/known issue và exact bundle format version.
+
+Launcher/distribution source và install path shape có thể được capture ở dạng đã sanitize để tái hiện `LAUNCH_ENVIRONMENT`, nhưng không được dùng thay exact Minecraft/loader/artifact coordinates hoặc biến một launcher bên thứ ba thành support promise.
 
 Bundle mặc định loại token, chat, server address, đường dẫn username, full inventory/save và dữ liệu riêng tư không cần thiết. Preview cho biết sẽ xuất gì; server/operator permission và size limit rõ. User không phải tự tìm file log.
 

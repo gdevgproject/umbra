@@ -1,0 +1,29 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+  categories:
+    - title: Breaking and migration changes
+      labels:
+        - breaking-change
+        - migration
+    - title: Minecraft and loader compatibility
+      labels:
+        - compatibility
+        - port
+    - title: Player-facing changes
+      labels:
+        - feature
+        - enhancement
+    - title: Fixes
+      labels:
+        - bug
+        - fix
+    - title: Documentation and tooling
+      labels:
+        - documentation
+        - tooling
+        - dependencies
+    - title: Other changes
+      labels:
+        - "*"

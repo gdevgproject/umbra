@@ -31,7 +31,7 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 - Ticket là đơn vị triển khai sau cùng, không phải nơi nghiên cứu game design.
 - Không chọn ticket tiếp theo chỉ từ chat hoặc lời “đạt”. Reconcile ledger ↔ ticket ↔ Git ↔ exact test evidence; chỉ tự chọn item đã Ready và dependency/gate xanh.
 - Invariant khó thấy phải được bảo vệ theo thứ tự contract/ADR → automated test → type/boundary → comment dẫn stable ID/test. Không dùng comment “đừng sửa” thay executable proof.
-- `main` phải luôn playable theo capability hiện có; không push/merge/rewrite/tag khi chưa được user cho phép.
+- `main` phải luôn playable theo capability hiện có. Project Owner đã cấp standing authority để Agent tự quản lý Git/GitHub theo `GOV-ENGINEERING`: branch/commit/push/PR/ruleset/merge/release kỹ thuật được tự thực hiện khi gate và automated evidence xanh, không hỏi lại từng thao tác. Chỉ dừng xin phép cho rewrite lịch sử shared, xóa provenance/release/data, thay quyền–visibility–billing/secret, public 1.0 greenlight hoặc quyết định sản phẩm khó đảo chưa có trong repo.
 - User không làm thay test tự động. Chỉ yêu cầu user playtest sau automated pack phù hợp và cung cấp Test Card + diagnostics/capture protocol.
 - Mọi Test Card và hướng dẫn thao tác cho Project Owner viết bằng tiếng Việt, một câu hỏi human-only mỗi card.
 - Không hỏi lại điều user đã khóa trong Product Feedback/ADR. Khi chat mới, repo là bộ nhớ; mọi task phải qua continuity bootstrap.
