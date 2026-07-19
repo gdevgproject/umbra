@@ -64,7 +64,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-041` | Emotional architecture không bị khóa vào con số bảy; `PIL-EMBODIMENT` và `PIL-TRIUMPH` là hai lời hứa riêng | phân biệt chất lượng điều khiển từng giây, năng lực tích lũy, chiến thắng xứng đáng và quyền lực dài hạn; Feature Cell phải test đúng failure mode |
 | `PD-042` | `PIL-DISCOVERY` gồm cả cái thật sự mới và việc tái khám phá Minecraft quen thuộc dưới affordance/sinh thái/hậu quả mới | không thêm pillar trùng; `DB-026` sở hữu portfolio/cadence, content batch phải chứng minh câu hỏi/quyết định/ký ức thay vì dùng catalog count hoặc GTA-style activity breadth làm proxy |
 | `PD-043` | Một Minecraft baseline phát hành chính tại một thời điểm; snapshot chỉ research, successor chỉ thay current sau gate | dòng cũ có final immutable release + EOL marker và vẫn tải được; không duy trì feature song song vô hạn hoặc bỏ current trước khi successor xanh |
-| `PD-044` | Agent có standing authority tự quản lý Git/GitHub thường nhật theo gate/evidence | Project Owner không phải chọn lệnh/branch/PR/ruleset/release metadata; chỉ duyệt product greenlight, quyền/tài khoản, destructive history/data hoặc exception ngoài policy |
+| `PD-044` | Agent có standing authority tự quản lý Git/GitHub thường nhật theo gate/evidence | direct push vào `main` được phép khi evidence xanh; PR dùng theo rủi ro, không bắt buộc cho mọi commit; ưu tiên connector/API/CLI, browser chỉ là fallback được báo mục đích; Project Owner chỉ duyệt product greenlight, credential/2FA, destructive history/data hoặc exception ngoài policy |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 

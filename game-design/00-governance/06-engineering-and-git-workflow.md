@@ -16,6 +16,9 @@
 - Project Owner cấp **standing authority** cho Agent quản lý vận hành Git/GitHub thường nhật; repo/gate/evidence là authorization source, không yêu cầu Project Owner biết lệnh Git hoặc xác nhận lại từng thao tác.
 - Khi scope đã được giao và gate tương ứng xanh, Agent tự được phép: tạo/switch branch hoặc worktree; commit; push topic/port branch; mở/cập nhật PR; quản lý issue/label/template/workflow/ruleset; merge PR đạt gate; xóa topic branch đã merge; tạo tag và publish snapshot/release kỹ thuật đã có release approval trong repo.
 - Agent không được đẩy việc kỹ thuật như chọn branch, resolve merge method, chạy CI, đặt release metadata hoặc bật protection cho Project Owner. Nếu platform yêu cầu credential/approval UI, Agent yêu cầu đúng quyền tối thiểu rồi tiếp tục, không biến nó thành câu hỏi thiết kế.
+- Kênh vận hành GitHub mặc định là connector/API/CLI chuyên dụng đã xác thực. Browser UI chỉ là fallback khi capability hiện có không thực hiện được thao tác semantic tương ứng hoặc GitHub bắt buộc xác thực tương tác; mở browser không phải một bước mặc định của workflow.
+- Trước khi dùng browser fallback, Agent báo một câu ngắn nêu chính xác mục đích và external state sẽ thay đổi. Standing authority bao phủ các thao tác thường nhật trong scope, nên không hỏi lại từng click; chỉ chuyển quyền cho Project Owner khi cần credential/2FA hoặc chạm nhóm hành động phải xin phép ở dưới.
+- Approval do sandbox/tooling cưỡng chế là ranh giới thực thi của môi trường, không phải product approval mới. Agent xin capability tối thiểu theo đúng thao tác và không bắt Project Owner chọn lệnh hay phương án kỹ thuật.
 - Vẫn phải xin Project Owner trước: public 1.0 greenlight hoặc thay public promise; repo visibility/transfer/billing/collaborator/secret; force-push/rebase/reset shared history; xóa/sửa published tag/release asset; xóa branch/worktree có unique unmerged work; bỏ qua gate đỏ hoặc hành động có thể mất save/provenance.
 - Routine Minecraft successor promotion/EOL theo `PD-043` không cần prompt riêng khi exact port/release/EOL gates đã xanh; ngoại lệ đổi support promise hoặc respin EOL ngoài policy mới cần Project Owner.
 - Không ghi đè thay đổi có sẵn của user; dirty worktree được audit và giữ nguyên.
@@ -46,7 +49,7 @@ Fix áp cho current và old line được merge/port riêng theo cùng bug ID + 
 
 Git khuyến nghị topic branches để cô lập thay đổi; `git bisect` hỗ trợ tìm commit gây regression. [Git Branching Workflows](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows), [Git Debugging](https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git)
 
-Khi repository public/CI hoạt động, GitHub ruleset cho `main`, `release/mc-*` và release tags phải yêu cầu PR + status checks phù hợp, chặn force-push/delete và giới hạn bypass ở Project Owner cho incident có record. Settings trên GitHub là external state: file trong repo chỉ mô tả/kiểm trợ, không được báo “đã bảo vệ” trước khi audit Settings/Rulesets.
+Với studio chỉ có Project Owner + Agent, `main` cho phép push thường sau khi automated evidence bắt buộc đã xanh; PR là công cụ tùy theo rủi ro cho port/release, thay đổi lớn hoặc review unit cần cô lập, không phải nghi thức cho mọi commit. Ruleset chỉ chặn force-push/delete và không được hard-require PR/status check khiến repository tự khóa; CI trên `push` là hậu kiểm remote, không thay pre-push evidence. Ruleset cho `release/mc-*` và release tags chỉ được tạo khi ref tương ứng thực sự tồn tại và cần bảo vệ, không dựng trước topology chưa dùng. Settings trên GitHub là external state: file trong repo chỉ mô tả/kiểm trợ, không được báo “đã bảo vệ” trước khi audit Settings/Rulesets.
 
 ## 4. Ticket execution lifecycle
 
