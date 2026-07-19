@@ -13,7 +13,7 @@ Một Agent mới phải có thể tiếp tục dự án mà không được xem
 |---|---|---|
 | `DESIGN_FEEDBACK` | user nêu ý tưởng, lo ngại, rule, scope, research | README → architecture → Agent protocol → Product/Feedback → owner domains/contracts/quality/backlog |
 | `DESIGN_EXECUTION` | một DB item được chọn để research/decide | DB item → Product pillar → domain/system/feature → dependencies → research/quality |
-| `IMPLEMENTATION` | ticket đã approved/Ready hoặc user nói pass/next | AGENTS → Ticket Autopilot + Execution Ledger → ticket → Feature/Contract/ADR → code owners → quality → Git workflow |
+| `IMPLEMENTATION` | ticket đã approved/Ready hoặc user nói pass/next | AGENTS → Ticket Autopilot + Execution Ledger → ticket → Feature/Contract/ADR → code owners → quality → Git workflow → [GOV-WORKSTATION](09-workstation-toolchain-readiness.md) khi task dùng build/debug/capture/authoring tool ngoài repo |
 | `BUG` | hành vi code trái contract | bug workflow → reproduction/evidence → owner contract → impact neighbors |
 | `PORT/RELEASE` | đổi Minecraft/loader/build/release | compatibility + loader portability → baseline ADR → adapter/patch inventory → save/test/performance/release gates |
 

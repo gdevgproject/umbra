@@ -35,6 +35,8 @@ Feature/content brief → reference + IP review → silhouette/motif exploration
 
 Không làm final hero asset trước khi graybox chứng minh mechanic/camera. Không ship placeholder không có status/fallback. Batch production chỉ mở sau một exemplar đi hết pipeline.
 
+Máy authoring, executable discovery, UI/CLI automation và smoke checklist được sở hữu tại [GOV-WORKSTATION](../00-governance/09-workstation-toolchain-readiness.md). Việc một app đã cài không tự chứng minh asset có thể export lặp lại hoặc tích hợp vào runtime.
+
 ## 4. Nguồn tạo asset
 
 Ưu tiên nguồn do dự án tự tạo: concept briefs, sketch/model/texture/animation procedural hoặc thủ công, recording/synthesis, field recording và licensed libraries có quyền thương mại rõ. Public-domain/CC asset chỉ dùng đúng điều khoản và lưu attribution. Asset từ franchise/game tham khảo chỉ để phân tích nguyên lý; không trace, rip, imitate character/skill/audio signature hoặc nhập file.

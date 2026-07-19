@@ -60,6 +60,7 @@ Mỗi domain README cho biết mission, ranh giới, invariant và các file chi
 3. [Implementation Backlog](50-production/03-implementation-backlog.md)
 4. [Ticket Autopilot](50-production/07-ticket-autopilot-protocol.md) → [Execution Ledger](50-production/08-execution-ledger.md)
 5. [Quality Coverage](60-quality/06-design-coverage.md)
+6. [Workstation và Toolchain Readiness](00-governance/09-workstation-toolchain-readiness.md) khi chuẩn bị máy authoring/automation
 
 Đọc governance/content/quality/research khi muốn review quy trình hoặc bằng chứng, không bắt buộc để hiểu fantasy.
 

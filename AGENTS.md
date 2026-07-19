@@ -9,6 +9,7 @@ Repository đang ở giai đoạn **Design Discovery**, chưa ở giai đoạn t
 3. `game-design/00-governance/02-agent-operating-protocol.md`
 4. `game-design/00-governance/08-session-bootstrap-and-continuity.md`; xác định work mode trước khi chọn read set.
 5. Nếu code/fix: `game-design/00-governance/06-engineering-and-git-workflow.md` và `07-bug-investigation-and-fix.md` khi liên quan.
+   Nếu task cần build/debug/capture hoặc công cụ asset/authoring ngoài repo: đọc `game-design/00-governance/09-workstation-toolchain-readiness.md`; không inventory/cài lại tool nếu không có re-audit trigger của doc này.
    Nếu chạm runtime/platform/build/port: đọc `game-design/60-quality/03-testing-and-evidence.md` và `game-design/20-domains/12-platform/07-loader-portability-and-adapter-contract.md`.
    Nếu user nói ticket trước đạt/tiếp/làm ticket kế: đọc `game-design/50-production/07-ticket-autopilot-protocol.md` và đối soát `08-execution-ledger.md` trước khi chọn việc.
 6. Product charter, domain charter và Feature Cell nằm trong phạm vi công việc.
