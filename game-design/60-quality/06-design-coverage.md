@@ -6,7 +6,7 @@
 | Vùng | Nội dung đã có canonical home | Độ trưởng thành |
 |---|---|---|
 | Direction | audience stack theo động lực–hành vi–quality proof, chín lời hứa cảm xúc gồm Embodiment/Triumph; Discovery tách frontier novelty khỏi transformed familiarity/GTA-style breadth; loop/longevity, always-playable scope, decisions | proposal; discovery portfolio evidence pending `DB-026` |
-| Player | level/rank, stat, specialization, Potential, mastery/prestige; Free Climb/Hạ Kình/Khinh Công + Vigor/surface/state/scenario package; guided full-system balance review | proposed traversal topology; parameter/feel discovery |
+| Player | level/rank, stat, specialization, Potential, mastery/prestige; Free Climb/Hạ Kình/Khinh Công + Vigor/contact-revision/state/scenario package; Jump/Sneak lineage/inhibitor, directional leap, adaptive mantle, buffered vector, bounded assist, voxel/fluid/dynamic fixtures và prediction/cue proof plan; guided full-system balance review | traversal contract comprehensive for validation planning; pinned-runtime/parameter/feel evidence vẫn discovery |
 | Combat/Skills | action/hit, embodiment/combat-expression grammar, one-health vitals/environment matrix, fixed-width HP/Mana/Focus HUD, Dodge, Combat Flask, death/mode recovery, setup–conversion–fallback skill synergy, trees/runes/class skills | proposed topology; cohort/numerical/action discovery |
 | Shadows/AI | Arise, identity, Retinue slot 1→8/active cap 4/pending claim/reserve rotation, sparse relationship, command, revive, contextual ritual/expression, fairness, squad/LOD | proposed topology; system discovery |
 | Dungeon/Encounter | Gate, generation, Break/Tower/Strata, boss teaching + mastery bands/moveset/AI/phase/difficulty–assist decomposition | discovery |

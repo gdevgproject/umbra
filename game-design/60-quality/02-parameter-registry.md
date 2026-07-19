@@ -339,9 +339,17 @@ Không có con số potency/refill/timing mặc định trước `DB-047`; capac
 Mọi key dưới đây là `TBD`, không phải zero/default implementation:
 
 ```text
-Vigor.max / regen_per_tick / recovery_delay / offline_recovery
-FreeClimb.attach_distance / face_tolerance / vertical_speed / lateral_speed
-FreeClimb.idle_drain / move_drain / leap_cost / leap_impulse
+Vigor.max / regen_per_tick / recovery_delay / recovery_support_dwell / offline_recovery
+Vigor.low_band / critical_projection_band / threshold_hysteresis / full_fade_grace
+FreeClimb.attach_distance / face_tolerance / attach_minimum_reserve / settle_grace
+FreeClimb.jump_lineage_window / approach_cone / grazing_reject_angle / preview_confidence
+FreeClimb.external_impulse_invalidate / preheld_sneak_policy / same_face_regrab_inhibit
+FreeClimb.vertical_speed / lateral_speed / downward_speed / blocked_input_cost_policy
+FreeClimb.idle_drain / upward_effort / lateral_effort / downward_effort
+FreeClimb.leap_base_cost / leap_vertical_cost / leap_lateral_cost / eject_cost
+FreeClimb.leap_target_envelope / post_contact_minimum_reserve / leap_recontact_cadence
+FreeClimb.leap_impulse / entry_momentum_cap / leap_momentum_cap / mantle_cost_by_semantic / modifier_cap
+FreeClimb.assisted_air_grab_default / auto_mantle_default / hold_release_debounce
 FreeClimb.corner_angle / mantle_clearance / mantle_grace / hit_detach_profile
 Grounding.min_fall_state / accept_time_to_impact / input_buffer
 Grounding.vigor_cost_or_overdraw / arrest_duration / correction_cap

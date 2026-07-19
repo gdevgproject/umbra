@@ -65,6 +65,8 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 | `PD-042` | `PIL-DISCOVERY` gồm cả cái thật sự mới và việc tái khám phá Minecraft quen thuộc dưới affordance/sinh thái/hậu quả mới | không thêm pillar trùng; `DB-026` sở hữu portfolio/cadence, content batch phải chứng minh câu hỏi/quyết định/ký ức thay vì dùng catalog count hoặc GTA-style activity breadth làm proxy |
 | `PD-043` | Một Minecraft baseline phát hành chính tại một thời điểm; snapshot chỉ research, successor chỉ thay current sau gate | dòng cũ có final immutable release + EOL marker và vẫn tải được; không duy trì feature song song vô hạn hoặc bỏ current trước khi successor xanh |
 | `PD-044` | Agent có standing authority tự quản lý Git/GitHub thường nhật theo gate/evidence | direct push vào `main` được phép khi evidence xanh; PR dùng theo rủi ro, không bắt buộc cho mọi commit; ưu tiên connector/API/CLI, browser chỉ là fallback được báo mục đích; Project Owner chỉ duyệt product greenlight, credential/2FA, destructive history/data hoặc exception ngoài policy |
+| `PD-045` | Free Climb phải đạt voxel-native game-feel quality bar, không dừng ở wall-motion kỹ thuật | collision/support shape thật + surface profile/revision phủ partial/thin/foliage/transparent/fluid/moving block; adaptive mantle, buffered/continuous intent, bounded steering, momentum/blend và multisensory cue; M0 server commit/revalidation mở seam tương lai nhưng không implement multiplayer gameplay |
+| `PD-046` | Free Climb không phí thêm default key khi Jump/Sneak đã biểu đạt đúng ý định Minecraft | Jump chủ động hướng vào valid wall có thể attach và khi đang bám trở thành directional climb-leap tốn Vigor; fresh Sneak sau latch là deliberate Drop. Intent lineage/inhibitor phải tách auto-jump, passive/external fall, build/pillar, grazing contact và external mode để contextual control không thành auto-save hoặc cướp thao tác |
 
 ## 3. Delegated research — Agent tự giải, không hỏi user sớm
 
@@ -73,7 +75,7 @@ Bạn không cần đọc hết hoặc chỉ đúng file. Feedback có thể thi
 - Exact early-game zombie/player/world levers và difficulty parameters.
 - UI visual direction/component layouts và asset production tools.
 - Exact numerical band của HP/Mana/Focus, Combat Flask capacity/potency/refill và health-environment mapping.
-- Exact Free Climb input/surface/speed, Vigor band, Grounding Strike window và Lightness launch/descent curve.
+- Exact Free Climb input/surface/speed, Vigor band, mantle/assist/buffer/correction band, Grounding Strike window và Lightness launch/descent curve.
 - Authored/systemic/player-created mix, content batch size và release breadth.
 
 Các mục này chỉ quay lại hỏi user khi prototype tạo trade-off fantasy thật sự; trước đó Agent chịu trách nhiệm research/evidence.

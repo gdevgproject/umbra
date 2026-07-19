@@ -69,6 +69,14 @@ Magnitude model có thể là `ABSOLUTE`, `PERCENT_MAX`, `HYBRID`, `SOURCE_FORMU
 
 Vanilla heart layer được thay/ẩn có chủ đích khi UMBRA HUD hoạt động để không hiển thị hai nguồn truth. Nếu UMBRA HUD/resource asset lỗi, safe fallback phải hiện health tối thiểu bằng vanilla/debug presentation thay vì làm người chơi mù.
 
+### Vigor contextual projection
+
+- Một fixed screen region là nguồn đọc chính ở cả first/third person; không nhân đôi truth bằng world-space bar luôn bám nhân vật. Near-character/edge vignette ở critical chỉ là cue phụ và phải tắt/giảm được.
+- Chỉ hiện `PREVIEW` khi semantic traversal intent có candidate/confidence đủ—ví dụ Jump lineage đang tiếp cận valid wall—not vì Space giữa đồng trống, va/nhìn/đi ngang tường. `ACTIVE` giữ bar khi attached; `RECOVERY_DELAY/RECOVERING` cho biết vì sao chưa hồi; `FULL_FADE` kết thúc lifecycle có grace.
+- Bar biểu diễn fill current/max, reserved overlay và next-action ghost/notch. Mantle/leap không đủ resource phải cho thấy phần thiếu và reason trước commit khi có thể, rồi cue reject bằng icon/pattern + audio/body response; không chỉ đổi màu.
+- Low/critical dựa normalized band, projected time-to-zero/next cost và hysteresis do traversal snapshot gửi; UI không tự suy diễn từ frame rate hoặc raw movement input. Không hiện exact “còn N block/N giây” mặc định vì route, surface và action tiếp theo làm dự báo đó dễ nói dối.
+- GUI scale, safe area, chat/subtitle, boss bar, hunger, Focus và damage feedback phải có priority/layout proof. Numeric value, compact mode, reduced animation, audio/haptic và critical peripheral cue là settings độc lập; tắt một kênh không được làm mất state.
+
 ### Target health
 
 - Boss/encounter owner có bar cấp encounter; target thường chỉ hiện plate/context khi cần đọc.

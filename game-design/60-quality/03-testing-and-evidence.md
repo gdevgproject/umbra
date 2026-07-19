@@ -120,10 +120,17 @@ Mỗi record ghi:
 24. Lightness không thể hover, midair relaunch, wall-touch ground-reset hoặc modifier-stack thành infinite upward/level flight.
 25. Capability không dependency cycle, gọi internals hoặc để loader/client type thoát boundary; architecture report khớp public surface/allowed edge canonical.
 26. Correlation/causation/operation ID không đứt hoặc đổi owner qua async, adapter, save/reload và presentation; instrumentation overflow/off không đổi gameplay outcome.
+27. Free Climb surface truth dùng actor-context collision/support + profile/revision, không opacity/outline/full-cube/block-name heuristic; partial/thin/foliage/fluid/dynamic fixtures không tạo handhold hoặc landing giả.
+28. Buffered traversal intent chỉ consume một lần; assist không vượt intent cone/gap/hazard, và block/fluid/piston/entity/hit mutation trước commit luôn được revalidate mà không teleport/double cost/stale contact.
+29. Đi/chạy/sprint chỉ va tường không attach; explicit player Jump lineage + direct approach có thể attach, còn auto-jump/passive/external/build/grazing context không được auto-save. Optional precision/hold/assist profiles giữ cùng authoritative truth.
+30. Vigor chỉ charge base attached time + accepted actor-effort + committed action đúng một lần; blocked input/assist/correction/external motion không thêm effort, recovery cần stable support, còn HUD lifecycle/current/reserved/next-cost/reason luôn khớp snapshot authority.
+31. Mỗi Jump/Sneak physical edge có đúng một semantic consumer theo locomotion/context: không jump+attach/leap kép, không dismount+Drop, không repeat spam; targeted climb leap không fallback sai hướng, charge invalid target hoặc vượt post-contact/cadence guard.
 
 ## 7. Feature readiness test pack
 
 Mỗi Feature Cell có happy path, boundary, invalid state, interruption, mode/context, duplicate/reorder, save/reload, death/respawn, reconnect, chunk/dimension lifecycle, first/third camera, creative/operator path, accessibility, localization, performance risk class/evidence, missing content/config và backward migration khi liên quan. Runtime feature còn khai public surface, authoritative writer, thread/clock/transaction, failure reasons, direct consumers và architecture conformance; movement/traversal feature thêm collision-shape, velocity, ground/support, stuck/no-clip và anti-refill/anti-flight fixtures. `N/A` cần lý do.
+
+Free Climb sinh case theo pairwise/adversarial axes canonical tại [`FEAT-TRAVERSAL-FREE-CLIMB §16`](../20-domains/01-player/traversal/01-free-climbing.md), không chỉ cộng hand-written happy paths. Mỗi oracle phải ghi cả input lineage/consumer, locomotion/contact, pose/velocity, Vigor transaction, world revision và cue/reason.
 
 ## 8. Failure handling
 

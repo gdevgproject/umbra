@@ -10,6 +10,7 @@
 3. `1–9` tiếp tục là hotbar trong exploration/combat hay cần contextual loadout/wheel?
 4. Camera-relative movement, facing, soft-target và precision aim làm thay đổi nhu cầu ngón tay nào?
 5. Người chơi một tay, bàn phím không US và chuột hai nút có layout hoàn chỉnh nào?
+6. Contextual Jump/Sneak cho Free Climb phân biệt jump-to-wall, build/pillar, auto-jump, dismount/swim và Drop ra sao mà mỗi press vẫn dự đoán được?
 
 ## 2. Ma trận công thái học bắt buộc
 
@@ -19,6 +20,7 @@ Mỗi candidate được chấm theo:
 - finger collision khi dodge tiến/lùi/trái/phải;
 - tần suất, thời gian phản ứng, hold duration và accidental activation;
 - tương tác với jump/sprint/sneak/attack/use/hotbar;
+- one-edge-one-consumer, pre-held modifier, auto-jump và external-mode precedence;
 - mỏi sau encounter dài và panic reach;
 - bàn phím nhỏ/laptop/AZERTY/QWERTZ, left-handed và mouse 2-button;
 - remap discoverability, conflict và accessibility alternative.
