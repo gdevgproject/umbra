@@ -68,7 +68,7 @@ Mỗi Domain Charter cho biết mission, ranh giới, invariant và các file ch
 
 ## Khi gửi feedback
 
-Chỉ cần nói điều mong muốn, ví dụ “dodge lùi nên là backstep và không xoay camera”, “tôi muốn gia đình có vai trò lớn từ đầu”, hoặc “thêm lock-on giống action RPG nhưng phải giữ góc một”. Agent áp dụng [Feedback Routing](00-governance/05-feedback-routing-and-edit-policy.md): phân loại quy mô, đọc các owner liên quan, lập impact map, sửa đúng canonical homes, cập nhật backlog/quality và báo lại câu hỏi cần quyết.
+Chỉ cần nói điều mong muốn, ví dụ “dodge lùi nên là backstep và không xoay camera”, “tôi muốn gia đình có vai trò lớn từ đầu”, hoặc “thêm lock-on giống action RPG nhưng phải giữ góc một”. Agent áp dụng [Feedback Routing](00-governance/05-feedback-routing-and-edit-policy.md): phân loại quy mô, đọc các owner liên quan, lập impact map, sửa đúng canonical homes, cập nhật backlog/quality và báo lại câu hỏi cần quyết. Nếu feedback tới giữa lúc làm ticket, Agent giữ active context, tạo Change Request, chọn amend/follow-up/needs-design/rollback và rebaseline design–ticket–code–test; người dùng không phải tự quản lý doc sync.
 
 ## Kiến trúc thư mục
 

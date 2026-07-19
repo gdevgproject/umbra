@@ -121,6 +121,10 @@ Trong lúc code phát hiện design gap:
 - thay đổi player-visible rule/contract: dừng phần liên quan, tạo `OPEN`/ADR, đưa feature lùi lifecycle nếu cần;
 - ý tưởng mới: đưa vào discovery queue, không scope-creep ticket.
 
+Nếu gap đến từ feedback/playtest trong lúc ticket đang chạy, Agent phải dùng [Feedback Change Control](05-feedback-routing-and-edit-policy.md): tạo `CR-<TKT>-NN`, tách `OBSERVED/EXPECTED/REQUESTED`, lập Change Propagation Map và chọn `CONTINUE_CONFORMANCE_FIX / AMEND_AND_REBASELINE / SPLIT_FOLLOWUP / PAUSE_NEEDS_DESIGN / ROLLBACK_OR_DISABLE`. Không sửa code rồi mới viết docs cho khớp.
+
+Chỉ phần thật sự không phụ thuộc delta mới được tiếp tục trong cùng worktree. Trước khi quay lại implementation, Agent phải xác nhận canonical rule/ADR, ticket acceptance, risk, tests và `design_baseline_commit` đã được rebaseline; evidence từ oracle cũ được đánh `STALE_BY_CHANGE`, không tái sử dụng vì vẫn xanh.
+
 Bug được điều tra theo [Bug Workflow](07-bug-investigation-and-fix.md); không vá symptom hoặc đổi spec để hợp code.
 
 ## 4. Những hành vi bị cấm

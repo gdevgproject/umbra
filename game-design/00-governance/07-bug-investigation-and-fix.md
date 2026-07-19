@@ -28,6 +28,8 @@ Bug ID, build/commit/schema, environment/mod/config, game mode, world/seed, prec
 | Save corruption/data loss | stop mutation, backup/recovery first, incident review |
 | User expectation nhưng code đúng | UX/readability review; không đóng “not a bug” máy móc |
 
+Nếu review cho thấy expected player outcome cần đổi thay vì chỉ tăng readability, mở ticket-local `CR` và route theo [`GOV-ROUTING`](05-feedback-routing-and-edit-policy.md). Bug workflow không được đổi canonical rule để làm reproduction “pass”.
+
 ## 4. Root-cause rules
 
 - Không sửa symptom bằng reset state toàn cục nếu chưa hiểu owner/lifecycle.

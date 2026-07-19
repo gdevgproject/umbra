@@ -114,6 +114,7 @@ Mục tiêu không phải “code không cần suy nghĩ”. Code luôn cần ph
 | `DB-` | design decision/research package | `DB-026` |
 | `EPIC-` | candidate implementation epic, chưa cho phép code | `EPIC-C3-04` |
 | `TKT-` | implementation ticket đã qua gate riêng | `TKT-C3-001` |
+| `CR-` | ticket-local Change Request cho feedback/delta khi implementation; không sở hữu game rule | `CR-TKT-C3-001-01` |
 
 Không nhúng số phiên bản vào ID hoặc tên file.
 

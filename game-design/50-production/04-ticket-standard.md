@@ -23,6 +23,8 @@
 - Minecraft lifecycle IDs phải chạy hoặc `N/A — reason`;
 - baseline test command/result trước khi sửa nếu là bug/refactor.
 - execution-ledger transition dự kiến và điều kiện chọn ticket tiếp theo.
+- `design_baseline_commit` + exact Feature/Contract/ADR/Parameter read set; owner-doc change là re-audit trigger.
+- mục `Change Control`: ticket-local `CR-*`, source/evidence, `OBSERVED/EXPECTED/REQUESTED`, classification/disposition, affected stable IDs, Change Propagation Map, evidence `STALE_BY_CHANGE`, rebaseline/approval và closure condition; khi chưa có feedback ghi `NONE`.
 
 ## Quy tắc chia
 
@@ -42,7 +44,9 @@ Giữ cùng ticket khi phần “glue” không có giá trị hoặc không tes
 
 ## Khi phát hiện gap trong code
 
-Bug trái spec: sửa + regression. Chi tiết nội bộ không đổi behavior: implementation note. Rule/player outcome mới: dừng phần liên quan, đưa Feature Cell về lifecycle và cập nhật impact map. Không biến quyết định design thành comment TODO.
+Bug trái spec: sửa + regression. Chi tiết nội bộ không đổi behavior: implementation note. Rule/player outcome mới: dừng phần liên quan, tạo `CR`, đưa Feature Cell về lifecycle và cập nhật impact/propagation map. Dùng disposition tại [`GOV-ROUTING`](../00-governance/05-feedback-routing-and-edit-policy.md); không biến quyết định design thành comment TODO hoặc gọi mọi feedback là hotfix.
+
+Amend tại chỗ chỉ khi delta vẫn có một outcome/owner/rollback story và ticket còn là một review unit. Nếu acceptance tách thành cụm độc lập, risk/save/loader path đổi bản chất hoặc downstream cần phát hành riêng, split follow-up/change ticket. Ticket không đạt DoD khi còn `CR` chưa disposition, canonical docs–code–test lệch, hoặc evidence stale chưa được rerun/waive bởi đúng owner.
 
 ## Quy trình thực thi
 

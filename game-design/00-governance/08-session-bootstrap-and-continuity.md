@@ -13,7 +13,7 @@ Một Agent mới phải có thể tiếp tục dự án mà không được xem
 |---|---|---|
 | `DESIGN_FEEDBACK` | user nêu ý tưởng, lo ngại, rule, scope, research | README → architecture → Agent protocol → Product/Feedback → owner domains/contracts/quality/backlog |
 | `DESIGN_EXECUTION` | một DB item được chọn để research/decide | DB item → Product pillar → domain/system/feature → dependencies → research/quality |
-| `IMPLEMENTATION` | ticket đã approved/Ready hoặc user nói pass/next | AGENTS → Ticket Autopilot + Execution Ledger → ticket → Feature/Contract/ADR → code owners → quality → Git workflow → [GOV-WORKSTATION](09-workstation-toolchain-readiness.md) khi task dùng build/debug/capture/authoring tool ngoài repo |
+| `IMPLEMENTATION` | ticket đã approved/Ready, user nói pass/next hoặc đưa feedback giữa ticket | AGENTS → Ticket Autopilot + Execution Ledger + unresolved `CR` → ticket/design baseline → Feature/Contract/ADR → code owners → quality → Git workflow → [GOV-WORKSTATION](09-workstation-toolchain-readiness.md) khi task dùng build/debug/capture/authoring tool ngoài repo |
 | `BUG` | hành vi code trái contract | bug workflow → reproduction/evidence → owner contract → impact neighbors |
 | `PORT/RELEASE` | đổi Minecraft/loader/build/release | compatibility + loader portability → baseline ADR → adapter/patch inventory → save/test/performance/release gates |
 
@@ -39,6 +39,8 @@ Ticket/handoff phải đủ để Agent mới trả lời mà không đoán: out
 
 [Ticket Autopilot](../50-production/07-ticket-autopilot-protocol.md) sở hữu thuật toán đối soát/chọn/thi hành; [Execution Ledger](../50-production/08-execution-ledger.md) là con trỏ canonical. Khi user báo ticket đạt hoặc yêu cầu ticket tiếp, Agent coi đó là input evidence, audit ledger–ticket–Git–test rồi mới chuyển trạng thái. Không có ticket Ready thì ở lại Design Discovery.
 
+Nếu user đưa feedback khi ticket chưa xong, continuity package phải giữ active ticket/worktree/evidence và route một `CR` theo [`GOV-ROUTING`](05-feedback-routing-and-edit-policy.md). Agent mới phải biết delta nào chỉ là observation, disposition nào đã chọn, canonical design baseline nào hiện hành, evidence nào stale và phần code nào bị pause/feature-flagged—không cần đọc chat để đoán.
+
 ## 6. Context-loss recovery
 
 Khi chat bị compact hoặc mở task mới:
@@ -49,6 +51,7 @@ Khi chat bị compact hoặc mở task mới:
 4. kiểm diff/worktree trước khi sửa để giữ user changes;
 5. nếu canonical docs và code mâu thuẫn, dừng phần liên quan và phân loại design gap/bug—not tự chọn bên tiện hơn.
 6. nếu ledger và Git/test mâu thuẫn, dừng auto-selection, bảo toàn dirty work và reconcile bằng evidence; không suy luận “ticket chắc đã xong”.
+7. nếu có `active_change_request`/`stale_evidence`, resolve/rebaseline nó trước khi tiếp tục verification hoặc chọn ticket kế; không bỏ interrupt vì chat cũ đã mất.
 
 ## 7. Continuity proof
 
