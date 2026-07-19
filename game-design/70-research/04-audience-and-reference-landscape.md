@@ -73,7 +73,12 @@ Người chơi đến vì cày có mục tiêu, breakthrough, build dài hạn, 
 
 ### Adjacent — Living-world explorer/builder
 
-Người chơi thích đô thị, NPC, kiến trúc, phương tiện/mount, sinh thái và emergent stories. Đây là audience mở rộng dài hạn; không dùng họ để ép mọi hệ vào slice đầu.
+Người chơi thích đô thị, NPC, kiến trúc, phương tiện/mount, sinh thái và emergent stories. Cần tách hai nhu cầu gần nhau nhưng không trùng:
+
+- **freedom/activity breadth:** có nhiều cách tự chọn mục tiêu và thế giới phản ứng; GTA V là lens seed cho chiều này;
+- **transformative discovery/wonder:** gặp sinh vật, sinh thái, luật và affordance mới, hoặc nhận ra Minecraft quen thuộc có thể được hiểu/dùng theo cách khác; Minecraft/ARK/Where Winds là lens gần hơn nhưng vẫn cần capture theo câu hỏi.
+
+Nhiều activity không tự tạo wonder, và nhiều creature reskin không tự tạo discovery. Proof phải cho thấy người chơi hình thành giả thuyết/model mới rồi đổi route, công cụ, chuẩn bị hoặc tham vọng. Đây là audience mở rộng dài hạn; không dùng họ để ép mọi hệ vào slice đầu.
 
 ### Future social — Friend/tribe/rival play
 

@@ -20,7 +20,7 @@ Quy ước: `L` = level người chơi · `La` = level mục tiêu · `⌊x⌋` 
 
 Các số section giữ lại để tham chiếu nội bộ trong registry; chúng không phải số file cũ.
 
-Topology đã khóa ngoài registry: một authoritative health substrate; Health/Mana/Focus hiển thị bằng fixed-width meter; Focus là defensive resource chứ không phải locomotion stamina; Combat Flask là quick slot riêng. Công thức dưới đây không được dùng để suy ngược presentation hoặc tạo HP song song. `DB-046/047` phải thay candidate bằng evidence đồng thời cho combat, hazard, HUD, save và economy.
+Topology đã khóa ngoài registry: một authoritative health substrate; Health/Mana/Focus hiển thị bằng fixed-width meter; Focus là defensive resource chứ không phải locomotion stamina; Combat Flask là quick slot riêng. Công thức dưới đây không được dùng để suy ngược presentation hoặc tạo HP song song. `DB-046` và `DB-047` phải thay candidate bằng evidence đồng thời cho combat, hazard, HUD, save và economy.
 
 ---
 
@@ -351,7 +351,7 @@ Lightness.apex_window / descent_terminal_velocity / descent_drain
 Lightness.reentry_cost / landing_recovery / collision_response
 ```
 
-`DB-049–052` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
+`DB-049`, `DB-050`, `DB-051`, `DB-052` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
 
 ---
 

@@ -28,6 +28,18 @@
 
 Một ticket phải review/test được độc lập nhưng không nhỏ đến mức chỉ “tạo class”. Nếu thay đổi observable rule, ticket trỏ Feature Cell; nếu chỉ infrastructure, trỏ contract/proof. Ticket sau không được ngầm hoàn thiện luật còn thiếu của ticket trước.
 
+`EPIC-*` là boundary lập kế hoạch, không phải ticket template. Phải tách `TKT-*` nếu bất kỳ điều kiện nào đúng:
+
+- có hai authoritative writer/state machine có thể triển khai hoặc rollback độc lập;
+- có hai design artifact chưa cùng `IMPLEMENTATION_READY`;
+- có hai migration/loader/feature-flag rollout path độc lập;
+- acceptance tạo hai cụm oracle không cần cùng diff để xanh;
+- một phần có thể tạo playable/infrastructure proof hữu ích khi phần còn lại chưa tồn tại;
+- risk lane khác bản chất (`PR-1` UI/config so với `PR-3` scheduler/save/port) làm review/evidence không còn bounded;
+- title cần dùng “và” để nối hai player/technical outcome không cùng failure/rollback story.
+
+Giữ cùng ticket khi phần “glue” không có giá trị hoặc không test được độc lập và mọi thay đổi cùng một owner/transaction/rollback. Ticket integration chỉ nối public surfaces đã chứng minh; không sở hữu lại internals hoặc lấp design gap.
+
 ## Khi phát hiện gap trong code
 
 Bug trái spec: sửa + regression. Chi tiết nội bộ không đổi behavior: implementation note. Rule/player outcome mới: dừng phần liên quan, đưa Feature Cell về lifecycle và cập nhật impact map. Không biến quyết định design thành comment TODO.

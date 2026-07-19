@@ -1,23 +1,11 @@
-# DOM-ITEMS-ECONOMY — Vật phẩm, trang bị, chế tạo và kinh tế
+# Items/Economy — gói đọc của hai domain cộng tác
 
-> **DRI:** Economy Designer
-> **Approver:** Lead Game Designer
-> **Reviewers:** Combat, Progression, Content, UX, QA
-> **Status:** `DISCOVERY`
+Folder này co-locate hai domain vì reward loop buộc Itemization và Economy review nhau thường xuyên; nó **không** nhập hai quyền sở hữu thành một domain. Đọc theo thứ tự:
 
-Reward phải thay đổi build, preparation, identity hoặc world choice; không dùng số lượng rarity/currency để giả chiều sâu.
+1. [`DOM-ITEMS`](items-domain-charter.md) — item/equipment/crafting definition, instance và transformation.
+2. [`DOM-ECONOMY`](economy-domain-charter.md) — source/sink/value/trade/reward allocation.
+3. [Items, equipment và crafting](01-items-equipment-and-crafting.md).
+4. [Currencies, sources, sinks và anti-exploit](02-economy.md).
+5. [Combat Flask và quick recovery](03-combat-flask-and-quick-recovery.md) — Feature Cell cross-domain dùng cả hai owner.
 
-## Invariants
-
-- Không FOMO, daily streak hoặc time-exclusive power.
-- Source/sink có fantasy và quyết định rõ; không tạo currency vì dễ balance.
-- Trang bị mạnh có trade-off/readability, không chỉ item level.
-- Junk có đường xử lý nhanh nhưng không biến mọi chuyến đi thành inventory chores.
-- Economy không khuyến khích một exploit/farm vô hạn trở thành cách chơi duy nhất.
-- Food giữ vai trò hunger/survival; Combat Flask là quick-recovery preparation riêng, không biến mọi consumable thành instant heal.
-
-## Tài liệu
-
-- [Items, equipment và crafting](01-items-equipment-and-crafting.md)
-- [Currencies, sources, sinks và anti-exploit](02-economy.md)
-- [Combat Flask và quick recovery](03-combat-flask-and-quick-recovery.md)
+Nếu economy mở settlement/faction market hoặc itemization mở nhiều pipeline độc lập, hai charter vẫn scale riêng mà không cần đổi stable ID. Physical folder chỉ được tách khi navigation thật sự có lợi; Git giữ path history.

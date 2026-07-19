@@ -38,7 +38,26 @@ Một cây thư mục không thể biểu diễn mọi quan hệ. Mỗi feature 
 
 Code module sau này là góc nhìn thứ năm. Không ép ranh giới tài liệu trùng package code; một Feature Cell có thể đi qua client, server, animation và data nhưng vẫn là một trải nghiệm duy nhất.
 
-## 4. Khi nào chia nhỏ thêm
+## 4. Quy tắc chia Domain và System
+
+Domain là **biên quyền quyết định ổn định**, không phải tên folder, team chart, package code hoặc cách gom mọi feature có vẻ liên quan. System là một cụm state/capability bên trong đúng một domain; nó có thể có DRI chuyên môn riêng và phát Shared Contract cho domain khác mà không tự động trở thành domain mới.
+
+Giữ hai system trong cùng domain khi chúng cùng phục vụ một mission, cùng approver cho invariant cốt lõi và phần lớn thay đổi player-visible cần được review như một quyết định thống nhất. Tách domain khi có ít nhất hai tín hiệu mạnh sau, và tạo ADR nếu việc tách đổi stable ID/ownership/dependency graph:
+
+- hai vùng có authoritative state, invariant và lý do thay đổi độc lập;
+- DRI/approver hoặc lifecycle gate khác nhau đến mức một phía thường phải chờ review không liên quan;
+- một phía có thể phát hành, rollback, migrate và chịu performance/compatibility risk mà không thay phía kia;
+- dependency chủ yếu đi qua một contract hữu hạn, thay vì hai phía phải đọc internals của nhau;
+- backlog/consumer graph cho thấy một charter đang che hai critical path khác nhau;
+- reviewer mới không thể mô tả boundary và public surface trong khoảng 15 phút nếu không bỏ qua nửa charter.
+
+Không tách domain chỉ vì tham vọng lớn, file dài hoặc có nhiều role tham gia. Trước khi tách phải chứng minh biên mới làm giảm change coupling/blast radius; nếu mọi feature sau đó luôn sửa cả hai bên, biên mới là giả. Ngược lại, không giữ một “siêu domain” chỉ để giảm số folder khi hai owner đang điều hành state/lifecycle khác nhau.
+
+Các plane `Content`, `Quality`, `Production`, `Research` và `Governance` không phải gameplay domain: chúng định nghĩa cách author, chứng minh, xếp thứ tự và quản trị các domain. Chúng không được âm thầm sở hữu player rule. Cây thư mục có thể co-locate hai domain cộng tác gần; Domain Charter và stable ID mới là ownership truth.
+
+Boundary audit chạy khi Product expansion thêm capability lớn, trước mỗi Capability Slice implementation-ready và khi cùng một cross-domain edit lặp lại ba lần. Kết quả là `KEEP`, `SPLIT`, `MERGE` hoặc `ADD_SHARED_CONTRACT`, kèm producer→contract→consumer→quality→production impact map.
+
+## 5. Khi nào chia nhỏ Feature Cell
 
 Tách một Feature Cell nếu **bất kỳ** điều kiện sau đúng:
 
@@ -51,7 +70,7 @@ Tách một Feature Cell nếu **bất kỳ** điều kiện sau đúng:
 
 Không tách chỉ vì file dài. Một rule nhỏ ở lại trong cell khi nó không có giá trị độc lập. Ví dụ “dodge sang trái” là scenario của Dodge; “hệ lock-on” là Feature Cell riêng vì có input, camera, target lifecycle và UX độc lập.
 
-## 5. Khi nào dừng chia
+## 6. Khi nào dừng chia
 
 Một Feature Cell đủ nhỏ khi:
 
@@ -64,7 +83,7 @@ Một Feature Cell đủ nhỏ khi:
 
 Mục tiêu không phải “code không cần suy nghĩ”. Code luôn cần phán đoán triển khai. Mục tiêu đúng là: **không để lập trình viên phải tự phát minh luật chơi, UX hoặc hậu quả sản phẩm trong lúc code**.
 
-## 6. Loại tài liệu và quyền phát biểu
+## 7. Loại tài liệu và quyền phát biểu
 
 | Loại | Chứa | Không chứa |
 |---|---|---|
@@ -77,7 +96,7 @@ Mục tiêu không phải “code không cần suy nghĩ”. Code luôn cần ph
 | Quality Spec | oracle, matrix, budget, cách đo | scope sản phẩm |
 | Production Item | priority, dependency, proof | nghiên cứu hoặc design mới |
 
-## 7. ID ổn định
+## 8. ID ổn định
 
 Đường dẫn có thể đổi; ID không đổi.
 
@@ -92,10 +111,13 @@ Mục tiêu không phải “code không cần suy nghĩ”. Code luôn cần ph
 | `RES-` | research card | `RES-DODGE-GENSHIN` |
 | `CNT-` | content instance | `CNT-BOSS-IRON-KNIGHT` |
 | `QLT-` | quality spec | `QLT-COMBAT-FEEL` |
+| `DB-` | design decision/research package | `DB-026` |
+| `EPIC-` | candidate implementation epic, chưa cho phép code | `EPIC-C3-04` |
+| `TKT-` | implementation ticket đã qua gate riêng | `TKT-C3-001` |
 
 Không nhúng số phiên bản vào ID hoặc tên file.
 
-## 8. Source precedence
+## 9. Source precedence
 
 Không dùng một danh sách file ưu tiên toàn cục kiểu “formula luôn thắng design”. Quyền ưu tiên dựa trên **loại câu hỏi**:
 
@@ -110,7 +132,7 @@ Không dùng một danh sách file ưu tiên toàn cục kiểu “formula luôn
 
 Nếu formula trái Feature Cell, đó là conflict phải xử lý; không tài liệu nào được âm thầm “thắng”.
 
-## 9. Chính sách lịch sử
+## 10. Chính sách lịch sử
 
 - Không tạo mục “Bổ sung v5.0”.
 - Sửa canonical text tại chỗ.

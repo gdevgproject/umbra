@@ -14,16 +14,16 @@ capability_slice: C0-DESIGN-OS
 active_ticket: NONE
 active_state: NONE
 branch: main
-base_commit: f94b5d3
-head_commit_verified: f94b5d3
+base_commit: 50b320f
+head_commit_verified: 50b320f
 worktree_state: DIRTY_DESIGN_DOCS
-uncommitted_scope: Free Climb/Grounding Strike/Lightness/Vigor traversal design-feedback transaction plus backlog/quality/research synchronization; audit git status for exact files.
+uncommitted_scope: Domain/system-map and backlog architecture audit; Items/Economy ownership split; Discovery portfolio/emotional clarification; C4B Becoming Spine sequencing; candidate epic decomposition; design validator strengthening. Audit git status for exact files.
 last_verified_ticket: NONE
-last_automated_evidence: design-doc-validator
+last_automated_evidence: powershell -ExecutionPolicy Bypass -File tools/validate-design-docs.ps1 — PASS, 147 canonical Markdown files, dirty design transaction, 2026-07-19
 last_human_playtest: N/A
 next_eligible_ticket: NONE
-blocked_by: Implementation Backlog is BLOCKED_BY_DESIGN; foundation gates DB-019/021/043 are not approved.
-next_valid_action: Continue Design Discovery; do not write gameplay code.
+blocked_by: Implementation Backlog is BLOCKED_BY_DESIGN; foundation gates DB-019, DB-021 and DB-043 are not approved.
+next_valid_action: Review/commit this Design Feedback transaction or continue Design Discovery; do not write gameplay code.
 ```
 
 `base/head` trên phản ánh snapshot đã commit gần nhất, không tuyên bố clean worktree; Agent cold-start luôn phải audit dirty changes thực tế và cập nhật record khi bắt đầu ticket. Design-doc edits chưa commit không được giả thành implementation evidence.

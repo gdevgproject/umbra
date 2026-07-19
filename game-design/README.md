@@ -49,9 +49,11 @@ Nếu muốn review thay đổi Shadow vừa chốt trước, đọc theo thứ 
 
 ### Vòng 2 — Đọc game tuyến tính theo miền
 
-Đọc `README.md` của 12 domain theo thứ tự: [Player](20-domains/01-player/README.md) → [Combat](20-domains/02-combat/README.md) → [Skills](20-domains/03-skills/README.md) → [Shadows](20-domains/04-shadows/README.md) → [AI](20-domains/05-ai/README.md) → [Dungeons](20-domains/06-dungeons/README.md) → [Encounters](20-domains/07-encounters/README.md) → [World](20-domains/08-world/README.md) → [Narrative](20-domains/09-narrative/README.md) → [Items/Economy](20-domains/10-items-economy/README.md) → [Presentation](20-domains/11-presentation/README.md) → [Platform](20-domains/12-platform/README.md).
+Đọc charter của 13 domain theo thứ tự: [Player](20-domains/01-player/README.md) → [Combat](20-domains/02-combat/README.md) → [Skills](20-domains/03-skills/README.md) → [Shadows](20-domains/04-shadows/README.md) → [AI](20-domains/05-ai/README.md) → [Dungeons](20-domains/06-dungeons/README.md) → [Encounters](20-domains/07-encounters/README.md) → [World](20-domains/08-world/README.md) → [Narrative](20-domains/09-narrative/README.md) → [Items](20-domains/10-items-economy/items-domain-charter.md) → [Economy](20-domains/10-items-economy/economy-domain-charter.md) → [Presentation](20-domains/11-presentation/README.md) → [Platform](20-domains/12-platform/README.md).
 
-Mỗi domain README cho biết mission, ranh giới, invariant và các file chi tiết. Chỉ mở file con khi muốn feedback mechanic đó.
+[Gói đọc Items/Economy](20-domains/10-items-economy/README.md) co-locate hai domain cộng tác nhưng không nhập ownership. Quality/Content/Production/Research/Governance là các plane xuyên domain, không được đếm như gameplay domain.
+
+Mỗi Domain Charter cho biết mission, ranh giới, invariant và các file chi tiết. Chỉ mở file con khi muốn feedback mechanic đó.
 
 ### Vòng 3 — Xem cách dự án được làm
 
@@ -74,7 +76,7 @@ Chỉ cần nói điều mong muốn, ví dụ “dodge lùi nên là backstep v
 game-design/
 ├─ 00-governance/       luật tài liệu, Agent, vai trò và quality gates
 ├─ 10-direction/        lời hứa sản phẩm, trải nghiệm, scope và quyết định lớn
-├─ 20-domains/          game design theo 12 miền có owner
+├─ 20-domains/          game design theo 13 miền có owner (Items/Economy co-locate)
 ├─ 30-shared-contracts/ vocabulary/state/rule dùng qua nhiều miền
 ├─ 40-content/          pipeline và chuẩn faction/boss/asset/content instance
 ├─ 50-production/       roadmap, design backlog, ticket và release gate

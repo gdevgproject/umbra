@@ -98,7 +98,7 @@ Không giảm hoặc bỏ: input intent đã nhận, legal hit, telegraph nguy h
 |---|---|---|
 | `PERF-S00` | vanilla/control world cùng seed/settings | phân biệt chi phí base với UMBRA |
 | `PERF-S01` | hub đông + UI + lịch NPC | AI/social/render/text/audio |
-| `PERF-S02A` | arena: player + 4 active Shadow + encounter hostile mix đã khóa ở `DB-044/018` | combat, target reservation, command, VFX, path, readability |
+| `PERF-S02A` | arena: player + 4 active Shadow + encounter hostile mix đã khóa ở `DB-044` và `DB-018` | combat, target reservation, command, VFX, path, readability |
 | `PERF-S02B` | spectacle/crowd: cùng Retinue cap 4 + hostile ở FOCUS/ACTIVE/REPRESENTED/AGGREGATED | degradation, query/path cap, VFX/audio density, outcome correctness |
 | `PERF-S03` | Gate generation + player di chuyển/chunk churn | queue, world commit, I/O |
 | `PERF-S04` | AoE/status/multi-hit/damage-number burst | spike/cardinality/GC |

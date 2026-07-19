@@ -65,11 +65,13 @@ Người chơi không chỉ **có** sức mạnh; họ nhớ mình từng yếu,
 | `PIL-MASTERY` | Tinh thông | học, kiểm soát, tự hào | timing, camera, vị trí, build, chuẩn bị và command đều có thể luyện | input bị animation cướp, stat thắng mọi thứ |
 | `PIL-TRIUMPH` | Chiến thắng xứng đáng | optimal challenge, courage, earned pride | đối thủ đáng học tạo tension; thất bại cho kiến thức; thích nghi và thực hiện đúng dẫn tới giải tỏa/tự hào | khó tùy tiện, AI gian lận, thắng rẻ hoặc assist xóa bài học |
 | `PIL-ATTACHMENT` | Gắn kết | care, memory, companionship | Shadow/NPC/place có tên, lịch sử, quan hệ và hồi đáp lâu dài | pet vô danh, bi kịch rẻ tiền |
-| `PIL-DISCOVERY` | Kỳ quan và bí ẩn | curiosity, surprise | địa điểm, sinh thái, Gate, faction, lore và systemic event tạo câu hỏi mới | checklist map, reskin |
+| `PIL-DISCOVERY` | Kỳ quan, mới lạ và tái khám phá | curiosity, surprise, sense-making | sinh vật/sinh thái/cơ chế/địa điểm mới tạo câu hỏi; Minecraft quen thuộc đổi affordance và được nhìn lại bằng năng lực, quan hệ hoặc world state mới | checklist map, reskin, catalog mới nhưng không đổi quyết định |
 | `PIL-CONSEQUENCE` | Được thế giới công nhận | impact, responsibility, social status | NPC, đô thị, lãnh thổ, danger và opportunity phản ứng với việc đã làm | simulation giả, consequence không thể đọc |
 | `PIL-BELONGING` | Nơi thuộc về và di sản | safety, identity, continuity | nhà/công trình/gia đình/collection/save khiến việc trở về và ở lại có ý nghĩa | chores, căn cứ chỉ là kho |
 
 Ranh giới tránh trùng: `Embodiment` là chất lượng của từng giây điều khiển; `Mastery` là năng lực người chơi tích lũy; `Triumph` là cung căng thẳng–thích nghi–vượt qua một đối trọng xứng đáng; `Ascendance` là thay đổi quyền lực/địa vị còn lại sau chiến thắng. `Awe/spectacle`, `tension`, `relief`, `pride`, `wonder` và `responsibility` là **nhịp cảm xúc điều phối** giữa các pillar, không phải lý do tự động tạo thêm hệ. Ví dụ boss dùng embodiment→tension→mastery→triumph→awe; trở về nhà dùng relief→recognition→belonging.
+
+`PIL-DISCOVERY` có hai mode phải cùng tồn tại: **frontier novelty** (loài, sinh thái, Gate, luật hoặc nơi chốn chưa biết) và **transformed familiarity** (một block, mob, biome, công trình hoặc thói quen Minecraft quen thuộc bỗng có affordance/hậu quả mới). Đây không đồng nghĩa `PIL-CONSEQUENCE`: Discovery tạo câu hỏi và model mới; Consequence chứng minh thế giới ghi nhận lựa chọn. Nó cũng không đồng nghĩa chỉ có nhiều activity/vehicle như một open world rộng—breadth là nguồn nguyên liệu, còn payoff là người chơi thay đổi route, công cụ, giả thuyết hoặc tham vọng.
 
 Mỗi Feature Cell có một pillar chính, tối đa hai pillar phụ và một failure mode cảm xúc cần test. Không tối ưu “gây nghiện” bằng thao túng; UMBRA hướng tới **voluntary long-term return** nhờ ý nghĩa, mastery, ownership và curiosity.
 
@@ -131,6 +133,7 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Fabric là loader tối ưu hiện tại; NeoForge là first-class future target bắt buộc. Hai loader dùng artifact/adapter riêng nhưng không được fork gameplay semantics hoặc canonical save.
 - Mọi runtime change được Agent phân loại performance risk để đo đúng lúc; không benchmark mù mọi commit và không bỏ qua feature có hot-path/cardinality risk.
 - Shadow roster mở từ một tới tối đa tám slot; tối đa bốn Shadow triển khai chiến đấu. Các slot 5–8 mở chiều rộng dự bị/home và lựa chọn đội hình, không cộng actor hay power budget miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
+- Discovery là strength cốt lõi: UMBRA phải tạo cả nội dung/cơ chế/sinh vật thật sự mới và lý do nhìn lại Minecraft quen thuộc bằng một model mới; không đo bằng catalog count hoặc đồng nhất với activity breadth của reference open-world.
 
 ## 9. Cửa feedback Product hiện tại
 

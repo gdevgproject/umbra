@@ -5,6 +5,8 @@
 
 ## 1. Domain map
 
+System Map là **chỉ mục toàn cục** của ownership và dependency, không tự sở hữu ranh giới: [`GOV-ARCH`](../00-governance/01-document-architecture.md) sở hữu tiêu chí tách/ghép; từng Domain Charter sở hữu mission/invariant; Shared Contract sở hữu giao diện; Production sở hữu thứ tự. Vì vậy đổi một row ở đây luôn phải đối chiếu charter/contract/backlog, không được coi việc vẽ lại bảng là đã tái kiến trúc game.
+
 | Domain ID | Năng lực sở hữu | Feature/System chính đã nhận diện | Trạng thái tái thẩm định |
 |---|---|---|---|
 | `DOM-PLAYER` | identity, năng lực thân thể và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige, Free Climb, Hạ Kình, Khinh Công | `DISCOVERY` |
@@ -12,15 +14,25 @@
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
 | `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→8, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
 | `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI | `DISCOVERY` |
-| `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
 | `DOM-DUNGEONS` | lifecycle không gian instance | Gate spawn/state, objective ledger, room grammar, generation, cleanup, Break/Field, Tower | `DISCOVERY` |
+| `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
 | `DOM-WORLD` | thế giới persistent và vanilla integration | city, respect, home/family, events, strata, dimensions, mounts, territory | `DISCOVERY` |
 | `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, Quest Kernel/content/dialogue | `DISCOVERY` |
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
 | `DOM-PRESENTATION` | cách người chơi thấy/nghe/điều khiển | versioned input/actions, camera-relative movement/facing, core third-person default, first-person support, aim/targeting, fixed-width combat HUD, UI design system, animation, VFX, audio, onboarding | `DISCOVERY` |
 | `DOM-PLATFORM` | foundation, dữ liệu và runtime boundary | kernel, authority/ownership/security seams, portable save/migration/recovery, Fabric-first/NeoForge-ready loader ports | `DISCOVERY` |
-| `DOM-QUALITY` | oracle và ngân sách | balance, automation, playtest, performance, accessibility, localization, compatibility | `DISCOVERY` |
+
+UMBRA hiện có **13 product/design domain**. `DOM-ITEMS` và `DOM-ECONOMY` dùng hai charter/DRI riêng dù đang co-locate trong một gói đọc. `Quality`, `Content`, `Production`, `Research` và `Governance` là cross-cutting plane: chúng chứng minh/author/xếp thứ tự/quản trị domain nhưng không sở hữu gameplay outcome.
+
+### Boundary watch — chưa phải lệnh tách
+
+| Boundary đang theo dõi | Giữ hiện trạng vì | Trigger phải audit lại |
+|---|---|---|
+| `DOM-PLAYER` ↔ `SYS-PLAYER-TRAVERSAL` | traversal vẫn là player-owned physical capability và acquisition/progression cần một mission thống nhất | non-player traversal hoặc release/state owner độc lập buộc Progression review lặp vô ích |
+| `DOM-NARRATIVE` ↔ `SYS-QUEST` | Quest Kernel phục vụ delivery/meaning, còn Platform chỉ cung cấp persistence/orchestration primitive | quest trở thành general activity runtime có approver/lifecycle độc lập với Narrative content |
+| các system trong `DOM-PRESENTATION` | input→camera→animation→UI/audio là một communication/control surface cần coherence | backlog/lifecycle cho thấy UI, Camera hoặc Animation thường bị chặn bởi review không liên quan và chỉ giao tiếp qua contract hữu hạn |
+| `DOM-ITEMS` ↔ `DOM-ECONOMY` | đã tách ownership/state nhưng co-locate để reward loop dễ đọc | physical navigation quá tải; không nhập lại domain chỉ vì feature cross-domain như Flask |
 
 ## 2. Shared contracts ưu tiên nền tảng
 
@@ -58,7 +70,7 @@ Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
 → Hit, Vitals & Resource Resolution + Early Danger exemplar
 → Enemy Telegraph / Encounter
 → Quest Kernel / Persistent Activity
-→ Progression & Production Reward
+→ Minimal Becoming Spine / Production Reward / Return Record
 → Shadow Capture
 → Retinue Capacity / Command / Expression
 → World/Narrative Consequence
@@ -66,6 +78,7 @@ Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
 
 ```text
 Content Definition + Asset Registry + Instance Architecture
+→ Discovery Portfolio: transformed-familiar + frontier novelty + systemic recombination
 → Enemy/Faction/Skill/Item/Quest exemplars
 → Save/Instance State
 → Migration + Compatibility
@@ -100,7 +113,7 @@ Các ý sau được giữ làm `CANDIDATE`, không mặc định `DECIDED`:
 - action combat với Focus/Fatigue, dodge/parry/combo và năm weapon class;
 - vertical traversal với Vigor, Free Climb, Hạ Kình và Khinh Công universal mở sớm;
 - faction/role/squad/morale/director, Gate lifecycle và dungeon grammar;
-- Hunter City, Respect, Home/Family, strata/world events;
+- Hunter City, Respect, Home/Family, strata/world events; sinh thái/sinh vật/cơ chế mới phải tạo discovery decision thay vì reskin/catalog;
 - skill/rune/tree, loot/affix/growth weapon và bốn currency;
 - main narrative ba hồi, prologue, endings;
 - data-driven content, server authority, LOD, save migration;
