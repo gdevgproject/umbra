@@ -13,7 +13,7 @@ Người chơi phải cảm thấy NPC, settlement và faction tiếp tục số
 
 | Lớp | Ví dụ | Nhịp thay đổi |
 |---|---|---|
-| Identity | stable ID, vai trò, affiliation, năng lực nền | rất hiếm |
+| Identity | stable ID, Level cố định, personality archetype, vai trò, affiliation, năng lực nền | rất hiếm |
 | Disposition | traits, values, long-term preference | chậm |
 | Relationship memory | trust, debt, fear, witnessed facts | theo event, có compaction |
 | Current condition | need, mood, injury, location intent | ngắn/trung hạn |
@@ -26,7 +26,7 @@ Dialogue không sở hữu truth; nó đọc các facts trên. AI runtime không
 ## 3. Thứ tự kỹ thuật đã chọn
 
 1. **Identity + event ledger:** stable NPC/settlement/faction ID, provenance, save/migration và debug trace.
-2. **Observable hub slice:** role, schedule, location intent, service và một phản ứng rõ theo player/world fact.
+2. **Observable hub slice:** role, schedule, location intent, service, Level/density read và một phản ứng rõ theo player/world fact.
 3. **Relationship/quest memory:** witness, trust/debt/fear, dialogue/quest condition và recovery.
 4. **Settlement simulation:** safety, service/economy capacity và event pressure ở dạng aggregate.
 5. **Faction/world state:** diplomacy, territory, policy và cross-settlement consequence.
@@ -64,6 +64,6 @@ Hydrate/dehydrate phải giữ identity và outcome; không mô phỏng lại qu
 
 ## 7. Feature Cells cần tách khi discovery sâu hơn
 
-`FEAT-NPC-IDENTITY`, `FEAT-NPC-SCHEDULE`, `FEAT-NPC-SERVICE`, `FEAT-RELATIONSHIP-MEMORY`, `FEAT-SETTLEMENT-STATE`, `FEAT-FACTION-WORLD-STATE`, `FEAT-NPC-PERSONALITY-CHOICE`.
+`FEAT-NPC-IDENTITY`, `FEAT-VILLAGE-POWER-DENSITY`, `FEAT-NPC-LEVEL-TRAITS`, `FEAT-NPC-SCHEDULE`, `FEAT-NPC-SERVICE`, `FEAT-RELATIONSHIP-MEMORY`, `FEAT-SETTLEMENT-STATE`, `FEAT-FACTION-WORLD-STATE`, `FEAT-NPC-PERSONALITY-CHOICE`.
 
 Mỗi cell chỉ mở khi có một player-visible exemplar, performance tier và save/recovery oracle. `DB-041` sở hữu discovery package; implementation nằm sau nền Quest/World/Content phù hợp, không chen vào foundation kernel.

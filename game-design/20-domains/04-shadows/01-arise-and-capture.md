@@ -38,4 +38,4 @@ Các số trên không được hard-code trước balance/narrative review.
 
 ## Câu hỏi mở
 
-Chance phụ thuộc rank gap, Potential, perk, achievement hay context nào; thất bại có tiêu Essence/Focus; multiplayer ownership; corpse vanilla ngoài Gate; exact timing/presentation của pending claim và nghi thức từ chối/chia tay.
+Chance/eligibility phụ thuộc Level gap, authored target tier, skill/capability, achievement hay context nào; thất bại dùng attempt/cooldown/condition nào mà không Mana/Focus; multiplayer ownership; corpse vanilla ngoài Gate; exact timing/presentation của pending claim và nghi thức từ chối/chia tay.

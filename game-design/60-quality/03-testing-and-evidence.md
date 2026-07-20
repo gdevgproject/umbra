@@ -96,8 +96,8 @@ Mỗi record ghi:
 
 1. Gate chỉ `CLOSED` sau full objective + valid exit.
 2. Leave/save/reload giữ Gate/objective/enemy/Soul Echo hợp lệ và không duplicate reward.
-3. Mana cạn không xóa Shadow đang sống; không có upkeep.
-4. Potential có preview/persistence; respec theo luật.
+3. Không có Mana upkeep; Shadow đang sống không bị xóa vì một action resource cạn.
+4. Level/skill unlock ledger preview/persist/migrate đúng; không Rank/Primary Attribute/Potential/Prestige field active.
 5. Strata không ghi đè World Gốc.
 6. Không reward độc quyền do calendar/streak.
 7. Action/hit/Arise/reward retry không commit hai lần.
@@ -110,10 +110,10 @@ Mỗi record ghi:
 14. Shadow social expression không cắt legal combat action, spam nghi lễ hoặc commit bond/memory hai lần sau interruption/reload.
 15. Health chỉ có một authoritative value; HUD, death, save và damage attribution không lệch do render/reconnect/migration.
 16. Fall/fire/lava/drowning/suffocation/starvation/status/void giữ đúng source profile; Max HP lớn không âm thầm vô hiệu hazard ngoài approved matrix.
-17. Đổi Max HP/Mana/Focus không refill miễn phí; resource transaction không âm hoặc commit hai lần.
+17. Đổi Max HP/Vigor không refill miễn phí; resource transaction không âm hoặc commit hai lần.
 18. Quick Recovery mỗi action ID chỉ trừ một charge/heal một lần; cancel trước commit hoàn reservation, sau commit không rollback heal.
 19. Orbit/recenter/lock/aim transition không đảo held movement; Dodge/attack đã accepted giữ đúng basis snapshot.
-20. Focus và Vigor không rút/hoàn chéo; leo/Khinh Công không làm mất Dodge và combat không khóa traversal ngoài action/context explicit.
+20. Dodge/Sprint Burst/Free Climb/Lightness dùng cùng Vigor đúng một lần; Hạ Kình tốn 0; không action tạo/hoàn pool Mana/Focus/Fatigue/Posture đã xóa.
 21. Một actor không đồng thời ở hai locomotion mode; attach/mantle/launch/landing packet retry không double cost/impulse/transition hoặc xuyên block.
 22. Quit/reconnect/death/portal/resource reload không refill Vigor, giữ contact ma, ghost flight hoặc fall immunity.
 23. Grounding Strike chỉ chuyển đúng fall component tại valid impact của một action ID; không xóa lava/void/status hoặc gây AoE/block damage lặp.
@@ -131,6 +131,9 @@ Mỗi record ghi:
 35. Lightness hold gesture không trì hoãn moving/directional Jump; ground/wall charge có source owner, Vigor reserve, ceiling/contact-revision revalidation và accessible alternative. Wall charge vẫn attached, không reset aerial chain hoặc giữ người vô hạn.
 36. Grounding chỉ nhận fresh Attack sau armed cue; held mining/Attack trên wall không sống lại. Weapon-shaped AoE có radius/damage/vertical/occlusion/target cap, không phá block hoặc scale vô hạn theo fall height.
 37. Aerial Dodge giữ straight active corridor bằng bounded gravity shaping rồi trả fall provenance/vertical momentum; Aerial Step dùng phase-aware rebase/route envelope. Không action nào để gravity modifier kẹt, xóa fast fall hoặc vượt one-use chain.
+38. Skill grant formula đúng tại Level 1/5/10/100 và multi-level/retry; full-future preview đọc cùng definition version, missing content không mất unlock.
+39. Village Hub đếm band rời nhau và giữ `NPC-DENSITY-*`; unload/merge/split không duplicate/delete/demote hoặc fill slot ma.
+40. Bully warning giữ player ≥1 HP kể cả secondary/duplicate; Guardian/flee dùng perception/path/action hợp lệ, không teleport/path storm/reward theft.
 
 ## 7. Feature readiness test pack
 

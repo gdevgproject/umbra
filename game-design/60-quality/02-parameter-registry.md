@@ -1,381 +1,231 @@
 # QLT-PARAMETERS — Parameter Registry
 
 > **DRI:** Systems Designer + Balance Designer
-> **Approver:** Lead Game Designer
+> **Approver:** Game Director
 > **Status:** `CANDIDATE`
 
-Đây là canonical home duy nhất cho công thức và con số gameplay. Các giá trị được bảo tồn từ corpus là **giả thuyết định lượng**, không phải balance đã được chứng minh, trừ topology được dẫn rõ từ approved Product decision/Shared Contract (hiện có cap Retinue `8 bonded / 4 active`). Một parameter chỉ chuyển sang `APPROVED` sau simulation, prototype/playtest, review liên domain và ghi evidence. Code không được hard-code giá trị chỉ vì chúng xuất hiện ở đây.
+Đây là canonical home duy nhất cho công thức và con số gameplay. `LOCKED` nghĩa Project Owner đã quyết và chỉ đổi qua feedback/CR mới; nó chưa tự làm Feature Cell `IMPLEMENTATION_READY`. `CANDIDATE` cần simulation/prototype/playtest. `OPEN` chưa có con số—code không được tự điền default rồi biến thành design.
 
-Quy ước: `L` = level người chơi · `La` = level mục tiêu · `⌊x⌋` = floor · `clamp(x,a,b)` = giới hạn trong `[a,b]`.
+Quy ước: `L` = Level · `⌊x⌋` = floor · `clamp(x,a,b)` = giới hạn trong `[a,b]` · logical server baseline 20 TPS.
 
-## Trạng thái theo nhóm
+## 1. Topology đã khóa
 
-| Nhóm | Status | Owner review bắt buộc |
+| ID | Parameter/rule | Status |
 |---|---|---|
-| Player/EXP/stat/damage/TTK/PB/prestige | `CANDIDATE` | Player, Combat, Balance |
-| Arise/summon/revive/Domain | `CANDIDATE`; Retinue cap `8/4` là Product topology | Shadows, Combat, Performance |
-| Economy/respect/hire/junk | `CANDIDATE` | Economy, World, Narrative |
-| Adaptive/Fatigue/Morale | `CANDIDATE` | AI, Combat, Accessibility |
-| Strata/Gate/Soul Echo | `CANDIDATE` | Dungeon, World, Platform |
+| `TOP-LEVEL-001` | Level bắt đầu 1, tiếp tục 100+; không Rank/Primary Attributes/Potential/Prestige | `LOCKED` |
+| `TOP-VITALS-001` | UMBRA core meters = `HP + Vigor`; không Mana/Focus/Fatigue/Posture | `LOCKED` |
+| `TOP-RETINUE-001` | roster tối đa 8, active combat tối đa 4 | `LOCKED` |
+| `TOP-LOADER-001` | một gameplay/save semantics; Fabric current, NeoForge future parity gate | `LOCKED` |
 
-Các số section giữ lại để tham chiếu nội bộ trong registry; chúng không phải số file cũ.
+## 2. Level và skill acquisition
 
-Topology đã khóa ngoài registry: một authoritative health substrate; Health/Mana/Focus hiển thị bằng fixed-width meter; Focus là defensive resource chứ không phải locomotion stamina; Combat Flask là quick slot riêng. Công thức dưới đây không được dùng để suy ngược presentation hoặc tạo HP song song. `DB-046` và `DB-047` phải thay candidate bằng evidence đồng thời cho combat, hazard, HUD, save và economy.
-
----
-
-## 14.1. Chỉ số cơ bản của người chơi
-
-| Đại lượng | Công thức |
-|---|---|
-| HP tối đa | `HP = 20 + VIT·6 + L·2` |
-| Mana tối đa | `MP = 20 + INT·8 + L·1` |
-| Hồi HP (ngoài combat) | `VIT·0.05 HP/giây` (cap 5 HP/s) |
-| Hồi Mana | `(2 + INT·0.15) MP/giây`, +50% khi không giao tranh 5s |
-| Sát thương cơ bản cận chiến | `Base = WeaponBase + STR·1.2` |
-| Crit chance | `5% + PER·0.25%`, trần 60% |
-| Crit damage | `150% + PER·0.5%`, trần 250% |
-| Tốc độ chạy | `+0.15%/điểm AGI`, trần +25% |
-| i-frame dodge | `0.25s + AGI·0.001s`, trần 0.4s |
-| Kháng trạng thái nền | `Res_base = min(0.35, VIT_e·0.003)`; trang bị/node cộng thêm nhưng trần hiệu dụng 75% |
-| Tự giải độc ngoài combat | `Detox = 1 stack/6s` nếu `VIT_e ≥ 40`; mỗi +30 VIT_e giảm 1s, trần 1 stack/2s |
-
-## 14.2. Đường cong EXP
-
-EXP cần để lên từ level `L` sang `L+1`:
-
-```
-EXP(L) = ⌊ 60 · L^1.85 + 25·L ⌋          (1 ≤ L < 100)
-EXP_prestige(P) = ⌊ 50000 · (1 + P·0.35) ⌋  (P = cấp Vượt Ngôi ≥ 1)
-```
-
-EXP nhận từ quái:
-
-```
-EXP_quái = EXP_base(quái) · (1 + 0.06·(La − L))     nếu La > L
-         · max(0.3, 1 − 0.08·(L − La))              nếu La < L  (farm quái yếu giảm hiệu quả)
-```
-
-Bảng mẫu cần kiểm chứng lại bằng simulation/playtest:
-
-| L | EXP cần | Tích lũy |
+| ID | Formula | Status |
 |---|---|---|
-| 5 | ≈ 1.200 | ≈ 3.100 |
-| 20 | ≈ 16.000 | ≈ 120.000 |
-| 40 | ≈ 56.000 | ≈ 800.000 |
-| 70 | ≈ 158.000 | ≈ 4.100.000 |
-| 99 | ≈ 296.000 | ≈ 10.900.000 |
+| `SKL-START-001` | Level 1 có `1` active skill grant | `LOCKED` |
+| `SKL-CADENCE-001` | `unlock_event_count(L) = ⌊L/5⌋`, với event tại 5,10,15,… | `LOCKED` |
+| `SKL-GRANTS-001` | `total_grants_through_level(L) = 1 + ⌊L/5⌋` | `LOCKED` |
+| `SKL-LOADOUT-001` | exact equipped active slot cap | `OPEN — DB-SKILL-PROGRESSION` |
+| `LVL-EXP-001` | EXP curve/source mix và post-100 cadence | `OPEN — DB-LEVEL-PROGRESSION` |
 
-## 14.3. Diminishing returns chỉ số (sau soft cap 100 điểm tự do)
+Boundary samples: L1→4 =1 grant; L5=2; L10=3; L100=21. Một milestone event trao đúng một authored reward `NEW_SKILL / NODE / LOADOUT_SLOT`; formula không đồng nghĩa 21 equipped slots.
 
-```
-Hiệu quả điểm(x) = x                            nếu x ≤ 100
-                 = 100 + (x−100)^0.75           nếu x > 100
-```
+## 3. Vigor — base, cap, spend và recovery
 
-Mọi ảnh hưởng tuyến tính theo chỉ số (14.1) tính trên *hiệu quả điểm*, không tính trên điểm thô.
+| ID | Parameter | Base | Cap | Status |
+|---|---|---:|---:|---|
+| `VIG-MAX-001` | max Vigor | 100 | 240 | `LOCKED` |
+| `VIG-REGEN-001` | regen | 25/s = 1,25/tick | 40/s = 2/tick | `LOCKED` |
+| `VIG-DELAY-001` | recovery delay | 1,5s = 30 ticks | same | `LOCKED` |
+| `VIG-DODGE-001` | Dodge/Sprint Burst activation | 18 | 18 | `LOCKED` |
+| `VIG-CLIMB-001` | Climb Move | 4/s = 0,2/tick | 4/s | `LOCKED` |
+| `VIG-CLIMB-JUMP-001` | Climb Jump | 25/action | 25 | `LOCKED` |
+| `VIG-GROUNDING-001` | Hạ Kình | 0 | 0 | `LOCKED` |
+| `VIG-LIGHTNESS-001` | Lightness launch/descent cost | — | — | `OPEN — DB-052` |
+| `VIG-SPRINT-SUSTAIN-001` | ordinary sustained Sprint drain ngoài activation | — | — | `OPEN`; baseline chỉ `NO_REGEN` |
 
-## 14.4. Công thức sát thương
+Recovery state:
 
-```
-DMG_gốc   = (Base + Bonus_skill) · Mult_skill · Mult_combo
-DMG_hệ    = DMG_gốc · (1 + AffinityBonus) · (1 − Kháng_mục_tiêu) · Hệ_số_yếu_khắc (1.25 nếu khắc; 0.75 nếu bị kháng)
-Giảm giáp = Armor / (Armor + 50 + 10·L_tấn_công)          (trần hiệu dụng 75%)
-DMG_cuối  = DMG_hệ · (1 − Giảm giáp) · CritMult(nếu crit) · Rand(0.95, 1.05)
-```
-
-Posture damage: `PDMG = DMG_gốc · k_posture(vũ khí)` — đòn nặng k=1.5, đòn nhẹ k=0.5, parry thành công k=3.
-
-## 14.5. Tỷ lệ Trỗi Dậy (Arise)
-
-```
-ΔL       = L − La
-P_1      = clamp(0.35 + 0.03·ΔL + 0.15·(UyQuyền / YêuCầu(cấp bóng)) − γ(cấp bóng), 0.05, 0.85)
-P_2      = clamp(P_1 + 0.15, 0.20, 0.95)
-P_3      = clamp(P_1 + 0.35, 0.40, 0.99)       (mục tiêu thường/elite)
-P_3_boss = 1.00                                  (boss định danh đủ điều kiện)
-P_hiệp_sĩ_huyết_sắt = [0.00, 0.00, 1.00]         (nghi lễ kịch bản hóa)
-Mana_hiệp_sĩ_huyết_sắt = [0, 0, ManaArise_tier]  (hai phong ấn không đốt tài nguyên)
+```text
+regen_allowed = delay_elapsed
+                ∧ locomotion ∈ {IDLE, WALK, SNEAK}
+                ∧ locomotion ∉ {SPRINT, CLINGING, AIRBORNE}
 ```
 
-`P_n` là xác suất hiển thị **trước** lần thử n; các lần sau không bị phạt vì thất bại. Mục tiêu không-boss thất bại cả ba lần rơi Mảnh Bóng theo bảng loot; boss có Capture Contract dùng pity lần 3.
+Delay restart ở spend gần nhất hoặc khi rời state cấm hồi. Regen/spend dùng server clock; reconnect/equip/max-change không refill.
 
-| Cấp bóng mục tiêu | γ | Yêu Cầu Uy Quyền |
+### 3.1. Dodge arithmetic
+
+```text
+max_consecutive_dodges(V) = floor(V / 18)
+remainder(V) = V - 18 · floor(V / 18)
+```
+
+| V | Số Dodge | Dư |
+|---:|---:|---:|
+| 100 | 5 | 10 |
+| 240 | 13 | 6 |
+
+### 3.2. Free Climb arithmetic
+
+Tốc độ Climb Move tham chiếu `1,25 block/s`:
+
+```text
+continuous_seconds(V) = V / 4
+continuous_height(V) = 1.25 · V / 4
+move_vigor_per_block = 4 / 1.25 = 3.2
+```
+
+| V | Thời gian | Độ cao lý thuyết |
+|---:|---:|---:|
+| 100 | 25s | 31,25 block ≈31 |
+| 240 | 60s | 75 block |
+
+Climb Jump tham chiếu khoảng `2 block/action`:
+
+```text
+jump_count(V) = floor(V / 25)
+jump_height(V) = 2 · floor(V / 25)
+jump_vigor_per_block = 25 / 2 = 12.5
+relative_inefficiency = 12.5 / 3.2 = 3.90625×
+```
+
+| V | Số jump | Độ cao | Dư |
+|---:|---:|---:|---:|
+| 100 | 4 | ≈8 block | 0 |
+| 240 | 9 | ≈18 block | 15 |
+
+Đây sửa lỗi cũ `24 × 4`; đúng là `25 × 4 = 100`.
+
+### 3.3. Full-recovery wall time
+
+`active_regen_time = Vmax / regen`; từ lúc ngừng action đến full còn cộng delay 1,5s:
+
+| Vmax | Regen | Active regen | Tổng có delay |
+|---:|---:|---:|---:|
+| 100 | 25/s | 4,0s | 5,5s |
+| 240 | 25/s | 9,6s | 11,1s |
+| 100 | 40/s | 2,5s | 4,0s |
+| 200 | 40/s | 5,0s | 6,5s |
+| 240 | 40/s | 6,0s | 7,5s |
+
+Vì vậy “200 điểm hồi khoảng 5 giây” chỉ đúng cho **active regen**, không gồm delay.
+
+### 3.4. Long-term mastery
+
+| ID | Rule | Status |
 |---|---|---|
-| Thường/Tinh Nhuệ | 0.00 | 10 |
-| Kỵ Sĩ/Tinh Kỵ | 0.10 | 40 |
-| Chỉ Huy/Tướng Quân | 0.25 | 100 |
-| Nguyên Soái | 0.40 | 250 |
-| Boss (lần giết đầu) | γ riêng − 0.20 (bonus) | theo cấp tương đương |
+| `VIG-MASTERY-TIME-001` | đạt cả hai cap không sớm hơn tương đương 480 giờ active play hợp lệ (60 ngày ×8h), không daily quota/streak | `LOCKED TARGET` |
+| `VIG-MASTERY-CLIMB-001` | Max tăng bằng valid attached/accepted climb distance/milestone | `LOCKED DIRECTION`; exact steps `OPEN` |
+| `VIG-MASTERY-GROUND-001` | Regen tăng bằng valid ground locomotion; milestone nền đầu `30.000 block` | `LOCKED`; later steps `OPEN` |
 
-## 14.6. Sức chứa, triệu hồi và tái sinh Hắc Ảnh Cận Vệ
+Teleport, vehicle, Elytra, knockback, current, piston, AFK conveyor, duplicate event và movement không do player-authored locomotion không được tính. Exact anti-cheese thresholds cần QA/Platform evidence.
 
-```
-Sức chứa kết ước: mở với 1 slot; tiến triển 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
-Triển khai chiến đấu đồng thời: tối đa 4
-Slot 5–8: chiều rộng dự bị/home/rotation; exact milestone/cadence/cost = DB-044
-Mana triệu hồi = Σ(ManaGọi(cấp i) · HệSố_đội_hình) một lần khi gọi; không có Mana duy trì/giây.
-                 ManaGọi: Thường 6 · Tinh Nhuệ 10 · Kỵ Sĩ 16 · Tinh Kỵ 24 · Chỉ Huy 34 · Tướng Quân 48 · Nguyên Soái 68
-                 HệSố_đội_hình = 0.75 khi gọi preset đầy đủ, 1.00 khi gọi lẻ; thu hồi/garnison = 0 Mana.
-```
+## 4. Hạ Kình
 
-Hai cap đầu là product topology theo `CTR-SHADOW-RETINUE`, không phải balance candidate. Mana/cost phía dưới vẫn là corpus hypothesis; INT/level/rank không được tự tăng sức chứa. Reserve không đóng góp power trận hiện tại.
+| ID | Parameter | Value | Status |
+|---|---|---:|---|
+| `GRD-WINDOW-001` | predicted vertical window | từ 1 tới 100+ loaded block; không design max | `LOCKED` |
+| `GRD-ARREST-001` | Arrest & Orient | 3 logical ticks ≈0,15s ở 20 TPS | `LOCKED` |
+| `GRD-DESCENT-001` | target descent speed | 35 block/s = 1,75 block/tick | `LOCKED` |
+| `GRD-FALL-001` | valid-impact fall damage | 0 = triệt tiêu 100% fall component | `LOCKED` |
+| `GRD-HITSTOP-001` | presentation hit-stop | 2–3 tick; không dừng logical server/world | `LOCKED RANGE` |
+| `GRD-RADIUS-001` | entity AoE radius | formula dưới; cap 8 | `LOCKED` |
+| `GRD-DAMAGE-001` | damage/stagger/launch/target cap/recovery theo weapon | — | `OPEN — DB-051` |
 
-**Tái sinh bóng — Quân Đoàn Bất Tử:**
-
-```
-Chi phí tái triệu hồi TỨC THờI = ManaCơBản(cấp) · (1 + 0.5·n)     n = số lần tái triệu hồi cùng bóng trong 60s (trần n=3 → ×2.5)
-   ManaCơBản: Thường 15 · Tinh Nhuệ 25 · Kỵ Sĩ 45 · Tinh Kỵ 70 · Chỉ Huy 110 · Tướng Quân 170 · Nguyên Soái 260 · Đại Nguyên Soái 400
-Tái sinh CHẬM (miễn phí)       = Thường 60s · Tinh Nhuệ 90s · Kỵ Sĩ 150s · Tinh Kỵ 240s · Chỉ Huy 420s · Tướng Quân 600s · Nguyên Soái 900s
-   Keystone "Đạo Quân Bất Tử": chia 3 thời gian hồi chậm; sát thương bóng −15%.
-Bóng tái triệu hồi tức thời trở lại với 60% HP.
-```
-
-## 14.7. TTK mục tiêu → HP quái thiết kế
-
-```
-HP_quái = DPS_chuẩn(PB_yêu_cầu) · TTK_mục_tiêu(loại)
-```
-
-với `DPS_chuẩn(PB) = 8 · PB^1.1`; phải hiệu chỉnh bằng simulation theo [Balance Framework](01-balance-framework.md).
-
-## 14.8. Điều tiết kinh tế
-
-```
-Giá_mua_lặp(n)   = Giá_gốc · (1 + 0.5·n)            (n = số lần mua cùng mặt hàng trong chuỗi chuẩn bị hiện tại)
-Phí_reforge      = Phí_cơ_bản(hạng) · (1 + 0.15·số_lần_reforge_món_đó)
-Thuế_tài_sản     : phí rank-up = 1000 · (chỉ_số_hạng)^2 vàng   (F=1 · E=2 · D=3 · C=4 · B=5 · A=6 · S=7 · S+=8)
-Loot_diminish(k) = Loot_gốc · max(0.25, 1 − 0.25·(k−3))  (k = clear cùng loại trong chuỗi farm, k>3)
-
-Chuỗi chuẩn bị/farm giảm khi người chơi dùng vật phẩm tương ứng, đổi faction/objective Gate, hoàn tất activity khác hoặc nghỉ tại Tổ Ấm; không reset theo lịch thực hay yêu cầu đăng nhập ngày sau.
-```
-
-## 14.9. Power Budget (PB)
-
-```
-PB_self = (STR_e + AGI_e + VIT_e + INT_e + PER_e) · 1.0
-        + Σ(Điểm_kỹ_năng · Trọng_số_kỹ_năng)
-        + Σ(GearScore)                                       (keystone/rarity/affix đã chuẩn hóa)
-PB_retinue = Σ(ShadowScore_i · active_i · role_fit_i)        (chỉ tối đa 4 active; reserve = 0)
-PB = PB_self + min(0.60 · PB_self, PB_retinue)               (đóng góp Retinue có trần, không tự tham chiếu)
-```
-
-`PB_yêu_cầu` của nội dung được gán tay theo hạng: F=12 · E=20 · D=45 · C=90 · B=180 · A=350 · S=700 · S+=950 · QG=1200 · VG=2000+ (hiệu chỉnh qua simulation).
-
-## 14.10. Prestige (Vượt Ngôi)
-
-```
-Bonus_tổng(P) = 1 + 0.10 · ln(1 + P)        (log-scale: P=10 → +24%; P=100 → +46%)
-```
-
-Không cộng dồn tuyến tính bất kỳ chỉ số nào khác ở prestige ngoài Bonus_tổng — chống power creep mất kiểm soát.
-
-## 14.11. Adaptive Difficulty
-
-```
-Hệ_số_thích_ứng = clamp( 1 + 0.10·tanh( (Hiệu_suất_kỳ_vọng − Hiệu_suất_thực) / σ ) , 0.90 , 1.10 )
-```
-
-Áp dụng cho: tốc độ telegraph, tần suất quái phụ. Không áp dụng cho HP/sát thương nền. Cửa sổ đo: 20 trận gần nhất, cập nhật mỗi 5 trận.
-
-## 14.12. Thể Lực (Fatigue)
-
-```
-THANG: 0 → 100 (Kiệt Sức)
-TĂNG (chỉ trong/gần combat):
-  · Kỹ năng bộc phá (dash/burst/tốc biến/execute/gầm): +3 mỗi lần
-  · Dodge thường: +1 mỗi lần; Né Chuẩn Xác hoàn lại đúng +1 này
-  · Giao tranh liên tục: +1 mỗi 60 giây
-  · Nhận đòn nặng (≥ 25% HP): +2
-  · Arise giữa combat: +2 mỗi lần thử
-GIẢM:
-  · Ngoài combat ở Tổ Ấm/lửa trại: −2 mỗi 10 giây
-  · Ngủ (giường vanilla): về 0
-  · Bình Thể Lực: −30 · Nước Thánh: −60 (giá theo bậc mua, 14.8)
-  · Level Up: về 0 (kèm HP/Mana 100%)
-NGƯỠNG:
-  · 60–84  Mệt:      −10% hồi Mana, −5% tốc độ đánh
-  · 85–99  Rã RờI:   −25% hồi Mana, −10% sát thương, kỹ năng bộc phá tốn +50% Focus
-  · 100    Kiệt Sức: Slowness I, khóa kỹ năng bộc phá, bóng Tán Vỡ chỉ hồi chậm
-```
-
-Ràng buộc thiết kế kiểm chứng bằng simulation: một "ngày săn" trung bình (2–3 gate + boss) sinh ~55–75 Fatigue → người chơi *chọn* giữa về ngủ sớm hay mua bình đẩy tiếp. Không bao giờ tăng ngoài combat.
-
-## 14.13. Tinh Thần địch (Morale)
-
-```
-TinhThần_đội (0–100), khởi tạo 100, cập nhật mỗi giây bởi Squad Brain:
-  Δ = −25·(tỷ_lệ_quân_đã_mất)
-      −15 nếu chỉ huy/healer đội đã chết
-      −20·(chênh_hạng_người chơi − hạng_quái, nếu > 0, trần −40)   (Uy Áp Chúa Tể)
-      −10 mỗi lần trúng Gầm Kinh Hồn / hiệu ứng fear
-      +5 mỗi elite còn sống · +10 nếu boss cùng khu vực còn sống
-      · Hệ số tính cách: Lãnh Đạm ×0 (miễn) · Nhút Nhát ×1.5 · Cuồng Chiến ×0.6
-NGƯỠNG: ≥60 Quyết Chiến · 30–59 Dao Động · 10–29 Hoảng Sợ · <10 Vỡ Trận
-Không áp dụng Uy Áp cho: boss, mini-boss, elite, nội dung đúng hạng người chơi, Construct, Undead (miễn fear).
-```
-
-## 14.14. Kính Trọng (Respect)
-
-```
-KínhTrọng(npc) = clamp(
-    10 · chỉ_số_hạng_người chơi                           (F=0 · E=1 · D=2 · C=3 · B=4 · A=5 · S=6 · S+=7 · QG=8 · VG=9)
-  + Σ(điểm_việc_làm_được_chứng_kiến · phân_rã_thời_gian)  (dẹp Break +30, giết boss gần làng +20, tặng quà +5; phân rã −10%/tuần game)
-  + Σ(điểm_tin_đồn · 0.5)                                 (lan truyền chậm, phóng đại ±20%)
-  + Điểm_tương_tác_riêng(npc)                             (trade, quest riêng)
-, −50 , 200 )
-BẬC:  ≤ −10 Khinh Thường · −9…29 Thờ Ơ · 30–79 Tôn Trọng · 80–149 Kính Nể · ≥150 Sùng Kính
-Hiệu ứng giá: Khinh Thường ×1.5 · Thờ Ơ ×1.1 · Tôn Trọng ×1.0 · Kính Nể ×0.85 · Sùng Kính ×0.7
-```
-
-## 14.15. Thuê Hunter (Hire)
-
-```
-Phí thuê/1 gate = 50 · (chỉ_số_hạng_hunter)^2 · (1 + 0.5 nếu hunter cùng hạng cao nhất có thể thuê)
-chỉ_số_hạng: F=0.5 · E=1 · D=2 · C=3 · B=4 · A=5 (không thuê được S/Quốc Gia)
-Điều kiện: hạng_hunter ≤ hạng_người chơi − 1
-Chia loot: hunter nhận 15% + 5%·chỉ_số_hạng_hunter giá trị loot rời (không lấy vật phẩm định danh, không lấy xác Arise)
-Giới hạn: không vào Red Gate / Vực Tháp / nội dung vượt hạng họ.
-```
-
-## 14.16. Giá bán "Rác ra Vàng"
-
-```
-Giá_bán(item, k) = Giá_tầng(item) · max(0.2, 1 − 0.15·(k − 4)) · Bonus_chu_kỳ(item)
-   k = số stack đã bán cùng tầng trong chuỗi farm hiện tại (diminishing sau stack thứ 4)
-   Bonus_chu_kỳ = ×1.5 nếu item thuộc "danh mục thu mua" hiện tại
-   Chu kỳ đổi sau content chủ động khác hoặc phí refresh nhỏ; ba danh mục tới được xem trước và quay vòng xác định.
-TỶ LỆ MUA:BÁN mặc định = 4 : 1
-TẦNG GIÁ (quy đổi /stack 64, hiệu chỉnh bằng simulation):
-   Rác (thịt thối, xương, dây, đá cuội, đất):        6 vàng
-   Phổ Thông (da, len, lông, nông sản, gỗ):         12 vàng
-   Quý (sắt, vàng vanilla, redstone, lapis):        40 vàng
-   Rất Quý (kim cương, netherite scrap, ngọc ender): 160 vàng
-   Loot gate theo rarity: Thường 8 · Tốt 20 · Hiếm 60 · Sử Thi 200 (Huyền Thoại/Thần Thoại: không bán)
-MỤC TIÊU KIỂM CHỨNG (simulation 18.3): thu nhập từ bán rác ≤ 25% tổng thu nhập Vàng của người chơi chủ động.
-```
-
-## 14.17. Thăng Giới và Thế Giới Song Song
-
-```
-Tầng giới W = 0, 1, 2, ...; W=0 là Thế Giới Gốc.
-PB_mục_tiêu(W) = PB_QG · (1 + 0.22·W)      (W ≤ 5), sau đó tăng 0.12/W.
-Tăng số HP/DMG tối đa từ tầng = 35% ngân sách tầng.
-Tối thiểu 65% ngân sách tầng phải là: mutator, đội hình, layout, AI, mục tiêu phụ hoặc reward collection.
-Gate gần người chơi: tier_effective ∈ [tier_player − 2, tier_player + 2] với trọng số 0.85.
-Gate vượt biên: trọng số 0.15, phải có cảnh báo/scout/đường rút.
-Gate hoạt động tối đa mỗi World Stratum đang hoạt động = 2; Stratum không hoạt động tạm dừng timer/event.
-```
-
-## 14.18. Chỉ số combat có trần cứng đọc được
-
-```
-Crit chance ≤ 60% · Crit damage ≤ 250% · Move speed bonus ≤ 25% · Dodge i-frame ≤ 0.40s.
-Kháng hiệu dụng ≤ 75%; phần kháng vượt trần đổi thành kháng trạng thái/giảm thời lượng theo tỉ lệ 0.25.
-Điểm chỉ số vượt soft-cap vẫn ghi nhận và tăng ảnh hưởng phụ; không bị mất điểm.
-```
-
-## 14.19. Focus, dodge và Perception Readout
-
-```
-Focus_max = 100
-Focus_hồi = 18 + min(12, 0.12·AGI_e) / giây ngoài animation khóa;
-            giảm 35% khi đang nhận sát thương liên tục.
-Chi phí: dodge 25 · parry 18 · dash skill theo dữ liệu (20–40).
-Focus không hồi trong 0.35s sau khi tiêu; không bị Fatigue khóa, nhưng Fatigue 85+ tăng chi phí bộc phá theo 14.12.
-Velocity dodge (server tick, tổng 0.35s): [0.78, 0.67, 0.55, 0.45, 0.34, 0.25, 0.18] block/tick theo hướng intent đã chuẩn hóa; chỉ thay vận tốc ngang, va chạm vanilla vẫn quyết định vị trí cuối.
-Né Chuẩn Xác: hit combat trong tick 0–1 kể từ lúc server nhận DodgeIntent hợp lệ. Hoàn lại +1 Fatigue đã tính cho cú né và hồi Mana = min(0.02·MP_tối_đa, 6), tối đa một lần mỗi 20 tick. Không hoàn Focus, không tăng sát thương, không làm chậm tick/địch.
-PER tiers: 0 = phe + threat icon · 25 = level/role · 60 = weakness/status/telegraph · 100 = resist/trait/escort/true Gate clue.
-```
-
-Mọi giá trị Focus/Readout là config/datapack override được trong giới hạn cap; không skill hay stat nào được giảm dodge xuống 0 Focus hoặc vượt i-frame cap.
-
-## 14.20. Monarch's Domain
-
-```
-Duration = 12s · Cooldown = 90s · Radius = 12 block (tăng qua node/gear, trần 18).
-Buff theo role trong vùng: Tank +15% posture/guard · DPS +12% damage · Support +20% heal/buff potency.
-Tổng đóng góp Retinue vẫn bị cap `PB_retinue` của 14.9; Domain không cộng chồng vô hạn, không biến boss thành mục tiêu đứng yên.
-```
-
-## 14.21. Gate lifecycle và Soul Echo
+`h` là vertical loss từ stable support gần nhất trong airborne lineage tới impact, kể cả phần rơi trước khi bấm:
 
 ```text
-objectives_complete = ∀ objective ∈ required_objectives: objective.state == COMPLETE
-gate_close_allowed  = objectives_complete ∧ valid_participant_count_inside == 0 ∧ exit_event_after_clear
-
-IN_PROGRESS + leave + ¬objectives_complete  → OPEN              (persist progress)
-IN_PROGRESS + objectives_complete             → CLEARED_AWAITING_EXIT
-CLEARED_AWAITING_EXIT + last_valid_exit       → CLOSED
-OPEN/IN_PROGRESS + deadline + inside > 0      → BREAK_PENDING
-BREAK_PENDING + inside == 0 + ¬gate_close_allowed → BROKEN
+h_radius = clamp(h, 1, 70)
+radius_blocks(h) = min(8, 1 + h_radius / 10)
 ```
 
-`exit_event_after_clear` là sự kiện rời instance, không phải timer và không phải boss chết. Quái thường đã hạ không respawn khi rời sớm; boss/elite **còn sống** hồi đầy và trở về pha 1 sau 10 giây Gate trống. Điều này giữ tiến độ khám phá nhưng chặn việc rút ra để bào HP.
+Samples: 1→1,1; 10→2; 40→5; 50→6; 60→7; ≥70→8. Height trên 70 không tăng radius/damage vô hạn. AoE chỉ hit eligible entities theo relation/occlusion/vertical/target cap; không mutate block/crop/redstone/container.
+
+## 5. NPC Level, power, density và traits
+
+Level bands rời nhau: `1–9`, `10–19`, …, `70–79`, `80–89`, `90+`.
+
+| ID | Formula/rule | Status |
+|---|---|---|
+| `NPC-POWER-001` | `L2>L1 ⇒ baseHP(L2)>baseHP(L1) ∧ baseRawDamage(L2)>baseRawDamage(L1)` trong cùng family/profile | `LOCKED`; curve `OPEN` |
+| `NPC-VISUAL-001` | `L2>L1 ⇒ visualTier(L2)≥visualTier(L1)` | `LOCKED`; thresholds `OPEN` |
+| `NPC-DENSITY-090` | resident `90+` per Hub ≤1 | `LOCKED` |
+| `NPC-DENSITY-080` | resident `80–89` per Hub ≤2 | `LOCKED` |
+| `NPC-DENSITY-070` | resident `70–79` per Hub ≤5 | `LOCKED` |
+| `NPC-DENSITY-LOW` | `weight(1–9)≥...≥weight(60–69)`; lower bands are majority | `LOCKED DIRECTION`; values `OPEN` |
+| `NPC-FLEE-001` | `HPcurrent/HPmax ≤ flee_threshold(profile)` | threshold `OPEN`; retreat invariant `LOCKED` |
+| `NPC-BULLY-001` | `warningDamageFinal=min(profileDamage,max(0,playerHPcurrent−1 HP))` | clamp `LOCKED`; profile/cooldown `OPEN` |
+| `NPC-TRAIT-001` | high-level rare archetype incidence + personality variety per band | rarity/coverage `LOCKED`; percentage `OPEN` |
+
+Quotas là maxima `0–N`, không target spawn. Upper bands không lồng nhau; nếu đầy, total upper-tier residents =8. Hub merge/split/reconcile không xóa/demote NPC để chữa overflow.
+
+## 6. Retinue topology
 
 ```text
-FreshCorpse_ttl_outside = 120s
-FreshCorpse_ttl_inside  = 120s, then serialize → SoulEcho
-SoulEcho_expiry         = Gate.CLOSED or Gate.BROKEN
-SoulEcho_cap_per_gate   = 128 eligible targets (boss/elite/unique protected first)
+bonded_slots: 1 → ... → 8
+active_combat_count ≤ 4
+reserve_slots 5–8 contribute 0 direct current-combat actor budget
 ```
 
-`SoulEcho_cap_per_gate` là rào chắn hiệu năng, không phải tước phần thưởng: khi chạm trần, quái thường thấp nhất được gộp thành **Mảnh Bóng bảo lưu** theo tỷ lệ hiển thị trước; boss/elite/unique không bao giờ bị gộp. UI hiển thị số Echo và cảnh báo đóng Gate ở 25.
+Exact unlock cadence/cost vẫn `OPEN`; không dùng Rank/Mana/Primary Attribute.
 
-## 14.22. Combat Flask và vitals presentation
+## 7. Các candidate độc lập còn giữ
+
+### 7.1. Adaptive difficulty
 
 ```text
-CombatFlask_initial_charges = 1                         [USER DIRECTION]
-CombatFlask_max_charges     = 10                        [USER HYPOTHESIS — NOT APPROVED]
-CombatFlask_potency         ∈ {FLAT, PERCENT_MAX, HYBRID, TIERED}
-Health/Mana/Focus meter width = FIXED; fill = clamp(current / max, 0, 1)
-Max-change default = keep current then clamp; refill only by explicit event
+adaptive = clamp(1 + 0.10·tanh((expected_performance-actual_performance)/σ), 0.90, 1.10)
 ```
 
-Không có con số potency/refill/timing mặc định trước `DB-047`; capacity 10 phải được so với encounter attrition, upgrade cost, UI, death/refill loop và 0/1/2/4 Shadow balance. Environmental damage dùng profile `ABSOLUTE / PERCENT_MAX / HYBRID / SOURCE_FORMULA / SCRIPTED_LETHAL` theo `DB-046`; không áp một model cho mọi source.
+`CANDIDATE`: chỉ telegraph cadence/add composition, không HP/damage bí mật; ethics/accessibility review bắt buộc.
 
-## 14.23. Traversal parameter registry skeleton
-
-Mọi key dưới đây là `TBD`, không phải zero/default implementation:
+### 7.2. “Rác ra Vàng”
 
 ```text
-Vigor.max / regen_per_tick / recovery_delay / recovery_support_dwell / offline_recovery
-Vigor.low_band / critical_projection_band / threshold_hysteresis / full_fade_grace
-FreeClimb.attach_distance / face_tolerance / attach_minimum_reserve / settle_grace
-FreeClimb.jump_lineage_window / approach_cone / grazing_reject_angle / preview_confidence
-FreeClimb.external_impulse_invalidate / preheld_sneak_policy / same_face_regrab_inhibit
-FreeClimb.vertical_speed / lateral_speed / downward_speed / blocked_input_cost_policy
-FreeClimb.idle_drain / upward_effort / lateral_effort / downward_effort
-FreeClimb.leap_base_cost / leap_vertical_cost / leap_lateral_cost / eject_cost
-FreeClimb.leap_target_envelope / post_contact_minimum_reserve / leap_recontact_cadence
-FreeClimb.leap_impulse / entry_momentum_cap / leap_momentum_cap / mantle_cost_by_semantic / modifier_cap
-FreeClimb.assisted_air_grab_default / auto_mantle_default / hold_release_debounce
-FreeClimb.corner_angle / mantle_clearance / mantle_grace / hit_detach_profile
-Grounding.min_fall_state / armed_time_to_impact / fresh_attack_buffer / contextual_mining_precedence
-Grounding.vigor_cost_or_overdraw / arrest_duration / correction_cap
-Grounding.impact_shape_by_weapon / radius_cap / damage_cap / posture_cap / recovery_by_weapon
-Grounding.vertical_band / occlusion_profile / target_cap / fall_energy_tier_cap
-Lightness.hold_threshold / tap_gate / movement_deadzone / charge_tier / charge_hold_cap
-Lightness.ground_windup / wall_windup / launch_reserve / charge_drain / wall_double_drain_guard
-Lightness.horizontal_impulse / vertical_impulse / steering_accel / close_ceiling_reject
-Lightness.apex_window / descent_terminal_velocity / descent_drain
-Lightness.minimum_descent_reserve / reentry_cost / landing_recovery / collision_response
-AerialChain.stable_support_reset_dwell / reconnect_cleanup / wall_touch_reset_policy
-AerialStep.use_cap / vigor_cost / input_buffer / redirect_accel
-AerialStep.rising_lift / apex_lift / falling_arrest_cap / fast_fall_preserve
-AerialStep.horizontal_impulse / redirect_cap / total_route_envelope / collision_response / recovery
-AerialDodge.use_cap / focus_cost / input_buffer / displacement / recovery
-AerialDodge.defense_window_by_category / step_cancel_in / step_cancel_out
-AerialDodge.active_gravity_scale / straight_corridor / suspended_vertical_cap / gravity_reentry_curve
+sell_price(item,k) = tier_price(item) · max(0.2, 1-0.15·(k-4)) · cycle_bonus(item)
 ```
 
-`DB-049`, `DB-050`, `DB-051`, `DB-052`, `DB-057` phải điền range/options trước, sau đó simulation + voxel prototype + human feel evidence mới approve. Vigor/trajectory không được scale trực tiếp từ FPS, raw level hoặc AGI không cap; modifier composition phải chứng minh không tạo hover/infinite flight.
+`CANDIDATE`: `k` là số stack cùng tier trong active farm chain; cycle không reset theo ngày thật. Exact tier prices bị rút vì cần economy rebaseline không dựa Rank.
 
----
+### 7.3. Gate lifecycle và Soul Echo
 
-## Quy trình thay đổi tham số
+```text
+objectives_complete = all required objectives COMPLETE
+gate_close_allowed = objectives_complete ∧ valid_participant_count_inside=0 ∧ exit_event_after_clear
+FreshCorpse_ttl = 120s
+SoulEcho_expiry = Gate.CLOSED or Gate.BROKEN
+SoulEcho_cap_per_gate = 128 eligible targets; boss/elite/unique protected first
+```
 
-1. Mở issue balance kèm lý do + dự đoán ảnh hưởng.
-2. Chạy simulation trước/sau (18.4), đính kèm kết quả.
-3. Review bởi Balance Designer + một designer khác hệ thống bị ảnh hưởng.
-4. Cập nhật trực tiếp registry, evidence link và test oracle; Git giữ lịch sử thay đổi.
+Các số này vẫn `CANDIDATE`; Gate owner phải revalidate trước implementation.
+
+### 7.4. Combat Flask
+
+```text
+initial_charges = 1                         [LOCKED DIRECTION]
+max_charges = 10                            [USER HYPOTHESIS — NOT APPROVED]
+potency ∈ {FLAT, PERCENT_MAX, HYBRID, TIERED}
+```
+
+## 8. Parameter keys còn mở
+
+```text
+Vigor.low_band / critical_band / rounding_resolution / full_fade_grace
+Vigor.mastery_capacity_steps / mastery_regen_steps / valid_distance_filters
+FreeClimb.attach_distance / collision_profile / leap_impulse / mantle_semantics
+Lightness.charge / launch / steering / descent / Vigor cost
+Dodge.direction_curve / defensive_category_windows / cancel_matrix
+Grounding.damage / stagger / launch / target_cap / recovery / occlusion_vertical_band
+NPC.level_HP_curve / level_damage_curve / visual_tiers / lower_band_weights
+NPC.bully_incidence / guardian_incidence / warning_damage / cooldown / flee_threshold
+```
+
+Mọi key `OPEN` cần candidate range + property/simulation + voxel/hub prototype + human-only feel/comprehension evidence trước approve. Không parameter nào scale theo FPS, loader callback order hoặc field Rank/Primary Attribute đã xóa.
+
+## 9. Quy trình thay đổi
+
+1. Ghi requirement/CR và affected stable IDs.
+2. Nếu `LOCKED`, chỉ Project Owner feedback mới đổi; update canonical rule trước code.
+3. Chạy simulation/property/boundary proof và prototype đúng risk lane.
+4. Review owner liên domain, migration/save/HUD/AI/performance impact.
+5. Cập nhật registry + exact evidence; Git giữ lịch sử, không thêm “bổ sung vN”.

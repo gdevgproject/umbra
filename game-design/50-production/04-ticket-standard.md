@@ -3,7 +3,21 @@
 > **DRI:** Producer + Engineering Lead + QA Lead
 > **Status:** `APPROVED_FOR_DOCUMENTATION`
 
-## Ticket bắt buộc có
+## Lifecycle và quyền code
+
+Ticket thật có thể được lập sớm để chia implementation work, nhưng không được chứa research/design mới. Trạng thái:
+
+| State | Nghĩa | Cho phép code? |
+|---|---|---|
+| `DRAFT` | outcome/dependency/rollback boundary đã định hình, còn promotion fields mở | không |
+| `BLOCKED_BY_DESIGN` | exact Feature/Contract/DB gate chưa xanh | không |
+| `READY` | toàn bộ mandatory fields, approval, baseline và dependency xanh | có; Ticket Autopilot mới được chọn |
+| `SELECTED/IN_PROGRESS/VERIFYING` | execution state do ledger quản | theo ticket |
+| `DONE` | DoD/evidence/commit/handoff hoàn tất | không sửa lịch sử; delta mới là ticket/CR mới |
+
+`DRAFT/BLOCKED` tối thiểu phải có stable ID, phase, outcome, in-scope/non-goals, exact design blockers, ticket dependency, risk hypothesis, acceptance sketch, rollback unit và promotion checklist. Field chưa biết ghi `OPEN — owner/gate`, không được bịa solution. Trước khi chuyển `READY`, ticket phải có đầy đủ danh sách dưới đây.
+
+## Ticket `READY` bắt buộc có
 
 - stable ticket ID, capability slice và Feature/Contract IDs;
 - player-visible outcome hoặc infrastructure proof;

@@ -1,35 +1,19 @@
-# SYS-COMBAT-RESOURCES — Tài nguyên, damage và thất bại
+# SYS-COMBAT-VITALS — HP, Vigor, damage và death
 
-> **DRI:** Systems Designer + Combat Designer
+> **DRI:** Combat Systems Designer
 > **Status:** `DISCOVERY`
 
-## Bốn tài nguyên có nhiệm vụ khác nhau
+Combat không sở hữu nhiều thanh resource. `HP` là health truth Minecraft-compatible; `Vigor` là custom action resource duy nhất, được Dodge tiêu qua shared transaction nhưng topology/recovery do [`CTR-VITALS-HUD`](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md) và [`CTR-TRAVERSAL`](../../30-shared-contracts/09-traversal-state-surface-and-vigor-contract.md) sở hữu.
 
-| Tài nguyên | Quyết định nó tạo | Không được biến thành |
-|---|---|---|
-| HP | còn chịu được bao nhiêu sai lầm | damage sponge không feedback |
-| Mana | phân bổ sức mạnh skill/phép/triệu hồi đặc biệt | phí duy trì làm fantasy Hắc Ảnh Cận Vệ khó chịu |
-| Focus | nhịp phòng thủ chủ động như dodge/parry | stamina chung trừng phạt mọi di chuyển |
-| Fatigue | áp lực dài hạn giữa các cuộc chinh phục | timer ép đăng nhập hay nghỉ chơi |
+Mana, Focus, Fatigue và Posture meter đã bị xóa. Combat skill dùng cooldown/charge/condition/commitment theo Feature Contract; stagger/stun/launch là typed result, không hidden pool. Food/hunger, oxygen, potion/status, absorption và damage source vẫn giữ lifecycle Minecraft qua mapping tập trung.
 
-Direction Product đã khóa: Focus là resource hồi nhanh cho phòng thủ chủ động, không là stamina chung cho đi/chạy/đào. Exact cap/cost/regen và progression vẫn là balance candidate. Topology, fixed-width HUD, rule đổi Max và environmental mapping thuộc [`CTR-VITALS-HUD`](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md); file này chỉ giữ vai trò từng resource trong combat.
+## Damage direction
 
-## Damage pipeline khái niệm
+- Một final health commit trên logical server, stable action/hit/source/operation ID và retry idempotent.
+- Damage/defense/gear/counter curve không dựa Primary Attributes hoặc Rank.
+- Environmental family giữ attribution/hazard; Hạ Kình chỉ convert fall component tại valid impact.
+- Exact formula/rounding/crit/armor/resistance/status chưa được approve; Parameter Registry không chứa lại công thức legacy.
 
-```text
-legal hit → base profile → attacker modifiers → target mitigation
-→ resistance/status interaction → guard/posture → HP result
-→ reaction, attribution, telemetry
-```
+## Death
 
-Pipeline này cuối cùng commit vào một health authoritative của living actor; UMBRA không duy trì một HP song song. Combat hit và fall/fire/lava/drowning/suffocation/starvation/status/void giữ source/tag/attribution rồi đi qua profile tương ứng. Thứ tự, mapping và rounding chỉ có một canonical home trong Parameter Registry sau `DB-046/042`. Crit, armor penetration, elemental resistance, level scaling và damage variance đều là candidate cho tới khi prototype có dữ liệu.
-
-## Time-to-kill
-
-TTK là budget theo archetype và mastery band, không phải một con số toàn game. Regular enemy phải đủ lâu để biểu lộ một pattern; elite đủ lâu để tạo adaptation; boss đủ lâu để dạy rồi kiểm tra nhưng không lặp phase vô ích. Balance review đo median, p10/p90 và số lỗi được dung thứ.
-
-## Death và recovery
-
-Damage pipeline kết thúc ở một death intent hợp lệ; toàn bộ consequence, game-mode composition, Shadow recall, activity transition và recovery do [Death, consequence và trở lại cuộc chơi](death/README.md) sở hữu. File này không lặp policy đó.
-
-Death review vẫn tiêu thụ attribution từ damage pipeline: nguồn damage, action/hit ID, cue phòng thủ liên quan và status quan trọng. Nó không được suy đoán nguyên nhân khi telemetry không đủ.
+Death/recovery canonical ở [Death policy](death/README.md). Current HP/Vigor/runtime action reset theo mode profile; permanent Level/skill/mastery/Shadow identity giữ theo approved persistence matrix. Reconnect/death không refill exploit hoặc để reservation/action ma.

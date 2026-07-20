@@ -23,7 +23,7 @@ Genshin Impact được người dùng đưa làm reference cho thanh né/hồi 
 
 1. **Presentation có thể thay mạnh mà không cần nhân đôi state:** fixed-width bar là projection; health/death/save vẫn có một authoritative substrate.
 2. **Hazard là một taxonomy, không là phần dư:** fall, fire, lava, oxygen, hunger, status và void cần profile/attribution/test riêng để stat growth không phá survival.
-3. **Mỗi resource cần một quyết định riêng:** Mana là power allocation; Focus là short-horizon defensive rhythm; Hunger là survival; Fatigue là long-horizon pressure.
+3. **Mỗi resource thêm vào đều có cognitive/save cost:** reference cho thấy có thể tách nhiều horizon, nhưng UMBRA hiện chỉ giữ HP + Vigor; Hunger là Minecraft-owned survival state.
 4. **Quick không đồng nghĩa instant/free:** dedicated one-press heal vẫn cần startup/commit/recovery, charge transaction và interrupt readability.
 5. **Input direction là contract:** `ViewForward`, `MoveBasis`, `AimIntent` và `ActorFacing` tách state; đổi mode phải giữ ý định world-space của held input.
 6. **Third-person ranged cần giải parallax:** ép first-person chỉ né bài toán, không đạt fantasy camera cốt lõi.
@@ -31,7 +31,7 @@ Genshin Impact được người dùng đưa làm reference cho thanh né/hồi 
 ## 3. Lựa chọn UMBRA hiện tại
 
 - Giữ `LivingEntity` health/`MAX_HEALTH` và damage source/tag làm substrate tương thích; UMBRA sở hữu semantic pipeline, formula/mapping và fixed-width HUD. Không có parallel RPG HP.
-- Mana và Focus custom server-authoritative; Focus hồi nhanh cho Dodge/parry/burst phòng thủ, không drain do locomotion thường.
+- Vigor là custom action resource server-authoritative duy nhất cho movement action; skill combat dùng cooldown/charge/condition, không Mana/Focus.
 - Combat Flask dùng một dedicated slot/action, vessel + charge count. Khởi đầu một charge là direction; max 10 chỉ là hypothesis cho `DB-047`.
 - Third-person exploration/combat tự do dùng camera-relative horizontal movement và actor quay theo movement/action; lock-on và precision aim dùng basis tường minh khác.
 - Ranged không mặc định ép first-person. Shoulder aim là capability core; first-person là manual/context suggestion/allowed-auto setting sau evidence.
@@ -40,7 +40,7 @@ Genshin Impact được người dùng đưa làm reference cho thanh né/hồi 
 
 - capture exact Minecraft 26.2 health/damage/key/F5/movement/aim/food/potion behavior trên pinned build;
 - environmental magnitude simulation ở nhiều Max HP/difficulty/mode;
-- HUD wireframe/screenshot cho Health/Mana/Focus/absorption/flask và dense combat;
+- HUD wireframe/screenshot cho HP/Vigor, Minecraft hunger/oxygen, absorption/flask và dense combat;
 - Flask prototype so flat/%/hybrid potency, charge/refill economy, hit/cancel timings;
 - camera room trace: orbit ±180°, held input, lock acquire/break, shoulder parallax, first↔third;
 - paired human test cho readability, muscle memory, heal risk và motion comfort.

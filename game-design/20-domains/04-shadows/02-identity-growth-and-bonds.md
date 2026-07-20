@@ -7,7 +7,7 @@ Mỗi Shadow Identity có tên/epithet, nguồn gốc, archetype chiến đấu,
 
 ## Growth layers
 
-- **Rank:** trần năng lực và quyền tiếp cận role/evolution.
+- **Level/tier profile:** năng lực nền và quyền tiếp cận role/evolution; không tạo Rank progression song song.
 - **Mastery:** tiến bộ do tham chiến đúng vai trò.
 - **Bond:** độ tin cậy/quan hệ, mở hành vi và nội dung chứ không chỉ damage.
 - **Evolution:** thay đổi định tính có điều kiện, có preview và không phá identity.

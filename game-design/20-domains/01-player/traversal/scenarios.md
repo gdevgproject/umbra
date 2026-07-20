@@ -181,7 +181,7 @@
 | `TRV-S-144` | attached giữ `W+A`, `W+D`, `S+A`, `S+D` | climb diagonal surface-relative, vector/speed/effort normalized, same first/third outcome |
 | `TRV-S-145` | `W+S`, `A+D`, `W+S+A/D` rồi Space | opposing raw input tạo `AMBIGUOUS_DIRECTION`; không leap/eject/cost, không last-packet-wins |
 | `TRV-S-146` | xoay camera 180° giữa diagonal climb/leap buffer | contact basis không đảo; accepted direction snapshot giữ nguyên, camera chỉ presentation |
-| `TRV-S-147` | Dodge ở climb idle/move/recontact và mantle recovery trước/sau commit | climb deny no Focus/detach; chỉ post-commit recovery short-buffer tới supported Dodge |
+| `TRV-S-147` | Dodge ở climb idle/move/recontact và mantle recovery trước/sau commit | climb deny no Vigor cost/detach; chỉ post-commit recovery short-buffer tới supported Dodge |
 | `TRV-S-148` | Primary Attack/Grounding press khi attached, mantle, wall-eject rồi falling | attached/mantle deny no cost và không lưu; wall-eject cần fresh Attack + time-to-impact guard |
 | `TRV-S-149` | Double Jump unlocked, airborne Jump gần wall với input toward/away/Sneak suppress | attach hoặc Aerial Step đúng một consumer; confidence/override/reason deterministic |
 | `TRV-S-150` | Step→Aerial Dodge và Aerial Dodge→Step | mỗi use/resource/marker một lần; no overlap lift+i-frame, direction/collision trace đúng |
@@ -189,7 +189,7 @@
 | `TRV-S-152` | Lightness ascent/apex/descent + Step/Dodge/re-entry | cancel/deny edge đúng; no descent–lift stutter, extra use hoặc hover loop |
 | `TRV-S-153` | skill mới không khai locomotion profile được bấm khi attached/airborne | `DENY_NO_COST`; không cooldown/resource/ground animation/fall mutation |
 | `TRV-S-154` | skill profile `ALLOW/TRANSITION/SHORT_BUFFER` ở đúng/sai phase | đúng owner/consumer/expiry/cost/refund; unsupported source mode deny |
-| `TRV-S-155` | Focus đủ/Vigor thiếu và ngược lại trong Step↔Dodge chain | pool độc lập; action thiếu resource deny riêng, action kia không bị rút/hoàn chéo |
+| `TRV-S-155` | Vigor chỉ đủ cho một action trong Step↔Dodge chain | mỗi action reserve/commit riêng; thiếu thì deny không double-charge/refill action kia |
 | `TRV-S-156` | attack buffer trong Step/Dodge startup/active/recovery gần đất | Grounding chỉ consume tại declared edge khi falling; không bấm sớm từ rất cao để auto-cast |
 | `TRV-S-157` | external launch/knockback, control-lock kết thúc rồi Jump/Dodge | không auto action; fresh input có thể dùng budget cũ, source attribution còn nguyên |
 | `TRV-S-158` | duplicate/reorder Jump+Dodge cùng tick | stable precedence/sequence; tối đa một consumer mỗi edge, không double impulse/window/cost |

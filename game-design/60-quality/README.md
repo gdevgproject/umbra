@@ -27,4 +27,4 @@ Một đoạn văn không phải bằng chứng. Một test tự động không 
 8. [User playtest và capture](08-user-playtest-and-capture-protocol.md)
 9. [Automation boundaries và escalation](09-automation-boundaries-and-escalation.md)
 
-Vòng feedback thuộc tính/damage không bắt đầu từ bảng số: đọc [Balance Discovery Guide](../20-domains/01-player/03-attribute-and-balance-review-guide.md) trước `01–02`.
+Vòng discovery progression/damage đọc [Level, Skill và Vigor Review Guide](../20-domains/01-player/03-level-skill-and-vigor-review-guide.md) trước `01–02`; Rank/Primary Attributes và resource cũ không còn là option.

@@ -19,29 +19,25 @@ Contract này sở hữu luật dùng chung của [`FEAT-TRAVERSAL-FREE-CLIMB`](
 
 Feature Cell sở hữu feel/action riêng. Camera, animation, progression, damage và UI chỉ dẫn tới contract này, không tạo state/rule song song.
 
-## 2. Bốn resource không được nhập làm một
+## 2. Một action resource UMBRA và Minecraft survival
 
-| Resource | Horizon | Tiêu bởi | Không tiêu bởi |
-|---|---|---|---|
-| `Focus` | combat ngắn | ground/future aerial Dodge, parry, defensive burst | leo/khinh công/Aerial Step/đi/chạy cơ bản |
-| `Vigor` / Khí Lực | traversal ngắn | free climb, climb leap, Lightness launch/descent, future Aerial Step, technique traversal được khai | ground/aerial Dodge/parry, đi/chạy/jump vanilla, ladder/scaffolding baseline |
-| `Fatigue` | chuyến đi dài | tích lũy theo activity rule | drain từng tick leo hoặc bay |
-| Hunger | survival Minecraft | hoạt động/food rules Minecraft | thay trực tiếp cost của một action traversal |
+`Vigor` / Khí Lực là custom action resource duy nhất của UMBRA. Nó điều phối Dodge/Sprint Burst, Free Climb, Climb Jump, Lightness và movement technique được owner chấp thuận. Mana, Focus và Fatigue không tồn tại; không feature được tạo pool khác để né contract. `HP` là health truth, không phải action resource.
 
-Không dùng chung Focus–Vigor chỉ vì reference game gọi cả hai là stamina. Tách pool tránh việc combat vừa kết thúc khóa khám phá hoặc một lần leo dài làm người chơi không thể né ngay khi bị phục kích.
+Hunger/saturation vẫn là survival state của Minecraft với food/starvation/gamerule riêng; nó không bị đổi tên thành Vigor và không tự thay cost action. Ladder/vine/scaffolding giữ locomotion Minecraft, không drain Vigor baseline.
 
 ### Vigor semantics
 
-- server-authoritative, bounded và hồi nhanh khi actor có support ổn định; không hồi trong active free climb/Lightness descent;
+- server-authoritative, bounded theo `VIG-MAX-001`; không hồi khi Sprint, Clinging hoặc Airborne;
 - cost dùng reserve/commit/refund transaction ID theo [`CTR-RESOURCE-MODIFIER`](02-resource-and-modifier-contract.md);
-- cost traversal dùng ba thành phần có thể trace độc lập: **thời gian giữ trạng thái có tải**, **effort từ displacement do actor chủ động và thực sự được collision solver chấp nhận**, và **action cost đã commit**. Không tính cost từ raw input bị chặn, route assist, correction của authority hoặc displacement do knockback/current/piston;
-- mỗi action có cost riêng thay cho drain của cùng khoảng commit, không cộng cả action cost lẫn tick drain cho một effort. Modifier bề mặt/môi trường phải deterministic, có cap và không được nhân chồng thành ba hình phạt cho cùng một nguyên nhân;
-- attach Free Climb baseline không thu entry fee, nhưng có `minimum_reserve_guard` và một settle grace giới hạn một lần mỗi attach episode để tránh vừa bám đã tụt mà không mở vòng lặp zero-Vigor regrab;
-- hướng effort giữ quan hệ `up > lateral > down ≥ 0`; idle cling có base drain thấp đủ cho một lần đọc camera/route, không đủ để AFK giữa tường. Exact curve phải được chứng minh bằng route simulation thay vì chỉ đếm số block;
-- recovery chỉ bắt đầu sau stable-support dwell trên footprint hợp lệ hoặc profile explicit `RECOVERY_SUPPORT`; một frame quệt ledge, contact giả, ladder transition spam hoặc reconnect không được refill. Ladder/vine/scaffolding không drain Vigor nhưng cũng chỉ hồi khi support profile/dwell cho phép;
+- Dodge/Sprint Burst commit `VIG-DODGE-001`; ordinary sustained Sprint chưa có drain/giây nhưng giữ state `NO_REGEN`;
+- Free Climb Move dùng `VIG-CLIMB-001` theo authoritative time; blocked input/correction/external displacement không tạo thêm cost;
+- Climb Jump commit `VIG-CLIMB-JUMP-001`; không cộng đồng thời Climb Move drain cho cùng impulse. Attach không thu entry fee, nhưng zero Vigor không được tạo regrab loop;
+- Lightness launch/descent dùng Vigor theo Feature Cell; Hạ Kình không tốn Vigor và không tạo impact/shock penalty ẩn;
+- recovery dùng `VIG-DELAY/REGEN-001` kể từ spend gần nhất hoặc lúc rời state cấm hồi. Sau delay, Idle/Walk/Sneak hồi; Sprint/Clinging/Airborne không hồi;
+- retry/reconnect/equip/max-change không refill. Recovery và spend dùng authoritative clock, không FPS/animation frame;
 - meter chỉ hiện khi Vigor vừa thay đổi, đang bị dùng, recovery bị trì hoãn hoặc action sắp thiếu;
-- capacity/recovery/efficiency có progression cap; không upgrade nào tạo leo/bay vô hạn hoặc xóa mọi decision địa hình;
-- exact Max, drain, regen, delay và cost thuộc `DB-049–052` + Parameter Registry.
+- capacity/recovery tăng bằng valid locomotion mastery trong `VIG-MASTERY-*`; không upgrade nào vượt cap, tạo leo/bay vô hạn hoặc xóa mọi decision địa hình;
+- rounding, derived endurance và milestone ledger nằm duy nhất ở Parameter Registry.
 
 ## 3. State topology
 
@@ -183,7 +179,7 @@ Mỗi action/skill khai tối thiểu: source modes; `IntentLineage`; control pr
 Các Feature Cell như Aerial Step/Double Jump và Aerial Dodge dùng một `AerialChain` có causality ID thay vì tự giữ boolean rời rạc:
 
 - chain mở khi actor rời stable support bởi player jump, walk-off, traversal launch hoặc controllable external launch; provenance không tự cấp action, chỉ xác định guard/trace;
-- mỗi technique có use budget riêng và resource riêng; baseline candidate là một Aerial Step dùng Vigor và một Aerial Dodge dùng Focus, không chuyển hoặc hoàn chéo hai pool;
+- mỗi technique có use budget riêng nhưng mọi movement cost dùng cùng Vigor transaction; Aerial Step/Aerial Dodge không hoàn chéo, không double-charge một input và không tạo pool mới;
 - Aerial Step ↔ Aerial Dodge có thể chain hai chiều chỉ qua cancel edge/commit marker khai rõ; một input edge không kích cả hai;
 - stable ground/support dwell mới reset chain. Climb latch, wall contact/leap, one-tick ledge graze, ladder touch, Lightness re-entry, hit, reconnect hoặc correction không reset use budget;
 - `CLIMB_*` giữ chain suspended, không biến actor thành airborne và không refresh. Sau fresh wall-eject/drop, action aerial chỉ legal nếu budget cũ còn và input edge mới;
@@ -195,11 +191,11 @@ Các Feature Cell như Aerial Step/Double Jump và Aerial Dodge dùng một `Aer
 
 - Vigor xuất semantic state `HIDDEN / PREVIEW / ACTIVE / RESERVED / LOW / CRITICAL / RECOVERY_DELAY / RECOVERING / FULL_FADE`. `PREVIEW` chỉ xuất khi Jump/grab lineage + approach + candidate vượt confidence threshold; chỉ va tường hoặc Jump giữa đồng trống không làm HUD bật. Khi attached, `ACTIVE` luôn hiện kể cả đang đầy; full chỉ fade sau grace.
 - Snapshot gồm current/max, reserved amount, next-action projected cost/insufficient reason, drain/recovery state và threshold band có hysteresis. Client không tự tính quãng/giây còn lại hoặc final cost; debug/numeric là option, không là mặc định.
-- Vigor là meter contextual fixed-width, khác icon/pattern với Focus và Hunger; low/critical/exhausted dùng pattern/cadence khác nhau qua visual + audio/body cue. Haptic chỉ là kênh cộng thêm, tắt được và không bao giờ là kênh duy nhất.
+- Vigor là meter fixed-width duy nhất cho action movement, phân biệt rõ với HP và vanilla hunger cue; low/critical/exhausted dùng pattern/cadence khác nhau qua visual + audio/body cue. Haptic chỉ là kênh cộng thêm, tắt được và không bao giờ là kênh duy nhất.
 - Unlock của ba capability là persistent versioned state. Current Vigor/cooldown được save đủ để quit/reconnect không refill exploit; offline time không tự hồi trừ khi recovery contract cho phép.
 - Runtime contact/animation/transition là ephemeral. Reconnect giữa tường/không trung dùng safe rebind/fall policy, không phục hồi nửa animation.
 - Creative flight có precedence; debug có thể force unlock/refill/show probes. Survival/Adventure/Hardcore dùng cùng traversal truth nhưng death/consequence theo mode contract.
-- Core traversal unlock không nằm trong Potential. Level có thể là eligibility; một early training/milestone grant là delivery. Migration/admin grant không được buộc replay quest để save cũ hoạt động.
+- Core unlock đã khóa: Dodge/Free Climb Level 1, Hạ Kình sau combat lesson, Lightness Level 10 + training. Migration/admin/catch-up không được buộc replay quest hoặc giữ save cũ bị kẹt.
 
 ## 9. World, encounter và companion seams
 
@@ -219,8 +215,8 @@ Các Feature Cell như Aerial Step/Double Jump và Aerial Dodge dùng một `Aer
 
 ## 11. Open decisions
 
-- `DB-049`: state topology, Vigor band/recovery, surface taxonomy, unlock delivery và world rule.
+- `DB-049`: state topology, surface taxonomy, milestone ledger, world rule và proof của các Vigor parameter đã khóa.
 - `DB-050`: exact free-climb input, speed, ledge/corner/leap/collision và animation grammar.
-- `DB-051`: Grounding Strike armed/fresh-Attack precedence, Vigor/overdraw, weapon/AoE adapters, fall conversion và block-safe impact.
+- `DB-051`: Grounding Strike armed/fresh-Attack precedence, weapon/AoE adapters, damage/stagger envelope, fall conversion và block-safe impact; không mở lại Vigor cost.
 - `DB-052`: Lightness ground/wall charge intent, launch arc, apex/descent control, steering, Vigor reserve/drain, obstruction, combat interaction và progression.
-- `DB-057`: future Aerial Step/Aerial Dodge input, chain/use reset, Vigor/Focus, direction/collision/defense/cancel, Grounding/Climb/Lightness conflict và skill delivery.
+- `DB-057`: future Aerial Step/Aerial Dodge input, chain/use reset, Vigor cost, direction/collision/defense/cancel, Grounding/Climb/Lightness conflict và skill delivery.

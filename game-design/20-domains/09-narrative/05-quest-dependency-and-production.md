@@ -33,7 +33,7 @@ dialogue/character/world mutation/cinematics/content breadth
 
 Typed test reward ở C4 không phải production economy. Quest trao item/currency/reputation thật chỉ khi owner contract và source/sink policy Ready.
 
-Production delivery của Free Climb/Hạ Kình/Khinh Công là early universal training chain sau Quest Kernel: level/milestone tạo eligibility, quest trao capability + tutorial, migration/over-level có catch-up grant. Quest không biến core traversal thành missable branch, Potential choice hoặc inventory token.
+Production delivery dùng các mốc đã khóa: Dodge/Free Climb ở Level 1, Hạ Kình sau combat lesson, Khinh Công Level 10 qua training; migration/over-level có catch-up grant. Quest dạy/xác nhận, không biến core traversal thành missable branch, build choice hoặc inventory token.
 
 ## 3. Quest production gates
 

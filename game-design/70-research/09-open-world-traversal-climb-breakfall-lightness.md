@@ -8,10 +8,10 @@
 ## 1. Câu hỏi quyết định
 
 1. UMBRA nên cho leo gần như mọi face hay authored handhold, và làm sao không phá Minecraft building/world boundaries?
-2. Traversal dùng Focus chung với Dodge hay resource riêng?
+2. `[CLOSED by PD-052]` Một Vigor cho mọi movement action cần cue/recovery/encounter nào để cross-context lockout vẫn công bằng?
 3. Kỹ thuật bấm attack khi rơi nên chuyển fall damage bằng rule nào để là mastery chứ không auto-save?
 4. Khinh Công tạo launch + controlled descent ra sao mà không thành Creative flight/Elytra reskin?
-5. Capability nên có từ đầu, Potential hay early universal progression?
+5. `[CLOSED by PD-055]` Các mốc Level/training đã khóa cần onboarding/catch-up nào?
 6. Adaptive mantle/auto-steering/input buffer tạo responsiveness tới đâu trước khi cướp agency?
 7. Slab/stair/thin/transparent/foliage/piston/fluid cần rule thống nhất nào thay cho block exception?
 8. Prediction/revalidation nào giữ climb mượt mà vẫn server-authoritative khi hit hoặc world đổi?
@@ -44,12 +44,12 @@
 
 1. **Traversal là world contract:** thêm leo gần như mọi mặt buộc structure, Gate, quest, enemy và boundary audit lại; không thể chỉ thêm velocity.
 2. **Explicit intent không đồng nghĩa phím riêng:** Jump edge + provenance + approach có thể là ClimbIntent mạnh; sticky collision vẫn bị loại để không cướp mining/building.
-3. **Resource phải theo horizon quyết định:** combat Focus và traversal Vigor tách pool; cùng một hình thức bar không có nghĩa cùng semantic.
+3. **Resource architecture là trade-off sản phẩm:** tách pool giảm cross-context lockout, nhưng UMBRA đã chọn một Vigor cho movement actions; research phải chứng minh cue/recovery quanh lựa chọn này, không phục hồi Focus.
 4. **Surface là data, không là danh sách exception:** face profile/tag + shape/clearance probe cho voxel và future content.
 5. **Animation trình bày constraint:** authority/collision/state quyết movement; IK/root motion không làm gameplay truth.
 6. **Fall rescue cần transaction:** accept window, commit landing và đúng một fall conversion; không global immunity.
 7. **Khinh Công cần giới hạn năng lượng và source rõ:** stable ground hoặc deliberate `CLIMB_IDLE` charge, một launch/airborne sequence, no lift/hover và Vigor reserve/drain; attached charge chưa phải airborne.
-8. **Core access không thuộc build choice:** universal early grant + training; Potential chỉ có thể tạo bounded expression sau core.
+8. **Core access không thuộc build choice:** locked Level/training grants; later mastery chỉ tạo bounded expression.
 9. **Vanilla construction vẫn phải tốt hơn ở vài trục:** ladder/scaffold/bridge không Vigor, logistics/companion an toàn và dùng trước unlock.
 10. **Responsiveness là transaction, không phải bỏ guard:** input buffer/late grace giữ intent có sequence/expiry; consume một lần khi state legal, không dựa animation frame.
 11. **Assist cần confidence và hysteresis:** stabilization sửa seam/noise; route assist chỉ trong cone người chơi và nhả khi intent đảo, không auto-path.
@@ -63,7 +63,7 @@
 19. **Vigor đo effort được chấp nhận, không đo ngón tay:** hybrid base cling time + accepted displacement + committed action giữ sức nặng cơ thể và route choice, nhưng không phạt input bị geometry chặn, assist/correction hay knockback.
 20. **HUD trả lời quyết định tiếp theo:** contextual fixed meter cần cho current, reserved, next cost/insufficient và recovery state; exact time/distance mặc định dễ nói dối khi route/surface/action đổi.
 21. **Source locomotion mode phải thắng fantasy label:** attached/mantling ở cao không đồng nghĩa airborne/flying; Grounding/Double Jump/Aerial Dodge chỉ chạy qua edge đã khai.
-22. **Combo tốt giữ action độc lập:** Double Jump dùng Vigor và Dodge dùng Focus có thể chain bằng marker/budget chung, nhưng không nhập impulse+i-frame vào một nút hoặc để action này refill action kia.
+22. **Combo tốt giữ action độc lập:** Double Jump và Aerial Dodge cùng dùng Vigor nhưng có use/transaction riêng; chain bằng marker/budget, không nhập impulse+i-frame hoặc refill lẫn nhau.
 23. **Reset là nguồn exploit lớn nhất:** stable support dwell mới reset aerial use; wall/ladder graze, Lightness re-entry, correction, hit và reconnect không phải ground.
 24. **Future skill default-deny có kiểu:** skill không khai source-mode result không được chạy thử ground animation/cost trên wall/air; extension contract quan trọng hơn danh sách exception hiện tại.
 25. **Hold intent không được mua bằng input lag:** moving/directional Jump phải commit ngay; neutral hold chỉ hợp lệ khi feedback/tap gate đo được, và dedicated/toggle alternative phải dùng cùng gameplay truth.
@@ -76,8 +76,8 @@
 
 | Option | Ưu | Hại | Verdict |
 |---|---|---|---|
-| Focus chung Dodge + traversal | ít bar, giống một số reference | cross-context lockout; balance leo làm hỏng combat | loại khỏi baseline bởi `PD-034` |
-| Vigor traversal riêng, contextual | tuning độc lập, HUD chỉ hiện lúc cần | thêm một concept phải dạy | direction UMBRA |
+| Vigor chung mọi movement action | một bar, route/combat có hậu quả liên thông | cross-context lockout cần cue/recovery/encounter proof | **locked `PD-052/053`** |
+| Tách Focus và Vigor | tuning độc lập | thêm state/UI/save, trái override hiện hành | rejected option/provenance |
 | Không resource, chỉ animation/cooldown | tự do tuyệt đối | route/height mất decision, Lightness dễ thành flight | không baseline; có thể Creative/debug |
 
 ### Unlock
@@ -85,8 +85,8 @@
 | Option | Ưu | Hại | Verdict |
 |---|---|---|---|
 | có toàn bộ từ spawn | nhất quán ngay | người mới overload; mất reward/teaching beat | chỉ basic mantle candidate |
-| Potential/build node | build identity | khóa world access, missable, quest/structure khó author | loại |
-| early universal milestone + training | reward mạnh, dạy đúng lúc, mọi build có | cần migration/fallback và quest delivery | direction UMBRA |
+| build node | build identity | khóa world access, missable, quest/structure khó author | loại |
+| locked Level/training grants | reward mạnh, dạy đúng lúc, mọi build có | cần migration/fallback và quest delivery | direction UMBRA |
 
 ### Surface
 
@@ -130,7 +130,7 @@
 
 | Option | Ưu | Hại | Verdict |
 |---|---|---|---|
-| gộp Double Jump + Aerial Dodge thành một air-dash | ít state/input | nhập Vigor/Focus, lift/i-frame và progression; khó counter/balance | loại |
+| gộp Double Jump + Aerial Dodge thành một air-dash | ít state/input | nhập lift/i-frame/use và progression; khó counter/balance | loại |
 | hai action độc lập, không chain | contract sạch | bỏ lỡ expression và recovery combo user muốn | không đủ ambition |
 | hai Feature Cell + shared bounded `AerialChain` | chain hai chiều, resource/defense/impulse rõ, test reset được | cần cancel matrix và loop proof | direction `PD-047` |
 | reset use khi wall/ladder chạm | combo parkour liên tục | infinite wall-step-dodge-height/refill exploit | loại |
@@ -156,8 +156,8 @@
 ## 5. Lựa chọn UMBRA hiện tại
 
 - Tạo `CTR-TRAVERSAL` dùng chung state/surface/Vigor và ba Feature Cell độc lập.
-- Vigor tách Focus/Fatigue/Hunger, chỉ hiện theo context.
-- Basic mantle từ đầu; Free Climb, Grounding Strike và Lightness là universal capability mở rất sớm theo milestone/training, exact level còn discovery.
+- Vigor là action resource duy nhất cho Dodge/Sprint Burst/Climb/Lightness, tách HP và Minecraft Hunger; visibility phải proof vì Dodge cần dự báo ngoài traversal.
+- Dodge/Free Climb Level 1; Grounding Strike sau combat lesson; Lightness Level 10 + training, có migration catch-up.
 - Full solid face là climb candidate; vanilla climb blocks giữ path/value riêng; partial/hazard/technical surfaces dùng profile.
 - Free Climb dùng contact patch từ collision/support shape + profile + `WorldRevision`; transparency không quyết support, fluid-only/moving piston không support baseline.
 - Input là continuous-vector-ready và edge intent có buffer/sequence/expiry; stabilization bounded, route assist có cone/cap/hysteresis.
@@ -171,7 +171,7 @@
 - Grounding Strike dùng armed fresh Primary Attack + alternative binding, time-to-impact window và landing commit; weapon-shaped AoE bounded/occluded/block-safe, safety không áp void/hazard component.
 - Lightness = stable-ground hoặc `CLIMB_IDLE` bounded charge → high launch → apex → controlled long descent; moving/directional Jump không chờ hold, có toggle/dedicated alternative, không wing/hover/midair relaunch/infinite stack.
 - Aerial Dodge active shape gravity thành corridor gần thẳng rồi blend vertical/fall provenance trở lại; Aerial Step dùng phase-aware lift/arrest/redirect trong total-route cap.
-- Future Aerial Step và Aerial Dodge là hai Feature Cell: one use mỗi action/`AerialChain` candidate, Vigor/Focus riêng, chain hai chiều qua marker; attached/mantling deny và wall touch không reset.
+- Future Aerial Step và Aerial Dodge là hai Feature Cell: one use mỗi action/`AerialChain` candidate, cùng Vigor nhưng transaction riêng, chain hai chiều qua marker; attached/mantling deny và wall touch không reset.
 - Grounding Strike chỉ consume Attack khi actor thật sự falling trong time-to-impact band; Attack trên wall không được sống lại sau Drop/eject.
 - Mọi future skill phải khai locomotion source→result profile; thiếu profile `DENY_NO_COST`.
 

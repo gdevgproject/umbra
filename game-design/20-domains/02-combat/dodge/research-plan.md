@@ -49,7 +49,7 @@ Mỗi nguồn tạo Research Card riêng. Tối thiểu một nguồn phải cho
 
 ### P3 — Resource/reward
 
-- ít nhất hai option: Focus cost; cooldown/charge hoặc hybrid;
+- giữ exact 18-Vigor cost đã khóa; so các option ordinary Sprint sustained drain, recovery context và cooldown/charge chỉ nếu cần thêm anti-spam mà không tạo resource mới;
 - perfect dodge variants: feedback-only, positional/combo reward, resource reward;
 - mục tiêu: không có dominant spam loop, không gây wait-to-play.
 
@@ -64,7 +64,7 @@ Mỗi nguồn tạo Research Card riêng. Tối thiểu một nguồn phải cho
 - Bạn định né hướng nào và nhân vật đã đi hướng nào?
 - Vì sao đòn vừa rồi trúng/không trúng?
 - Khi nào bạn cảm thấy cú đánh của mình đã “cam kết” và không nên né hủy?
-- Bạn có chờ Focus hồi thay vì chơi không? Có spam vì không hiểu cost không?
+- Bạn có chờ Vigor hồi thay vì chơi không? Có spam vì không hiểu 18-point cost không?
 - Góc nhìn nào làm bạn mất phương hướng?
 - Khi tắt rung/chuyển động mạnh, bạn còn nhận ra timing không?
 

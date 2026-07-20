@@ -16,7 +16,7 @@ Failure modes:
 - auto-climb cướp input khi người chơi chỉ muốn đào/xây;
 - “bay” vô hạn làm địa hình/Gate/structure vô nghĩa;
 - animation đẹp nhưng collision/authority xuyên block;
-- core world access bị khóa trong Potential/build;
+- core world access bị khóa trong build/gear;
 - shared stamina khiến traversal và combat phá nhịp của nhau.
 
 ## 2. Capability decomposition
@@ -32,27 +32,23 @@ State/surface/resource canonical nằm tại [`CTR-TRAVERSAL`](../../../30-share
 
 ## 3. Progression direction
 
-Các technique core dưới đây là **universal**, không chiếm `4+1` combat loadout và không là lựa chọn Potential:
+Các technique core dưới đây là **universal**, không chiếm combat loadout và không là build choice:
 
-1. **Basic mantle/ledge safety:** có từ đầu để movement không thô.
-2. **Free Climb:** mở cực sớm sau người chơi đã trải nghiệm shelter/hunger và nhận Awakening/training; level chỉ là eligibility candidate.
-3. **Grounding Strike:** mở sau light-attack/fall teaching, đủ sớm để trở thành muscle memory.
-4. **Lightness:** mở sau Free Climb + Grounding Strike bằng một milestone luyện tập ngắn, trước khi exploration/Gate lặp nhiều.
+1. **Dodge + Basic mantle + Free Climb:** có từ Level 1 để movement không thô và sandbox dọc không bị đứt.
+2. **Grounding Strike:** grant ngay sau combat lesson đầu, đủ sớm để thành phản xạ chống chết oan khi học leo.
+3. **Lightness:** Level 10 + một training challenge ngắn; catch-up nếu đã vượt mốc.
 
-Exact level/quest chưa khóa. Production delivery dùng `Quest Kernel`, nhưng implementation snapshot dùng capability flag/debug training grant để traversal không bị chặn bởi `C4`. Player đã vượt level sau migration nhận prompt/grant bù, không bị kẹt vì quest miss.
+Các mốc trên đã khóa. Exact nội dung training chưa khóa. Production delivery dùng `Quest Kernel`, nhưng implementation snapshot dùng capability flag/debug training grant để traversal không bị chặn bởi quest. Player đã vượt Level sau migration nhận prompt/grant bù, không bị kẹt vì quest miss.
 
 Progression về sau chỉ tăng bounded capacity/recovery/efficiency, mở route expression hoặc giảm recovery; không xóa collision, tạo hover vô hạn, auto-ground-strike hay biến traversal timing thành stat auto-win.
 
 Nhịp Không Trung/Double Jump là future `DB-057` candidate, chưa được nhập vào core world-access promise. Nó có thể được delivery như passive skill/capability unlock, nhưng Traversal vẫn sở hữu state/physics; Skill tree không được tự định nghĩa impulse, aerial reset hoặc chain với Dodge.
 
-## 4. Vì sao có Khí Lực riêng
+## 4. Một Khí Lực cho movement action
 
-Focus đã sở hữu nhịp Dodge/parry. Khí Lực chỉ phục vụ traversal để:
+Vigor là custom action resource duy nhất: Dodge/Sprint Burst, Free Climb, Climb Jump và Lightness cùng dùng một pool. Một lần leo dài có thể làm mất khả năng né cho tới khi hồi; đây là trade-off đã khóa, nên route/ledge/cue phải cho người chơi dự báo thay vì tạo bẫy.
 
-- người chơi không mất quyền né vì vừa leo một vách dài;
-- combat không buộc họ đứng chờ trước khi tiếp tục khám phá;
-- HUD chỉ hiện meter traversal đúng context;
-- balance có thể chỉnh vertical freedom mà không sửa toàn bộ i-frame/encounter combat.
+Mana, Focus và Fatigue không tồn tại. Hạ Kình không tốn Vigor. HP và vanilla hunger giữ owner riêng.
 
 Ladder/vine/scaffolding vanilla không mặc định rút Khí Lực; chúng là route chuẩn bị an toàn và giữ building có ý nghĩa.
 

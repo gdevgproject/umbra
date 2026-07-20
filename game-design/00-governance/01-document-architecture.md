@@ -22,7 +22,7 @@ Product → Domain → System → Feature Cell → Scenario/Rule → Implementat
 | Domain | Ai sở hữu một vùng quyết định? | Combat, Progression, Shadows | Không |
 | System | Những feature nào cùng quản lý một năng lực/state? | Action Resolution, Gate Lifecycle | Chỉ constraint |
 | Feature Cell | Một ý định người chơi tạo ra kết quả quan sát được nào? | Dodge, light attack, Arise attempt | Chỉ contract kỹ thuật cần thiết |
-| Scenario/Rule | Trong một điều kiện cụ thể, luật hoạt động ra sao? | dodge khi đứng yên, khi rơi, khi hết Focus | Không |
+| Scenario/Rule | Trong một điều kiện cụ thể, luật hoạt động ra sao? | Dodge khi đứng yên, khi rơi, khi thiếu Vigor | Không |
 | Ticket | Thay đổi triển khai nhỏ, chứng minh được | input intent, state transition test | Có |
 
 Ticket không phải “mini-mod”. **Feature Cell** là đơn vị thiết kế nhỏ nhất có ý nghĩa với người chơi; **Capability Slice** là lát cắt phát hành nhỏ nhất chơi được từ input tới feedback và test.
@@ -113,7 +113,7 @@ Mục tiêu không phải “code không cần suy nghĩ”. Code luôn cần ph
 | `QLT-` | quality spec | `QLT-COMBAT-FEEL` |
 | `DB-` | design decision/research package | `DB-026` |
 | `EPIC-` | candidate implementation epic, chưa cho phép code | `EPIC-C3-04` |
-| `TKT-` | implementation ticket đã qua gate riêng | `TKT-C3-001` |
+| `TKT-` | implementation work item có lifecycle `DRAFT/BLOCKED/READY/...`; chỉ `READY` sau gate mới cho phép code | `TKT-C3-001` |
 | `CR-` | ticket-local Change Request cho feedback/delta khi implementation; không sở hữu game rule | `CR-TKT-C3-001-01` |
 
 Không nhúng số phiên bản vào ID hoặc tên file.

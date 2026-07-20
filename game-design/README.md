@@ -36,14 +36,14 @@ Chỉ đọc sau năm file trên hoặc khi muốn review đúng chủ đề:
 9. [Death và game-mode policy](20-domains/02-combat/death/README.md)
 10. [Living Society](20-domains/08-world/05-living-society-simulation.md) → [Future Multiplayer Readiness](20-domains/12-platform/04-offline-first-multiplayer-readiness.md)
 11. [Performance Test Routing](60-quality/03-testing-and-evidence.md) → [Fabric/NeoForge Loader Portability](20-domains/12-platform/07-loader-portability-and-adapter-contract.md)
-12. [Vitals/Mana/Focus/HUD](30-shared-contracts/08-vitals-resource-and-hud-contract.md) → [Combat Flask](20-domains/10-items-economy/03-combat-flask-and-quick-recovery.md) → [Camera Movement/Facing](20-domains/11-presentation/camera/movement-and-facing-policy.md)
+12. [HP/Vigor/HUD](30-shared-contracts/08-vitals-resource-and-hud-contract.md) → [Combat Flask](20-domains/10-items-economy/03-combat-flask-and-quick-recovery.md) → [Camera Movement/Facing](20-domains/11-presentation/camera/movement-and-facing-policy.md)
 13. [Traversal System](20-domains/01-player/traversal/README.md) → [Free Climb](20-domains/01-player/traversal/01-free-climbing.md) → [Hạ Kình](20-domains/01-player/traversal/02-aerial-grounding-strike.md) → [Khinh Công](20-domains/01-player/traversal/03-lightness-art.md)
 
 Không cần đọc cả gói một lần; feedback sau từng file vẫn được Agent đồng bộ toàn hệ.
 
-### Tuyến ưu tiên cho feedback thuộc tính/cân bằng hiện tại
+### Tuyến ưu tiên cho feedback Level/Skill/Vigor hiện tại
 
-Đọc [Balance Discovery Guide](20-domains/01-player/03-attribute-and-balance-review-guide.md) trước. Hãy trả lời 12 câu Vòng A; nếu đang muốn góp ý máu/Mana/Focus/bình hồi phục thì trả lời thêm 6 câu Vòng A.5; progression/quest của traversal nằm ở 4 câu Vòng A.6. Có thể gửi nghiên cứu Where Winds Meet/Genshin theo format trong file; chưa cần đọc Parameter Registry. Phần 9 trong guide chỉ đúng nơi đọc hệ tộc, AI quái, encounter và từng enemy dossier.
+Đọc [Level, Skill và Vigor Review Guide](20-domains/01-player/03-level-skill-and-vigor-review-guide.md). Rank/Primary Attributes/Potential/Prestige và Mana/Focus/Fatigue/Posture đã bị xóa; không còn vòng feedback để phục hồi chúng. Discovery hiện tập trung EXP/damage/counterplay, authored skill lines/loadout, Vigor milestone distribution, Hạ Kình combat envelope và NPC trait/density parameter chưa được khóa.
 
 Nếu muốn review thay đổi Shadow vừa chốt trước, đọc theo thứ tự: [Shadow domain](20-domains/04-shadows/README.md) → [Retinue Capacity Contract](30-shared-contracts/07-shadow-retinue-capacity-and-membership.md) → [Shadow Expression](20-domains/05-ai/04-shadow-expression-and-ritual-coordination.md). Sau đó quay lại Balance Guide; câu 2 đã được viết lại để xét `Self ↔ active Retinue` thay vì một quân đoàn vô hạn.
 
@@ -104,4 +104,4 @@ Nếu hai nơi phát biểu cùng một luật, Agent phải chọn owner, giữ
 - Product/scope vẫn `PROPOSED`: cần feedback của Game Director (người dùng).
 - Phần lớn gameplay ở `DISCOVERY`; nhiều con số chi tiết chỉ là candidate cần test.
 - Dodge là Feature Cell mẫu sâu nhất nhưng chưa `IMPLEMENTATION_READY`.
-- Chưa có gameplay ticket sẵn sàng code. Việc kế tiếp đúng là tiếp tục đọc/feedback Product; khi chuyển sang design execution, foundation queue bắt đầu tại `DB-019` (pin baseline 26.2), trước kernel, camera và combat.
+- Chưa có gameplay ticket `READY` để code. Draft ticket backlog đã được mở; design execution bắt đầu bằng pin baseline + kernel, rồi hai train Camera và Skill Platform có snapshot/rollback độc lập trước integration gameplay rộng.

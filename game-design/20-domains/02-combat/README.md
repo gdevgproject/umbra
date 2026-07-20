@@ -35,8 +35,8 @@ Combat vẫn là approver hoặc reviewer khi các domain đó thay đổi nhị
 | `SYS-COMBAT-CONTEXT` | enter/exit combat, vanilla action coexistence | high |
 | `SYS-ACTION-RESOLUTION` | light attack, heavy attack, dodge, parry, skill activation, weapon swap | critical |
 | `SYS-HIT-RESOLUTION` | hit cadence, hitbox/hurtbox, immunity, damage, multi-hit, friendly ownership | critical |
-| `SYS-COMBAT-VITALS` | một health truth, environmental damage, fixed HUD, Mana/Focus semantics | critical |
-| `SYS-COMBAT-RESOURCES` | Focus use/recovery, Mana cost, Fatigue contribution, Combat Flask touchpoints | high |
+| `SYS-COMBAT-VITALS` | một health truth, environmental damage, fixed HP/Vigor HUD | critical |
+| `SYS-COMBAT-RESOURCES` | Vigor transaction cho Dodge/movement và Combat Flask touchpoints; không resource bar khác | high |
 | `SYS-COMBAT-FLOW` | combo, posture, stagger, finisher, recovery/death | high |
 | `SYS-WEAPON-RHYTHM` | dagger/sword/polearm/ranged/staff moveset grammar | medium after foundation |
 
@@ -68,7 +68,7 @@ Feature Cell và system spec chi tiết:
 
 - [Dodge](dodge/README.md)
 - [Death, consequence và trở lại cuộc chơi](death/README.md)
-- [Vitals, Mana, Focus và HUD](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md)
+- [HP, Vigor và HUD](../../30-shared-contracts/08-vitals-resource-and-hud-contract.md)
 - [Combat Flask và quick recovery](../10-items-economy/03-combat-flask-and-quick-recovery.md)
 
 ## Domain invariants đề xuất

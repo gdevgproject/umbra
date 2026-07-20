@@ -135,9 +135,14 @@ Không phải phiên nào cũng đi Gate. Xây dựng, khám phá, luyện tập
 - Mọi runtime change được Agent phân loại performance risk để đo đúng lúc; không benchmark mù mọi commit và không bỏ qua feature có hot-path/cardinality risk.
 - Shadow roster mở từ một tới tối đa tám slot; tối đa bốn Shadow triển khai chiến đấu. Các slot 5–8 mở chiều rộng dự bị/home và lựa chọn đội hình, không cộng actor hay power budget miễn phí; exact milestone được discovery theo `CTR-SHADOW-RETINUE`.
 - Discovery là strength cốt lõi: UMBRA phải tạo cả nội dung/cơ chế/sinh vật thật sự mới và lý do nhìn lại Minecraft quen thuộc bằng một model mới; không đo bằng catalog count hoặc đồng nhất với activity breadth của reference open-world.
+- Level 1→100+ là trục progression toàn cục duy nhất; Rank, Primary Attributes, Potential và Prestige cũ bị xóa. Build dùng skill/loadout, gear, Retinue và bounded capability mastery.
+- HP + Vigor là hai core meters UMBRA; Mana/Focus/Fatigue/Posture bị xóa. Vigor thống nhất Dodge/Sprint Burst/Free Climb/Lightness; vanilla hunger vẫn thuộc Minecraft.
+- Skill acquisition công khai toàn bộ tương lai từ Level 1, phát grant đầu ở Level 1 và unlock event mỗi 5 Level. Dodge/Free Climb có từ Level 1, Hạ Kình sau combat lesson, Khinh Công Level 10 qua training.
+- NPC Level cao hiếm theo Village Hub, power/silhouette tăng đơn điệu và có social personality/self-preservation; Bully không thể kết liễu player.
+- Sau kernel, Camera và Skill Platform là hai delivery train ưu tiên, mỗi train đóng bằng snapshot hoạt động như một mod độc lập trước khi tích hợp full game.
 
 ## 9. Cửa feedback Product hiện tại
 
-Các câu hỏi death, Creative, living society và multiplayer đã được khóa ở mức Product; exact parameter/tier/ruleset nằm ở system discovery, không hỏi lại. Cửa feedback có đòn bẩy lớn tiếp theo là fantasy/topology thuộc tính, damage, Potential và counterplay tại [Balance Discovery Guide](../20-domains/01-player/03-attribute-and-balance-review-guide.md).
+Các câu hỏi death, Creative, living society, multiplayer và topology progression/resource mới đã được khóa ở mức Product; không hỏi lại hoặc phục hồi hệ cũ. Cửa discovery hợp lệ tiếp theo là EXP/damage/counterplay, skill line/loadout, Vigor milestone distribution và NPC/Hạ Kình parameter còn mở tại [Level, Skill và Vigor Review Guide](../20-domains/01-player/03-level-skill-and-vigor-review-guide.md).
 
 Exact camera/input/UI/content breadth, death penalty và performance target theo hardware là delegated research do Agent giải bằng prototype/evidence; chỉ quay lại Product khi xuất hiện trade-off fantasy hoặc scope khó đảo ngược.

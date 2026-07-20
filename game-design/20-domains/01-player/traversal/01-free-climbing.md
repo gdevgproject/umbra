@@ -36,7 +36,7 @@ Các nguyên tắc đóng:
 
 - Movement owner giữ automatic step-up/vanilla jump trong band đi bộ bình thường; chúng không phải Free Climb và không tốn Vigor.
 - Basic grounded low mantle có từ đầu nhưng cần `Jump/Traverse Up` hoặc explicit `Climb` intent; chỉ đi/chạy đâm vào vật cản cao hơn step band không tự mantle.
-- Full Free Climb là universal capability mở rất sớm bằng milestone huấn luyện không miss; không là Potential hoặc active-skill slot.
+- Full Free Climb là universal capability có từ Level 1; không là active-skill slot. Tutorial chỉ dạy, không giữ capability làm hostage.
 - Tutorial đầu dùng một vách thấp có slab/stair lip và route ladder bên cạnh, dạy: attach → vector move → low Vigor → adaptive mantle → deliberate drop.
 - Bài học sau mới thêm corner, dòng nước và block mutation; không dạy bằng lava/piston gây chết.
 - Capability chưa mở chỉ cue tại affordance được tác giả đặt; không spam prompt trên mọi tường.
@@ -229,14 +229,16 @@ SELECT(snapshot type/target/profile)
 
 ## 10. Vigor cost, route economy và recovery
 
-Mục tiêu không phải mô phỏng calorie/cơ tay theo hiện thực. Vigor tạo **embodied plausibility + route decision**: leo lên tốn hơn dịch ngang, leap nhanh nhưng đắt, nghỉ trên support thật có giá trị; còn va tường, sửa camera, assist hoặc server correction không bị tính như “nỗ lực” của người chơi.
+Mục tiêu không phải mô phỏng calorie/cơ tay theo hiện thực. Vigor tạo **embodied plausibility + route decision**: Climb Move dùng `VIG-CLIMB-001`, còn Climb Jump dùng `VIG-CLIMB-JUMP-001`; nghỉ trên support thật có giá trị. Va tường, sửa camera, assist hoặc server correction không bị tính như “nỗ lực” của người chơi.
 
 Cost topology canonical nằm tại `CTR-TRAVERSAL`; Free Climb áp như sau:
 
 | Hành vi | Cost direction | Lý do trải nghiệm |
 |---|---|---|
 | walk/run/jump thường, vanilla step-up, grounded basic low mantle | `0 Vigor` | movement nền không bị thuế; mantle đầu game hoạt động trước full unlock |
-| explicit attach | guard cần minimum reserve nhưng không có entry fee baseline; drain bắt đầu sau latch | thử bám không bị phạt bởi probe/latency; zero-Vigor không tạo grab loop |
+| explicit attach | không entry fee; cần Vigor dương và drain bắt đầu sau latch | thử bám không bị phạt bởi probe/latency; zero-Vigor không tạo grab loop |
+| Climb Move dọc/ngang/chéo/idle cling | `VIG-CLIMB-001`; vector diagonal normalize | endurance/height samples tại `QLT-PARAMETERS §3.2` |
+| Climb Jump | `VIG-CLIMB-JUMP-001` upfront | count/height/efficiency samples tại `QLT-PARAMETERS §3.2` |
 | one-time settle grace sau latch | không base drain trong grace ngắn, chỉ một lần mỗi attach episode | đủ thời gian đọc mặt/camera/HUD; không reset bằng spam stop–move |
 | cling idle sau grace | low base drain theo authoritative time | cho quan sát ngắn nhưng không treo vô hạn |
 | đi xuống | base drain + low actor-effort component | route lui hợp lệ nhưng không miễn phí vô hạn |
@@ -297,12 +299,12 @@ Jump khi attached không phải “tăng velocity Y”. Solver snapshot input su
 | Inventory/chat/menu | screen owner thắng; held inputs neutralize nhưng không tự Drop. Nếu logical server không pause, Vigor/time vẫn chạy và meter/cue phải còn đọc được trong screen |
 | pause thật/focus loss | logical pause dừng clock; focus loss release held state, không sinh Jump/Drop edge khi focus trở lại |
 | hotbar select/camera switch | được phép nếu không mutate world; không reset state/resource |
-| Dodge trong `CLIMB_IDLE/MOVE/LEAP_RECONTACT` | `DENY_NO_COST`; không trừ Focus, không detach, không chạy ground/aerial Dodge. Chỉ `MANTLE_RECOVERY` sau commit được `SHORT_BUFFER` rất ngắn tới supported Dodge |
+| Dodge trong `CLIMB_IDLE/MOVE/LEAP_RECONTACT` | `DENY_NO_COST`; không trừ Vigor, không detach, không chạy ground/aerial Dodge. Chỉ `MANTLE_RECOVERY` sau commit được `SHORT_BUFFER` rất ngắn tới supported Dodge |
 | Quick Recovery/food/potion | `DENY_NO_COST`; không tự Drop rồi dùng item, không consume charge |
 | Lightness | neutral hold ở `CLIMB_IDLE` có thể `TRANSITION` thành `WALL_CHARGE` khi unlocked/reserve/contact hợp lệ; directional Jump vẫn là climb leap, `CLIMB_MOVE`/mantle/slip deny. Fresh Sneak cancel/drop luôn thắng |
 | Grounding Strike/Primary Attack | `DENY_NO_COST`; attached/mantling không phải airborne/falling. Sau Drop/eject cần fresh Attack ở legal time-to-impact window |
 | Aerial Step/Double Jump | `DENY_NO_COST`; Jump đang attached đã thuộc climb leap. Sau Drop/eject cần fresh Jump và aerial budget chưa dùng |
-| Aerial Dodge | `DENY_NO_COST`; chỉ legal sau explicit airborne edge, fresh Dodge và Focus/budget hợp lệ |
+| Aerial Dodge | `DENY_NO_COST`; chỉ legal sau explicit airborne edge, fresh Dodge và Vigor/use budget hợp lệ |
 | skill tương lai không có locomotion profile | `DENY_NO_COST` mặc định; không buffer/cost/cooldown/animation thử |
 | skill có profile `ALLOW_IN_PLACE/TRANSITION/SHORT_BUFFER` | chạy đúng source mode/phase/resource/collision/fall contract đã duyệt; không được tự gọi actor “airborne” chỉ vì ở trên mặt đất |
 | light hit/DoT | damage luôn áp; flinch/drain chỉ một lần theo hit/severity profile |

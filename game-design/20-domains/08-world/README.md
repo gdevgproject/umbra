@@ -11,7 +11,7 @@ World domain bảo đảm UMBRA lớn lên bên trong Minecraft thay vì thay th
 
 - Block world, exploration, building, redstone và vanilla dimensions giữ giá trị.
 - World mutation có phạm vi, preview/recovery và bảo vệ công trình hợp lý.
-- NPC rank/respect tạo phản ứng và quyền tiếp cận, không biến mọi người thành vending machine.
+- NPC Level/personality/respect tạo phản ứng và quyền tiếp cận, không biến mọi người thành vending machine.
 - Home/family là rootedness, không là daily chore/FOMO.
 - Nội dung mới không giả định save mới nếu migration/placement có thể giải quyết.
 
@@ -22,3 +22,4 @@ World domain bảo đảm UMBRA lớn lên bên trong Minecraft thay vì thay th
 - [Home, family, events và world layers](03-home-family-events-and-world-layers.md)
 - [Early-game survival pressure](04-early-game-survival-pressure.md)
 - [Living society simulation](05-living-society-simulation.md)
+- [NPC power và density theo Village Hub](06-villager-power-and-density.md)

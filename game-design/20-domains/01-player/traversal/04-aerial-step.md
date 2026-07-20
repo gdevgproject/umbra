@@ -90,7 +90,7 @@ Aerial Step dùng một **hybrid velocity rebase có cap**, không cộng một 
 
 | Source/next action | Result direction |
 |---|---|
-| Aerial Step → Aerial Dodge | `SHORT_BUFFER/TRANSITION` sau step impulse commit nếu dodge use + Focus còn; Dodge sở hữu defense/movement tiếp theo |
+| Aerial Step → Aerial Dodge | `SHORT_BUFFER/TRANSITION` sau step impulse commit nếu dodge use + Vigor còn; Dodge sở hữu defense/movement tiếp theo |
 | Aerial Dodge → Aerial Step | `SHORT_BUFFER/TRANSITION` sau dodge active/cancel marker nếu step use + Vigor còn; không overlap i-frame và lift |
 | Step → Grounding Strike | chỉ sau step commit khi actor thật sự `FALLING`, ground/time-to-impact guard hợp lệ và có fresh/short-buffered Attack |
 | Free Climb attached/mantling | `DENY_NO_COST`; Jump là climb leap/mantle. Wall contact không reset step use |
@@ -99,7 +99,7 @@ Aerial Step dùng một **hybrid velocity rebase có cap**, không cộng một 
 | Lightness descent | `DENY_NO_COST` baseline để tránh lift–descent stutter/flight loop |
 | Grounding committed | deny; impact/recovery owner thắng |
 
-Hai thứ tự Step→Dodge và Dodge→Step đều là candidate direction để tăng expression, nhưng baseline tối đa một use mỗi loại/chain. Focus và Vigor không rút/hoàn chéo; progression không được biến một action thành reset cho action kia.
+Hai thứ tự Step→Dodge và Dodge→Step đều là candidate direction để tăng expression, nhưng baseline tối đa một use mỗi loại/chain. Cả hai dùng Vigor qua transaction/action cost riêng; không hoàn chéo hoặc biến action này thành reset/refill cho action kia.
 
 ## 7. Interaction và failure
 

@@ -35,7 +35,7 @@ Combat context quyết định khi cùng một nút mang nghĩa chiến đấu h
 ## Combo, posture và finisher
 
 - Combo thưởng cho nhịp hành động đa dạng/hợp lệ, không thưởng click rate.
-- Posture là khả năng giữ thế trước áp lực, không phải thanh HP thứ hai.
+- Không có Posture meter. Guard-break/stagger/stun/launch nếu được dùng là typed action result với duration/immunity/recovery rõ, không thanh HP thứ hai hay pool ẩn.
 - Stagger mở cửa sổ có giới hạn; finisher cần telegraph, camera-safe và không khóa người chơi quá lâu.
 - Boss có thể thay đổi cách phục hồi posture nhưng không âm thầm miễn nhiễm toàn bộ hệ.
 

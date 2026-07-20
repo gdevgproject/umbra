@@ -61,8 +61,8 @@
 
 | Scenario ID | Given / When | Quyết định cần có |
 |---|---|---|
-| `DOD-S-080` | Focus vừa đủ/thiếu | pay moment/reject cue |
-| `DOD-S-081` | Fatigue ở từng threshold | eligibility/cost modifier |
+| `DOD-S-080` | Vigor 17/18 và exact multiple | pay moment/reject cue, không âm/double charge |
+| `DOD-S-081` | Vigor recovery delay/allowed/denied locomotion | authoritative regen state đúng |
 | `DOD-S-082` | collision ngay startup | cost/refund |
 | `DOD-S-083` | packet duplicate/out-of-order | action ID/idempotency |
 | `DOD-S-084` | latency 0/50/100/200ms | prediction/fair timing/correction |
@@ -70,7 +70,7 @@
 | `DOD-S-086` | reduced motion/camera shake off | cue redundancy |
 | `DOD-S-087` | save/reload/disconnect mid-action | ephemeral state/reconnect policy |
 | `DOD-S-088` | death/dimension change during action | cleanup/no ghost immunity |
-| `DOD-S-089` | capacity/cost modifier đổi khi Focus đang không đầy | current clamp, notch/ghost cost và không refill miễn phí |
+| `DOD-S-089` | Max Vigor đổi khi current đang không đầy | current clamp, notch/ghost cost và không refill miễn phí |
 | `DOD-S-090` | giữ W khi orbit/recenter/acquire–break lock qua ±180° | world direction không đảo đột ngột; accepted Dodge giữ basis snapshot |
 
 ## Exit của scenario inventory

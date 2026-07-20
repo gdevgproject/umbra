@@ -31,7 +31,7 @@
 | `PLY-05` | spectator/adventure/creative/survival | capability, reward, damage, interaction policy? |
 | `PLY-06` | operator commands and `/give` | validation/audit/default component/progression exploit? |
 | `PLY-07` | inventory full/drop/pickup/despawn/death | item identity, ownership, rollback? |
-| `PLY-08` | sleep/bed/skip time | Fatigue, deadlines, events, spawn, offline clocks? |
+| `PLY-08` | sleep/bed/skip time | Vigor recovery policy, deadlines, events, spawn, offline clocks? |
 | `PLY-09` | Hardcore death → spectator | flush/recall/cleanup; UMBRA không tạo respawn trái world rule |
 | `PLY-10` | Creative ↔ Survival rồi save/reload | state giữ đúng, provenance/eligibility theo event, không taint/delete cả world |
 | `PLY-11` | quit/reconnect/death/portal/dimension khi attached, launching, descending hoặc pre-impact | cleanup locomotion mode/reservation/contact/fall conversion; preserve unlock/Vigor theo contract, không ghost flight/refill |

@@ -1,11 +1,11 @@
-# SYS-SKILLS-LIBRARY — Tree, Rune, Synergy và Class Skills
+# SYS-SKILLS-LIBRARY — Tree, Rune, Synergy và Signature Skills
 
 > **DRI:** Skill Designer
 > **Status:** `DISCOVERY`
 
-## Tree “Sông Ba Ngả”
+## Tree/library direction
 
-Gốc chung chứa Arise/Storage/stealth hoặc perception cơ bản, sau đó tách Sát Ảnh–Thống Soái–Hắc Pháp. Candidate cũ: khoảng 120 điểm ở level 100, 180 nodes và 9 keystones; các con số chưa được production estimate.
+Tên tuyến, số node và topology “Sông Ba Ngả” cũ không còn là canonical candidate vì phụ thuộc specialization/attribute đã bị loại. Library mới phải được authored từ skill roles và build verbs, bắt đầu bằng ít nhất hai line có cách chơi khác nhau. Level cadence thuộc [`FEAT-SKILL-ACQUISITION`](02-skill-acquisition-preview-and-loadout.md).
 
 Keystone luôn có trade-off và ít nhất một encounter nơi không chọn tốt hơn. Ví dụ `Đạo Quân Bất Tử`: hồi chậm nhanh hơn nhưng shadow damage giảm.
 
@@ -13,26 +13,26 @@ Keystone luôn có trade-off và ít nhất một encounter nơi không chọn t
 
 - Rune là active/upgrade loot; duplicate nghiền thành Bột Rune.
 - Faction drop định hướng để khuyến khích content diversity.
-- Rank cuối đổi chất, không chỉ tăng magnitude.
+- Bậc nâng cấp cuối đổi chất, không chỉ tăng magnitude.
 - Candidate examples gốc UMBRA: Vọt Tàn Ảnh, Gầm Kinh Hồn, Mưa Dao, Trói Hư Không, Nhịp Máu.
 
 ## Synergy
 
 Synergy có cue/gợi ý để casual không bị phạt; theorycrafter có thể khám phá. Candidate: đổi weapon sau dodge, decoy + blade storm, Domain + shadow kill, stealth sau shadow shattered. Tất cả phải đi qua Skill/Feature Contract; không mặc định Approved.
 
-## Class skills candidate
+## Signature skills candidate
 
 | Skill | Candidate unlock | Vai trò |
 |---|---|---|
-| Trỗi Dậy | Job Change/D | capture |
-| Cất Giữ Bóng | Job Change | roster/storage |
-| Mắt Bóng | B+ | scout qua shadow |
-| Shadow Exchange | S | strategic reposition |
-| Monarch's Domain | S | role-based legion aura |
-| Gate Creation | Vương Giả | travel tới content đã clear |
-| Thừa Kế | Vương Giả | phiên bản giới hạn boss skill |
+| Trỗi Dậy | authored Level/content milestone — `OPEN` | capture |
+| Cất Giữ Bóng | sau Arise/roster onboarding — `OPEN` | roster/storage |
+| Mắt Bóng | authored Level/content milestone — `OPEN` | scout qua shadow |
+| Shadow Exchange | authored Level/content milestone — `OPEN` | strategic reposition |
+| Monarch's Domain | authored Level/content milestone — `OPEN` | role-based Retinue aura |
+| Gate Creation | late Level/content milestone — `OPEN` | travel tới content đã clear |
+| Thừa Kế | late Level/content milestone — `OPEN` | phiên bản giới hạn boss skill |
 
-Domain candidate: 12s duration, 90s cooldown, 12-block radius, role buffs và PB cap; các tham số nằm ở Quality registry.
+Thông số Domain cũ bị rút khỏi canonical registry cho tới khi skill/Retinue damage contract mới không dựa Rank, Mana, Posture hoặc Primary Attribute.
 
 ## Library guardrails
 

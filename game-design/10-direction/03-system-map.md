@@ -9,14 +9,14 @@ System Map là **chỉ mục toàn cục** của ownership và dependency, khôn
 
 | Domain ID | Năng lực sở hữu | Feature/System chính đã nhận diện | Trạng thái tái thẩm định |
 |---|---|---|---|
-| `DOM-PLAYER` | identity, năng lực thân thể và tăng trưởng người chơi | awakening, level/XP, attributes, rank, talent, potential, mastery, specialization, prestige, Free Climb, Hạ Kình, Khinh Công | `DISCOVERY` |
-| `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, dodge, parry, posture, combo, vitals/damage/status, Combat Flask interaction, death/recovery | `DISCOVERY` |
+| `DOM-PLAYER` | identity, năng lực thân thể và tăng trưởng người chơi | Level/XP 1→100+, capability mastery, Free Climb, Hạ Kình, Khinh Công | `DISCOVERY` |
+| `DOM-COMBAT` | giải quyết hành động chiến đấu | stance, input buffer, light/heavy attack, attack cadence, Vigor Dodge, parry, stagger states, combo, HP/damage/status, Combat Flask interaction, death/recovery | `DISCOVERY` |
 | `DOM-SKILLS` | học, trang bị và dùng năng lực | skill library, loadout, tree, rune, synergy, class skills | `DISCOVERY` |
 | `DOM-SHADOWS` | thu phục và chỉ huy bóng | corpse/echo, Arise, Retinue slot 1→8, active cap 4, reserve, summon/revive, identity, role, formation, command, progression, home assignment | `DISCOVERY` |
-| `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI | `DISCOVERY` |
+| `DOM-AI` | hành vi actor không phải người chơi | perception, individual brain, squad, morale, director, LOD, social/family AI, Level personality/Bully/Guardian/flee | `DISCOVERY` |
 | `DOM-DUNGEONS` | lifecycle không gian instance | Gate spawn/state, objective ledger, room grammar, generation, cleanup, Break/Field, Tower | `DISCOVERY` |
 | `DOM-ENCOUNTERS` | cấu trúc thử thách có chủ đích | enemy composition, boss teaching, phase, escort, arena, failure/retry | `DISCOVERY` |
-| `DOM-WORLD` | thế giới persistent và vanilla integration | city, respect, home/family, events, strata, dimensions, mounts, territory | `DISCOVERY` |
+| `DOM-WORLD` | thế giới persistent và vanilla integration | city, Level-power/density hubs, respect, home/family, events, strata, dimensions, mounts, territory | `DISCOVERY` |
 | `DOM-NARRATIVE` | ý nghĩa/câu chuyện/quest | prologue, main arc, reveal, endings, character arcs, Quest Kernel/content/dialogue | `DISCOVERY` |
 | `DOM-ITEMS` | ownership và biến đổi item/equipment | loot, rarity, affix, loadout, growth weapon, crafting/reforge, shadow gear | `DISCOVERY` |
 | `DOM-ECONOMY` | nguồn–hút và giao dịch | currencies, sell loop, shop/catalog, price response, reward allocation | `DISCOVERY` |
@@ -41,7 +41,7 @@ Những contract sau có fan-out cao nên phải được discovery trước fea
 1. `CTR-INPUT-ACTION` — action context, remap, buffer, intent và conflict.
 2. `CTR-ACTION-TIMELINE` — startup/commit/active/recovery/cancel và game tick.
 3. `CTR-COMBAT-HIT` — hit authorization, attack cadence, damage instance, immunity, spam prevention.
-4. `CTR-RESOURCE` + `CTR-VITALS-HUD` — cost transaction; một health truth, Mana/Focus semantics, damage mapping và fixed-width HUD.
+4. `CTR-RESOURCE` + `CTR-VITALS-HUD` — cost transaction; một HP truth, một Vigor action resource, damage mapping và fixed-width HUD.
 5. `CTR-CAMERA-TARGET` — core rig góc 3, góc 1, aim basis, obstruction, crosshair/soft/lock target.
 6. `CTR-ANIMATION-EVENT` — animation state, gameplay event, hitbox và cancel synchronization.
 7. `CTR-ACTOR-AUTHORITY` — client intent, server authority, prediction/correction.
@@ -63,10 +63,11 @@ Chi tiết/status nằm ở [Shared Contract Catalog](../30-shared-contracts/cat
 
 ```text
 Pinned Fabric Baseline + Foundation Kernel + Loader Boundary + Test/Diagnostics
-→ Action Registry/Localization/UI/vitals primitives + Camera/Movement/Aim
-→ Traversal State/Surface/Vigor → Free Climb/Mantle
-→ Action Timeline
-→ Attack / Dodge / Parry + Grounding Strike/Lightness + Combat Flask action
+→ {Camera/Movement/Aim train ∥ Skill Definition/Preview/Grant train}
+→ Action Registry/Localization/UI/HP–Vigor primitives
+→ Traversal State/Surface/Vigor → Level-1 Dodge + Free Climb/Mantle
+→ Action Timeline/Hit
+→ Hạ Kình + Level-10 Lightness + Combat Flask action
 → Hit, Vitals & Resource Resolution + Early Danger exemplar
 → Enemy Telegraph / Encounter
 → Quest Kernel / Persistent Activity
@@ -87,30 +88,26 @@ Content Definition + Asset Registry + Instance Architecture
 
 Điều này không ép thứ tự code toàn dự án; nó chỉ cho biết quyết định nào có blast radius lớn.
 
-## 4. Capability Slice, không phải “mod con” tùy ý
+## 4. Capability Slice như mod độc lập có contract
 
-Một slice hợp lệ là một đoạn trải nghiệm có thể chạy và đánh giá. Ví dụ embodiment→combat foundation:
+Một slice hợp lệ là một đoạn trải nghiệm có thể chạy và đánh giá như một mod độc lập về outcome, nhưng vẫn nằm trong modular monolith và dùng public contracts chung. Ví dụ Camera snapshot:
 
 ```text
 Camera room kiểm mine/place/occlusion/aim
-→ Combat dummy có telegraph
-→ người chơi dùng một đòn đánh theo nhịp
-→ có một dodge với input/camera/animation hoàn chỉnh
-→ hit server-authoritative
-→ HUD/âm thanh phản hồi
-→ first-person và third-person đều đọc được
-→ test spam click, collision, latency và accessibility
+→ movement/facing/first-person parity
+→ flag/rollback và lifecycle tests
+→ snapshot dùng được mà không cần Skill/Combat content
 ```
 
-Slice này lớn hơn một ticket input nhưng nhỏ hơn combat system hoàn chỉnh. Nó khóa foundation có blast radius trước progression, quest hay Gate.
+Skill Platform snapshot tương tự: definition/validation → full preview → Level 1/5 grant ledger → equip sandbox → một exemplar skill/dummy → save/migration/rollback. Slice lớn hơn một ticket class nhưng nhỏ hơn combat/progression hoàn chỉnh.
 
 ## 5. Candidate inventory toàn game
 
 Các ý sau được giữ làm `CANDIDATE`, không mặc định `DECIDED`:
 
-- rank F→Vương Giả, level 1→100, năm attributes và ba specialization;
+- Level 1→100+, skill/loadout/gear/capability mastery không có Rank/Primary Attributes/Potential/Prestige;
 - Shadow vĩnh viễn, Arise ba lần, Soul Echo, Retinue slot 1→8/active cap 4, identity/formation/home assignment;
-- action combat với Focus/Fatigue, dodge/parry/combo và năm weapon class;
+- action combat với Vigor Dodge, parry/combo và weapon families; không Mana/Focus/Fatigue/Posture meter;
 - vertical traversal với Vigor, Free Climb, Hạ Kình và Khinh Công universal mở sớm;
 - faction/role/squad/morale/director, Gate lifecycle và dungeon grammar;
 - Hunter City, Respect, Home/Family, strata/world events; sinh thái/sinh vật/cơ chế mới phải tạo discovery decision thay vì reskin/catalog;

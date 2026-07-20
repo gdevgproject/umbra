@@ -21,16 +21,16 @@ Không cộng dồn nhiều hình phạt nặng chỉ vì nhiều hệ cùng “
 
 | State | Default sau death | Owner/ý nghĩa |
 |---|---|---|
-| Level, EXP, Rank, attribute, Potential, mastery | giữ nguyên | thành quả dài hạn không bị tước |
+| Level, EXP, skill unlock/loadout, bounded capability mastery | giữ nguyên | thành quả dài hạn không bị tước |
 | Shadow identity, level, bond, memory | giữ nguyên | attachment và công sức roster được bảo vệ |
 | Shadow deployment/command/target/combat state | recall + reset an toàn | không xóa Shadow; không để stale entity/action |
-| Current HP/Mana/Focus và action/status tạm thời | thiết lập lại theo mode/activity profile | tạo nhịp hồi phục, không đổi max/permanent stat |
+| Current HP/Vigor và action/status tạm thời | thiết lập lại theo mode/activity profile | tạo nhịp hồi phục, không đổi max/permanent progression |
 | Gate/quest participation | theo lifecycle contract của activity | checkpoint/retry/fail/re-entry phải khai riêng |
 | UMBRA reward đang transaction | commit đúng một lần hoặc rollback | không duplicate hoặc mất im lặng |
 | Vanilla inventory/XP/drop | theo Minecraft mode/gamerule | UMBRA không âm thầm override `keepInventory` |
 | World construction, irreversible quest/world fact | giữ theo transaction đã commit | death không rollback lịch sử tùy tiện |
 
-Mana thấp hoặc một trạng thái “hậu chấn” ngắn là **candidate**, chưa là quyết định. Prototype phải loại death spiral: không giảm max HP/damage theo cách khiến đường lấy lại tài nguyên khó hơn sau mỗi lần chết.
+Một trạng thái “hậu chấn” ngắn vẫn là **candidate** nhưng không được là Fatigue/resource bar mới. Prototype phải loại death spiral: không giảm max HP/damage/Vigor theo cách khiến đường lấy lại tài nguyên khó hơn sau mỗi lần chết.
 
 ## 4. Game-mode composition
 

@@ -40,7 +40,7 @@ Token hóa spacing, type scale, color role, elevation/surface, border, icon size
 
 Reusable primitives: action prompt, resource meter, item/skill card, comparison row, filter/search, tabs chỉ trong một task, breadcrumb/back-stack, tooltip/detail panel, confirmation, toast, target plate và command feedback. Component version đổi meaning cần migration/review cho mọi consumer.
 
-Combat HUD dùng [Vitals/Resource/HUD Contract](../../../30-shared-contracts/08-vitals-resource-and-hud-contract.md): Health, Mana và Focus có bề rộng ổn định; Max tăng đổi tỷ lệ fill/numeric chứ không kéo dài thanh. Absorption/status/Combat Flask là layer/icon riêng. Vanilla hearts chỉ bị ẩn khi UMBRA HUD hoạt động; missing asset/render failure phải còn fallback health đọc được.
+Combat HUD dùng [Vitals/Resource/HUD Contract](../../../30-shared-contracts/08-vitals-resource-and-hud-contract.md): HP và Vigor có bề rộng ổn định; Max tăng đổi fill/numeric chứ không kéo dài thanh. Minecraft hunger/oxygen, absorption/status và Combat Flask là indicator/layer/icon riêng, không core bar UMBRA. Vanilla hearts chỉ bị ẩn khi UMBRA HUD hoạt động; missing asset/render failure phải còn fallback health đọc được.
 
 ## 5. Information architecture
 

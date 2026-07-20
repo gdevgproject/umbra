@@ -17,6 +17,18 @@ Ba trục phải được tách rõ:
 
 Không ép ba trục thành cùng một cây thư mục. `DB-021` mới khóa package/source-set/Gradle topology sau compile proof và ít nhất hai consumer thật.
 
+### 1.1. Stability rings cho phát triển cuốn chiếu
+
+| Ring | Nội dung | Change policy |
+|---|---|---|
+| `R0 Adapter` | Minecraft/Fabric hooks, render/input/storage binding | được thay theo baseline; không sở hữu semantics/save |
+| `R1 Kernel Contract` | stable ID, operation/causation, authority, capability manifest, save envelope, public ports | ổn định nhất; đổi cần ADR, migration, consumer/conformance proof |
+| `R2 Capability API` | Camera, Skills, Vigor/Traversal, Combat, AI/World public command/query/event | versioned; Feature/ticket gate, compatibility và rollback độc lập |
+| `R3 Implementation` | policy/solver/projection bên trong owner | được lặp nhanh khi contract/evidence giữ nguyên |
+| `R4 Content/Data` | skill/NPC/animation/audio/UI definitions | đổi thường xuyên qua schema, validation, fallback và migration |
+
+Living design docs là control plane xuyên mọi ring, không phải runtime module. Feedback có thể đổi ring ổn định nhưng phải route `CR`, rebaseline contract→ticket→code→test; không cho implementation bypass R1/R2 rồi dùng docs để hợp thức hóa sau.
+
 ## 2. Bounded capability contract
 
 Mỗi capability trước khi có implementation phải khai tối thiểu:

@@ -19,13 +19,13 @@ Không phải:
 - hover, tăng độ cao lặp vô hạn hay đổi hướng 180° không quán tính;
 - teleport/dash không collision;
 - combat escape miễn phí không resource/recovery;
-- active skill chiếm slot 4+1;
+- active skill chiếm combat loadout slot;
 - làm chậm mọi normal Jump, biến giữ Space vô tình thành launch, hoặc cho treo tường nạp vô hạn.
 
 ## 3. Unlock và progression
 
-- Universal capability mở sớm sau Free Climb + Grounding Strike/training proof, trước khi Gate/exploration lặp nhiều.
-- Milestone + tutorial ngắn sở hữu delivery; level có thể là eligibility nhưng không là random drop/Potential.
+- Universal capability mở tại Level 10 sau Free Climb + Grounding Strike.
+- Một training challenge ngắn sở hữu delivery; không là random drop hoặc build choice, và player vượt mốc có catch-up.
 - Training dạy ba beat: launch theo hướng nhìn → nhận cue apex → hold/toggle hạ chậm → Grounding Strike hoặc đáp thường.
 - Upgrade candidate: Vigor capacity/efficiency, steering cap, recovery hoặc one-time route technique. Không mở repeated midair launch/hover baseline.
 
@@ -87,7 +87,7 @@ FALLING/LIGHTNESS_DESCENT
 ## 7. Vigor, apex và lướt–hạ chậm
 
 - Charge tạo reserve tăng theo tier; HUD preview phần commit và projected descent reserve. Wall charge trả **base climb drain + charge increment**, nhưng accounting phải chống double-drain cùng tick.
-- Launch commit tiêu launch cost một lần; controlled descent drain theo authority clock và steering/condition profile. Không vay âm Vigor hoặc đổi Focus/Mana thành Vigor ngầm.
+- Launch commit tiêu launch cost một lần; controlled descent drain theo authority clock và steering/condition profile. Không vay âm Vigor hoặc tạo resource khác để trả thay.
 - Có minimum reserve guard hoặc exhausted-launch recovery để tránh animation hứa bay dài nhưng release lập tức vì zero Vigor; exact policy thuộc `DB-052`.
 
 - Apex cue là visual + optional audio/haptic, không chỉ particle màu.
@@ -104,7 +104,7 @@ FALLING/LIGHTNESS_DESCENT
 |---|---|
 | Grounding Strike | được phép cancel descent khi guard/transaction hợp lệ |
 | Ground Dodge | không dùng trên không; không chạy ground curve/animation |
-| Aerial Dodge | future [`FEAT-COMBAT-AERIAL-DODGE`](../../02-combat/dodge/aerial-dodge.md); chỉ tại cancel edge/use/Focus hợp lệ trong cùng `AerialChain` |
+| Aerial Dodge | future [`FEAT-COMBAT-AERIAL-DODGE`](../../02-combat/dodge/aerial-dodge.md); chỉ tại cancel edge/use/Vigor hợp lệ trong cùng `AerialChain` |
 | Aerial Step/Double Jump | future [`FEAT-TRAVERSAL-AERIAL-STEP`](04-aerial-step.md); ascent/apex/fall cần cancel edge, descent deny baseline để tránh lift–descent loop |
 | Light/heavy melee | deny hoặc aerial variant theo weapon contract; không tự reuse ground animation |
 | Ranged/aim | prototype riêng; nếu cho phép phải giữ parallax/turn/steering readable |

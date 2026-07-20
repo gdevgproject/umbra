@@ -1,45 +1,63 @@
-# PROD-ROADMAP — Roadmap capability luôn chơi được
+# PROD-ROADMAP — Roadmap capability như mod độc lập
 
 > **DRI:** Producer + Game Director + Technical Director
 > **Status:** `PROPOSED`
 
-Roadmap giảm rủi ro theo thứ tự chi phí đảo ngược. Mỗi capability kết thúc bằng một playable internal snapshot, test manifest và safe continuation point. Public 1.0 chỉ đến ở cuối full promise; snapshot không phải public release.
+Mỗi phase kết thúc bằng một playable/internal snapshot có flag, manifest, save/migration, automated proof và rollback riêng. “Như mod độc lập” nghĩa outcome có thể chạy/đánh giá/cô lập; không nghĩa tách gameplay truth, universal JAR hoặc fork save. Public 1.0 vẫn là full coherent game.
 
-| Slice | Playable proof | Foundation/design phải khóa | Exit evidence |
+## 1. Tầng ổn định và tầng thay đổi
+
+```text
+Tầng A — version/loader adapters        thay theo Minecraft/Fabric; không giữ game rule
+Tầng B — kernel + public contracts      ổn định, đổi có ADR/migration/consumer proof
+Tầng C — capability implementations     phát triển cuốn chiếu sau Feature gate
+Tầng D — data/content/presentation      đổi thường xuyên qua schema/validation/fallback
+Design plane — living docs/DB/CR         sửa liên tục nhưng luôn rebaseline ticket/code/test
+```
+
+Foundation chỉ được thêm abstraction khi có blocker khó đảo hoặc ít nhất hai consumer thật. Tầng ổn định không đồng nghĩa đóng băng vĩnh viễn; nó có version, compatibility promise và migration. Tầng thay đổi không được bypass public contract để “đi nhanh”.
+
+## 2. Capability phases
+
+| Phase | Outcome đóng phase | Dependency/gate chính | Independent snapshot proof |
 |---|---|---|---|
-| `C0-DESIGN-OS` | người dùng feedback trước hoặc giữa ticket; Agent route/change-control đúng mà không mất active context | architecture, roles, lifecycle, scope, traceability, living-design `CR` + disposition/rebaseline/stale-evidence loop | validator + cold-agent feedback-interrupt fixtures + design–ticket–code–test sync + no parallel truth |
-| `C1-FOUNDATION-KERNEL` | Fabric mod shell 26.2 mở integrated/dedicated test world, save/reload/quit/backup–restore sạch | pinned baseline, modular-monolith capability/layer/public-surface contract, loader-neutral domain/save, Fabric adapter/import guard, logical-server authority, stable IDs, state/thread/transaction/failure ownership, content/config validation, schema/migration/portable backup, feature flags, Việt/Anh resource skeleton, causal diagnostics, test source sets, Git workflow, Performance Constitution/harness | lifecycle/restore smoke, migration fixture, Fabric adapter conformance, architecture report + violation fixtures + common-core dependency proof, intent→mutation→projection causal trace, diagnostics export, CI/test/compat/performance manifest |
-| `C2-PLAYER-EMBODIMENT` | đi/chạy/nhìn/mine/place/interact ở góc một và camera UMBRA; sau gate profile mới default góc ba | versioned action catalog/key baseline, ergonomic input context, camera rig/occlusion/aim ray, camera-relative movement/facing transitions, pose/animation seam, fixed-width HUD primitives, localization/accessibility, Creative provenance và game-mode/death policy | key/conflict matrix, movement-basis trace, camera room/HUD screenshots, locale/mode/lifecycle tests, frame profile, user comfort card |
-| `C2B-VERTICAL-FREEDOM` | trong voxel traversal room, player dùng contextual Jump/Sneak, basic/adaptive mantle + Free Climb dọc/ngang/directional leap/corner để vượt full/partial voxel rồi quay về xây/đào bình thường, kể cả khi build/hit/fluid/block mutation đổi context | `CTR-TRAVERSAL`, geometry/profile/revision, Jump lineage/inhibitor + one-edge-one-consumer, targeted leap, Khí Lực, buffered vector + bounded assist, camera/animation/cue/collision, M0 authority/prediction/save/debug; capability flag thay production quest | full/partial/thin/foliage/glass/fluid/piston geometry, jump/build/external/Sneak-mode/resource/mutation/duplicate/lifecycle fixtures, first/third feel/comfort, correction budget, `PERF-S09A`, no-clip/no-refill/no-hidden-route proof |
-| `C3-COMBAT-RHYTHM` | một arena/shelter: light attack + Dodge + một-charge Combat Flask + zombie đầu tạo sợ hãi nhưng có đường sống | action timeline, hit cadence, one authoritative health/environment mapping, Mana/Focus transaction, quick-recovery lifecycle, server validation, early-danger hypothesis, camera/facing, animation markers, action-cohort/Combat Craft rubric | spam/duplicate/latency, damage-source/lifecycle/flask idempotency + player–zombie pressure + learning/competent/expert feel/readability proof |
-| `C3B-AERIAL-MASTERY` | player vận sức Khinh Công từ đất hoặc climb idle, phóng qua khoảng trống, lướt–hạ chậm rồi fresh-Attack Hạ Kình đáp cạnh combat dummy mà không xuyên block/auto-fly/cướp mining | Lightness tap/hold + ground/wall charge/launch/apex/descent, Grounding armed-input/fall/weapon-AoE, Vigor/camera/input/animation adapters, world/enemy/follower seams | input-owner/trajectory/obstruction/fall/hit/AoE/resource/lifecycle/security tests, two-view feel/comfort, sequence-break audit, `PERF-S09B` |
-| `C4-PERSISTENT-ACTIVITY` | một authored activity/Gate quest có world cue, ít nhất một observation/interact objective và combat pressure; hoàn thành hoặc rời–reload/death–quay lại | Quest Kernel, Gate/objective/instance, journal minimal, typed test reward/effect, reconnect, idempotency, generation validation; `DB-026` discovery exemplar không biến activity thành checklist | transition/chaos/save/dedicated/quest recovery proof + người chơi nhớ cue/câu hỏi chứ không chỉ marker/reward |
-| `C4B-BECOMING-SPINE` | reward từ activity làm một mốc XP/level/rank-or-unlock đổi năng lực/recognition nhìn thấy; trở về shelter/home anchor thấy record rồi save/reload | minimal progression/reward transaction, capability milestone, return record/home anchor và UI cue; chưa mở full attributes/spec/skill hoặc living society | reward idempotency/migration + activity→growth→return continuity + comprehension/emotional proof |
-| `C5-ARISE-IDENTITY` | hạ → Trỗi Dậy → một Shadow có tên → summon/shatter/revive/save | capture/echo, identity, resource, ally AI, ownership | duplicate/death/reload/content-missing tests + attachment read |
-| `C6-BUILD-GROWTH` | mở rộng spine thành attributes/specialization/skill/loadout tạo hai build thật | Balance Constitution, deep progression, Potential/respec, damage/counterplay rules, bounded HP/Mana/Focus và Flask capacity/potency growth, parameter registry, UI/migration | two-build simulation/playtest + max-resource/flask exploit matrix + old-save fixture; C4B save vẫn migrate |
-| `C7-RETINUE-MASTERY` | Retinue mở dần tới tám member; tối đa bốn active Shadow dùng role/order/formation thắng encounter bằng command, tối đa bốn member còn lại tạo rotation/home breadth | slot/membership/full-roster claim, reserve rotation, command precedence, expression semantics, sparse relationship, squad AI, target/camera framing, encounter/performance budget | slot 1→8 + reserve/full-roster/home usability; `PERF-S02A/B`; 0/1/2/4-active balance; attachment/ritual proof |
-| `C8-RETURNING-WORLD` | activity thay đổi home/hub/quest/economy/NPC response | rich quest verticals, world mutation, production rewards/source-sink, Combat Flask refill/craft/shop production economy, family/narrative, living-society identity/ledger/tier, localization/assets | continuity/reload/source-sink/refill economy/world consequence/society performance/emotional proof |
-| `C9-CORE-GAME-ALPHA` | survival→becoming→Gate→Shadow→return loop dài hạn nối được | system breadth locked, vertical content kits, campaign spine, endgame hypothesis | new-save journey, soak, content cadence, save support policy |
-| `C10-FULL-PRODUCT` | full public promise milestone hoàn chỉnh | campaign/content/endgame breadth, install/support/compat/accessibility | release gates, migration/recovery, performance and complete journey; không đóng future first-party growth |
+| `C0-DESIGN-OS` | feedback dài được atomize, route và rebaseline không mất ý | governance, Product decisions, traceability | validator + cold-agent continuity/CR fixtures |
+| `C1-FOUNDATION-KERNEL` | Fabric shell trên baseline đã pin; modular-monolith boundary, authority, flags, save/migration, locale, diagnostics/test harness hoạt động | `DB-019`, `DB-021`, `DB-022`, `DB-023`, `DB-024`, `DB-030`, `DB-038`, `DB-039`, `DB-043` | integrated/dedicated load→save→restore, architecture/import violations, causal trace, performance control |
+| `C2-PLAYER-EMBODIMENT` | Camera UMBRA: third-person rig/occlusion, camera-relative movement/facing, aim/build/mine và first-person parity | C1 + Input/Camera/Animation contracts | camera room + toggle/rollback; không cần skill/combat content |
+| `C2S-SKILL-PLATFORM` | versioned Skill Definition/validator, full-future Library preview, Level 1/5 grant ledger và equip sandbox với một harmless exemplar | C1 + skill acquisition/UI/content contracts | skill sandbox + missing-content/migration/locale/100-card stress; không cần final damage/quest |
+| `C2B-VERTICAL-FREEDOM` | Vigor HUD/ledger + Level-1 Dodge movement + Free Climb/mantle trong voxel room; trở lại mine/place bình thường | C1 + C2 camera seams + Vigor/Climb/Dodge movement contracts | exact arithmetic, voxel collision, lifecycle/save/rollback, `PERF-S09A` |
+| `C3-COMBAT-RHYTHM` | one HP truth, Light Attack/hit cadence, Dodge defensive window và một-charge Combat Flask trong shelter arena | C2 + C2S public action/effect seam + combat Feature Cells | spam/idempotency/damage-source/feel/early-danger proof |
+| `C3B-AERIAL-MASTERY` | Hạ Kình sau combat lesson và Khinh Công Level 10 chạy qua loaded terrain/dummy ở hai camera | C2B + C3 action/hit | 1–100+ drop, fall conversion/radius/collision, Lightness anti-flight, `PERF-S09B` |
+| `C3S-SKILL-EXPRESSION` | hai authored skill lines khác role, full preview và loadout tạo hai cách giải arena mà không resource bar mới | C2S + C3 | setup/conversion/fallback, input/UI, save/migration và effect-cardinality proof |
+| `C4-PERSISTENT-ACTIVITY` | một authored activity/Gate quest có observation/interact/combat, leave–reload–return | C1 + C3 | quest/instance/reward idempotency và recovery |
+| `C4B-BECOMING-SPINE` | reward→EXP/Level/mốc skill→return record/home anchor→save | C2S + C4 | Level 4→5/9→10/multi-level/catch-up + continuity proof |
+| `C5-ARISE-IDENTITY` | hạ→Trỗi Dậy→một Shadow có tên→summon/shatter/revive/save | C4B + Shadow contracts | duplicate/death/reload/missing-content proof |
+| `C6-BUILD-EXPRESSION` | skill/loadout/gear/Retinue/capability mastery tạo nhiều build thật, không Rank/Primary Attribute/Potential/Prestige | C3S + C5 | multi-build/mastery/migration; HP/Vigor cap exploit matrix |
+| `C7-RETINUE-MASTERY` | roster 1→8, tối đa 4 active, command/role/formation/identity sâu | C5 + C6 | 0/1/2/4 active balance, eight-save/usability, `PERF-S02A/B` |
+| `C8-RETURNING-WORLD` | Village Hub có Level-power/density, rare traits/Bully/Guardian/flee, quest/economy/home consequence | C4 + C7 + society Feature Cells | hub merge/split/save/performance, nonlethal/flee/personality comprehension |
+| `C9-CORE-GAME-ALPHA` | survival→skill/traversal→Gate→growth→Shadow→return loop dài hạn | các phase trước xanh | new-save journey, soak, content cadence, save support |
+| `C10-FULL-PRODUCT` | full public promise | campaign/content/endgame/install/support gates | complete journey + migration/recovery/performance/accessibility |
 
-## Sequencing decisions
+`C2` và `C2S` là hai train ưu tiên sau C1; có thể song song vì cùng chỉ đọc kernel public surfaces. Chúng không được import internals của nhau. `C2B` tích hợp camera seam và Vigor movement; `C3S` tích hợp skill platform với combat sau khi hit/damage đã có owner.
 
-- Prologue/family được viết song song từ design phase nhưng content integration vào `C8`; `C2–C3` dùng test context trung tính để không khóa narrative vào foundation.
-- First return/home beat xuất hiện ở `C8` và phải tồn tại trong `C9` core loop; không đợi polish cuối.
-- Camera base đứng trước combat rhythm; lock-on/boss framing mở sau base aim/occlusion proof.
-- Camera movement/facing basis được chứng minh sau base rig nhưng trước aim/layout/Dodge; ranged không mặc định ép first-person.
-- Free Climb foundation nằm ở `C2B` sau camera/animation seam và trước combat content. Hạ Kình/Khinh Công nằm ở `C3B` sau authoritative action/hit/vitals; final-game unlock vẫn rất sớm, không đồng nghĩa thứ tự code quest.
-- `C2B/C3B` dùng capability grant/training fixture. Production quest chỉ trao/tutor universal capability sau Quest Kernel; không làm movement foundation phụ thuộc dialogue/content.
-- Vitals/HUD topology đi trước balance combat; Combat Flask chỉ vào C3 với một charge thử nghiệm, còn capacity/potency/refill progression mở theo C6/C8.
-- Third-person chỉ trở thành default sau exit evidence `C2`; trước đó giữ vanilla default.
-- Quest Kernel vào `C4`; production quest chỉ dùng item/currency/world effect đã có owner contract.
-- `C4B` tồn tại vì dependency chain canonical là persistent activity → production reward/growth → Shadow Capture. Nó chỉ chứng minh một becoming/return spine; không kéo full build, family hoặc society lên trước evidence.
-- `C4/C4B` phải có một discovery cue/observation và transformed-familiar hoặc frontier-novelty exemplar theo `DB-026`; không thay đổi activity percentage bằng quota chưa có playtest.
-- Multiplayer gameplay không chen vào current slices. Mount/vehicle/aquatic/extra Strata là first-party capability future được chèn theo dependency và gate, không bị đẩy cho external add-on.
-- Nhịp Không Trung/Double Jump + Aerial Dodge là future `DB-057`/`C6` expression candidate sau core `C3B`; không thuộc current `C3B` exit evidence. Nếu được approve, hai action dùng chung bounded `AerialChain` nhưng giữ Vigor/Focus và Feature Cell độc lập.
-- Future multiplayer ladder đã khóa seam: co-op party 2–4 trước; PvP 1v1/3v3 rồi ranking/event sau. Không mốc nào tự động được đưa vào current roadmap.
-- Fabric là loader của current slices. C1 chỉ khóa portability boundary và Fabric conformance (`L0`); NeoForge spike/adapter/release là future capability train theo `DB-043`, không chen code giả vào foundation.
+## 3. Sequencing invariants
 
-## Mainline gate chung
+- Không code gameplay khi Feature/Contract consumed chưa `IMPLEMENTATION_READY`; draft ticket không phải authorization.
+- Baseline Minecraft/Fabric phải pin trước project shell; không invent 26.2 API từ memory. NeoForge future chỉ claim support sau matching artifact/parity gate.
+- Camera base và Skill Platform đứng trước combat content rộng. Final damage không chặn harmless skill exemplar; Skill Platform không phát minh damage rule.
+- Dodge/Free Climb có từ Level 1 trong product, nhưng implementation snapshot có thể dùng grant fixture trước Level/Quest integration.
+- Hạ Kình cần Light Attack/hit/fall owner; Khinh Công cần Vigor/collision/camera. Production grant theo combat lesson/Level 10 chỉ nối ở C4B; không làm physics code phụ thuộc quest order.
+- Society/NPC density không chen vào kernel. Kernel chỉ cung cấp identity/save/LOD/spatial/diagnostic primitive bằng consumer proof.
+- Prologue/family được design song song; first integrated return beat ở C8/C9. Multiplayer gameplay không chen current phases.
+- Mọi phase giữ snapshot trước load/migrate được, incomplete feature không lộ và rollback không corrupt world.
 
-Mỗi slice: previous snapshot vẫn load/migrate; incomplete content không lộ; automated pack xanh; performance benchmark/control không regression ngoài waiver; user chỉ test human questions; exact known issues ghi; capability tiếp theo không bắt đầu trên invariant đỏ. Mỗi feature tối ưu theo profile/cardinality thật của slice, không trì hoãn mọi performance proof tới stress scene `C7`.
+## 4. Mainline exit gate chung
+
+1. scope/outcome/non-goal và design baseline exact;
+2. public surface/writer/thread/clock/transaction/failure/consumer map;
+3. feature flag + rollback + save/migration/missing-content recovery;
+4. targeted, neighbor, integration, lifecycle và `PR-0–PR-3` evidence xanh;
+5. Fabric adapter/import conformance; NeoForge `N/A — not yet supported` cho tới port gate;
+6. `vi_vn/en_us`, accessibility và first/third view khi liên quan;
+7. one-question Vietnamese Test Card chỉ sau automated pack;
+8. manifest/ledger/handoff đủ để cold Agent tiếp tục từ repo.

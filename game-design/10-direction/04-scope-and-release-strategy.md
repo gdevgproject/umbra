@@ -63,7 +63,7 @@ Co-op/PvP/server society, mount nước/bay, vehicle, aquatic civilization, thê
 
 ## 5. 1.0 scope policy
 
-Product direction gồm F→Vương Giả, campaign dài, nhiều faction/boss, Gate/Red/Break, Tower/Strata, Hắc Ảnh Cận Vệ, city/home/family, living world và items/economy. Breadth boss/quest/world content không bị khóa bằng một “vision ceiling” giả; riêng Shadow topology đã khóa tối đa tám sở hữu/bốn triển khai để vừa có chiều rộng roster vừa bảo vệ readability/AI depth trong combat. Release manifest cụ thể được Game Director khóa bằng coherence, quality và dependency evidence sau vertical slices; không tiếp tục hỏi user một con số boss/quest tùy ý.
+Product direction gồm Level 1→100+, campaign dài, nhiều faction/boss, Gate/Red/Break, Tower/Strata, Hắc Ảnh Cận Vệ, city/home/family, living world và items/economy. Breadth boss/quest/world content không bị khóa bằng một “vision ceiling” giả; riêng Shadow topology đã khóa tối đa tám sở hữu/bốn triển khai để vừa có chiều rộng roster vừa bảo vệ readability/AI depth trong combat. Release manifest cụ thể được Game Director khóa bằng coherence, quality và dependency evidence sau vertical slices; không tiếp tục hỏi user một con số boss/quest tùy ý.
 
 Nếu phải giảm breadth, giảm số instance trước khi cắt depth của identity/core loop. Một boss/Shadow/faction sâu tốt hơn nhiều reskin. “Full game” nghĩa lời hứa đã công bố hoàn chỉnh, không nghĩa mọi ý tưởng tương lai đã có mặt.
 
